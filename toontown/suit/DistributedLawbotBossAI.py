@@ -14,6 +14,7 @@ from toontown.toon import NPCToons
 from toontown.building import SuitBuildingGlobals
 import SuitDNA
 import random
+from toontown.battle import DistributedBattleWaitersAI
 from toontown.coghq import DistributedLawbotBossGavelAI
 from toontown.suit import DistributedLawbotBossSuitAI
 from toontown.coghq import DistributedLawbotCannonAI
@@ -87,12 +88,14 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
         currState = self.getCurrentOrNextState()
         if currState != 'BattleThree':
             return
-        if bossDamage <= 12:
+        if bossDamage <= 50:
             newWeight = self.weightPerToon.get(avId)
             if newWeight:
                 bossDamage = newWeight
-        if self.bonusState and bossDamage <= 12:
+        if self.bonusState and bossDamage <= 50:
             bossDamage *= ToontownGlobals.LawbotBossBonusWeightMultiplier
+        #if len(self.involvedToons) <= 1:
+        #    bossDamage += 2
         bossDamage = min(self.getBossDamage() + bossDamage, self.bossMaxDamage)
         self.b_setBossDamage(bossDamage, 0, 0)
         if self.bossDamage >= self.bossMaxDamage:
@@ -275,9 +278,48 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
             if simbase.config.GetBool('lawbot-boss-cheat', 0):
                 listVersion[13] = weakenedValue
                 SuitBuildingGlobals.SuitBuildingInfo = tuple(listVersion)
-            return self.invokeSuitPlanner(13, 0)
+            return self.invokeSuitPlanner(13, 3)
         else:
-            return self.invokeSuitPlanner(13, 1)
+            return self.invokeSuitPlanner(13, 3)
+			
+			
+    def invokeSuitPlanner(self, buildingCode, skelecog):
+        suits = DistributedBossCogAI.DistributedBossCogAI.invokeSuitPlanner(self, buildingCode, skelecog)
+        activeSuits = suits['activeSuits'][:]
+        reserveSuits = suits['reserveSuits'][:]
+        if len(activeSuits) + len(reserveSuits) >= 4:
+            while len(activeSuits) < 4:
+                activeSuits.append(reserveSuits.pop()[0])
+
+        retval = {'activeSuits': activeSuits,
+         'reserveSuits': reserveSuits}
+        return retval
+        
+    def makeBattle(self, bossCogPosHpr, battlePosHpr, roundCallback, finishCallback, battleNumber, battleSide):
+        if battleNumber == 1:
+            battle = DistributedBattleWaitersAI.DistributedBattleWaitersAI(self.air, self, roundCallback, finishCallback, battleSide)
+        else:
+            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
+        self.setBattlePos(battle, bossCogPosHpr, battlePosHpr)
+        battle.suitsKilled = self.suitsKilled
+        battle.battleCalc.toonSkillPtsGained = self.toonSkillPtsGained
+        battle.toonExp = self.toonExp
+        battle.toonOrigQuests = self.toonOrigQuests
+        battle.toonItems = self.toonItems
+        battle.toonOrigMerits = self.toonOrigMerits
+        battle.toonMerits = self.toonMerits
+        battle.toonParts = self.toonParts
+        battle.helpfulToons = self.helpfulToons
+        mult = ToontownBattleGlobals.getBossBattleCreditMultiplier(battleNumber)
+        battle.battleCalc.setSkillCreditMultiplier(mult)
+        activeSuits = self.activeSuitsA
+        if battleSide:
+            activeSuits = self.activeSuitsB
+        for suit in activeSuits:
+            battle.addSuit(suit)
+
+        battle.generateWithRequired(self.zoneId)
+        return battle
 
     def removeToon(self, avId):
         toon = simbase.air.doId2do.get(avId)
@@ -336,6 +378,7 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
             totalDisplacement = endPt - startPt
             self.notify.debug('totalDisplacement=%s' % totalDisplacement)
             numToons = len(self.involvedToons)
+            numToons = 8
             stepDisplacement = totalDisplacement / (numToons + 1)
             for index in xrange(numToons):
                 newPos = stepDisplacement * (index + 1)
@@ -470,7 +513,8 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
     def enterBattleThree(self):
         self.battleThreeTimeStarted = globalClock.getFrameTime()
         self.calcAndSetBattleDifficulty()
-        self.calculateWeightPerToon()
+        if self.chairs != None:
+            self.calculateWeightPerToon()
         diffSettings = ToontownGlobals.LawbotBossDifficultySettings[self.battleDifficulty]
         self.ammoCount = diffSettings[0]
         self.numGavels = diffSettings[1]
@@ -513,6 +557,8 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
         self.waitForNextAttack(5)
         self.notify.debug('battleDifficulty = %d' % self.battleDifficulty)
         self.numToonsAtStart = len(self.involvedToons)
+        if self.chairs != None:
+             self.__deleteChairs()
 
     def getToonDifficulty(self):
         highestCogSuitLevel = 0
@@ -631,6 +677,11 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
         pass
 
     def enterVictory(self):
+        #Whisper out the time from the start of CJ until end of CJ
+        self.scaleTime = globalClock.getFrameTime()
+        for doId, do in simbase.air.doId2do.items():
+            if str(doId)[0] != str(simbase.air.districtId)[0]:
+                do.d_setSystemMessage(0, "CJ Ended In {0:.3f}s".format(self.scaleTime - self.battleThreeTimeStarted))
         self.resetBattles()
         self.suitsKilled.append({'type': None,
          'level': None,
@@ -779,17 +830,33 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
 
     def __makeLawyers(self):
         self.__resetLawyers()
-        lawCogChoices = ['b',
-         'dt',
-         'ac',
-         'bs',
-         'sd',
-         'le',
-         'bw']
+        lawCogChoices = ['le', 'bw']
         for i in xrange(self.numLawyers):
             suit = DistributedLawbotBossSuitAI.DistributedLawbotBossSuitAI(self.air, None)
             suit.dna = SuitDNA.SuitDNA()
             lawCog = random.choice(lawCogChoices)
+            #if (i == 0): lawCog = 'bw' #Cog 8
+            #elif (i == 1): lawCog = 'le' #Cog 7
+            #elif (i == 2): lawCog = 'le' #Cog 6
+            #elif (i == 3): lawCog = 'le' #Cog 5
+            #elif (i == 4): lawCog = 'bw' #Cog 4
+            #elif (i == 5): lawCog = 'bw' #Cog 3
+            #elif (i == 6): lawCog = 'le' #Cog 2
+            #elif (i == 7): lawCog = 'b' #Cog 1
+            #elif (i == 8): lawCog = 'bw' #Cog 9
+            #elif (i == 9): lawCog = 'bw' #Cog 10
+            #elif (i == 10): lawCog = 'le' #Cog 8m
+            #elif (i == 11): lawCog = 'bw' #Cog 7m
+            #elif (i == 12): lawCog = 'bw' #Cog 6m
+            #elif (i == 13): lawCog = 'le' #Cog 5m
+            #elif (i == 14): lawCog = 'le' #Cog 4m
+            #elif (i == 15): lawCog = 'le' #Cog 3m
+            #elif (i == 16): lawCog = 'bw' #Cog 2m
+            #elif (i == 17): lawCog = 'bw' #Cog 1m
+            #lif (i == 18): lawCog = 'le' #Cog 9m
+            #elif (i == 19): lawCog = 'le' #Cog 10m
+            #elif (i == 20): lawCog = 'le' #Cog 21
+            #elif (i == 21): lawCog = 'le' #Cog 22
             suit.dna.newSuit(lawCog)
             suit.setPosHpr(*ToontownGlobals.LawbotBossLawyerPosHprs[i])
             suit.setBoss(self)
@@ -819,7 +886,6 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
 
     def startBonusState(self):
         self.notify.debug('startBonusState')
-        self.bonusTimeStarted = globalClock.getFrameTime()
         self.bonusState = True
         self.numBonusStates += 1
         for toonId in self.involvedToons:
@@ -829,6 +895,12 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
 
         taskMgr.doMethodLater(ToontownGlobals.LawbotBossBonusDuration, self.clearBonus, self.uniqueName('clearBonus'))
         self.sendUpdate('enteredBonusState', [])
+        
+        #Whisper out the time from the start of CJ
+        self.bonusTimeStarted = globalClock.getFrameTime()
+        for doId, do in simbase.air.doId2do.items():
+            if str(doId)[0] != str(simbase.air.districtId)[0]:
+                do.d_setSystemMessage(0, "Lawyers Stunned From Start: {0:.3f}s".format(self.bonusTimeStarted - self.battleThreeTimeStarted))
 
     def areAllLawyersStunned(self):
         for lawyer in self.lawyers:

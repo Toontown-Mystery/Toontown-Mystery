@@ -64,9 +64,13 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
     def announceGenerate(self):
         global OneBossCog
         DistributedBossCog.DistributedBossCog.announceGenerate(self)
+        self.setName(TTLocalizer.BossbotBossName)
+        nameInfo = TTLocalizer.BossCogNameWithDept % {'name': self.name,
+         'dept': SuitDNA.getDeptFullname(self.style.dept)}
+        self.setDisplayName(nameInfo)
         self.loadEnvironment()
         self.__makeResistanceToon()
-        localAvatar.chatMgr.chatInputSpeedChat.addCEOMenu()
+        base.localAvatar.chatMgr.chatInputSpeedChat.addCEOMenu()
         if OneBossCog != None:
             self.notify.warning('Multiple BossCogs visible.')
         OneBossCog = self
@@ -165,10 +169,13 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         planeNode.setCollideMask(ToontownGlobals.PieBitmask)
         self.geom.attachNewNode(planeNode)
         self.geom.reparentTo(render)
-        self.promotionMusic = base.loader.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
-        self.betweenPhaseMusic = base.loader.loadMusic('phase_9/audio/bgm/encntr_toon_winning.ogg')
-        self.phaseTwoMusic = base.loader.loadMusic('phase_12/audio/bgm/BossBot_CEO_v1.ogg')
-        self.phaseFourMusic = base.loader.loadMusic('phase_12/audio/bgm/BossBot_CEO_v2.ogg')
+        self.elevatorMusic = base.loader.loadMusic('phase_12/audio/bgm/King_elevator.ogg')
+        self.promotionMusic = base.loadMusic('phase_12/audio/bgm/CEO_intro.ogg')
+        self.betweenPhaseMusic = base.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
+        self.battleOneMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_1.ogg')
+        self.phaseTwoMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_2.ogg')
+        self.battleThreeMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_3.ogg')
+        self.phaseFourMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_4.ogg')
         self.pickupFoodSfx = loader.loadSfx('phase_6/audio/sfx/SZ_MM_gliss.ogg')
         self.explodeSfx = loader.loadSfx('phase_4/audio/sfx/firework_distance_02.ogg')
 
@@ -330,26 +337,42 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(camera.reparentTo, render),
             Func(camera.setPos, rToon, 0, 22, 6),
             Func(camera.setHpr, 0, 0, 0),
-            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter, CFSpeech),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter1, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter2, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter3, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter4, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTWearWaiter5, CFSpeech),
             Wait(3.0),
             self.wearCogSuits(self.toonsA + self.toonsB, render, None, waiter=True),
             Func(rToon.clearChat),
             Func(self.setPosHpr, bossPos, Point3(0, 0, 0)),
-            Parallel(LerpHprInterval(self.banquetDoor, 2, Point3(90, 0, 0)),
-                     LerpPosInterval(camera, 2, getCamBossPos)),
+            Parallel(LerpHprInterval(self.banquetDoor, 1, Point3(90, 0, 0)),
+                     LerpPosInterval(camera, 1, getCamBossPos)),
             Func(self.setChatAbsolute, TTL.BossbotBossPreTwo1, CFSpeech),
             Wait(3.0),
             Func(self.setChatAbsolute, TTL.BossbotBossPreTwo2, CFSpeech),
             Wait(3.0),
             Parallel(
-                LerpHprInterval(self.banquetDoor, 2, Point3(0, 0, 0)),
-                LerpPosHprInterval(camera, 2, getCamRTPos, Point3(10, -8, 0))),
+                LerpHprInterval(self.banquetDoor, 1, Point3(0, 0, 0)),
+                LerpPosHprInterval(camera, 1, getCamRTPos, Point3(10, -8, 0))),
             Func(self.setPos, bossEndPos),
             Func(self.clearChat),
             Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood1, CFSpeech),
             Wait(3.0),
             Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood2, CFSpeech),
-            Wait(1.0),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood3, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood4, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood5, CFSpeech),
+            Wait(3.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTServeFood6, CFSpeech),
+            Wait(3.0),
             LerpHprInterval(self.banquetDoor, 2, Point3(120, 0, 0)),
             Sequence(
                 Func(rToon.suit.loop, 'walk'),
@@ -597,7 +620,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.toonsToBattlePosition(self.toonsA, self.battleANode)
         self.toonsToBattlePosition(self.toonsB, self.battleBNode)
         self.releaseToons()
-        base.playMusic(self.battleOneMusic, looping=1, volume=0.9)
+        base.playMusic(self.battleThreeMusic, looping=1, volume=0.9)
 
     def exitBattleThree(self):
         self.cleanupBattles()
@@ -637,6 +660,12 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Wait(4.0),
             Func(rToon.setChatAbsolute, TTL.BossbotRTPhase4Speech2, CFSpeech),
             Wait(4.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTPhase4Speech3, CFSpeech),
+            Wait(4.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTPhase4Speech4, CFSpeech),
+            Wait(4.0),
+            Func(rToon.setChatAbsolute, TTL.BossbotRTPhase4Speech5, CFSpeech),
+            Wait(4.0),
             Func(self.__hideResistanceToon),
             Func(camera.reparentTo, self),
             Func(camera.setPos, Point3(0, -45, 5)),
@@ -651,6 +680,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.clearChat))
         return track
 
+
     def __onToBattleFour(self, elapsedTime = 0):
         self.doneBarrier('PrepareBattleFour')
 
@@ -663,10 +693,17 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             if toon:
                 toon.takeOffSuit()
 
+        diffInfo = ToontownGlobals.BossbotBossDifficultySettings[self.battleDifficulty]
+        self.bossMaxDamage = ToontownGlobals.BossbotBossMaxDamage + diffInfo[6]
+        self.bossHealthBar.initialize(self.bossMaxDamage - self.bossDamage, self.bossMaxDamage)
+        self.bossHealthBar.update(self.bossMaxDamage, self.bossMaxDamage)
+        # For whatever reason, an update was needed here in order for the bar to show as soon as the round starts.
+        # Without, the health bar would show as soon as he took damage.
         self.bossClub.reparentTo(self.rightHandJoint)
         self.generateHealthBar()
         self.updateHealthBar()
         base.playMusic(self.phaseFourMusic, looping=1, volume=0.9)
+
 
     def exitBattleFour(self):
         DistributedBossCog.DistributedBossCog.exitBattleFour(self)
@@ -685,6 +722,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             self.showHpText(-delta, scale=5)
         self.bossDamage = bossDamage
         self.updateHealthBar()
+        self.bossHealthBar.update(self.bossMaxDamage - bossDamage, self.bossMaxDamage)
 
     def setGolfSpot(self, golfSpot, golfSpotIndex):
         self.golfSpots[golfSpotIndex] = golfSpot
@@ -709,6 +747,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         intervalName = 'VictoryMovie'
         seq = Sequence(self.makeVictoryMovie(), Func(self.__continueVictory), name=intervalName)
         seq.start()
+        self.bossHealthBar.deinitialize()
         self.storeInterval(seq, intervalName)
         base.playMusic(self.phaseFourMusic, looping=1, volume=0.9)
 

@@ -1892,36 +1892,35 @@ ChatGarblerDog = ['woof', 'arf', 'rruff']
 ChatGarblerCat = ['meow', 'mew']
 ChatGarblerMouse = ['squeak', 'squeaky', 'squeakity']
 ChatGarblerHorse = ['neigh', 'brrr']
-ChatGarblerRabbit = ['eek',
- 'eepr',
- 'eepy',
- 'eeky']
+ChatGarblerRabbit = ['eek', 'eepr', 'eepy', 'eeky']
 ChatGarblerDuck = ['quack', 'quackity', 'quacky']
+ChatGarblerChicken = ['bawk', 'cluck', 'bawkbawk']
 ChatGarblerMonkey = ['ooh', 'ooo', 'ahh']
 ChatGarblerBear = ['growl', 'grrr']
 ChatGarblerPig = ['oink', 'oik', 'snort']
 ChatGarblerDefault = ['blah']
-Bossbot = 'Bossbot'
-Lawbot = 'Lawbot'
-Cashbot = 'Cashbot'
-Sellbot = 'Sellbot'
-BossbotS = 'a Bossbot'
-LawbotS = 'a Lawbot'
-CashbotS = 'a Cashbot'
-SellbotS = 'a Sellbot'
-BossbotP = 'Bossbots'
-LawbotP = 'Lawbots'
-CashbotP = 'Cashbots'
-SellbotP = 'Sellbots'
-BossbotSkelS = 'a Bossbot Skelecog'
-LawbotSkelS = 'a Lawbot Skelecog'
-CashbotSkelS = 'a Cashbot Skelecog'
-SellbotSkelS = 'a Sellbot Skelecog'
-BossbotSkelP = 'Bossbot Skelecogs'
-LawbotSkelP = 'Lawbot Skelecogs'
-CashbotSkelP = 'Cashbot Skelecogs'
-SellbotSkelP = 'Sellbot Skelecogs'
+Bossbot = 'Royalbot'
+Lawbot = 'Courtbot'
+Cashbot = 'Carebot'
+Sellbot = 'Fashionbot'
+BossbotS = 'a Royalbot'
+LawbotS = 'a Courtbot'
+CashbotS = 'a Fashionbot'
+SellbotS = 'a Carebot'
+BossbotP = 'Royalbots'
+LawbotP = 'Courtbots'
+CashbotP = 'Carebots'
+SellbotP = 'Fashionbots'
+BossbotSkelS = 'a Royalbot Droid'
+LawbotSkelS = 'a Courtbot Droid'
+CashbotSkelS = 'a Carebot Droid'
+SellbotSkelS = 'a Fashionbot Droid'
+BossbotSkelP = 'Royalbot Droids'
+LawbotSkelP = 'Courtbot Droids'
+CashbotSkelP = 'Carebot Droids'
+SellbotSkelP = 'Fashionbot Droids'
 SkeleRevivePostFix = ' v2.0'
+ImmunePostFix = ' Immune'
 AvatarDetailPanelOK = lOK
 AvatarDetailPanelCancel = lCancel
 AvatarDetailPanelClose = lClose
@@ -1948,6 +1947,8 @@ AvatarPanelIgnoreCant = 'Okay'
 AvatarPanelStopIgnoring = 'Stop Ignoring'
 AvatarPanelReport = 'Report'
 AvatarPanelCogLevel = 'Level: %s'
+AvatarPanelCogRevives = ' v%s.0'
+AvatarPanelCogHP = 'Max HP: %s'
 AvatarPanelCogDetailClose = lClose
 AvatarPanelDetail = 'Toon Details'
 AvatarPanelGroupInvite = 'Invite'
@@ -2229,10 +2230,10 @@ ToonHealJokes = [['What goes TICK-TICK-TICK-WOOF?', 'A watchdog! '],
  ['What would you get if you crossed an elephant with a computer?', 'A big know-it-all.'],
  ['What would you get if you crossed an elephant with a skunk?', 'A big stinker.'],
  ['Why did ' + MickeyMouse + ' take a trip to outer space?', 'He wanted to find ' + Pluto + '.']]
-MovieHealLaughterMisses = ('hmm',
- 'heh',
- 'ha',
- 'harr harr')
+MovieHealLaughterMisses = ('What.',
+ 'Why.',
+ ':(',
+ 'BRUH.')
 MovieHealLaughterHits1 = ('Ha Ha Ha',
  'Hee Hee',
  'Tee Hee',
@@ -2262,20 +2263,20 @@ RewardPanelToonTasks = 'ToonTasks'
 RewardPanelItems = 'Items Recovered'
 RewardPanelMissedItems = 'Items Not Recovered'
 RewardPanelQuestLabel = 'Quest %s'
-RewardPanelCongratsStrings = ['Yeah!',
- 'Congratulations!',
- 'Wow!',
- 'Cool!',
- 'Awesome!',
- 'Toon-tastic!']
+RewardPanelCongratsStrings = ['YAY! YOU DID IT!',
+ 'GROUNDED GROUNDED GROUNDED!',
+ 'SUING!!!!!',
+ 'DORA!!!!',
+ 'HAMBURGERS!!!!!!!!!',
+ 'WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!']
 RewardPanelNewGag = 'New %(gagName)s gag for %(avName)s!'
 RewardPanelUberGag = '%(avName)s earned the %(gagName)s gag with %(exp)s experience points!'
 RewardPanelEndTrack = 'Yay! %(avName)s has reached the end of the %(gagName)s Gag Track!'
 RewardPanelMeritsMaxed = 'Maxed'
-RewardPanelMeritBarLabels = ['Stock Options',
- 'Jury Notices',
- 'Cogbucks',
- 'Merits']
+RewardPanelMeritBarLabels = ['Pizza',
+ 'Chicken',
+ 'Medicine',
+ 'Fashion Tickets']
 RewardPanelMeritAlert = 'Ready for promotion!'
 RewardPanelCogPart = 'You gained a Cog disguise part!'
 RewardPanelPromotion = 'Ready for promotion in %s  track!'
@@ -2298,102 +2299,102 @@ CheesyEffectHours = 'For the next %(time)s hours, %(effectName)s%(whileIn)s.'
 CheesyEffectDays = 'For the next %(time)s days, %(effectName)s%(whileIn)s.'
 CheesyEffectWhileYouAreIn = ' while you are in %s'
 CheesyEffectExceptIn = ', except in %s'
-SuitFlunky = 'Flunky'
-SuitPencilPusher = 'Pencil Pusher'
-SuitYesman = 'Yesman'
-SuitMicromanager = 'Micro\x03manager'
-SuitDownsizer = 'Downsizer'
-SuitHeadHunter = 'Head Hunter'
-SuitCorporateRaider = 'Corporate Raider'
-SuitTheBigCheese = 'The Big Cheese'
-SuitColdCaller = 'Cold Caller'
-SuitTelemarketer = 'Tele\x03marketer'
-SuitNameDropper = 'Name Dropper'
-SuitGladHander = 'Glad Hander'
-SuitMoverShaker = 'Mover & Shaker'
-SuitTwoFace = 'Two-Face'
-SuitTheMingler = 'The Mingler'
-SuitMrHollywood = 'Mr. Hollywood'
-SuitShortChange = 'Short Change'
-SuitPennyPincher = 'Penny Pincher'
-SuitTightwad = 'Tightwad'
-SuitBeanCounter = 'Bean Counter'
-SuitNumberCruncher = 'Number Cruncher'
-SuitMoneyBags = 'Money Bags'
-SuitLoanShark = 'Loan Shark'
-SuitRobberBaron = 'Robber Baron'
-SuitBottomFeeder = 'Bottom Feeder'
-SuitBloodsucker = 'Blood\x03sucker'
-SuitDoubleTalker = 'Double Talker'
-SuitAmbulanceChaser = 'Ambulance Chaser'
-SuitBackStabber = 'Back Stabber'
-SuitSpinDoctor = 'Spin Doctor'
-SuitLegalEagle = 'Legal Eagle'
-SuitBigWig = 'Big Wig'
-SuitFlunkyS = 'a Flunky'
-SuitPencilPusherS = 'a Pencil Pusher'
-SuitYesmanS = 'a Yesman'
-SuitMicromanagerS = 'a Micromanager'
-SuitDownsizerS = 'a Downsizer'
-SuitHeadHunterS = 'a Head Hunter'
-SuitCorporateRaiderS = 'a Corporate Raider'
-SuitTheBigCheeseS = 'a The Big Cheese'
-SuitColdCallerS = 'a Cold Caller'
-SuitTelemarketerS = 'a Telemarketer'
-SuitNameDropperS = 'a Name Dropper'
-SuitGladHanderS = 'a Glad Hander'
-SuitMoverShakerS = 'a Mover & Shaker'
-SuitTwoFaceS = 'a Two-Face'
-SuitTheMinglerS = 'a The Mingler'
-SuitMrHollywoodS = 'a Mr. Hollywood'
-SuitShortChangeS = 'a Short Change'
-SuitPennyPincherS = 'a Penny Pincher'
-SuitTightwadS = 'a Tightwad'
-SuitBeanCounterS = 'a Bean Counter'
-SuitNumberCruncherS = 'a Number Cruncher'
-SuitMoneyBagsS = 'a Money Bags'
-SuitLoanSharkS = 'a Loan Shark'
-SuitRobberBaronS = 'a Robber Baron'
-SuitBottomFeederS = 'a Bottom Feeder'
-SuitBloodsuckerS = 'a Bloodsucker'
-SuitDoubleTalkerS = 'a Double Talker'
-SuitAmbulanceChaserS = 'an Ambulance Chaser'
-SuitBackStabberS = 'a Back Stabber'
-SuitSpinDoctorS = 'a Spin Doctor'
-SuitLegalEagleS = 'a Legal Eagle'
-SuitBigWigS = 'a Big Wig'
-SuitFlunkyP = 'Flunkies'
-SuitPencilPusherP = 'Pencil Pushers'
-SuitYesmanP = 'Yesmen'
-SuitMicromanagerP = 'Micromanagers'
-SuitDownsizerP = 'Downsizers'
-SuitHeadHunterP = 'Head Hunters'
-SuitCorporateRaiderP = 'Corporate Raiders'
-SuitTheBigCheeseP = 'The Big Cheeses'
-SuitColdCallerP = 'Cold Callers'
-SuitTelemarketerP = 'Telemarketers'
-SuitNameDropperP = 'Name Droppers'
-SuitGladHanderP = 'Glad Handers'
-SuitMoverShakerP = 'Movers & Shakers'
-SuitTwoFaceP = 'Two-Faces'
-SuitTheMinglerP = 'The Minglers'
-SuitMrHollywoodP = 'Mr. Hollywoods'
-SuitShortChangeP = 'Short Changes'
-SuitPennyPincherP = 'Penny Pinchers'
-SuitTightwadP = 'Tightwads'
-SuitBeanCounterP = 'Bean Counters'
-SuitNumberCruncherP = 'Number Crunchers'
-SuitMoneyBagsP = 'Money Bags'
-SuitLoanSharkP = 'Loan Sharks'
-SuitRobberBaronP = 'Robber Barons'
-SuitBottomFeederP = 'Bottom Feeders'
-SuitBloodsuckerP = 'Bloodsuckers'
-SuitDoubleTalkerP = 'Double Talkers'
-SuitAmbulanceChaserP = 'Ambulance Chasers'
-SuitBackStabberP = 'Back Stabbers'
-SuitSpinDoctorP = 'Spin Doctors'
-SuitLegalEagleP = 'Legal Eagles'
-SuitBigWigP = 'Big Wigs'
+SuitFlunky = 'Red Hander'
+SuitPencilPusher = 'Pencil Head'
+SuitYesman = 'Shiny Stabber'
+SuitMicromanager = 'Fancy Kitten'
+SuitDownsizer = 'Hudson'
+SuitHeadHunter = 'Dr. Simon'
+SuitCorporateRaider = 'Scaringler'
+SuitTheBigCheese = 'Mozzerella Cheeze'
+SuitColdCaller = 'Blue Caller'
+SuitTelemarketer = 'Telecaller'
+SuitNameDropper = 'Blackler'
+SuitGladHander = 'Shaker Wizard'
+SuitMoverShaker = 'Scary Dropper'
+SuitTwoFace = 'Two-Man'
+SuitTheMingler = 'Spongebob'
+SuitMrHollywood = 'Amanda Rose'
+SuitShortChange = 'Conichange'
+SuitPennyPincher = 'Dandy Shark'
+SuitTightwad = 'Janet'
+SuitBeanCounter = 'Candace Flynn'
+SuitNumberCruncher = 'Number Man'
+SuitMoneyBags = 'Shiny Mingler'
+SuitLoanShark = 'Dark Angel'
+SuitRobberBaron = 'Moonlight Mimi'
+SuitBottomFeeder = 'Cute Flunky'
+SuitBloodsucker = 'Vam\x03pire'
+SuitDoubleTalker = 'Sally'
+SuitAmbulanceChaser = 'Microripoff'
+SuitBackStabber = 'Textured Counter'
+SuitSpinDoctor = 'Cog Monkey'
+SuitLegalEagle = 'Black Eagle'
+SuitBigWig = 'Full Wig'
+SuitFlunkyS = 'a Red Hander'
+SuitPencilPusherS = 'a Pencil Head'
+SuitYesmanS = 'a Shiny Stabber'
+SuitMicromanagerS = 'a Fancy Kitten'
+SuitDownsizerS = 'a Hudson'
+SuitHeadHunterS = 'a Dr. Simon'
+SuitCorporateRaiderS = 'a Scaringler'
+SuitTheBigCheeseS = 'a Mozzerella Cheese'
+SuitColdCallerS = 'a Blue Caller'
+SuitTelemarketerS = 'a Telecaller'
+SuitNameDropperS = 'a Blackler'
+SuitGladHanderS = 'a Shaker Wizard'
+SuitMoverShakerS = 'a Scary Dropper'
+SuitTwoFaceS = 'a Two-Man'
+SuitTheMinglerS = 'a Spongebob'
+SuitMrHollywoodS = 'a Amanda Rose'
+SuitShortChangeS = 'a Conichange'
+SuitPennyPincherS = 'a Dandy Shark'
+SuitTightwadS = 'a Janet'
+SuitBeanCounterS = 'a Candace Flynn'
+SuitNumberCruncherS = 'a Number Man'
+SuitMoneyBagsS = 'a Shiny Mingler'
+SuitLoanSharkS = 'a Dark Angel'
+SuitRobberBaronS = 'a Moonlight Mimi'
+SuitBottomFeederS = 'a Cute Flunky'
+SuitBloodsuckerS = 'a Vampire'
+SuitDoubleTalkerS = 'a Sally'
+SuitAmbulanceChaserS = 'an Microripoff'
+SuitBackStabberS = 'a Textured Counter'
+SuitSpinDoctorS = 'a Cog Monkey'
+SuitLegalEagleS = 'a Black Eagle'
+SuitBigWigS = 'a Full Wig'
+SuitFlunkyP = 'Red Handers'
+SuitPencilPusherP = 'Pencil heads'
+SuitYesmanP = 'Shiny Stabbers'
+SuitMicromanagerP = 'Fancy Kittens'
+SuitDownsizerP = 'Hudsons'
+SuitHeadHunterP = 'Dr. Simons'
+SuitCorporateRaiderP = 'Scaringlers'
+SuitTheBigCheeseP = 'Mozzerella Cheeses'
+SuitColdCallerP = 'Black Callers'
+SuitTelemarketerP = 'Telecallers'
+SuitNameDropperP = 'Blacklers'
+SuitGladHanderP = 'Scary Wizards'
+SuitMoverShakerP = 'Scary Droppers'
+SuitTwoFaceP = 'Two-Men'
+SuitTheMinglerP = 'Mini Spongbobs'
+SuitMrHollywoodP = 'Amanda Roses'
+SuitShortChangeP = 'Conichanges'
+SuitPennyPincherP = 'Dandy Sharks'
+SuitTightwadP = 'Janets'
+SuitBeanCounterP = 'Candace Flynns'
+SuitNumberCruncherP = 'Number Men'
+SuitMoneyBagsP = 'Shiny Minglers'
+SuitLoanSharkP = 'Dark Angels'
+SuitRobberBaronP = 'Moonlight Mimis'
+SuitBottomFeederP = 'Cute Flunkies'
+SuitBloodsuckerP = 'Vampires'
+SuitDoubleTalkerP = 'Sallies'
+SuitAmbulanceChaserP = 'Microripoffs'
+SuitBackStabberP = 'Textured Counters'
+SuitSpinDoctorP = 'Cog Monkies'
+SuitLegalEagleP = 'Black Eagles'
+SuitBigWigP = 'Full Wigs'
 SuitFaceoffDefaultTaunts = ['Boo!']
 SuitAttackDefaultTaunts = ['Take that!', 'Take a memo on this!']
 SuitAttackNames = {'Audit': 'Audit!',
@@ -2409,9 +2410,10 @@ SuitAttackNames = {'Audit': 'Audit!',
  'Crunch': 'Crunch!',
  'Demotion': 'Demotion!',
  'Downsize': 'Downsize!',
+ 'WhitePowder': 'White Powder!',
  'DoubleTalk': 'Double Talk!',
  'EvictionNotice': 'Eviction Notice!',
- 'EvilEye': 'Evil Eye!',
+ 'BlackOrb': 'Black Orb!',
  'Filibuster': 'Filibuster!',
  'FillWithLead': 'Fill With Lead!',
  'FiveOClockShadow': "Five O'Clock Shadow!",
@@ -2433,6 +2435,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'MarketCrash': 'Market Crash!',
  'MumboJumbo': 'Mumbo Jumbo!',
  'ParadigmShift': 'Paradigm Shift!',
+ 'WaterSpray': 'Water Spray!',
  'PeckingOrder': 'Pecking Order!',
  'PickPocket': 'Pick Pocket!',
  'PinkSlip': 'Pink Slip!',
@@ -2456,632 +2459,351 @@ SuitAttackNames = {'Audit': 'Audit!',
  'SongAndDance': 'Song And Dance!',
  'Spin': 'Spin!',
  'Synergy': 'Synergy!',
+ 'Snow': 'Snow!',
+ 'HeatWave': 'Heat Wave!',
  'Tabulate': 'Tabulate!',
- 'TeeOff': 'Tee Off!',
+ 'Golf': 'Golf!',
  'ThrowBook': 'Throw Book!',
  'Tremor': 'Tremor!',
  'Watercooler': 'Watercooler!',
  'Withdrawal': 'Withdrawal!',
+ 'SnowBalls': 'Snow Balls!',
+ 'FireBalls': 'Fire Balls!',
  'WriteOff': 'Write Off!'}
-SuitAttackTaunts = {'Audit': ["I believe your books don't balance.",
-           "Looks like you're in the red.",
-           'Let me help you with your books.',
-           'Your debit column is much too high.',
-           "Let's check your assets.",
-           'This will put you in debt.',
-           "Let's take a close look at what you owe.",
-           'This should drain your account.',
-           'Time for you to account for your expenses.',
-           "I've found an error in your books."],
- 'Bite': ['Would you like a bite?',
-          'Try a bite of this!',
-          "You're biting off more than you can chew.",
-          'My bite is bigger than my bark.',
-          'Bite down on this!',
-          'Watch out, I may bite.',
-          "I don't just bite when I'm cornered.",
-          "I'm just gonna grab a quick bite.",
-          "I haven't had a bite all day.",
-          'I just want a bite.  Is that too much to ask?'],
- 'BounceCheck': ["Ah, too bad, you're funless.",
-                 'You have a payment due.',
-                 'I believe this check is yours.',
-                 'You owed me for this.',
-                 "I'm collecting on this debt.",
-                 "This check isn't going to be tender.",
-                 "You're going to be charged for this.",
-                 'Check this out.',
-                 'This is going to cost you.',
-                 "I'd like to cash this in.",
-                 "I'm just going to kick this back to you.",
-                 'This is one sour note.',
-                 "I'm deducting a service charge."],
- 'BrainStorm': ['I forecast rain.',
-                'Hope you packed your umbrella.',
-                'I want to enlighten you.',
-                'How about a few rain DROPS?',
+SuitAttackTaunts = {'Audit': ["Can we check this?",
+           "This is ready to Audit, Toon.",
+           "Watch out Toon! You're payments are getting too high!",
+           'This will be fun to Audit.',
+           "Hmm, let's see. 1 plus 1 equals Aduit check."],
+ 'Bite': ["What's for supper?",
+          "Want a bite of Potatoes?",
+          "I'm going to bite you!",
+          "Bite! Off more than you can chew!"],
+ 'BounceCheck': ["Pay off your check.",
+                 'This check is now in fund.',
+                 'Check, check, check!',
+                 'This is going to cost ya!',
+                 "Your checks are getting too much."],
+ 'BrainStorm': ['Ever heard of a Forecast?',
+                'You might want to run Toon! Storm incoming!',
+                'This is going to be a Brain Storm.',
+                "It's sunny! Not!",
                 'Not so sunny now, are you Toon?',
-                'Ready for a down pour?',
-                "I'm going to take you by storm.",
-                'I call this a lightning attack.',
-                'I love to be a wet blanket.'],
- 'BuzzWord': ['Pardon me if I drone on.',
-              'Have you heard the latest?',
-              'Can you catch on to this?',
-              'See if you can hum this Toon.',
-              'Let me put in a good word for you.',
-              'I\'ll "B" perfectly clear.',
-              'You should "B" more careful.',
-              'See if you can dodge this swarm.',
-              "Careful, you're about to get stung.",
-              'Looks like you have a bad case of hives.'],
- 'Calculate': ['These numbers do add up!',
-               'Did you count on this?',
-               "Add it up, you're going down.",
-               'Let me help you add this up.',
-               'Did you register all your expenses?',
-               "According to my calculations, you won't be around much longer.",
-               "Here's the grand total.",
-               'Wow, your bill is adding up.',
-               'Try fiddling with these numbers!',
-               Cogs + ': 1 Toons: 0'],
- 'Canned': ['Do you like it out of the can?',
-            '"Can" you handle this?',
-            "This one's fresh out of the can!",
-            'Ever been attacked by canned goods before?',
-            "I'd like to donate this canned good to you!",
-            'Get ready to "Kick the can"!',
-            'You think you "can", you think you "can".',
-            "I'll throw you in the can!",
-            "I'm making me a can o' toon-a!",
-            "You don't taste so good out of the can."],
- 'Chomp': ['Take a look at these chompers!',
+                'Nature storms cause chaos.'],
+ 'BuzzWord': ['Busy bees.',
+              'This sting is going to only hurt a lot!',
+              'Sting!',
+              'Bees buzzing? Pathetic.',
+              'Buzzing in your trees.'],
+ 'Calculate': ['Add it up, you will end up with nothing!',
+               "Don't forget to calculate on this.",
+               "This is what you need for Homework.",
+               "Do you need to calculate this?"],
+ 'Canned': ['Can you throw this into the trash?',
+            'Throw the can, can, can, today!',
+            "You're going to get hit by this can!",
+            'Want to throw a can for you?',
+            "Can up time!",
+            "I'm going to throw this can on you."],
+ 'Chomp': ['Us Cogs have 32 teeth.',
            'Chomp, chomp, chomp!',
-           "Here's something to chomp on.",
-           'Looking for something to chomp on?',
-           "Why don't you chomp on this?",
-           "I'm going to have you for dinner.",
-           'I love to feed on Toons!'],
- 'ClipOnTie': ['Better dress for our meeting.',
-               "You can't go OUT without your tie.",
-               'The best dressed ' + Cogs + ' wear them.',
-               'Try this on for size.',
-               'You should dress for success.',
-               'No tie, no service.',
-               'Do you need help putting this on?',
-               'Nothing says powerful like a good tie.',
-               "Let's see if this fits.",
-               'This is going to choke you up.',
-               "You'll want to dress up before you go OUT.",
-               "I think I'll tie you up."],
- 'Crunch': ["Looks like you're in a crunch.",
-            "It's crunch time!",
-            "I'll give you something to crunch on!",
-            'Crunch on this!',
-            'I pack quite a crunch.',
-            'Which do you prefer, smooth or crunchy?',
-            "I hope you're ready for crunch time.",
-            "It sounds like you're getting crunched!",
-            "I'll crunch you like a can."],
- 'Demotion': ["You're moving down the corporate ladder.",
-              "I'm sending you back to the Mail Room.",
-              'Time to turn in your nameplate.',
-              "You're going down, clown.",
-              "Looks like you're stuck.",
-              "You're going nowhere fast.",
-              "You're in a dead end position.",
-              "You won't be moving anytime soon.",
-              "You're not going anywhere.",
-              'This will go on your permanent record.'],
- 'Downsize': ['Come on down!',
-              'Do you know how to get down?',
-              "Let's get down to business.",
-              "What's wrong? You look down.",
-              'Going down?',
-              "What's goin' down? You!",
-              'Why pick on people my own size?',
-              "Why don't I size you up, or should I say, down?",
-              'Would you like a smaller size for just a quarter more?',
-              'Try this on for size!',
-              'You can get this in a smaller size.',
-              'This attack is one size fits all!'],
- 'EvictionNotice': ["It's moving time.",
-                    'Pack your bags, Toon.',
-                    'Time to make some new living arrangements.',
-                    'Consider yourself served.',
-                    "You're behind on your lease.",
-                    'This will be extremely unsettling.',
-                    "You're about to be uprooted.",
-                    "I'm going to send you packing.",
-                    "You're out of place.",
-                    'Prepare to be relocated.',
-                    "You're in a hostel position."],
- 'EvilEye': ["I'm giving you the evil eye.",
-             'Could you eye-ball this for me?',
-             "Wait.  I've got something in my eye.",
-             "I've got my eye on you!",
-             'Could you keep an eye on this for me?',
-             "I've got a real eye for evil.",
-             "I'll poke you in the eye!",
-             '"Eye" am as evil as they come!',
-             "I'll put you in the eye of the storm!",
-             "I'm rolling my eye at you."],
- 'Filibuster': ["Shall I fill 'er up?",
-                'This is going to take awhile.',
-                'I could do this all day.',
-                "I don't even need to take a breath.",
-                'I keep going and going and going.',
-                'I never get tired of this one.',
-                'I can talk a blue streak.',
-                'Mind if I bend your ear?',
-                "I think I'll shoot the breeze.",
-                'I can always get a word in edgewise.'],
+           "Are you ready for chomps?",
+           'Buy the chompers!',
+           'Yummy Chompers!'],
+ 'ClipOnTie': ['Go to our meeting.',
+               "Hold on! You can't run without your tie yet!",
+               'This tie is perfect size.',
+               'Tie this up!',
+               "This tie is good, right?"],
+ 'Crunch': ["Are we having milk with this crunch?",
+            "You better crunch this!",
+            "This is a crunch time!"],
+ 'Demotion': ["Where are you moving next, Toon?",
+              "This is going to get sent to the Post Office.",
+              "You're gonna pop this!",
+              "You're not going anywhere, Toon!",
+              'This is way too much, you gotta go.'],
+ 'DoubleTalk': ["I'm Double Talking this!",
+              "Talk not only once, but twice!",
+              'Take a memo on this!',
+              "Do you wanna talk twice?",
+              "I'm wording your reports.",
+              "Can you talk to me?"],
+ 'Downsize': ['Shrink down!',
+              'This will downsize some of your health.',
+              'Get this size down.',
+              'Want to be thrown down?',
+              'This size will now fit you!'],
+ 'WhitePowder': ["I once heard this was useful for baking.",
+           "Lemon powder, mmm.",
+		   "Straight from grains, right into powder.",
+		   "Where shall I put this powder?",
+		   "Be ready to be shrunk!",
+		   "Test before using? Bah humbug.",
+		   "If possible, please read all labels before using the white powder."],
+ 'EvictionNotice': ["Want your notification checks thrown?",
+                    'Pack up the bags!',
+                    'PACK UP TOON!',
+                    "This notification will be thrown to you."],
+ 'BlackOrb': ["This Orb is being traveled to you.",
+             "Aware of my Magic!",
+			 "Don't be scared, it's just Magic.",
+			 "What are you looking at, Toon?",
+			 "Want to see a Magic trick? It's the Orb.",
+             "Never underestimate Cog's magic."],
+ 'Filibuster': ["Fill it up, Toon!",
+                'This will be the more ready.',
+                'What kind of Filibuster is this?',
+                'This speaking will be in attack mode.'],
+ 'FillWithLead': ["I need to sharpen this.",
+                'Give me a minute, let me sharpen your pencil.',
+                'Sharpen this!',
+                "Do you want your pencil sharpened?",
+                "Don't worry, your pencil will be sharp in no time!",
+                'Sharpen, sharpen, sharpen.'],
  'FingerWag': ['I have told you a thousand times.',
-               'Now see here Toon.',
-               "Don't make me laugh.",
-               "Don't make me come over there.",
-               "I'm tired of repeating myself.",
-               "I believe we've been over this.",
-               'You have no respect for us ' + Cogs + '.',
-               "I think it's time you pay attention.",
-               'Blah, Blah, Blah, Blah, Blah.',
-               "Don't make me stop this meeting.",
-               'Am I going to have to separate you?',
-               "We've been through this before."],
- 'Fired': ['I hope you brought some marshmallows.',
-           "It's going to get rather warm around here.",
-           'This should take the chill out of the air.',
-           "I hope you're cold blooded.",
-           'Hot, hot and hotter.',
-           'You better stop, drop, and roll!',
-           "You're outta here.",
-           'How does "well-done" sound?',
-           'Can you say ouch?',
-           'Hope you wore sunscreen.',
-           'Do you feel a little toasty?',
-           "You're going down in flames.",
-           "You'll go out in a blaze.",
-           "You're a flash in the pan.",
-           'I think I have a bit of a flare about me.',
-           "I just sparkle, don't I?",
-           'Oh look, a crispy critter.',
-           "You shouldn't run around half baked."],
- 'FountainPen': ['This is going to leave a stain.',
-                 "Let's ink this deal.",
-                 'Be prepared for some permanent damage.',
-                 "You're going to need a good dry cleaner.",
-                 'You should change.',
-                 'This fountain pen has such a nice font.',
-                 "Here, I'll use my pen.",
-                 'Can you read my writing?',
-                 'I call this the plume of doom.',
-                 "There's a blot on your performance.",
-                 "Don't you hate when this happens?"],
- 'FreezeAssets': ['Your assets are mine.',
-                  'Do you feel a draft?',
-                  "Hope you don't have plans.",
-                  'This should keep you on ice.',
-                  "There's a chill in the air.",
-                  'Winter is coming early this year.',
-                  'Are you feeling a little blue?',
-                  'Let me crystallize my plan.',
-                  "You're going to take this hard.",
-                  'This should cause freezer burn.',
-                  'I hope you like cold cuts.',
-                  "I'm very cold blooded."],
- 'GlowerPower': ['You looking at me?',
-                 "I'm told I have very piercing eyes.",
-                 'I like to stay on the cutting edge.',
-                 "Jeepers, Creepers, don't you love my peepers?",
-                 "Here's looking at you kid.",
-                 "How's this for expressive eyes?",
-                 'My eyes are my strongest feature.',
-                 'The eyes have it.',
-                 'Peeka-boo, I see you.',
-                 'Look into my eyes...',
-                 'Shall we take a peek at your future?'],
- 'GuiltTrip': ["I'll lay a real guilt trip on you!",
-               'Feeling guilty?',
-               "It's all your fault!",
-               'I always blame everything on you.',
-               'Wallow in your own guilt!',
-               "I'm never speaking to you again!",
-               "You had better say you're sorry.",
-               "I'm would forgive you in a million years!",
-               'Are you ready for your trip?',
-               'Call me when you get back from your trip.',
-               'When do you get back from your trip?'],
- 'HalfWindsor': ["This is the fanciest tie you'll ever see!",
-                 'Try not to get too winded.',
-                 "This isn't even half the trouble you're in.",
-                 "You're lucky I don't have a whole windsor.",
-                 "You can't afford this tie.",
-                 "I bet you've never even SEEN a half windsor!",
-                 'This tie is out of your league.',
-                 "I shouldn't even waste this tie on you.",
-                 "You're not even worth half of this tie!"],
- 'HangUp': ["You've been disconnected.",
+               'You better watch me Toon.',
+			   "I use this finger to solve crimes.",
+			   "Toon! I will wag you if you don't stop!",
+			   "Do you really want me to blah blah you?",
+               "This finger means, Don't mess with me!"],
+ 'Fired': ['Toasty!',
+           "No, this is your fire! Not mine!",
+           'This fire is going on you Toon!',
+           "Can we cook with this?",
+           'Want a chrispy toast?',
+           "You're Fired!"],
+ 'FountainPen': ['This pen will be used to you.',
+                 "I replaced the water with the pen.",
+				 "You thirsty for some water pen?",
+                 "Um, uh, um, uh, um, uh, um, uh, um, uh."],
+ 'FreezeAssets': ['Is this cold or hot?',
+                  'These assets will be used for you.',
+				  "Be aware, you're in a breeze!",
+                  "It's cold!"],
+ 'GlowerPower': ["Don't you look at me!",
+                 "Wait, this isn't family friendly, WHY AM I BLASTING THIS!?",
+                 'This is such a Glower tonight!',
+                 'I have the power!'],
+ 'GuiltTrip': ["It's your fault!",
+               "You are the worst liar I ever met.",
+			   "If you trip, you're guilty!",
+               'Is this the Power Trip? Or the guilt?',
+               'Are you innocent, or guilty?'],
+ 'HalfWindsor': ["This Tie will get you!",
+                 'Do you accept Ties?',
+				 "I wanna cut this tie in half.",
+				 "Buy 1, get the other tie free.",
+                 "Ever had a Tie?"],
+ 'HangUp': ["I can't hear you from here!",
             'Good bye!',
-            "It's time I end our connection.",
-            "...and don't call back!",
-            'Click!',
-            'This conversation is over.',
-            "I'm severing this link.",
-            'I think you have a few hang ups.',
-            "It appears you've got a weak link.",
-            'Your time is up.',
-            'I hope you receive this loud and clear.',
-            'You got the wrong number.'],
- 'HeadShrink': ["Looks like you're seeing a shrink.",
-                'Honey, I shrunk the toon.',
-                "Hope this doesn't shrink your pride.",
-                'Do you shrink in the wash?',
-                'I shrink therefore I am.',
-                "It's nothing to lose your head over.",
-                'Are you going out of your head?',
-                'Heads up! Or should I say, down.',
-                'Objects may be larger than they appear.',
-                'Good Toons come in small packages.'],
- 'HotAir': ["We're having a heated discussion.",
-            "You're experiencing a heat wave.",
-            "I've reached my boiling point.",
-            'This should cause some wind burn.',
-            'I hate to grill you, but...',
-            "Always remember, where there's smoke, there's fire.",
-            "You're looking a little burned out.",
-            'Another meeting up in smoke.',
-            "Guess it's time to add fuel to the fire.",
-            'Let me kindle a working relationship.',
-            'I have some glowing remarks for you.',
-            'Air Raid!!!'],
- 'Jargon': ['What nonsense.',
-            'See if you can make sense of this.',
-            'I hope you get this loud and clear.',
-            "Looks like I'm going to have to raise my voice.",
-            'I insist on having my say.',
-            "I'm very outspoken.",
-            'I must pontificate on this subject.',
-            'See, words can hurt you.',
-            'Did you catch my meaning?',
-            'Words, words, words, words, words.'],
- 'Legalese': ['You must cease and desist.',
-              'You will be defeated, legally speaking.',
-              'Are you aware of the legal ramifications?',
-              "You aren't above the law!",
-              'There should be a law against you.',
-              "There's no ex post facto with me!",
-              "The opinions expressed in this attack are not those of Toontown Online.",
-              'We cannot be held responsible for damages suffered in this attack.',
-              'Your results for this attack may vary.',
-              'This attack is void where prohibited.',
-              "You don't fit into my legal system!",
-              "You can't handle the legal matters."],
- 'Liquidate': ['I like to keep things fluid.',
-               'Are you having some cash flow problems?',
-               "I'll have to purge your assets.",
-               'Time for you to go with the flow.',
-               "Remember it's slippery when wet.",
-               'Your numbers are running.',
-               'You seem to be slipping.',
-               "It's all crashing down on you.",
-               "I think you're diluted.",
-               "You're all washed up."],
- 'MarketCrash': ["I'm going to crash your party.",
-                 "You won't survive the crash.",
-                 "I'm more than the market can bear.",
-                 "I've got a real crash course for you!",
-                 "Now I'll come crashing down.",
-                 "I'm a real bull in the market.",
-                 'Looks like the market is going down.',
-                 'You had better get out quick!',
-                 'Sell! Sell! Sell!',
-                 'Shall I lead the recession?',
-                 "Everybody's getting out, shouldn't you?"],
+            "I would rather listen to 'Where are U now by Justin Bieber!'",
+            "Can you please repeat that?",
+            'Leave a message after the beep.'],
+ 'HeadShrink': ["This is a Toon Shrink.",
+                'Can we Shrink this?',
+                'This is Shrink Mode!'],
+ 'HotAir': ["This is too Hot!",
+            "HOT, HOT, HOT!",
+			"It's over 100 degrees in here, might wanna grab some shade.",
+			"Wanna buy this hot air conditioning?",
+            'Burn!!'],
+ 'Jargon': ['Stop with the nonsense!',
+            'This is too much nonsense.',
+            'This talk interesting?',
+            "Hey, no arguing over this important Jargon!"],
+ 'Legalese': ["Isn't this Illigal?",
+              "You're committing a huge crime, Toon. Stop it!",
+			  "Shall I arrest you for breaking the Law?",
+			  "Toon, don't think about it!",
+              'This attack is not incorporated by the attacks of Toontown Mystery!'],
+ 'Liquidate': ['Ever had shower problems?',
+               'Classic Noah Stinks!',
+               "This is going to be a light shower."],
+ 'MarketCrash': ["This will crash on you, Toon!",
+                 "Want extra help with your bags?"],
  'MumboJumbo': ['Let me make this perfectly clear.',
-                "It's as simple as this.",
-                "This is how we're going to do this.",
-                'Let me supersize this for you.',
-                'You might call this technobabble.',
-                'Here are my five-dollar words.',
-                'Boy, this is a mouth full.',
-                'Some call me bombastic.',
-                'Let me just interject this.',
-                'I believe these are the right words.'],
- 'ParadigmShift': ["Watch out! I'm rather shifty.",
-                   'Prepare to have your paradigm shifted!',
-                   "Isn't this an interesting paradigm.",
-                   "You'll get shifted out of place.",
-                   "I guess it's your shift now.",
-                   'Your shift is up!',
-                   "You've never shifted this much in your life.",
-                   "I'm giving you the bad shift!",
-                   'Look into my shifty eyes!'],
- 'PeckingOrder': ["This one's for the birds.",
-                  'Get ready for a bird bath.',
-                  "Looks like you're going to hit a birdie.",
-                  'Some think this attack is fowl.',
-                  "You're on the bottom of the pecking order.",
-                  'A bird in my hand is worth ten on your head!',
-                  'Your order is up; the pecking order!',
-                  "Why don't I peck on someone my own size? Nah.",
-                  'Birds of a feather strike together.'],
- 'PickPocket': ['Let me check your valuables.',
-                "Hey, what's that over there?",
-                'Like taking candy from a baby.',
-                'What a steal.',
-                "I'll hold this for you.",
-                'Watch my hands at all times.',
-                'The hand is quicker than the eye.',
-                "There's nothing up my sleeve.",
-                'The management is not responsible for lost items.',
-                "Finder's keepers.",
-                "You'll never see it coming.",
-                'One for me, none for you.',
-                "Don't mind if I do.",
-                "You won't be needing this..."],
- 'PinkSlip': ['Try not to slip up.',
-              "Are you frightened? You've turned pink!",
-              'This one will surely slip you up.',
-              'Oops, I guess you slipped there, huh?',
-              "Watch yourself, wouldn't want to slip!",
-              "This one's slippery when wet.",
-              "I'll just slip this one in.",
-              "Don't mind if you slip by, do you?",
-              "Pink isn't really your color.",
-              "Here's your pink slip, you're outta here!"],
- 'PlayHardball': ['So you wanna play hardball?',
-                  "You don't wanna play hardball with me.",
-                  'Batter up!',
-                  'Hey batter, batter!',
-                  "And here's the pitch...",
-                  "You're going to need a relief pitcher.",
-                  "I'm going to knock you out of the park.",
-                  "Once you get hit, you'll run home.",
-                  'This is your final inning!',
-                  "You can't play with me!",
-                  "I'll strike you out.",
-                  "I'm throwing you a real curve ball!"],
- 'PoundKey': ['Time to return some calls.',
-              "I'd like to make a collect call.",
-              "Ring-a-ling - it's for you!",
-              "I've been wanting to drop a pound or two.",
-              'I have a lot of clout.',
-              'This may cause a slight pounding sensation.',
-              "I'll just punch in this number.",
-              'Let me call up a little surprise.',
-              "I'll ring you up.",
-              "O.K. Toon, it's the pound for you."],
- 'PowerTie': ["I'll call later, you looked tied up.",
-              'Are you ready to tie die?',
-              "Ladies and gentlemen, it's a tie!",
-              'You had better learn how to tie.',
-              "I'll have you tongue-tied!",
-              "This is the worst tie you'll ever get!",
-              'Can you feel the power?',
-              'My powers are far too great for you!',
-              "I've got the power!",
-              "By the powers vested in me, I'll tie you up."],
- 'PowerTrip': ["Pack your bags, we're taking a little trip.",
-               'Did you have a nice trip?',
-               "Nice trip, I guess I'll see you next fall.",
-               'How was your trip?',
-               'Sorry to trip you up there!',
-               'You look a little tripped up.',
-               "Now you see who's in power!",
-               'I am much more powerful than you.',
-               "Who's got the power now?",
-               "You can't fight the power.",
-               'Power corrupts, especially in my hands!'],
- 'Quake': ["Let's quake, rattle, and roll.",
-           "I've got a whole lot of quakin' goin' on!",
-           "I see you quakin' in your shoes.",
-           "Here it comes, it's the big one!",
-           "This one's off the Richter scale.",
-           'Now the earth will quake!',
-           "Hey, what's shakin'? You!",
-           'Ever been in an earthquake?',
-           "You're on shaky ground now!"],
- 'RazzleDazzle': ['Read my lips.',
-                  'How about these choppers?',
-                  "Aren't I charming?",
-                  "I'm going to wow you.",
-                  'My dentist does excellent work.',
-                  "Blinding aren't they?",
-                  "Hard to believe these aren't real.",
-                  "Shocking, aren't they?",
-                  "I'm going to cap this off.",
-                  'I floss after every meal.',
+                "Aren't these the words for the Jumbo?",
+				"This Jumbo shall be traveled.",
+				"Ever Mumboed this Jumbo?",
+                'This is nonsense!'],
+ 'ParadigmShift': ["I'm giving you the big shift now!",
+                   "Be careful of this Shift!",
+				   "This shift, is going to you.",
+				   "Be aware, I will shift.",
+                   "Isn't this a shift day?"],
+ 'WaterSpray': ["Having a nice spray of water?",
+                "Enjoy your spring water!",
+			    "Spring water only here today.",
+			    "Enjoy your spray of fresh water."],
+ 'PeckingOrder': ["Ever been attacked by a Bird?",
+                  'This is the last bird I will give you today!',
+                  "I will throw these birds in your bath!",
+                  'This is a good Bath!'],
+ 'PickPocket': ['Can I have your Money?',
+                "I'll take your Money!",
+				"Huh? What's that, oops, I got your money.",
+                'This Pocket is mine.'],
+ 'PinkSlip': ['Pink Up!',
+              "Why are you normal? Why not Pink?",
+              'This is the Real Slip!'],
+ 'PlayHardball': ['PLAY BALL!',
+                  "Strike 1!",
+                  'Strike 2!',
+                  'Strike 3!',
+                  "You're out!",
+                  "Ball 1.",
+                  "Ball 2.",
+                  "Ball 3.",
+                  'Ball 4.',
+                  "Home run!",
+                  "Ball 1, no no wait, strike 1, no no ball, strike, ball, what?"],
+ 'PoundKey': ['Call 1800-999-1110 for Toontown Mysterys latest updates.',
+              "Call me please!",
+              "Do you want my phone number?",
+              "This is crazy! Here's my number, so call me maybe!",
+              'Sorry, gotta go!'],
+ 'PowerTie': ["I have the power tie now!",
+              'Go tie die in this!',
+              "It's a red tie.",
+              'It is a blue tie.',
+              "Ties are cool and so are you.",
+              "Wanna buy this tie from me? It's only 999,999,999,999,999 dollars."],
+ 'PowerTrip': ["Most Sellbots have this Power Trip!",
+               'Power, Power, Power.',
+               "Can I trip this?",
+               'Oops! It slipped.',
+			   'Please trip on this, please?',
+               'I hope you fall in a Trip!!'],
+ 'Quake': ["Quake this, Toon!",
+           "I shake, I quake, you fall, now we're both happy.",
+           "Why you shaking? We need to Quake it.",
+		   "What's the matter? Can't handle a Quake?",
+           "You're in a Quake!"],
+ 'RazzleDazzle': ['I clean my Teeth everyday.',
+                  "Isn't this dazzling?",
+                  "My dentist gave me great Teeth.",
+				  "Smile! You're on camera!",
                   'Say Cheese!'],
- 'RedTape': ['This should wrap things up.',
-             "I'm going to tie you up for awhile.",
-             "You're on a roll.",
-             'See if you can cut through this.',
-             'This will get sticky.',
-             "Hope you're claustrophobic.",
-             "I'll make sure you stick around.",
-             'Let me keep you busy.',
-             'Just try to unravel this.',
-             'I want this meeting to stick with you.'],
- 'ReOrg': ["You don't like the way I reorganized things!",
-           'Perhaps a little reorganization is in order.',
-           "You're not that bad, you just need to be reorganized.",
-           'Do you like my organizational skills.',
-           "I just thought I'd give things a new look.",
-           'You need to get organized!',
-           "You're looking a little disorganized.",
-           'Hold on while I reorganize your thoughts.',
-           "I'll just wait for you to get a little organized.",
-           "You don't mind if I just reorganize a bit?"],
- 'RestrainingOrder': ['You should show a little restraint.',
-                      "I'm slapping you with a restraining order!",
-                      "You can't come within five feet of me.",
-                      'Perhaps you better keep your distance.',
-                      'You should be restrained.',
-                      Cogs + '!  Restrain that Toon!',
-                      'Try and restrain yourself.',
-                      "I hope I'm being too much of a restraint on you.",
-                      'See if you can lift these restraints!',
-                      "I'm ordering you to restrain!",
-                      "Why don't we start with basic restraining?"],
- 'Rolodex': ["Your card's in here somewhere.",
-             "Here's the number for a pest exterminator.",
-             'I want to give you my card.',
-             "I've got your number right here.",
-             "I've got you covered from a-z.",
-             "You'll flip over this.",
-             'Take this for a spin.',
-             'Watch out for paper cuts.',
-             "I'll let my fingers do the knocking.",
-             'Is this how I can contact you?',
-             'I want to make sure we stay in touch.'],
- 'RubberStamp': ['I always make a good impression.',
-                 "It's important to apply firm and even pressure.",
-                 'A perfect imprint every time.',
-                 'I want to stamp you out.',
-                 'You must be RETURNED TO SENDER.',
-                 "You've been CANCELLED.",
-                 'You have a PRIORITY delivery.',
-                 "I'll make sure you RECEIVED my message.",
-                 "You're not going anywhere - you have POSTAGE DUE.",
-                 "I'll need a response ASAP."],
- 'RubOut': ['And now for my disappearing act.',
-            "I sense I've lost you somewhere.",
-            'I decided to leave you out.',
-            'I always rub out all obstacles.',
-            "I'll just erase this error.",
-            'I can make any nuisance disappear.',
-            'I like things neat and tidy.',
-            'Please try and stay animated.',
-            "Now I see you...  now I don't.",
-            'This will cause some fading.',
-            "I'm going to eliminate the problem.",
-            'Let me take care of your problem areas.'],
- 'Sacked': ["Looks like you're getting sacked.",
-            "This one's in the bag.",
-            "You've been bagged.",
-            'Paper or plastic?',
-            'My enemies shall be sacked!',
-            'I hold the Toontown record in sacks per game.',
-            "You're no longer wanted around here.",
-            "Your time is up around here, you're being sacked!",
-            'Let me bag that for you.',
-            'No defense can match my sack attack!'],
- 'Schmooze': ["You'll never see this coming.",
-              'This will look good on you.',
-              "You've earned this.",
-              "I don't mean to gush.",
-              'Flattery will get me everywhere.',
-              "I'm going to pile it on now.",
-              'Time to lay it on thick.',
-              "I'm going to get on your good side.",
-              'That deserves a good slap on the back.',
-              "I'm going to ring your praises.",
-              'I hate to knock you off your pedestal, but...'],
- 'Shake': ["You're right on the epicenter.",
-           "You're standing on a fault line.",
-           "It's going to be a bumpy ride.",
-           'I think of this as a natural disaster.',
-           "It's a disaster of seismic proportions.",
-           "This one's off the Richter scale.",
-           'Time to duck and cover.',
-           'You seem disturbed.',
-           'Ready for a jolt?',
-           "I'll have you shaken, not stirred.",
-           'This will shake you up.',
-           'I suggest a good escape plan.'],
- 'Shred': ['I need to get rid of some hazardous waste.',
-           "I'm increasing my throughput.",
-           "I think I'll dispose of you right now.",
-           'This will get rid of the evidence.',
-           "There's no way to prove it now.",
-           'See if you can put this back together.',
-           'This should cut you down to size.',
-           "I'm going to rip that idea to shreds.",
-           "We don't want this to fall into the wrong hands.",
-           'Easy come, easy go.',
-           "Isn't this your last shred of hope?"],
- 'Spin': ['What do you say we go for a little spin?',
-          'Do you use the spin cycle?',
-          "This'll really make your head spin!",
-          "Here's my spin on things.",
-          "I'll take you for a spin.",
-          'How do you like to "spin" your time?',
-          "Watch it.  Wouldn't want to spin out of control!",
-          "Oh what a spin you're in!",
-          'My attacks will make your head spin!'],
+ 'RedTape': ['This should a great Tape.',
+             "This tape is no2 tape, don't ask.",
+			 "Wanna roll in some tape?",
+             "I'm going to roll this on you."],
+ 'ReOrg': ["This needs to be Organized.",
+           "?????????????",
+		   "Hey Toon, your station needs to be organized.",
+           "Clean your room!"],
+ 'RestrainingOrder': ['I will throw this order on you.',
+                      "Order in the Court!",
+					  "Stay 6 feet away from me!",
+                      "Why is this order being sent?",
+                      "This is an Order!"],
+ 'Rolodex': ["This is a real card for you.",
+             "This is a real Rolodex!",
+			 "Ever gotten papercuts?",
+			 "'Take this and some lemonade, get papercuts.'",
+			 "Scan all of these files for me!",
+             'I got you covered.'],
+ 'RubberStamp': ['Uh, how do I stamp a letter?',
+                 "I have shall sent you this.",
+				 "Behold, the letter!",
+				 "I need these stamps for your letters!",
+                 "Can you respond to this?"],
+ 'RubOut': ['You will disappear now.',
+            "You'll disappear today!"],			
+ 'Sacked': ["Even though Toontown Stinks, Us Cogs are in it.",
+            "Hey Toon, enjoy this sack.",
+			"Honey, I sacked the Toon!",
+            'This sack will give you all of Toontown.'],
+ 'Schmooze': ["Uh oh.",
+              'But, but, but, but, but, but.',
+			  "I will persuade you, Toon!",
+			  "Are you feeling manipulated? Hehe.",
+              "This is a Schmooze today.",
+              "You're Grounded!"],
+ 'Shake': ["How ya feeling Toon?",
+           "This is shaking today.",
+		   "I am aware of how much you're shaking.",
+		   "Stop feeling scared, feel the power!",
+           "Shake it off!"],
+ 'Shred': ['Mind if I shred your papers?',
+           "Ah yes, my shredder, here you go.",
+           "I need to shred this."],
+ 'Spin': ['Want to spin?',
+          "Ever been on a marry-go-round?",
+		  "I'm taking you for a spin. Enjoy.",
+          'Spin around!'],
  'Synergy': ["I'm taking this to committee.",
              "Your project's been cancelled.",
-             "Your budget's been cut.",
-             "We're restructuring your division.",
-             'I put it to a vote, and you lose.',
-             'I just received the final approval.',
-             'A good team can get rid of any problem.',
-             "I'll get back to you on this.",
-             "Let's get right to business.",
-             'Consider this a Synergy crisis.'],
- 'Tabulate': ["This doesn't add up.",
-              'By my count, you lose.',
-              "You're racking up quite a tab.",
-              "I'll have you totaled in a moment.",
-              'Are you ready for these numbers?',
-              'Your bill is now due and payable.',
-              'Time for the reckoning.',
-              'I like to put things in order.',
-              'And the tally is...',
-              'These numbers should prove to be quite powerful.'],
- 'TeeOff': ["You're not up to par.",
-            'Fore!',
-            "I'm getting teed off.",
-            "Caddie, I'll need my driver!",
-            'Just try and avoid this hazard.',
-            'Swing!',
-            'This is a sure hole in one.',
-            "You're in my fairway.",
-            'Notice my grip.',
-            'Watch the birdie!',
-            'Keep your eye on the ball!',
-            'Mind if I play through?'],
- 'Tremor': ['Did you feel that?',
-            'Not afraid of a little tremor are you?',
-            'A tremor is only the beginning.',
-            'You look jittery.',
-            "I'll shake things up a bit!",
-            'Are you ready to rumble?',
-            "What's wrong? You look shaken.",
-            'Tremor with fear!',
-            'Why are you tremoring with fear?'],
- 'Watercooler': ['This ought to cool you off.',
-                 "Isn't this refreshing?",
-                 'I deliver.',
-                 'Straight from the tap - into your lap.',
-                 "What's the matter, it's just spring water.",
-                 "Don't worry, it's purified.",
-                 'Ah, another satisfied customer.',
-                 "It's time for your daily delivery.",
-                 "Hope your colors don't run.",
-                 'Care for a drink?',
-                 'It all comes out in the wash.',
-                 "The drink's on you."],
- 'Withdrawal': ["I believe you're overdrawn.",
-                'I hope your balance is high enough for this.',
-                'Take that, with interest.',
-                'Your balance is dropping.',
-                "You're going to need to make a deposit soon.",
-                "You've suffered an economic collapse.",
-                "I think you're in a slump.",
-                'Your finances have taken a decline.',
-                'I foresee a definite downturn.',
-                "It's a reversal of fortune."],
- 'WriteOff': ['Let me increase your losses.',
-              "Let's make the best of a bad deal.",
-              'Time to balance the books.',
-              "This won't look good on your books.",
-              "I'm looking for some dividends.",
-              'You must account for your losses.',
-              'You can forget about a bonus.',
-              "I'll shuffle your accounts around.",
-              "You're about to suffer some losses.",
-              'This is going to hurt your bottom line.']}
+			 "Where is your money? Did you lose it?",
+             'This attack will cause harm.'],
+ 'Snow': ["Snow?",
+          "This is a test snow.",
+		  "Ever seen snow?",
+		  "Do you want to build a snowman?",
+		  "Snow, snow, snow today!",
+		  "It's a blizzard! Look out!",
+		  "Have fun in your snow storm."],
+ 'HeatWave': ["Look out, the heat wave is coming!",
+              "How are you feeling?",
+              "Feel the might light power.",
+              "The heat is on, with the flames!"],			  
+ 'Tabulate': ["Add it up!",
+              'Do you know how much this is gonna cost?',
+              'Can you add this?'],
+ 'Golf': ["I will golf on you.",
+           'Wanna play golf with me?',
+		   'Fore!',
+		   'This ball, in your face, right now.',
+		   "Who wants to golf?",
+		   'And I putt putt into the hole!',
+		   'GOLF!!!',
+           'Get your golfing in today!'],
+ 'ThrowBook': ['Are you ready to pass?',
+               'This Book is from the Laws.',
+               "This Book is magical.",
+               'Time to go sad, Toon.',
+               'You can find all the Laws in here.',
+               'Do you want a Ticket?',
+               'No breaking the Law!',
+               "Order in the Court!",
+               "This is your court law."],
+ 'Tremor': ['Oof! Oof! Oof!',
+            "Be aware Toon, the Tremor is coming!",
+            "I'm going to Tremor on you!",
+			"Are you feeling shaken up, Toon?",
+            'Pump it up.'],
+ 'Watercooler': ['Cool off.',
+                 "This is a big delivery, isn't it?",
+                 'Delivery!'],
+ 'Withdrawal': ["White powder on you becomes a black Toon.",
+                'Enjoying this?',
+                "Fun has it's price you know.",
+                'Is it just me? Or did you change?',
+                "Take this!"],
+ 'SnowBalls': ["Freeze up the Toons!",
+               "Snowball fight!",
+			   "Here, have some snow.",
+			   "Do you want to build a snowman?",
+			   "Here's all the snowballs you need for your snowman.",
+			   "It requires 32F* to create snow, then recreate them into balls, then what do you have? Snowballs."],
+ 'FireBalls': ["Brn, brn, brn, in the fire!",
+          "I'll set you on fire!",
+		  "Feeling hot?",
+		  "I'll warm you up.",
+		  "My Queen ordered me to warm you up.",
+		  "Did you request some warmth?",
+		  "Shall we be in warmth?"],
+ 'WriteOff': ['I will balance you in my checkbook.',
+              "Forget the bonus, you get an Z-.",
+              'Let me grade your papers real quick.',
+              "Mark this, mark that, oop- you failed!",
+              "I hate my job, just take this check.",
+              'You want this check in cash? Or credit?',
+              'Take this check to the bank for a deposit!',
+              "Do you want your accounts deleted?",
+              "I'm sorry, but we do not accept bonuses.",
+              'Discounts stink!!!!!!!!']}
 BuildingWaitingForVictors = ('Waiting for other players...',)
 ElevatorHopOff = 'Hop off'
 ElevatorStayOff = "If you hop off, you'll need to wait\nfor the elevator to leave or empty."
@@ -4171,7 +3893,7 @@ AchievePageTitle = 'Achievements\n(Coming Soon)'
 PhotoPageTitle = 'Photo\n(Coming Soon)'
 BuildingPageTitle = 'Buildings\n(Coming Soon)'
 InventoryPageTitle = 'Gags'
-InventoryPageDeleteTitle = 'DELETE GAGS'
+InventoryPageDeleteTitle = 'Delete Gags'
 InventoryPageTrackFull = 'You have all the gags in the %s track.'
 InventoryPagePluralPoints = 'You will get a new\n%(trackName)s gag when you\nget %(numPoints)s more %(trackName)s points.'
 InventoryPageSinglePoint = 'You will get a new\n%(trackName)s gag when you\nget %(numPoints)s more %(trackName)s point.'
@@ -4671,6 +4393,15 @@ MapPageYouAreAtHome = 'You are at\nyour estate'
 MapPageYouAreAtSomeonesHome = 'You are at %s estate'
 MapPageGoTo = 'Go To\n%s'
 OptionsPageTitle = 'Options'
+OptionsPageTitle2 = "Rebind"
+
+OptionsEnabledKeybinds = 'Custom Keybinds are enabled.'
+OptionsDisabledKeybinds = 'Custom Keybinds are disabled.'
+OptionsKeybindsMenu = 'Keybinds'
+
+RemapPrompt = 'Choose the keys you wish to remap.'
+RemapPopup = 'Press the key you wish to remap this control to.'
+Controls = ['Move Up:', 'Move Left:', 'Move Down:', 'Move Right:', 'Jump:', 'Action Key:', 'Options Hotkey:', 'Chatbox Hotkey:', 'Screenshot Key:']
 OptionsTabTitle = 'Options\n& Codes'
 OptionsPagePurchase = 'Subscribe'
 OptionsPageLogout = 'Logout'
@@ -4908,6 +4639,7 @@ InventoryAffectsAllToons = 'Affects: All Toons'
 InventoryAffectsAllCogs = 'Affects: All ' + Cogs
 InventoryHealString = 'Toon-up'
 InventoryDamageString = 'Damage'
+InventoryRoundsString = 'Rounds'
 InventoryBattleMenu = 'BATTLE MENU'
 InventoryRun = 'RUN'
 InventorySOS = 'SOS'
@@ -4932,6 +4664,9 @@ MovieTutorialReward2 = 'You received 1 Squirt point! When you get 10, you will g
 MovieTutorialReward3 = 'Good job! You completed your first ToonTask!'
 MovieTutorialReward4 = 'Go to Toon Headquarters for your reward!'
 MovieTutorialReward5 = 'Have fun!'
+BattleGlobalCogImmuneText = 'Immune'
+BattleGlobalCogImmuneRevertText = 'Vulnerable'
+BattleGlobalCogLuredText = 'Lured %s Rounds'
 BattleGlobalTracks = ['toon-up',
  'trap',
  'lure',
@@ -5087,15 +4822,18 @@ BattleGlobalAvPropStringsPlural = (('Feathers',
   'Safes',
   'Grand Pianos',
   'Oceanliners'))
-BattleGlobalAvTrackAccStrings = ('Medium',
- 'Perfect',
- 'Low',
- 'High',
- 'Medium',
- 'High',
- 'Low')
-BattleGlobalLureAccLow = 'Low'
-BattleGlobalLureAccMedium = 'Medium'
+BattleGlobalAvTrackAccStrings = ('95%',
+ '100%',
+ '75%',
+ '95%',
+ '80%',
+ '90%',
+ '60%')
+BattleGlobalLureAccLow = '75%'
+BattleGlobalLureAccLow2 = '80%'
+BattleGlobalLureAccMedium = '85%'
+BattleGlobalLureAccHigh = '90%'
+BattleGlobalLureTrackBonus = ' (+10%)'
 AttackMissed = 'MISSED'
 NPCCallButtonLabel = 'CALL'
 LoaderLabel = 'Loading...'
@@ -5459,7 +5197,7 @@ NameShopPlay = 'Free Trial'
 NameShopOnlyPaid = 'Only paid users\nmay name their Toons.\nUntil you subscribe\nyour name will be\n'
 NameShopContinueSubmission = 'Continue Submission'
 NameShopChooseAnother = 'Choose Another Name'
-NameShopToonCouncil = 'The Toon Council\nwill review your\nname.  ' + 'Review may\ntake a few days.\nWhile you wait\nyour name will be\n '
+NameShopToonCouncil = 'Your name\nwill be accepted\non next login.  \n' + 'Please re-log to\nget access to\nyour new name\nafter toon creation.'
 PleaseTypeName = 'Please type your name:'
 AllNewNames = 'All new names must be\napproved by the Toon Council.'
 NameMessages = 'Be creative and remember:\nfollow the rules of the server.'
@@ -5514,6 +5252,7 @@ AnimalToSpecies = {'dog': 'Dog',
  'horse': 'Horse',
  'rabbit': 'Rabbit',
  'duck': 'Duck',
+ 'chicken': 'Chicken',
  'monkey': 'Monkey',
  'bear': 'Bear',
  'pig': 'Pig'}
@@ -5626,28 +5365,29 @@ QuestScript150_2 = 'To make friends, find another player, and use the New Friend
 QuestScript150_3 = 'Once you have made a friend, come back here.'
 QuestScript150_4 = 'Some tasks are too difficult to do alone!'
 MissingKeySanityCheck = 'Ignore me'
-SellbotBossName = 'Senior V. P.'
-CashbotBossName = 'C. F. O.'
-LawbotBossName = 'Chief Justice'
+SellbotBossName = 'FashionBoss'
+CashbotBossName = 'Doctor Elvis'
+LawbotBossName = 'Chief Office Master'
+BossCogDoStunned = 'Stunned!'
 BossCogNameWithDept = '%(name)s\n%(dept)s'
-BossCogPromoteDoobers = 'You are hereby promoted to full-fledged %s.  Congratulations!'
-BossCogDoobersAway = {'s': 'Go!  And make that sale!'}
-BossCogWelcomeToons = 'Welcome, new Cogs!'
-BossCogPromoteToons = 'You are hereby promoted to full-fledged %s.  Congratu--'
-CagedToonInterruptBoss = 'Hey! Hiya! Hey over there!'
-CagedToonRescueQuery = 'So, did you Toons come to rescue me?'
-BossCogDiscoverToons = 'Huh?  Toons!  In disguise!'
-BossCogAttackToons = 'Attack!!'
-CagedToonDrop = ["Great job!  You're wearing him down!",
- "Keep after him!  He's on the run!",
- 'You guys are doing great!',
- "Fantastic!  You've almost got him now!"]
-CagedToonPrepareBattleTwo = "Look out, he's trying to get away!\x07Help me, everyone--get up here and stop him!"
-CagedToonPrepareBattleThree = "Hooray, I'm almost free!\x07Now you need to attack the V.P. Cog directly.\x07I've got a whole bunch of pies you can use!\x07Jump up and touch the bottom of my cage and I'll give you some pies.\x07Press the Delete key to throw pies once you've got them!"
-BossBattleNeedMorePies = 'You need to get more pies!'
-BossBattleHowToGetPies = 'Jump up to touch the cage to get pies.'
-BossBattleHowToThrowPies = 'Press the Delete key to throw pies!'
-CagedToonYippee = 'Yippee!'
+BossCogPromoteDoobers = 'Welcome all new %s.   You are now going to be promoted to be the Fashion Designers. Congratulations!'
+BossCogDoobersAway = {'s': "Give anyone who doesn't have design some."}
+BossCogWelcomeToons = 'Welcome new Fashion Designers!'
+BossCogPromoteToons = "I see that you new %s. need some design, let's go and..."
+CagedToonInterruptBoss = "Hey! Over Here!"
+CagedToonRescueQuery = "Hi. If you're such a great design. Come rescue me Toons."
+BossCogDiscoverToons = 'What? Toons? In disguise?!'
+BossCogAttackToons = "Attack them!!"
+CagedToonDrop = ["HURRY UP YOU LAME TOONS!!",
+ "HURRY UP!!",
+ "YOU CAN'T DO IT! YOUR GONNA FAIL!",
+ "YOU CAN'T DO IT! YOUR GONNA FAIL!"]
+CagedToonPrepareBattleTwo = "Help Me! The Boss is getting stronger!\x07Go on and defeat his next set of Cogs.\x07But before you do, I must say this.\x07Just remember, you're going to fail!"
+CagedToonPrepareBattleThree = "What you must do is throw a bunch of pies at the Boss.\x07But don't worry, I got pies that you can use.\x07Just jump up to my cage, and you can get cakes.\x07But there is a limit of 30 cakes. So you will need to jump back after you run out to restock.\x07Good Luck Toons!"
+BossBattleNeedMorePies = 'Get pies you lame Toon!'
+BossBattleHowToGetPies = 'ARE YOU NEW OR SOMETHING!??!?!??!?!'
+BossBattleHowToThrowPies = 'THERES A DELETE KEY YOU KNOW!!'
+CagedToonYippee = 'Yay!'
 CagedToonThankYou = "It's great to be free!\x07Thanks for all your help!\x07I am in your debt.\x07Here's my card. If you ever need a hand in battle, give a shout!\x07Just click on your SOS button."
 CagedToonPromotion = "\x07Say--that V.P. Cog left behind your promotion papers.\x07I'll file them for you on the way out, so you'll get your promotion!"
 CagedToonLastPromotion = "\x07Wow, you've reached level %s on your Cog suit!\x07Cogs don't get promoted higher than that.\x07You can't upgrade your Cog suit anymore, but you can certainly keep rescuing Toons!"
@@ -5669,33 +5409,40 @@ CagedToonBattleThree = {10: 'Nice jump, %(toon)s.  Here are some pies!',
 CagedToonBattleThreeMaxGivePies = 12
 CagedToonBattleThreeMaxTouchCage = 21
 CagedToonBattleThreeMaxAdvice = 106
-CashbotBossHadEnough = "That's it.  I've had enough of these pesky Toons!"
-CashbotBossOuttaHere = "I've got a train to catch!"
+CashbotBossHadEnough = "I had enough!"
+CashbotBossOuttaHere = "I'm going to get a Train."
 ResistanceToonName = 'Mata Hairy'
-ResistanceToonCongratulations = "You did it!  Congratulations!\x07You're an asset to the Resistance!\x07Here's a special phrase you can use in a tight spot:\x07%s\x07When you say it, %s.\x07But you can only use it once, so choose that time well!"
+ResistanceToonCongratulations = "Horray! You did it!  Good Job!!\x07You done us a huge favor!\x07I hope that V.P wansn't too hard to destroy. Here is a reward.\x07%s\x07When you say the code. %s.\x07But you may only. I mean ONLY! Use it once, so be wise. If you don't, then you dumb.!"
 ResistanceToonToonupInstructions = 'all the Toons near you will gain %s Laff points'
 ResistanceToonToonupAllInstructions = 'all the Toons near you will gain full Laff points'
 ResistanceToonMoneyInstructions = 'all the Toons near you will gain %s jellybeans'
 ResistanceToonMoneyAllInstructions = 'all the Toons near you will fill their jellybean jars'
+ResistanceToonTicketsInstructions = 'all the Toons near you will gain %s tickets'
 ResistanceToonRestockInstructions = 'all the Toons near you will restock their "%s" gags'
 ResistanceToonRestockAllInstructions = 'all the Toons near you will restock all their gags'
+ResistanceToonMeritsInstructions = 'all the Toons near you will fill part of their %s'
+ResistanceToonMeritsAllInstructions = 'all the Toons near you will fill part of all their promotion papers'
 ResistanceToonLastPromotion = "\x07Wow, you've reached level %s on your Cog suit!\x07Cogs don't get promoted higher than that.\x07You can't upgrade your Cog suit anymore, but you can certainly keep working for the Resistance!"
 ResistanceToonHPBoost = "\x07You've done a lot of work for the Resistance.\x07The Toon Council has decided to give you another Laff point. Congratulations!"
-ResistanceToonMaxed = '\x07I see that you have a level %s Cog suit. Very impressive!\x07On behalf of the Toon Council, thank you for coming back to rescue more Toons!'
-CashbotBossCogAttack = 'Get them!!!'
-ResistanceToonWelcome = 'Hey, you made it!  Follow me to the main vault before the C.F.O. finds us!'
-ResistanceToonTooLate = "Blast it!  We're too late!"
-CashbotBossDiscoverToons1 = 'Ah-HAH!'
-CashbotBossDiscoverToons2 = 'I thought I smelled something a little toony in here!  Imposters!'
-ResistanceToonKeepHimBusy = "Keep him busy!  I'm going to set a trap!"
+ResistanceToonMaxed = '\x07I see you progressed in this new %s Fighter suit.. Good Job!\x07On this day forth, you will now be helping us protect Jedi from the Jedi council.!'
+CashbotBossCogAttack = 'Finish Them!!'
+ResistanceToonWelcome = "Yay! You Made it Toons, now let's go to the School House before the Doctor sees us."
+ResistanceToonTooLate = "Blast it! The Doctor is here, we're too late!"
+CashbotBossDiscoverToons1 = "What is this?"
+CashbotBossDiscoverToons2 = "I knew something was fishy about you Cogs. You're all Toons!"
+ResistanceToonKeepHimBusy = "Fight the Cogs while I set up a trap!"
 ResistanceToonWatchThis = 'Watch this!'
-CashbotBossGetAwayFromThat = 'Hey!  Get away from that!'
-ResistanceToonCraneInstructions1 = 'Control a magnet by stepping up to a podium.'
-ResistanceToonCraneInstructions2 = 'Use the arrow keys to move the crane, and press the Ctrl key to grab an object.'
-ResistanceToonCraneInstructions3 = "Grab a safe with a magnet and knock the C.F.O.'s safe-ty helmet off."
-ResistanceToonCraneInstructions4 = 'Once his helmet is gone, grab a disabled goon and hit him in the head!'
-ResistanceToonGetaway = 'Eek!  Gotta run!'
+CashbotBossGetAwayFromThat = 'Hey!  You get away from that crane!'
+ResistanceToonCraneInstructions1 = 'Get ready for my Trap C.F.O!'
+ResistanceToonCraneInstructions2 = 'You see, we have a powerful weapon.'
+ResistanceToonCraneInstructions3 = "We got Cranes!"
+ResistanceToonCraneInstructions4 = 'Now what you must do is...'
+ResistanceToonGetaway = "WHAT! I WASN'T FINISHED YET!"
+ResistanceToonRunaway = "Get out there and fight the Boss, I know you can do it!"
 CashbotCraneLeave = 'Leave Crane'
+CashbotCraneAdvice = 'HURRY UP!'
+CashbotMagnetAdvice = 'DO YOU NOT KNOW HOW TO CRANE YOU TOON???????'
+CashbotCraneLeaving = 'Leaving crane'
 CashbotCraneAdvice = 'Use the arrow keys to move the overhead crane.'
 CashbotMagnetAdvice = 'Hold down the control key to pick things up.'
 CashbotCraneLeaving = 'Leaving crane'
@@ -6961,18 +6708,17 @@ NPCToonNames = {20000: 'Tutorial Tom',
  1000: lToonHQ,
  20001: Flippy,
  2001: Flippy,
- 2002: 'Banker Bob',
+ 2002: 'Master Cool Cat',
  2003: 'Professor Pete',
  2004: 'Tammy the Tailor',
- 2005: 'Librarian Larry',
+ 2005: 'Roflando',
  2006: 'Clerk Clark',
- 2011: 'Clerk Clara',
+ 2011: 'Hudson',
  2007: lHQOfficerM,
  2008: lHQOfficerM,
  2009: lHQOfficerF,
  2010: lHQOfficerF,
  2012: 'Fisherman Freddy',
- 2018: 'Duff..err..TIP Man',
  2013: 'Clerk Poppy',
  2014: 'Clerk Peppy',
  2015: 'Clerk Pappy',
@@ -6981,6 +6727,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2018: 'Doctor Surlee',
  2019: 'Doctor Dimm',
  2020: 'Professor Prepostera',
+ 2021: 'Painter Eddy',
  2101: 'Dentist Daniel',
  2102: 'Sheriff Sherry',
  2103: 'Sneezy Kitty',
@@ -6989,7 +6736,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2106: lHQOfficerF,
  2107: lHQOfficerF,
  2108: 'Canary Coalmine',
- 2109: 'Babbles Blowhard',
+ 2109: 'Sir Babbles A Lot',
  2110: 'Bill Board',
  2111: 'Dancing Diego',
  2112: 'Dr. Tom',
@@ -7001,7 +6748,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2118: 'Jesse Jester',
  2119: 'Honey Haha',
  2120: 'Professor Binky',
- 2121: 'Madam Chuckle',
+ 2121: 'Sweet',
  2122: 'Harry Ape',
  2123: 'Spamonia Biggles',
  2124: 'T.P. Rolle',
@@ -7012,7 +6759,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2129: 'Frank Furter',
  2130: 'Joy Buzzer',
  2131: 'Feather Duster',
- 2132: 'Daffy Don',
+ 2132: 'Ezmerelda',
  2133: 'Dr. Euphoric',
  2134: 'Silent Simone',
  2135: 'Mary',
@@ -7053,9 +6800,9 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2305: lHQOfficerM,
  2306: lHQOfficerF,
  2307: lHQOfficerF,
- 2308: 'Nancy Gas',
+ 2308: 'Rozie',
  2309: 'Big Bruce',
- 2311: 'Franz Neckvein',
+ 2311: 'Doctor McMouse',
  2312: 'Dr. Sensitive',
  2313: 'Lucy Shirtspot',
  2314: 'Ned Slinger',
@@ -7065,7 +6812,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2319: 'Zippy',
  2320: 'Crunchy Alfredo',
  2321: 'Fisherman Punchy',
- 1001: 'Clerk Will',
+ 1001: 'Sophia',
  1002: 'Clerk Bill',
  1003: lHQOfficerM,
  1004: lHQOfficerF,
@@ -7093,7 +6840,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  1113: 'Lisa Luff',
  1114: 'Charlie Chum',
  1115: 'Sheila Squid, Atty',
- 1116: 'Barnacle Bessie',
+ 1116: 'Cuddles',
  1117: 'Captain Yucks',
  1118: 'Choppy McDougal',
  1121: 'Linda Landlubber',
@@ -7152,7 +6899,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  1320: 'Ted Calm',
  1321: 'Dinah Docker',
  1322: 'Whoopie Cushion',
- 1323: 'Stinky Ned',
+ 1323: 'LILY THE FAT NOOB',
  1324: 'Pearl Diver',
  1325: 'Ned Setter',
  1326: 'Felicia Chips',
@@ -7168,7 +6915,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  3004: lHQOfficerM,
  3005: lHQOfficerM,
  3006: 'Clerk Lenny',
- 3007: 'Clerk Penny',
+ 3007: 'Chloe',
  3008: 'Warren Bundles',
  3009: 'Fisherman Frizzy',
  3010: 'Clerk Skip',
@@ -7187,7 +6934,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  3109: 'Kate',
  3110: 'Chicken Boy',
  3111: 'Snooty Sinjin',
- 3112: 'Lil Oldman',
+ 3112: 'Classic Noah',
  3113: 'Hysterical Harry',
  3114: 'Henry the Hazard',
  3115: lHQOfficerM,
@@ -7305,11 +7052,11 @@ NPCToonNames = {20000: 'Tutorial Tom',
  4112: 'Fa',
  4113: 'Madam Manners',
  4114: 'Offkey Eric',
- 4115: 'Barbara Seville',
+ 4115: 'Baby Cool Cat',
  4116: 'Piccolo',
  4117: 'Mandy Lynn',
  4118: 'Attendant Abe',
- 4119: 'Moe Zart',
+ 4119: 'Lizzy',
  4120: 'Viola Padding',
  4121: 'Gee Minor',
  4122: 'Minty Bass',
@@ -7330,7 +7077,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  4137: 'Tony Deff',
  4138: 'Cliff Cleff',
  4139: 'Harmony Swell',
- 4140: 'Clumsy Ned',
+ 4140: 'Chris',
  4141: 'Fisherman Jed',
  4201: 'Tina',
  4202: 'Barry',
@@ -7349,7 +7096,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  4216: 'Gummy Whistle',
  4217: 'Handsome Anton',
  4218: 'Wilma Wind',
- 4219: 'Sid Sonata',
+ 4219: 'FOG DOG',
  4220: 'Curtis Finger',
  4221: 'Moe Madrigal',
  4222: 'John Doe',
@@ -7494,6 +7241,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  5320: 'April',
  5321: 'Professor Ivy',
  5322: 'Fisherman Rose',
+ 6000: 'Fisherman Melville',
  8001: 'Graham Pree',
  8002: 'Ivona Race',
  8003: 'Anita Winn',
@@ -7587,18 +7335,30 @@ NPCToonNames = {20000: 'Tutorial Tom',
  9235: lHQOfficerM,
  9236: lHQOfficerM,
  9237: 'Fisherman Jung',
- 9301: 'Phil Bettur',
- 9302: 'Emma Phatic',
- 9303: 'GiggleMesh',
- 9304: 'Anne Ville',
- 9305: 'Bud Erfingerz',
- 9306: 'J.S. Bark',
- 9307: 'Bea Sharpe',
- 9308: 'Otto Toon',
- 9309: 'Al Capella',
- 9310: 'Des Traction',
- 9311: 'Dee Version',
- 9312: 'Bo Nanapeel',
+ 9301: 'Fisherman John',
+ 9302: 'Blithesome Barbra',
+ 9303: 'Hasty John',
+ 9304: 'Angry Dan',
+ 9305: lHQOfficerM,
+ 9306: lHQOfficerM,
+ 9307: lHQOfficerF,
+ 9308: lHQOfficerF,
+ 9309: 'Ori-O',
+ 9310: 'Mr. Batty',
+ 9311: 'Doctor Flippenbrains',
+ 9312: 'Barden Betty',
+ 9313: 'Frekly Fred',
+ 9314: 'Robby',
+ 9315: 'Baker Penelope',
+ 9316: 'Angie Lerr',
+ 9317: 'Nocturnal Nattie',
+ 9318: 'Los Carlos',
+ 9319: 'Psyche',
+ 9320: 'Toony Bob',
+ 9321: 'Sir Biscuit',
+ 9322: 'Glower',
+ 9323: 'Zedd',
+ 9324: 'Nacib',
  7001: 'N. Prisoned',
  7002: 'R.E. Leaseme',
  7003: 'Lemmy Owte',
@@ -7607,7 +7367,27 @@ NPCToonNames = {20000: 'Tutorial Tom',
  7006: 'Gimmy Ahand',
  7007: 'Dewin Tymme',
  7008: 'Ima Cagedtoon',
- 7009: 'Jimmy Thelock'}
+ 7009: 'Jimmy Thelock',
+ 7010: 'Jaymo',
+ 7011: 'Donald',
+ 7012: 'A',
+ 7013: 'B',
+ 7014: 'C',
+ 7015: 'D',
+ 7016: 'F',
+ 7017: 'G',
+ 7018: 'H',
+ 7019: 'I',
+ 7020: 'J',
+ 7021: 'K',
+ 7022: 'L',
+ 7023: 'M',
+ 10001: 'Healer Sara',
+ 10002: "Journei Bensonadams",
+ 11001: 'Healer Gabriel',
+ 12001: 'Healer Bill',
+ 13001: 'Healer Clover',
+ 13002: 'Bumpy Bumblebehr'}
 zone2TitleDict = {2513: ('Toon Hall', ''),
  2514: ('Toontown Bank', ''),
  2516: ('Toontown School House', ''),
@@ -8910,11 +8690,11 @@ CircuitRaceOngoing = 'Welcome! The Toontown Grand Prix is currently in progress.
 CircuitRaceEnd = "That's all for today's Toontown Grand Prix at Goofy Speedway.  See you next week!"
 TrickOrTreatMsg = 'You have already\nfound this treat!'
 WinterCarolingMsg = 'You have already been caroling here!'
-LawbotBossTempIntro0 = "Hmmm what's on the docket today?"
-LawbotBossTempIntro1 = 'Aha, we have a Toon on trial!'
-LawbotBossTempIntro2 = "The prosecution's case is strong."
-LawbotBossTempIntro3 = 'And here are the public defenders.'
-LawbotBossTempIntro4 = "Wait a minute... You're Toons!"
+LawbotBossTempIntro0 = "Ooooh, what's going on here?"
+LawbotBossTempIntro1 = 'Bruh, there is someone here.'
+LawbotBossTempIntro2 = "Get KingShine here, he's gonna do something about this."
+LawbotBossTempIntro3 = 'Oh, hello fellow royal people.'
+LawbotBossTempIntro4 = "Wait, you're all Toons!"
 LawbotBossTempJury1 = 'Jury selection will now commence.'
 LawbotBossHowToGetEvidence = 'Touch the witness stand to get evidence.'
 LawbotBossTrialChat1 = 'Court is now in session'
@@ -9489,37 +9269,48 @@ BoardingTimeWarning = 'Boarding the elevator in '
 BoardingMore = 'more'
 BoardingGoShow = 'Going to\n%s in '
 BoardingGoPreShow = 'Confirming...'
-BossbotBossName = 'C.E.O.'
-BossbotRTWelcome = 'You toons will need different disguises.'
-BossbotRTRemoveSuit = 'First take off your cog suits...'
-BossbotRTFightWaiter = 'and then fight these waiters.'
-BossbotRTWearWaiter = "Good Job! Now put on the waiters' clothes."
-BossbotBossPreTwo1 = "What's taking so long? "
-BossbotBossPreTwo2 = 'Get cracking and serve my banquet!'
-BossbotRTServeFood1 = 'Hehe, serve the food I place on these conveyor belts.'
-BossbotRTServeFood2 = 'If you serve a cog three times in a row it will explode.'
-BossbotResistanceToonName = "Good ol' Gil Giggles"
-BossbotPhase3Speech1 = "What's happening here?!"
-BossbotPhase3Speech2 = 'These waiters are toons!'
-BossbotPhase3Speech3 = 'Get them!!!'
-BossbotPhase4Speech1 = 'Hrrmmpph. When I need a job done right...'
-BossbotPhase4Speech2 = "I'll do it myself."
-BossbotRTPhase4Speech1 = 'Good Job! Now squirt the C.E.O. with the water on the tables...'
-BossbotRTPhase4Speech2 = 'or use golf balls to slow him down.'
+BossbotBossName = 'KingShine'
+BossbotRTWelcome = "Hello Toons! Welcome to KingShine's Lair!"
+BossbotRTRemoveSuit = 'Cog suits...'
+BossbotRTFightWaiter = 'You know the drill.'
+BossbotRTWearWaiter1 = "Good Job Toons! You defeated the Waiters!"
+BossbotRTWearWaiter2 = "Now be aware, the King is inside these chambers."
+BossbotRTWearWaiter3 = "The King is very strict, given orders by his Queen."
+BossbotRTWearWaiter4 = "We cannot fail, because if we do, we will get kicked out."
+BossbotRTWearWaiter5 = "Now let's listen to see what he has to say."
+BossbotBossPreTwo1 = "Hello, Cogs. I would like to order."
+BossbotBossPreTwo2 = 'Serve my waiters cakes, with no mayo please.'
+BossbotRTServeFood1 = "Well, it looks like you're the new waiter."
+BossbotRTServeFood2 = "So, my friend Marco baked me some cake."
+BossbotRTServeFood3 = "They contain a special ingredient called Mayonnaise."
+BossbotRTServeFood4 = "Serve a Cog with two cakes in a row, and they will explode."
+BossbotRTServeFood5 = "But keep in mind, if they get angry, then you will have to restart that Cog."
+BossbotRTServeFood6 = 'Alright, I said enough, now get out there!'
+BossbotResistanceToonName = "Good Ol Giggles"
+BossbotPhase3Speech1 = "I SPECIFICALLY SAID NO MAYO ON THE CAKES!!!!!!!"
+BossbotPhase3Speech2 = 'WHY! DO THE CAKES! HAVE! MAYO!??!?!'
+BossbotPhase3Speech3 = 'Eliminate them from this office!!!'
+BossbotPhase4Speech1 = 'OH that does it! I had enough!'
+BossbotPhase4Speech2 = "This battle ends here! And now!! I'll send you straight to the Cog HQS!"
+BossbotRTPhase4Speech1 = "Oh no, he's very angry now..."
+BossbotRTPhase4Speech2 = 'Listen, we have no time to talk, finish him with anything you got! I know you can do it!'
+BossbotRTPhase4Speech3 = 'Use the seltzer bottles to damage him.'
+BossbotRTPhase4Speech4 = 'Or use Golf balls to slow him down.'
+BossbotRTPhase4Speech5 = 'This will take some skill, so good luck Toons!'
 BossbotPitcherLeave = 'Leave Bottle'
 BossbotPitcherLeaving = 'Leaving Bottle'
 BossbotPitcherAdvice = 'Use the left and right keys to rotate.\nHold down Ctrl increase power.\nRelease Ctrl to fire.'
 BossbotGolfSpotLeave = 'Leave Golf Ball'
 BossbotGolfSpotLeaving = 'Leaving Golf Ball'
 BossbotGolfSpotAdvice = 'Use the left and right keys to rotate.\nCtrl to fire.'
-BossbotRewardSpeech1 = "No! The Chairman won't like this."
-BossbotRewardSpeech2 = 'Arrrggghhh!!!!'
+BossbotRewardSpeech1 = "WHAT! NO! NOT THIS!"
+BossbotRewardSpeech2 = 'YOU STINK!!!!!!!'
 BossbotRTCongratulations = "You did it!  You've demoted the C.E.O.!\x07Here, take these pink slips the C.E.O. left behind.\x07With it you'll be able to fire Cogs in a battle."
 BossbotRTLastPromotion = "\x07Wow, you've reached level %s on your Cog Suit!\x07Cogs don't get promoted higher than that.\x07You can't upgrade your Cog Suit anymore, but you can certainly keep working for the Resistance!"
 BossbotRTHPBoost = "\x07You've done a lot of work for the Resistance.\x07The Toon Council has decided to give you another Laff point. Congratulations!"
 BossbotRTMaxed = '\x07I see that you have a level %s Cog Suit. Very impressive!\x07On behalf of the Toon Council, thank you for coming back to defend more Toons!'
-GolfAreaAttackTaunt = 'Fore!'
-OvertimeAttackTaunts = ["It's time to reorganize.", "Now let's downsize."]
+GolfAreaAttackTaunt = 'AHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!'
+OvertimeAttackTaunts = ["You asked for it, time to disable room A.", "You have nothing, room B is going bye bye!"]
 ElevatorBossBotBoss = 'C.E.O Battle'
 ElevatorBossBotCourse0 = 'The Front Three'
 ElevatorBossBotCourse1 = 'The Middle Six'

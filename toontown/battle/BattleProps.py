@@ -395,10 +395,13 @@ class PropPool:
                 animDict[name] = self.propStrings[name][1]
                 prop.loadAnims(animDict)
                 prop.setName(name)
+                prop.setBlend(frameBlend=True)
                 self.storeProp(name, prop)
                 if name in Variants:
                     self.makeVariant(name)
-            return Actor.Actor(other=self.props[name])
+            propToSend = Actor.Actor(other=self.props[name])
+            propToSend.setBlend(frameBlend=True)
+            return propToSend
         else:
             if name not in self.props:
                 prop = loader.loadModel(self.propStrings[name][0])

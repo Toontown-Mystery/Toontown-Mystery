@@ -11,6 +11,7 @@ from toontown.battle import BattleBase
 import BossCog
 import SuitDNA
 from toontown.coghq import CogDisguiseGlobals
+from toontown.coghq import BossHealthBar
 from direct.showbase import Transitions
 from toontown.hood import ZoneUtil
 from toontown.building import ElevatorUtils
@@ -64,6 +65,7 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
 
     def announceGenerate(self):
         DistributedAvatar.DistributedAvatar.announceGenerate(self)
+        self.bossHealthBar = BossHealthBar.BossHealthBar()
         self.prevCogSuitLevel = localAvatar.getCogLevels()[CogDisguiseGlobals.dept2deptIndex(self.style.dept)]
         nearBubble = CollisionSphere(0, 0, 0, 50)
         nearBubble.setTangible(0)
@@ -109,6 +111,14 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
         self.bubbleR = self.axle.attachNewNode(bubbleRNode)
         self.bubbleR.setTag('attackCode', str(ToontownGlobals.BossCogSwatRight))
         self.bubbleR.stash()
+        bubbleB = CollisionSphere(0, 25, 0, 12)
+        bubbleB.setTangible(0)
+        bubbleBNode = CollisionNode('BossZap')
+        bubbleBNode.setCollideMask(ToontownGlobals.WallBitmask)
+        bubbleBNode.addSolid(bubbleB)
+        self.bubbleB = self.rotateNode.attachNewNode(bubbleBNode)
+        self.bubbleB.setTag('attackCode', str(ToontownGlobals.BossCogFrontAttack))
+        self.bubbleB.stash()
         bubbleF = CollisionSphere(0, -25, 0, 12)
         bubbleF.setTangible(0)
         bubbleFNode = CollisionNode('BossZap')
@@ -117,6 +127,22 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
         self.bubbleF = self.rotateNode.attachNewNode(bubbleFNode)
         self.bubbleF.setTag('attackCode', str(ToontownGlobals.BossCogFrontAttack))
         self.bubbleF.stash()
+        bubbleFL = CollisionSphere(-25, 0, 0, 12)
+        bubbleFL.setTangible(0)
+        bubbleFLNode = CollisionNode('BossZap')
+        bubbleFLNode.setCollideMask(ToontownGlobals.WallBitmask)
+        bubbleFLNode.addSolid(bubbleFL)
+        self.bubbleFL = self.rotateNode.attachNewNode(bubbleFLNode)
+        self.bubbleFL.setTag('attackCode', str(ToontownGlobals.BossCogFrontAttack))
+        self.bubbleFL.stash()
+        bubbleFR = CollisionSphere(25, 0, 0, 12)
+        bubbleFR.setTangible(0)
+        bubbleFRNode = CollisionNode('BossZap')
+        bubbleFRNode.setCollideMask(ToontownGlobals.WallBitmask)
+        bubbleFRNode.addSolid(bubbleFR)
+        self.bubbleFR = self.rotateNode.attachNewNode(bubbleFRNode)
+        self.bubbleFR.setTag('attackCode', str(ToontownGlobals.BossCogFrontAttack))
+        self.bubbleFR.stash()
 
     def disable(self):
         DistributedAvatar.DistributedAvatar.disable(self)
@@ -133,6 +159,7 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
         self.cleanupFlash()
         self.disableLocalToonSimpleCollisions()
         self.ignoreAll()
+        self.bossHealthBar.cleanup()
         return
 
     def delete(self):
@@ -661,6 +688,10 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
     def zapLocalToon(self, attackCode, origin = None):
         if self.localToonIsSafe or localAvatar.ghostMode or localAvatar.isStunned:
             return
+        if (attackCode in ToontownGlobals.NonBossCogAttacks):
+            pass
+        elif (self.attackCode in ToontownGlobals.BossCogDizzyStates):
+            return
         messenger.send('interrupt-pie')
         place = self.cr.playGame.getPlace()
         currentState = None
@@ -908,11 +939,11 @@ class DistributedBossCog(DistributedAvatar.DistributedAvatar, BossCog.BossCog):
             self.zapLocalToon(ToontownGlobals.BossCogAreaAttack)
 
     def loadEnvironment(self):
-        self.elevatorMusic = base.loader.loadMusic('phase_7/audio/bgm/tt_elevator.ogg')
-        self.stingMusic = base.loader.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
-        self.battleOneMusic = base.loader.loadMusic('phase_3.5/audio/bgm/encntr_general_bg.ogg')
-        self.battleThreeMusic = base.loader.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
-        self.epilogueMusic = base.loader.loadMusic('phase_9/audio/bgm/encntr_hall_of_fame.ogg')
+        self.elevatorMusic = base.loadMusic('phase_7/audio/bgm/tt_elevator.ogg')
+        self.stingMusic = base.loadMusic('phase_10/audio/bgm/CFO_intro.ogg')
+        self.battleOneMusic = base.loadMusic('phase_10/audio/bgm/CFO_round_1.ogg')
+        self.battleThreeMusic = base.loadMusic('phase_10/audio/bgm/encntr_boss_bg.ogg')
+        self.epilogueMusic = base.loadMusic('phase_9/audio/bgm/encntr_toon_winning.ogg')
 
     def unloadEnvironment(self):
         pass

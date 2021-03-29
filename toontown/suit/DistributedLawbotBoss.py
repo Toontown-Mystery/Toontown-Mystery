@@ -239,6 +239,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 if self.recoverRate:
                     taskMgr.add(self.__recoverBossDamage, taskName)
         self.makeScaleReflectDamage()
+        self.bossHealthBar.update(self.bossMaxDamage - bossDamage, self.bossMaxDamage)
 
     def getBossDamage(self):
         self.notify.debug('----- getBossDamage')
@@ -391,9 +392,12 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         elevatorModel = loader.loadModel('phase_11/models/lawbotHQ/LB_Elevator')
         elevatorModel.reparentTo(self.elevatorEntrance)
         self.setupElevator(elevatorModel)
-        self.promotionMusic = base.loader.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
-        self.betweenBattleMusic = base.loader.loadMusic('phase_9/audio/bgm/encntr_toon_winning.ogg')
-        self.battleTwoMusic = base.loader.loadMusic('phase_11/audio/bgm/LB_juryBG.ogg')
+        self.elevatorMusic = base.loader.loadMusic('phase_11/audio/bgm/Court_elevator.ogg')
+        self.promotionMusic = base.loadMusic('phase_11/audio/bgm/encntr_head_suit_theme.ogg')
+        self.betweenBattleMusic = base.loadMusic('phase_9/audio/bgm/encntr_suit_winning.ogg')
+        self.battleOneMusic = base.loadMusic('phase_11/audio/bgm/CJ_round_1.ogg')
+        self.battleTwoMusic = base.loadMusic('phase_9/audio/bgm/encntr_suit_winning.ogg')
+        self.battleThreeMusic = base.loadMusic('phase_11/audio/bgm/CJ_scale_round.ogg')
         floor = self.geom.find('**/MidVaultFloor1')
         if floor.isEmpty():
             floor = self.geom.find('**/CR3_Floor')
@@ -850,6 +854,12 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         return self.juryBox
 
     def startJuryBoxMoving(self):
+        if self.juryBoxIval:
+            self.juryBoxIval.finish()
+            self.juryBoxIval = None
+        self.juryBox.setPos(-30, 0, -12.645)
+        self.reflectedJuryBox.setPos(-30, 0, 0)
+
         curPos = self.juryBox.getPos()
         endingAbsPos = Point3(curPos[0] + ToontownGlobals.LawbotBossJuryBoxRelativeEndPos[0], curPos[1] + ToontownGlobals.LawbotBossJuryBoxRelativeEndPos[1], curPos[2] + ToontownGlobals.LawbotBossJuryBoxRelativeEndPos[2])
         curReflectedPos = self.reflectedJuryBox.getPos()
@@ -959,9 +969,11 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         base.playMusic(self.battleThreeMusic, looping=1, volume=0.9)
         self.__showWitnessToon()
         diffSettings = ToontownGlobals.LawbotBossDifficultySettings[self.battleDifficulty]
+        self.bossHealthBar.initialize(self.bossMaxDamage - self.bossDamage, self.bossMaxDamage)
         if diffSettings[4]:
             localAvatar.chatMgr.chatInputSpeedChat.removeCJMenu()
             localAvatar.chatMgr.chatInputSpeedChat.addCJMenu(self.bonusWeight)
+
 
     def __doneBattleThree(self):
         self.notify.debug('----- __doneBattleThree')
@@ -1043,6 +1055,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq = Sequence(self.makeVictoryMovie(), Func(self.__continueVictory), name=intervalName)
         seq.start()
         self.storeInterval(seq, intervalName)
+        self.bossHealthBar.deinitialize()
         base.playMusic(self.battleThreeMusic, looping=1, volume=0.9, time=self.battleThreeMusicTime)
 
     def __continueVictory(self):

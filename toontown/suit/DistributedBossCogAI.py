@@ -37,10 +37,11 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
          'BattleOne', 'BattleTwo', 'BattleThree', 'Victory']
         self.bossDamage = 0
         self.battleThreeStart = 0
-        self.battleThreeDuration = 1800
+        self.battleThreeDuration = 900
         self.attackCode = None
         self.attackAvId = 0
         self.hitCount = 0
+        self.hardmode = 0
         self.nerfed = False
         self.numRentalDiguises = 0
         self.numNormalDiguises = 0
@@ -402,9 +403,9 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         random.shuffle(toons)
         numToons = min(len(toons), 8)
         if numToons < 4:
-            numToonsB = numToons / 2
+            numToonsB = numToons / 8
         else:
-            numToonsB = (numToons + random.choice([0, 1])) / 2
+            numToonsB = (numToons + random.choice([0, 1])) / 8
         teamA = toons[numToonsB:numToons]
         teamB = toons[:numToonsB]
         loose = toons[numToons:]
@@ -551,13 +552,17 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         planner = SuitPlannerInteriorAI.SuitPlannerInteriorAI(1, buildingCode, self.dna.dept, self.zoneId)
         planner.respectInvasions = 0
         suits = planner.genFloorSuits(0)
-        if skelecog:
+        if skelecog != 0:
             for suit in suits['activeSuits']:
                 suit.b_setSkelecog(1)
+                if skelecog == 2:
+                    suit.b_setVirtual(1)
 
             for reserve in suits['reserveSuits']:
                 suit = reserve[0]
                 suit.b_setSkelecog(1)
+                if skelecog == 2:
+                    suit.b_setVirtual(1)
 
         return suits
 
@@ -598,10 +603,13 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         t = max(t0, t1)
         return fromValue + (toValue - fromValue) * min(t, 1)
 
-    def progressRandomValue(self, fromValue, toValue, radius=0.2):
+    def progressRandomValue(self, fromValue, toValue, radius=0.2, noRandom=False):
         t = self.progressValue(0, 1)
         radius = radius * (1.0 - abs(t - 0.5) * 2.0)
-        t += radius * random.uniform(-1, 1)
+        if noRandom:
+            t += radius
+        else:
+            t += radius * random.uniform(-1, 1)
         t = max(min(t, 1.0), 0.0)
         return fromValue + (toValue - fromValue) * t
 
@@ -616,7 +624,10 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
             self.notify.debug('%s.toons = %s' % (self.doId, str[2:]))
 
     def getDamageMultiplier(self):
-        return 1.0
+        if self.hardmode:
+            return 2.5
+        else:
+            return 1.0
 
     def zapToon(self, x, y, z, h, p, r, bpx, bpy, attackCode, timestamp):
         avId = self.air.getAvatarIdFromSender()
@@ -655,12 +666,12 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         self.attackCode = attackCode
         self.attackAvId = avId
         if attackCode == ToontownGlobals.BossCogDizzy or attackCode == ToontownGlobals.BossCogDizzyNow:
-            delayTime = self.progressValue(20, 5)
+            delayTime = self.progressValue(10, 4)
             self.hitCount = 0
         else:
             if attackCode == ToontownGlobals.BossCogSlowDirectedAttack:
                 delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
-                delayTime += self.progressValue(10, 0)
+                delayTime += self.progressValue(2, 0)
             else:
                 delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
                 if delayTime == None:

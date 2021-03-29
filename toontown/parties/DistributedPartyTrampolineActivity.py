@@ -224,7 +224,7 @@ class DistributedPartyTrampolineActivity(DistributedPartyActivity):
             self.leavingTrampoline = True
             self.timer.reset()
             self.trampB = self.leavingTrampB
-            self.ignore('control')
+            self.ignore(base.JUMP)
             self.quitEarlyButton.stash()
         return
 
@@ -291,9 +291,9 @@ class DistributedPartyTrampolineActivity(DistributedPartyActivity):
         DistributedPartyTrampolineActivity.notify.debug('startActive')
         if self.toon != None and self.toon.doId == base.localAvatar.doId:
             base.setCellsAvailable(base.bottomCells, True)
-            self.accept('arrow_left', self.onLeft)
+            self.accept(base.MOVE_LEFT, self.onLeft)
             self.accept('arrow_left-up', self.onLeftUp)
-            self.accept('arrow_right', self.onRight)
+            self.accept(base.MOVE_RIGHT, self.onRight)
             self.accept('arrow_right-up', self.onRightUp)
             self.beginRoundInterval = Sequence(Func(self._showFlashMessage, TTLocalizer.PartyTrampolineReady), Wait(1.2), Func(self.flashMessage, TTLocalizer.PartyTrampolineGo), Func(self.beginRound))
             self.beginRoundInterval.start()
@@ -356,7 +356,7 @@ class DistributedPartyTrampolineActivity(DistributedPartyActivity):
         self.timer.show()
         self.quitEarlyButton.unstash()
         self.notify.debug('Accepting contorl')
-        self.accept('control', self.onJump)
+        self.accept(base.JUMP, self.onJump)
         self.notify.debug('setting simulate step to true')
         self.doSimulateStep = True
 
@@ -387,9 +387,9 @@ class DistributedPartyTrampolineActivity(DistributedPartyActivity):
 
     def releaseToon(self):
         self._hideFlashMessage()
-        self.ignore('arrow_left')
+        self.ignore(base.MOVE_LEFT)
         self.ignore('arrow_left-up')
-        self.ignore('arrow_right')
+        self.ignore(base.MOVE_RIGHT)
         self.ignore('arrow_right-up')
         taskMgr.remove(self.uniqueName('TrampolineActivity.updateTask'))
         self.hopOffAnim = Sequence(self.toon.hprInterval(0.5, VBase3(-90.0, 0.0, 0.0), other=self.tramp), Func(self.toon.b_setAnimState, 'jump', 1.0), Func(self.toon.dropShadow.reparentTo, hidden), Wait(0.4), PartyUtils.arcPosInterval(0.75, self.toon, self.hopOffPos, 5.0, self.tramp), Func(self.postHopOff))

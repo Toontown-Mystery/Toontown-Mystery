@@ -63,7 +63,7 @@ def getSoundTrack(fileName, delay = 0.01, duration = None, node = None):
         return Sequence(Wait(delay), SoundInterval(soundEffect, node=node))
 
 
-def __createFishingPoleMultiTrack(lure, dollar, dollarName):
+def __createFishingPoleMultiTrack(lure, dollar, dollarName, dollarType):
     toon = lure['toon']
     target = lure['target']
     battle = lure['battle']
@@ -97,6 +97,14 @@ def __createFishingPoleMultiTrack(lure, dollar, dollarName):
             reachPos = Point3(opos[0], opos[1] - reachDist, opos[2])
             suitTrack.append(Func(suit.loop, 'neutral'))
             suitTrack.append(Wait(3.5))
+            if dollarType==1:
+                LureRoundsTrack = Func(suit.showHpText, AvLureRounds[0], openEnded=0, attackTrack=LURE_TRACK)
+            elif dollarType==5:
+                LureRoundsTrack = Func(suit.showHpText, AvLureRounds[2], openEnded=0, attackTrack=LURE_TRACK)
+            elif dollarType==10:
+                LureRoundsTrack = Func(suit.showHpText, AvLureRounds[4], openEnded=0, attackTrack=LURE_TRACK)
+            suitTrack.append(LureRoundsTrack)
+
             suitName = suit.getStyleName()
             retardPos, retardHpr = battle.getActorPosHpr(suit)
             retardPos.setY(retardPos.getY() + MovieUtil.SUIT_EXTRA_REACH_DISTANCE)
@@ -112,7 +120,7 @@ def __createFishingPoleMultiTrack(lure, dollar, dollarName):
             if trapProp:
                 suitTrack.append(Func(trapProp.wrtReparentTo, suit))
                 suit.battleTrapProp = trapProp
-            suitTrack.append(Func(suit.loop, 'neutral'))
+            suitTrack.append(Func(suit.loop, 'lured'))
             suitTrack.append(Func(battle.lureSuit, suit))
             if hp > 0:
                 suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
@@ -141,6 +149,7 @@ def __createMagnetMultiTrack(lure, magnet, pos, hpr, scale, isSmallMagnet = 1, n
     magnets = [magnet, magnet2]
     magnetTrack = Sequence(Wait(0.7), Func(MovieUtil.showProps, magnets, hands, pos, hpr, scale), Wait(6.3), Func(MovieUtil.removeProps, magnets))
     tracks.append(magnetTrack)
+    hasAppendedImmune = 0
     for target in targets:
         suit = target['suit']
         trapProp = suit.battleTrapProp
@@ -159,15 +168,28 @@ def __createMagnetMultiTrack(lure, magnet, pos, hpr, scale, isSmallMagnet = 1, n
                 numShakes = 3
                 shakeTotalDuration = 0.8
                 shakeDuration = shakeTotalDuration / float(numShakes)
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Wait(suitDelay))
+                if isSmallMagnet == 1:
+                    LureRoundsTrack = Func(suit.showHpText, AvLureRounds[1], openEnded=0, attackTrack=LURE_TRACK)
+                elif isSmallMagnet == 0:
+                    LureRoundsTrack = Func(suit.showHpText, AvLureRounds[3], openEnded=0, attackTrack=LURE_TRACK)
+                if hasAppendedImmune == 0:
+                    for immuneSuit in battle.activeSuits:
+                        if immuneSuit.getImmuneStatus() == 1:
+                            ImmuneLureText = Func(immuneSuit.showHpText, number=-1)
+                            suitTrack.append(ImmuneLureText)
+                            hasAppendedImmune = 1
+                            print('hasAppendedImmune: %s' % hasAppendedImmune)
+                suitTrack.append(LureRoundsTrack)
+                damageTrack = Sequence(Wait(0.5), Func(suit.showHpText, AvLureRounds[3], openEnded=0))
                 suitTrack.append(ActorInterval(suit, 'landing', startTime=2.37, endTime=1.82))
                 for i in xrange(0, numShakes):
                     suitTrack.append(ActorInterval(suit, 'landing', startTime=1.82, endTime=1.16, duration=shakeDuration))
 
                 suitTrack.append(ActorInterval(suit, 'landing', startTime=1.16, endTime=0.7))
                 suitTrack.append(ActorInterval(suit, 'landing', startTime=0.7, duration=1.3))
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Func(battle.lureSuit, suit))
                 if hp > 0:
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
@@ -204,6 +226,7 @@ def __createHypnoGogglesMultiTrack(lure, npcs = []):
     gogglesTrack = Sequence(Wait(0.6), Func(MovieUtil.showProps, bothGoggles, hands, pos, hpr, scale), ActorInterval(goggles, 'hypno-goggles', duration=2.2), Func(MovieUtil.removeProps, bothGoggles))
     toonTrack = Sequence(ActorInterval(toon, 'hypnotize'), Func(toon.loop, 'neutral'))
     tracks = Parallel(gogglesTrack, toonTrack)
+    hasAppendedImmune = 0
     for target in targets:
         suit = target['suit']
         trapProp = suit.battleTrapProp
@@ -219,11 +242,20 @@ def __createHypnoGogglesMultiTrack(lure, npcs = []):
                 opos, ohpr = battle.getActorPosHpr(suit)
                 reachDist = MovieUtil.SUIT_LURE_DISTANCE
                 reachPos = Point3(opos[0], opos[1] - reachDist, opos[2])
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Wait(suitDelay))
+                LureRoundsTrack = Func(suit.showHpText, AvLureRounds[5], openEnded=0, attackTrack=LURE_TRACK)
+                if hasAppendedImmune == 0:
+                    for immuneSuit in battle.activeSuits:
+                        if immuneSuit.getImmuneStatus() == 1:
+                            ImmuneLureText = Func(immuneSuit.showHpText, number=-1)
+                            suitTrack.append(ImmuneLureText)
+                            hasAppendedImmune = 1
+                            print('hasAppendedImmune: %s' % hasAppendedImmune)
+                suitTrack.append(LureRoundsTrack)
                 suitTrack.append(ActorInterval(suit, 'hypnotized', duration=3.1))
                 suitTrack.append(Func(suit.setPos, battle, reachPos))
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Func(battle.lureSuit, suit))
                 if hp > 0:
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
@@ -243,7 +275,7 @@ def __createHypnoGogglesMultiTrack(lure, npcs = []):
 def __lureOneDollar(lure):
     dollarProp = '1dollar'
     dollar = globalPropPool.getProp(dollarProp)
-    return __createFishingPoleMultiTrack(lure, dollar, dollarProp)
+    return __createFishingPoleMultiTrack(lure, dollar, dollarProp, dollarType=1)
 
 
 def __lureSmallMagnet(lure, npcs = []):
@@ -257,7 +289,7 @@ def __lureSmallMagnet(lure, npcs = []):
 def __lureFiveDollar(lure):
     dollarProp = '5dollar'
     dollar = globalPropPool.getProp(dollarProp)
-    return __createFishingPoleMultiTrack(lure, dollar, dollarProp)
+    return __createFishingPoleMultiTrack(lure, dollar, dollarProp, dollarType=5)
 
 
 def __lureLargeMagnet(lure, npcs = []):
@@ -271,7 +303,7 @@ def __lureLargeMagnet(lure, npcs = []):
 def __lureTenDollar(lure):
     dollarProp = '10dollar'
     dollar = globalPropPool.getProp(dollarProp)
-    return __createFishingPoleMultiTrack(lure, dollar, dollarProp)
+    return __createFishingPoleMultiTrack(lure, dollar, dollarProp, dollarType=10)
 
 
 def __lureHypnotize(lure, npcs = []):
@@ -358,7 +390,7 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
             nameTag = suit.find('**/joint_nameTag')
         trapTrack = Sequence(Wait(2.4), LerpScaleInterval(trapProp, 0.8, Point3(0.01, 0.01, 0.01)))
         moveTrack = Sequence(Wait(0.9), LerpPosInterval(suit, 0.9, sinkPos1, other=battle), LerpPosInterval(suit, 0.4, sinkPos2, other=battle), Func(suit.setPos, battle, dropPos), Func(suit.wrtReparentTo, hidden), Wait(1.1), Func(suit.wrtReparentTo, battle), LerpPosInterval(suit, 0.3, landPos, other=battle))
-        animTrack = Sequence(ActorInterval(suit, 'flail'), ActorInterval(suit, 'flail', startTime=1.1), Wait(0.7), ActorInterval(suit, 'slip-forward', duration=2.1))
+        animTrack = Sequence(ActorInterval(suit, 'flail'), ActorInterval(suit, 'flail', startTime=1.1), Wait(0.7), ActorInterval(suit, 'slip-forward', duration=5.0))
         damageTrack = Sequence(Wait(3.5), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
         soundTrack = Sequence(Wait(0.7), SoundInterval(globalBattleSoundCache.getSound('TL_quicksand.ogg'), node=suit), Wait(0.1), SoundInterval(globalBattleSoundCache.getSound('Toon_bodyfall_synergy.ogg'), node=suit))
         result.append(Parallel(trapTrack, moveTrack, animTrack, damageTrack, soundTrack))
@@ -370,18 +402,47 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
         dropPos.setZ(dropPos.getZ() + 15)
         trapTrack = Sequence(Wait(2.4), LerpScaleInterval(trapProp, 0.8, Point3(0.01, 0.01, 0.01)))
         moveTrack = Sequence(Wait(2.2), LerpPosInterval(suit, 0.4, sinkPos, other=battle), Func(suit.setPos, battle, dropPos), Func(suit.wrtReparentTo, hidden), Wait(1.6), Func(suit.wrtReparentTo, battle), LerpPosInterval(suit, 0.3, landPos, other=battle))
-        animTrack = Sequence(getSplicedLerpAnimsTrack(suit, 'flail', 0.7, 0.25), Func(trapProp.setColor, Vec4(0, 0, 0, 1)), ActorInterval(suit, 'flail', startTime=0.7, endTime=0), ActorInterval(suit, 'neutral', duration=0.5), ActorInterval(suit, 'flail', startTime=1.1), Wait(1.1), ActorInterval(suit, 'slip-forward', duration=2.1))
+        animTrack = Sequence(getSplicedLerpAnimsTrack(suit, 'flail', 0.7, 0.25), Func(trapProp.setColor, Vec4(0, 0, 0, 1)), ActorInterval(suit, 'flail', startTime=0.7, endTime=0), ActorInterval(suit, 'neutral', duration=0.5), ActorInterval(suit, 'flail', startTime=1.1), Wait(1.1), ActorInterval(suit, 'slip-forward', duration=5.0))
         damageTrack = Sequence(Wait(3.5), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
         soundTrack = Sequence(Wait(0.8), SoundInterval(globalBattleSoundCache.getSound('TL_trap_door.ogg'), node=suit), Wait(0.8), SoundInterval(globalBattleSoundCache.getSound('Toon_bodyfall_synergy.ogg'), node=suit))
         result.append(Parallel(trapTrack, moveTrack, animTrack, damageTrack, soundTrack))
     elif trapName == 'tnt':
         tntTrack = ActorInterval(trapProp, 'tnt')
         explosionTrack = Sequence(Wait(2.3), createTNTExplosionTrack(battle, trapProp=trapProp, relativeTo=parent))
-        suitTrack = Sequence(ActorInterval(suit, 'flail', duration=0.7), ActorInterval(suit, 'flail', startTime=0.7, endTime=0.0), ActorInterval(suit, 'neutral', duration=0.4), ActorInterval(suit, 'flail', startTime=0.6, endTime=0.7), Wait(0.4), ActorInterval(suit, 'slip-forward', startTime=2.48, duration=0.1), Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0.2, 0.2, 0.2, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'slip-forward', startTime=2.58), Func(suit.clearColorScale), Func(trapProp.sparksEffect.cleanup), Func(battle.movie.clearRestoreColor))
-        damageTrack = Sequence(Wait(2.3), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
-        explosionSound = base.loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
-        soundTrack = Sequence(SoundInterval(globalBattleSoundCache.getSound('TL_dynamite.ogg'), duration=2.0, node=suit), SoundInterval(explosionSound, duration=0.6, node=suit))
+        flyPos = suit.getPos()
+        flyPos.setZ(suit.getZ() + 17)
+        dropPos = suit.getPos()
+        oldCamera = base.camera.getPos()
+        oldHPR = base.camera.getHpr()
+        suitTrack = Sequence(ActorInterval(suit, 'flail', duration=0.7))
+        suitTrack.append(ActorInterval(suit, 'flail', startTime=0.7, endTime=0.0))
+        suitTrack.append(ActorInterval(suit, 'lured', duration=0.4))
+        suitTrack.append(ActorInterval(suit, 'flail', startTime=0.6, endTime=0.7))
+        if base.localAvatar in battle.activeToons:
+            suitTrack.append(Parallel(base.camera.posHprInterval(0.4, Point3(oldCamera[0], oldCamera[1], oldCamera[2]), Point3(0, 30, 0), blendType='easeInOut'), Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0.2, 0.2, 0.2, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9, duration=0.4, endTime=1.3), LerpPosInterval(suit, 0.3, flyPos)))
+        else:
+            suitTrack.append(Parallel(Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0.2, 0.2, 0.2, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9), LerpPosInterval(suit, 0.3, flyPos)))
+        if suit.maxHP <= 42:
+            suitTrack.append(midairSuitExplodeTrack(suit, battle))
+            damageTrack = Sequence(Wait(2.4), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
+            explosionSound = base.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+            soundTrack = Sequence(SoundInterval(globalBattleSoundCache.getSound('TL_dynamite.ogg'), duration=2.0, node=suit), SoundInterval(explosionSound, duration=0.6, node=suit))
+        else:
+            if base.localAvatar in battle.activeToons:
+                suitTrack.append(Parallel(Sequence(Wait(0.3), base.camera.posHprInterval(0.5, Point3(*oldCamera), Point3(*oldHPR), blendType='easeInOut')), ActorInterval(suit, 'slip-backward', playRate=1), LerpPosInterval(suit, 0.7, dropPos)))
+            else:
+                suitTrack.append(Parallel(ActorInterval(suit, 'slip-backward', playRate=1), LerpPosInterval(suit, 0.7, dropPos)))
+            suitTrack.append(Func(suit.clearColorScale))
+            suitTrack.append(Func(trapProp.sparksEffect.cleanup))
+            suitTrack.append(Func(battle.movie.clearRestoreColor))
+            damageTrack = Sequence(Wait(2.3), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
+            explosionSound = base.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+            soundTrack = Sequence(SoundInterval(globalBattleSoundCache.getSound('TL_dynamite.ogg'), duration=2.0, node=suit), SoundInterval(explosionSound, duration=0.6, node=suit))
         result.append(Parallel(tntTrack, suitTrack, damageTrack, explosionTrack, soundTrack))
+        if suit.maxHP <= 42:
+            suit.battleTrapProp = trapProp
+            result.append(Func(battle.removeTrap, suit, True))
+            return result
     elif trapName == 'traintrack':
         trainInterval = createIncomingTrainInterval(battle, suit, hp, lure, trapProp)
         result.append(trainInterval)
@@ -391,7 +452,7 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
     result.append(Func(battle.removeTrap, suit, True))
     result.append(Func(battle.unlureSuit, suit))
     result.append(__createSuitResetPosTrack(suit, battle))
-    result.append(Func(suit.loop, 'neutral'))
+    result.append(Func(suit.loop, 'lured'))
     if trapName == 'traintrack':
         result.append(Func(MovieUtil.removeProp, trapProp))
     return result
@@ -581,6 +642,7 @@ def __createSlideshowMultiTrack(lure, npcs = []):
     propTrack.append(Func(MovieUtil.removeProp, slideShowProp))
     tracks = Parallel(propTrack, toonTrack)
     targets = lure['target']
+    hasAppendedImmune = 0
     for target in targets:
         suit = target['suit']
         trapProp = suit.battleTrapProp
@@ -598,9 +660,18 @@ def __createSlideshowMultiTrack(lure, npcs = []):
                 reachPos = Point3(opos[0], opos[1] - reachDist, opos[2])
                 suitTrack.append(Func(suit.loop, 'neutral'))
                 suitTrack.append(Wait(suitDelay))
+                LureRoundsTrack = Func(suit.showHpText, AvLureRounds[6], openEnded=0, attackTrack=LURE_TRACK)
+                if hasAppendedImmune == 0:
+                    for immuneSuit in battle.activeSuits:
+                        if immuneSuit.getImmuneStatus() == 1:
+                            ImmuneLureText = Func(immuneSuit.showHpText, number=-1)
+                            suitTrack.append(ImmuneLureText)
+                            hasAppendedImmune = 1
+                            print('hasAppendedImmune: %s' % hasAppendedImmune)
+                suitTrack.append(LureRoundsTrack)
                 suitTrack.append(ActorInterval(suit, 'hypnotized', duration=3.1))
                 suitTrack.append(Func(suit.setPos, battle, reachPos))
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Func(battle.lureSuit, suit))
                 if hp > 0:
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))

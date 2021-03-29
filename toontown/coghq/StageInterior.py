@@ -4,7 +4,6 @@ from direct.fsm import ClassicFSM, State
 from direct.fsm import State
 from direct.showbase import BulletinBoardWatcher
 from panda3d.core import *
-from libotp import *
 from otp.distributed.TelemetryLimiter import RotationLimitToH, TLGatherAllAvs
 from toontown.toon import Toon
 from toontown.toonbase import ToontownGlobals
@@ -32,14 +31,12 @@ class StageInterior(BattlePlace.BattlePlace):
           'died',
           'teleportOut',
           'squished',
-          'DFA',
           'fallDown',
           'elevator']),
          State.State('sit', self.enterSit, self.exitSit, ['walk', 'died', 'teleportOut']),
          State.State('push', self.enterPush, self.exitPush, ['walk', 'died', 'teleportOut']),
          State.State('stickerBook', self.enterStickerBook, self.exitStickerBook, ['walk',
           'battle',
-          'DFA',
           'WaitForBattle',
           'died',
           'teleportOut']),
@@ -58,8 +55,6 @@ class StageInterior(BattlePlace.BattlePlace):
           'FLA',
           'quietZone',
           'WaitForBattle']),
-         State.State('DFA', self.enterDFA, self.exitDFA, ['DFAReject', 'teleportOut']),
-         State.State('DFAReject', self.enterDFAReject, self.exitDFAReject, ['walkteleportOut']),
          State.State('died', self.enterDied, self.exitDied, ['teleportOut']),
          State.State('FLA', self.enterFLA, self.exitFLA, ['quietZone']),
          State.State('quietZone', self.enterQuietZone, self.exitQuietZone, ['teleportIn']),
@@ -69,7 +64,8 @@ class StageInterior(BattlePlace.BattlePlace):
     def load(self):
         self.parentFSM.getStateNamed('stageInterior').addChild(self.fsm)
         BattlePlace.BattlePlace.load(self)
-        self.music = base.loader.loadMusic('phase_9/audio/bgm/CHQ_FACT_bg.ogg')
+        self.music = base.loadMusic('phase_9/audio/bgm/CogHQ_Stage_bg.ogg')
+        self.loader.battleMusic = base.loadMusic('phase_11/audio/bgm/encntr_head_suit_theme.ogg')
 
     def unload(self):
         self.parentFSM.getStateNamed('stageInterior').removeChild(self.fsm)

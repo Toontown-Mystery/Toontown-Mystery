@@ -28,6 +28,17 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
      (120, 2),
      (-120, 2),
      (180, 1)]
+    limitedDirectionTable = [(-10, 10),
+     (-10, 10),
+     (-10, 10),
+     (-10, 10),
+     (-20, 8),
+     (-20, 8),
+     (-20, 8),
+     (-20, 8),
+     (-40, 5),
+     (-60, 4),
+     (-80, 3)]
     offMask = BitMask32(0)
     onMask = CollisionNode.getDefaultCollideMask()
 
@@ -43,6 +54,15 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         cn = CollisionNode('feelerNode')
         self.feelerLength = self.legLength * 1.5
         feelerStart = 1
+        #if self.boss.wantMovementModifications:
+        #    for heading, weight in self.limitedDirectionTable:
+        #        rad = deg2Rad(heading)
+        #        x = -math.sin(rad)
+        #        y = math.cos(rad)
+        #        seg = CollisionSegment(x * feelerStart, y * feelerStart, 0, x * self.feelerLength, y * self.feelerLength, 0)
+        #        cn.addSolid(seg)
+        #        self.feelers.append(seg)
+        #else:
         for heading, weight in self.directionTable:
             rad = deg2Rad(heading)
             x = -math.sin(rad)
@@ -114,25 +134,43 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
 
         netScore = 0
         scoreTable = []
-        for i in xrange(len(self.directionTable)):
-            heading, weight = self.directionTable[i]
-            seg = self.feelers[i]
-            dist = entries.get(seg, self.feelerLength)
-            score = dist * weight
-            netScore += score
-            scoreTable.append(score)
+        if self.boss.wantMovementModifications:
+            for i in xrange(len(self.limitedDirectionTable)):
+                heading, weight = self.limitedDirectionTable[i]
+                seg = self.feelers[i]
+                dist = entries.get(seg, self.feelerLength)
+                score = dist * weight
+                netScore += score
+                scoreTable.append(score)
+        else:
+            for i in xrange(len(self.directionTable)):
+                heading, weight = self.directionTable[i]
+                seg = self.feelers[i]
+                dist = entries.get(seg, self.feelerLength)
+                score = dist * weight
+                netScore += score
+                scoreTable.append(score)
 
         if netScore == 0:
             self.notify.info('Could not find a path for %s' % self.doId)
             return None
         s = random.uniform(0, netScore)
-        for i in xrange(len(self.directionTable)):
-            s -= scoreTable[i]
-            if s <= 0:
-                heading, weight = self.directionTable[i]
-                seg = self.feelers[i]
-                dist = entries.get(seg, self.feelerLength)
-                return (heading, dist)
+        if self.boss.wantMovementModifications:
+            for i in xrange(len(self.limitedDirectionTable)):
+                s -= scoreTable[i]
+                if s <= 0:
+                    heading, weight = self.limitedDirectionTable[i]
+                    seg = self.feelers[i]
+                    dist = entries.get(seg, self.feelerLength)
+                    return (heading, dist)
+        else:
+            for i in xrange(len(self.directionTable)):
+                s -= scoreTable[i]
+                if s <= 0:
+                    heading, weight = self.directionTable[i]
+                    seg = self.feelers[i]
+                    dist = entries.get(seg, self.feelerLength)
+                    return (heading, dist)
 
         self.notify.warning('Fell off end of weighted table.')
         return (0, self.legLength)
@@ -196,10 +234,14 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         self.validate(avId, impact <= 1.0, 'invalid hitBoss impact %s' % impact)
         if avId not in self.boss.involvedToons:
             return
+        avatar = self.air.doId2do.get(avId)
         if self.state == 'Dropped' or self.state == 'Grabbed':
             if not self.boss.heldObject:
                 damage = int(impact * 25 * self.scale)
+                print("Goon Size: %s" % self.scale)
                 self.boss.recordHit(max(damage, 2))
+                if damage >= 15:
+                    avatar.d_setSystemMessage(0, str(impact))
         self.b_destroyGoon()
 
     def d_setTarget(self, x, y, h, arrivalTime):

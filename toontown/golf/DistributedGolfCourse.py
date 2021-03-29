@@ -15,7 +15,6 @@ from toontown.golf import GolfGlobals
 from toontown.golf import GolfScoreBoard
 from toontown.golf import GolfRewardDialog
 from toontown.toon import ToonHeadFrame
-#fixed district reset, have fun golfing! - Super Mouse
 
 class DistributedGolfCourse(DistributedObject.DistributedObject, FSM, DelayDeletable):
     notify = directNotify.newCategory('DistributedGolfCourse')

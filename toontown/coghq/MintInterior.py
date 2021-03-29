@@ -4,7 +4,6 @@ from direct.fsm import ClassicFSM, State
 from direct.fsm import State
 from direct.showbase import BulletinBoardWatcher
 from panda3d.core import *
-from libotp import *
 from otp.distributed.TelemetryLimiter import RotationLimitToH, TLGatherAllAvs
 from toontown.toon import Toon
 from toontown.toonbase import ToontownGlobals
@@ -30,7 +29,6 @@ class MintInterior(BattlePlace.BattlePlace):
           'died',
           'teleportOut',
           'squished',
-          'DFA',
           'fallDown',
           'stopped']),
          State.State('stopped', self.enterStopped, self.exitStopped, ['walk', 'teleportOut', 'stickerBook']),
@@ -38,7 +36,6 @@ class MintInterior(BattlePlace.BattlePlace):
          State.State('push', self.enterPush, self.exitPush, ['walk', 'died', 'teleportOut']),
          State.State('stickerBook', self.enterStickerBook, self.exitStickerBook, ['walk',
           'battle',
-          'DFA',
           'WaitForBattle',
           'died',
           'teleportOut']),
@@ -57,8 +54,6 @@ class MintInterior(BattlePlace.BattlePlace):
           'FLA',
           'quietZone',
           'WaitForBattle']),
-         State.State('DFA', self.enterDFA, self.exitDFA, ['DFAReject', 'teleportOut']),
-         State.State('DFAReject', self.enterDFAReject, self.exitDFAReject, ['walkteleportOut']),
          State.State('died', self.enterDied, self.exitDied, ['teleportOut']),
          State.State('FLA', self.enterFLA, self.exitFLA, ['quietZone']),
          State.State('quietZone', self.enterQuietZone, self.exitQuietZone, ['teleportIn']),
@@ -67,7 +62,8 @@ class MintInterior(BattlePlace.BattlePlace):
     def load(self):
         self.parentFSM.getStateNamed('mintInterior').addChild(self.fsm)
         BattlePlace.BattlePlace.load(self)
-        self.music = base.loader.loadMusic('phase_9/audio/bgm/CHQ_FACT_bg.ogg')
+        self.music = base.loadMusic('phase_10/audio/bgm/Cash_mint.ogg')
+        self.loader.battleMusic = base.loadMusic('phase_10/audio/bgm/Mint_battle.ogg')
 
     def unload(self):
         self.parentFSM.getStateNamed('mintInterior').removeChild(self.fsm)

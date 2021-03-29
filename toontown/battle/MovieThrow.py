@@ -11,7 +11,7 @@ import MovieCamera
 import MovieUtil
 from MovieUtil import calcAvgSuitPos
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieThrow')
-hitSoundFiles = ('AA_tart_only.ogg', 'AA_slice_only.ogg', 'AA_slice_only.ogg', 'AA_slice_only.ogg', 'AA_slice_only.ogg', 'AA_wholepie_only.ogg', 'AA_wholepie_only.ogg')
+hitSoundFiles = ('AA_tart_only.ogg', 'AA_tart_only.ogg', 'AA_slice_only.ogg', 'AA_slice_only.ogg', 'CHQ_SOS_pies_restock.ogg', 'AA_cake.ogg', 'AA_throw_wedding_cake_cog.ogg')
 tPieLeavesHand = 2.7
 tPieHitsSuit = 3.0
 tSuitDodges = 2.45

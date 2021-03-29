@@ -121,12 +121,16 @@ def chooseLureCloseShot(lures, openDuration, openName, attackDuration):
             hasTrainTrackTrap = True
 
     if hasTrainTrackTrap:
-        shotChoices = [avatarBehindHighRightShot]
+        shotChoices = [avatarTrainShot]
         av = lures[0]['toon']
     else:
         shotChoices = [allGroupLowShot]
     track = apply(random.choice(shotChoices), [av, duration])
     return track
+
+
+def avatarTrainShot(avatar, duration):
+    return heldRelativeShot(avatar, 0, -7, 1 + avatar.getHeight(), 0, 0, 0, duration, 'avatarTrainShot')
 
 
 def chooseSoundShot(sounds, targets, attackDuration, enterDuration = 0.0, exitDuration = 0.0):

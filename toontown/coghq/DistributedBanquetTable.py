@@ -30,8 +30,8 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
     pitcherMinH = -360
     pitcherMaxH = 360
     rotateSpeed = 30
-    waterPowerSpeed = base.config.GetDouble('water-power-speed', 15)
-    waterPowerExponent = base.config.GetDouble('water-power-exponent', 0.75)
+    waterPowerSpeed = base.config.GetDouble('water-power-speed', 35)
+    waterPowerExponent = base.config.GetDouble('water-power-exponent', 05)
     useNewAnimations = True
     TugOfWarControls = False
     OnlyUpArrow = True
@@ -65,7 +65,7 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         self.changeSeq = 0
         self.lastChangeSeq = 0
         self.pitcherAdviceLabel = None
-        self.fireLength = 250
+        self.fireLength = 1000
         self.fireTrack = None
         self.hitObject = None
         self.setupPowerBar()
@@ -298,6 +298,8 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         serviceLoc = self.serviceLocs[chairIndex]
 
         def foodAttach(self = self, diner = diner):
+            if self.serviceLocs[chairIndex].getNumChildren() < 1:
+                return
             foodModel = self.serviceLocs[chairIndex].getChild(0)
             (foodModel.reparentTo(diner.getRightHand()),)
             (foodModel.setHpr(Point3(0, -94, 0)),)
@@ -314,6 +316,8 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
             foodModel.setScale(newScale)
 
         def foodDetach(self = self, diner = diner):
+            if diner.getRightHand().getNumChildren() < 1:
+                return
             foodModel = diner.getRightHand().getChild(0)
             (foodModel.reparentTo(serviceLoc),)
             (foodModel.setPosHpr(0, 0, 0, 0, 0, 0),)
@@ -368,8 +372,8 @@ class DistributedBanquetTable(DistributedObject.DistributedObject, FSM.FSM, Banq
         locator = self.tableGroup.find('**/chair_%d' % (chairIndex + 1))
         deathSuit = diner.getLoseActor()
         ival = Sequence(Func(self.notify.debug, 'before actorinterval sit-lose'), ActorInterval(diner, 'sit-lose'), Func(self.notify.debug, 'before deathSuit.setHpr'), Func(deathSuit.setHpr, diner.getHpr()), Func(self.notify.debug, 'before diner.hide'), Func(diner.hide), Func(self.notify.debug, 'before deathSuit.reparentTo'), Func(deathSuit.reparentTo, self.chairLocators[chairIndex]), Func(self.notify.debug, 'befor ActorInterval lose'), ActorInterval(deathSuit, 'lose', duration=MovieUtil.SUIT_LOSE_DURATION), Func(self.notify.debug, 'before remove deathsuit'), Func(removeDeathSuit, diner, deathSuit, name='remove-death-suit-%d-%d' % (chairIndex, self.index)), Func(self.notify.debug, 'diner.stash'), Func(diner.stash))
-        spinningSound = base.loader.loadSfx('phase_3.5/audio/sfx/Cog_Death.ogg')
-        deathSound = base.loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+        spinningSound = base.loadSfx('phase_3.5/audio/sfx/Cog_Death_%s.ogg' % random.randint(1, 3))
+        deathSound = base.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart_%s.ogg' % random.randint(1, 6))
         deathSoundTrack = Sequence(Wait(0.8), SoundInterval(spinningSound, duration=1.2, startTime=1.5, volume=0.2, node=deathSuit), SoundInterval(spinningSound, duration=3.0, startTime=0.6, volume=0.8, node=deathSuit), SoundInterval(deathSound, volume=0.32, node=deathSuit))
         intervalName = 'dinerDie-%d-%d' % (self.index, chairIndex)
         deathIval = Parallel(ival, deathSoundTrack)

@@ -171,6 +171,9 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
             self.questMap = None
             self.prevToonIdx = 0
             self.teleporting = False
+            self.camStart = [0, 0, 0, 0, 0, 0]
+            self.camPoints = []
+            self.camera = camera
 
     def wantLegacyLifter(self):
         return True
@@ -735,9 +738,10 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
 
     def __pieInHand(self):
         pie = self.pieTracks.get(self.__pieSequence)
-        return pie and pie.getT() < 15.0 / 24.0
+        return pie and pie.getT() < 7.0 / 12.0
 
     def __toonMoved(self, isSet):
+        return
         if isSet:
             self.interruptPie()
 

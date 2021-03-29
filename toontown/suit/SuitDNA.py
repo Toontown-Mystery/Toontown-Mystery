@@ -40,37 +40,37 @@ suitHeadTypes = ['f',
  'm',
  'mh']
 suitATypes = ['ym',
- 'hh',
  'tbc',
  'dt',
- 'bs',
- 'le',
  'bw',
- 'pp',
- 'nc',
- 'rb',
+ 'ds',
  'nd',
+ 'tw',
  'tf',
  'm',
- 'mh']
-suitBTypes = ['p',
- 'ds',
- 'b',
- 'ac',
+ 'mh',
+ 'ms',
  'sd',
- 'bc',
- 'ls',
- 'tm',
- 'ms']
-suitCTypes = ['f',
- 'mm',
+ 'nc',
+ 'le',
  'cr',
+ 'rb',
+ 'mb']
+suitBTypes = ['p',
+ 'b',
+ 'hh',
+ 'gh',
+ 'bs',
+ 'tm',
+ 'ls',
+ 'mm',
+ 'pp',
+ 'bc']
+suitCTypes = ['f',
  'bf',
  'sc',
- 'tw',
- 'mb',
  'cc',
- 'gh']
+ 'ac']
 suitDepts = ['c',
  'l',
  'm',
@@ -143,7 +143,12 @@ def getSuitType(name):
 
 
 def getRandomSuitType(level, rng = random):
-    return random.randint(max(level - 4, 1), min(level, 8))
+    try:
+        returnval = random.randint(max(level - 4, 1), min(level, 8))
+    except:
+        returnval = 8
+
+    return returnval
 
 
 def getRandomSuitByDept(dept):

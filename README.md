@@ -1,31 +1,52 @@
-# Toontown-School-House
-Welcome to the Toontown School House repistory!
+# Toontown Mystery
+There is a Mystery to where you log into a original Toontown Game that you don't know what to expect.
+Random Textures.
+Random challenges.
+EVERYTHING IS RANDOM.
+You don't know what it is.
+You don't know what to expect.
+ALL THE NEW TOONTOWN MYSTERY!
+Play to find out! :D
 
-Toontown School House is a course dedicated to teaching members of the Toontown community how to develop for the game. For more information, head over to [this](https://www.reddit.com/r/Toontown/comments/doszgg/toontown_school_house_learn_to_develop_for/) Reddit post.
 
-Feel free to join our Discord server [here!](https://discord.gg/xFGA8Xa)
+# Installation
+* Clone or [Download] https://github.com/Toontown-Mystery/Toontown-Mystery the repository
 
-This project is currently inactive, but feel free to submit pull requests and join the Discord server regardless to interact with other people who are interested in developing for Toontown.
+* Extract the game file, however you wanna do that.
 
-# Panda3D
-This source code requires a customized version of Panda3D to run. Here are links to the 32 and 64 bit Windows executables. Please contact the teachers on our Discord server for instructions on the Linux Panda3D setup.
+* Click on the folder after extracting, NOT THE ZIP file.
 
-[Panda3D SDK for Windows (64-bit)](https://drive.google.com/file/d/1i-7C_uAfzZSaArzFh80NMD3Dg5FD2Tdt/view?usp=sharing)
+* Install Panda3D-1.11.0, which is an installation in the source, click on it.
 
-# Libuv 
-This source code requires libuv.dll in the astron folder to run. Here are links to the 32 bit dll and 64 bit dll.
-[Libuv.dll (32-bit)](https://cdn.discordapp.com/attachments/638485243560460309/640339222682664973/libuv.dll)
-[Libuv.dll(64-bit)](https://cdn.discordapp.com/attachments/638485243560460309/640339153346887696/libuv.dll)
-After downloading the file just drop it in the astron folder
+* Click on win32.
 
-# Source Code
-This source code is based on a March 2019 fork of Toontown Offline v1.0.0.0. It has been stripped of all Toontown Offline exclusive features, save one. The brand new Magic Words system made for Toontown Offline has been left alone, and upgraded to the most recent build. This feature will allow users to easily navigate around Toontown without any hassle.
+* SINGLEPLAYER: Click Astron, Uberdog, AI, join-server, type in any username you want, enter, then type in for the gameserver, 127.0.0.1, then it will lead you in the game.
 
-Credits:
-* [The Toontown Offline Team](https://ttoffline.com)
-* [Astron](https://github.com/Astron/Astron)
-* [Panda3D](https://github.com/panda3d/panda3d) (More specifically, the modified Astron Panda3D which can be found [here](https://github.com/Astron/panda3d))
-* [libpandadna](https://github.com/loblao/libpandadna)
-* [libotp-movement](https://github.com/jwcotejr/libotp-movement)
-* [libotp-nametags](https://github.com/loblao/libotp-nametags)
-* Reverse-engineered Toontown Online client/server source code is property of The Walt Disney Company.
+* MULTIPLAYER: Click join-server, type in your username or whatever you want, enter, then type the mini-server, enter. (Whoever is hosting the server will give it out.)
+
+* Enjoy the game! If it works for you!!
+
+
+
+# Useful commands:
+
+~maxtoon
+
+~unites (or insert any number) Example: ~unites 50
+
+~fires 255 (or insert any number) Example: ~fires 100
+
+~sos (select an sos name and insert number) Example: ~sos 100 barnacle bessie
+
+~unlimitedgags
+
+~run
+
+~ghost
+
+
+
+# Credits
+* Toontown School House - Source code
+* Master Cool Cat - Toontown Mystery
+* 2Epik4u - Some github stuff and server hosting

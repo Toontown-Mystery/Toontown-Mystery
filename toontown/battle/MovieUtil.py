@@ -8,7 +8,7 @@ import BattleParticles
 import BattleProps
 from toontown.toonbase import TTLocalizer
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieUtil')
-SUIT_LOSE_DURATION = 6.0
+SUIT_LOSE_DURATION = 8.5
 SUIT_LURE_DISTANCE = 2.6
 SUIT_LURE_DOLLAR_DISTANCE = 5.1
 SUIT_EXTRA_REACH_DISTANCE = 0.9
@@ -200,7 +200,7 @@ def removeReviveSuit(suit, deathSuit):
         deathSuit.detachNode()
         suit.cleanupLoseActor()
     suit.healthBar.show()
-    suit.reseatHealthBarForSkele()
+    suit.resetHealthBarForSkele()
 
 
 def virtualize(deathsuit):
@@ -261,9 +261,9 @@ def createSuitReviveTrack(suit, toon, battle, npcs = []):
     suitTrack.append(Func(notify.debug, 'before removeDeathSuit'))
     suitTrack.append(Func(removeReviveSuit, suit, deathSuit, name='remove-death-suit'))
     suitTrack.append(Func(notify.debug, 'after removeDeathSuit'))
-    suitTrack.append(Func(suit.loop, 'neutral'))
-    spinningSound = base.loader.loadSfx('phase_3.5/audio/sfx/Cog_Death.ogg')
-    deathSound = base.loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+    suitTrack.append(Func(suit.loop, 'landing'))
+    spinningSound = base.loadSfx('phase_3.5/audio/sfx/Cog_Death_%s.ogg' % random.randint(1, 3))
+    deathSound = base.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart_%s.ogg' % random.randint(1, 6))
     deathSoundTrack = Sequence(Wait(0.8), SoundInterval(spinningSound, duration=1.2, startTime=1.5, volume=0.2, node=suit), SoundInterval(spinningSound, duration=3.0, startTime=0.6, volume=0.8, node=suit), SoundInterval(deathSound, volume=0.32, node=suit))
     BattleParticles.loadParticles()
     smallGears = BattleParticles.createParticleEffect(file='gearExplosionSmall')
@@ -307,8 +307,8 @@ def createSuitDeathTrack(suit, toon, battle, npcs = []):
     suitTrack.append(Func(notify.debug, 'before removeDeathSuit'))
     suitTrack.append(Func(removeDeathSuit, suit, deathSuit, name='remove-death-suit'))
     suitTrack.append(Func(notify.debug, 'after removeDeathSuit'))
-    spinningSound = base.loader.loadSfx('phase_3.5/audio/sfx/Cog_Death.ogg')
-    deathSound = base.loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+    spinningSound = base.loadSfx('phase_3.5/audio/sfx/Cog_Death_%s.ogg' % random.randint(1, 3))
+    deathSound = base.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart_%s.ogg' % random.randint(1, 6))
     deathSoundTrack = Sequence(Wait(0.8), SoundInterval(spinningSound, duration=1.2, startTime=1.5, volume=0.2, node=deathSuit), SoundInterval(spinningSound, duration=3.0, startTime=0.6, volume=0.8, node=deathSuit), SoundInterval(deathSound, volume=0.32, node=deathSuit))
     BattleParticles.loadParticles()
     smallGears = BattleParticles.createParticleEffect(file='gearExplosionSmall')

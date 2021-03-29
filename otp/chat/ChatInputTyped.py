@@ -26,8 +26,8 @@ class ChatInputTyped(DirectObject.DirectObject):
         self.activate()
 
     def delete(self):
-        self.ignore('arrow_up-up')
-        self.ignore('arrow_down-up')
+        self.ignore(base.MOVE_UP + 'up')
+        self.ignore(base.MOVE_DOWN + 'up')
         self.chatFrame.destroy()
         del self.chatFrame
         del self.chatButton
@@ -58,8 +58,8 @@ class ChatInputTyped(DirectObject.DirectObject):
         self.typedChatButton.hide()
         self.typedChatBar.hide()
         if self.wantHistory:
-            self.accept('arrow_up-up', self.getPrevHistory)
-            self.accept('arrow_down-up', self.getNextHistory)
+            self.accept(base.MOVE_UP + 'up', self.getPrevHistory)
+            self.accept(base.MOVE_DOWN + 'up', self.getNextHistory)
         return
 
     def hide(self):
@@ -70,8 +70,8 @@ class ChatInputTyped(DirectObject.DirectObject):
         self.cancelButton.hide()
         self.typedChatButton.show()
         self.typedChatBar.show()
-        self.ignore('arrow_up-up')
-        self.ignore('arrow_down-up')
+        self.ignore(base.MOVE_UP + 'up')
+        self.ignore(base.MOVE_DOWN + 'up')
 
     def activate(self):
         self.chatEntry.set('')

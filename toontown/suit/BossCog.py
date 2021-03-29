@@ -80,6 +80,7 @@ class BossCog(Avatar.Avatar):
             self.initializeDropShadow()
             if base.wantNametags:
                 self.initializeNametag3d()
+                self.setBlend(frameBlend = config.GetBool('smooth-frames', True))
 
     def generateBossCog(self):
         self.throwSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_frisbee_gears.ogg')
@@ -87,13 +88,14 @@ class BossCog(Avatar.Avatar):
         self.spinSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_spin.ogg')
         self.rainGearsSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_raining_gears.ogg')
         self.swishSfx = loader.loadSfx('phase_5/audio/sfx/General_throw_miss.ogg')
-        self.boomSfx = loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+        self.boomSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_boom.ogg')
         self.deathSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_big_death.ogg')
         self.upSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_raise_up.ogg')
         self.downSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_collapse.ogg')
         self.reelSfx = loader.loadSfx('phase_9/audio/sfx/CHQ_VP_reeling_backwards.ogg')
         self.birdsSfx = loader.loadSfx('phase_4/audio/sfx/SZ_TC_bird1.ogg')
-        self.dizzyAlert = loader.loadSfx('phase_5/audio/sfx/AA_sound_aoogah.ogg')
+        self.dizzyAlert = loader.loadSfx('phase_5/audio/sfx/lightning_2.ogg')
+        self.exclaim = loader.loadSfx('phase_9/audio/sfx/Boss_COG_VO_exclaim.ogg')
         self.grunt = loader.loadSfx('phase_9/audio/sfx/Boss_COG_VO_grunt.ogg')
         self.murmur = loader.loadSfx('phase_9/audio/sfx/Boss_COG_VO_murmur.ogg')
         self.statement = loader.loadSfx('phase_9/audio/sfx/Boss_COG_VO_statement.ogg')
@@ -102,7 +104,7 @@ class BossCog(Avatar.Avatar):
          self.murmur,
          self.statement,
          self.question,
-         self.statement,
+         self.exclaim,
          self.statement]
         dna = self.style
         filePrefix = ModelDict[dna.dept]
@@ -118,6 +120,15 @@ class BossCog(Avatar.Avatar):
         self.frontAttack = self.rotateNode.attachNewNode('frontAttack')
         self.frontAttack.setPos(0, -10, 10)
         self.frontAttack.setScale(2)
+        self.rightAttack = self.rotateNode.attachNewNode('frontAttack')
+        self.rightAttack.setPos(10, 0, 10)
+        self.rightAttack.setScale(2)
+        self.leftAttack = self.rotateNode.attachNewNode('frontAttack')
+        self.leftAttack.setPos(-10, 0, 10)
+        self.leftAttack.setScale(2)
+        self.backAttack = self.rotateNode.attachNewNode('frontAttack')
+        self.backAttack.setPos(0, 10, 10)
+        self.backAttack.setScale(2)
         self.setHeight(26)
         self.nametag3d.setScale(2)
         for partName in ('legs', 'torso', 'head'):
@@ -435,6 +446,7 @@ class BossCog(Avatar.Avatar):
             ival = Sequence(ival, ActorInterval(self, animName))
             startsHappy = 1
             endsHappy = 1
+        
         startNeckHpr = self.neckForwardHpr
         endNeckHpr = self.neckForwardHpr
         if self.happy != startsHappy:
@@ -452,11 +464,13 @@ class BossCog(Avatar.Avatar):
             else:
                 ival = Sequence(ival, Func(self.reverseBody), downIval, Func(self.forwardBody))
             ival = Parallel(SoundInterval(self.downSfx, node=self), ival)
+        
         self.raised = raised
         self.forward = forward
         self.happy = happy
         if anim != None:
             ival = Sequence(ival, self.getAnim(anim))
+        
         return (ival, 1)
 
     def setDizzy(self, dizzy):
@@ -466,6 +480,7 @@ class BossCog(Avatar.Avatar):
         if dizzy:
             self.stars.reparentTo(self.neck)
             base.playSfx(self.birdsSfx, looping=1)
+            self.showHpText(0, scale=5, isBoss=1)
         else:
             self.stars.detachNode()
             self.birdsSfx.stop()
@@ -516,10 +531,16 @@ class BossCog(Avatar.Avatar):
         elif anim == 'frontAttack':
             self.doAnimate(None, raised=1, happy=0, queueNeutral=0)
             pe = BattleParticles.loadParticleFile('bossCogFrontAttack.ptf')
+            pe2 = BattleParticles.loadParticleFile('bossCogFrontAttack.ptf')
+            pe3 = BattleParticles.loadParticleFile('bossCogFrontAttack.ptf')
+            pe4 = BattleParticles.loadParticleFile('bossCogFrontAttack.ptf')
+            pe2.setH(180)
+            pe3.setH(90)
+            pe4.setH(270)
             ival = Sequence(Func(self.reverseHead), ActorInterval(self, 'Bb2Ff_spin'), Func(self.forwardHead))
             if self.forward:
                 ival = Sequence(Func(self.reverseBody), ParallelEndTogether(ival, self.pelvis.hprInterval(0.5, self.pelvisForwardHpr, blendType='easeInOut')))
-            ival = Sequence(Track((0, ival), (0, SoundInterval(self.spinSfx, node=self)), (0.9, Parallel(SoundInterval(self.rainGearsSfx, node=self), ParticleInterval(pe, self.frontAttack, worldRelative=0, duration=1.5, cleanup=True), duration=0)), (1.9, Func(self.bubbleF.unstash))), Func(self.bubbleF.stash))
+            ival = Sequence(Track((0, ival), (0, Sequence(SoundInterval(self.spinSfx, node=self))), (1.3, Parallel(SoundInterval(self.rainGearsSfx, node=self), ParticleInterval(pe4, self.leftAttack, worldRelative=0, duration=1.5, cleanup=True), ParticleInterval(pe3, self.rightAttack, worldRelative=0, duration=1.5, cleanup=True), ParticleInterval(pe2, self.backAttack, worldRelative=0, duration=1.5, cleanup=True), ParticleInterval(pe, self.frontAttack, worldRelative=0, duration=1.5, cleanup=True), duration=0)), (1.9, Func(self.bubbleF.unstash)), (1.9, Func(self.bubbleFL.unstash)), (1.9, Func(self.bubbleFR.unstash)), (1.9, Func(self.bubbleB.unstash))), Func(self.bubbleF.stash), Func(self.bubbleFL.stash), Func(self.bubbleFR.stash), Func(self.bubbleB.stash))
             self.forward = 1
             self.happy = 0
             self.raised = 1
@@ -528,7 +549,7 @@ class BossCog(Avatar.Avatar):
                 self.doAnimate(None, raised=1, happy=0, queueNeutral=0)
             else:
                 self.doAnimate(None, raised=1, happy=1, queueNeutral=1)
-            ival = Parallel(ActorInterval(self, 'Fb_jump'), Sequence(SoundInterval(self.swishSfx, duration=1.1, node=self), SoundInterval(self.boomSfx, duration=1.9)), Sequence(Wait(1.21), Func(self.announceAreaAttack)))
+            ival = Parallel(ActorInterval(self, 'Fb_jump'), Sequence(SoundInterval(self.swishSfx, duration=1.1, node=self), SoundInterval(self.boomSfx, duration=1.9)), Sequence(Wait(1.21), Func(self.announceAreaAttack),Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1)))
             if self.twoFaced:
                 self.happy = 0
             else:
@@ -540,4 +561,5 @@ class BossCog(Avatar.Avatar):
             ival = ActorInterval(self, anim)
         else:
             ival = anim
+        
         return ival

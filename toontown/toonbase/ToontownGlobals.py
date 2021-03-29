@@ -97,9 +97,11 @@ FM_RecoveredItem = 4
 SPDonaldsBoat = 3
 SPMinniesPiano = 4
 CEVirtual = 14
-MaxHpLimit = 137
+MaxHpLimit = 348
 MaxCarryLimit = 80
 MaxQuestCarryLimit = 4
+CogImmuneColor = Vec4(1, 1, 1, 1)
+CogImmuneGlowColor = CogImmuneColor - Vec4(0, 0, 0, 0.5)
 MaxCogSuitLevel = 50 - 1
 CogSuitHPLevels = (15 - 1,
  20 - 1,
@@ -624,24 +626,36 @@ BossCogAttackTimes = {BossCogElectricFence: 0,
  BossCogGolfAreaAttack: 7,
  BossCogGearDirectedAttack: 4.84,
  BossCogOvertimeAttack: 5}
-BossCogDamageLevels = {BossCogElectricFence: 1,
- BossCogSwatLeft: 5,
- BossCogSwatRight: 5,
- BossCogAreaAttack: 10,
- BossCogFrontAttack: 3,
- BossCogRecoverDizzyAttack: 3,
- BossCogDirectedAttack: 3,
- BossCogStrafeAttack: 2,
+BossCogDamageLevels = {BossCogElectricFence: 5,
+ BossCogSwatLeft: 65,
+ BossCogSwatRight: 65,
+ BossCogAreaAttack: 100,
+ BossCogFrontAttack: 50,
+ BossCogRecoverDizzyAttack: 75,
+ BossCogDirectedAttack: 50,
+ BossCogStrafeAttack: 100,
  BossCogGoonZap: 5,
- BossCogSlowDirectedAttack: 10,
- BossCogGavelStomp: 20,
- BossCogGavelHandle: 2,
- BossCogLawyerAttack: 5,
- BossCogMoveAttack: 20,
- BossCogGolfAttack: 15,
- BossCogGolfAreaAttack: 15,
- BossCogGearDirectedAttack: 15,
+ BossCogSlowDirectedAttack: 40,
+ BossCogGavelStomp: 150,
+ BossCogGavelHandle: 20,
+ BossCogLawyerAttack: 45,
+ BossCogMoveAttack: 50,
+ BossCogGolfAttack: 50,
+ BossCogGolfAreaAttack: 50,
+ BossCogGearDirectedAttack: 50,
  BossCogOvertimeAttack: 10}
+
+BossCogDizzyStates = [
+ BossCogDizzy,
+ BossCogDizzyNow,
+]
+NonBossCogAttacks = [BossCogGoonZap,
+ BossCogGavelStomp,
+ BossCogGavelHandle,
+ BossCogLawyerAttack,
+ BossCogElectricFence,
+ ]
+
 BossCogBattleAPosHpr = (0,
  -25,
  0,
@@ -681,7 +695,7 @@ SellbotBossP3PosA = (-50, 40, 18)
 SellbotBossTopRampPosB = (80, -35, 18)
 SellbotBossTopRampTurnPosB = (80, 10, 18)
 SellbotBossP3PosB = (50, 60, 18)
-CashbotBossMaxDamage = 500
+CashbotBossMaxDamage = 4000
 CashbotBossOffstagePosHpr = (120,
  -195,
  0,
@@ -707,51 +721,51 @@ CashbotBossBattleThreePosHpr = (120,
  0,
  0)
 CashbotToonsBattleThreeStartPosHpr = [(105,
-  -285,
+  - 285,
   0,
   208,
   0,
   0),
  (136,
-  -342,
+  - 342,
   0,
   398,
   0,
   0),
  (105,
-  -342,
+  - 342,
   0,
   333,
   0,
   0),
  (135,
-  -292,
+  - 292,
   0,
   146,
   0,
   0),
  (93,
-  -303,
+  - 303,
   0,
   242,
   0,
   0),
  (144,
-  -327,
+  - 327,
   0,
   64,
   0,
   0),
  (145,
-  -302,
+  - 302,
   0,
   117,
   0,
   0),
  (93,
-  -327,
+  - 327,
   0,
-  -65,
+  - 65,
   0,
   0)]
 CashbotBossSafePosHprs = [(120,
@@ -837,7 +851,7 @@ CashbotBossFromMagnetTime = 1
 CashbotBossSafeKnockImpact = 0.5
 CashbotBossSafeNewImpact = 0.0
 CashbotBossGoonImpact = 0.1
-CashbotBossKnockoutDamage = 15
+CashbotBossKnockoutDamage = 30
 TTWakeWaterHeight = -4.79
 DDWakeWaterHeight = 1.669
 EstateWakeWaterHeight = -.3
@@ -976,7 +990,8 @@ WACKY_WINTER_DECORATIONS = 121
 WACKY_WINTER_CAROLING = 122
 TOT_REWARD_JELLYBEAN_AMOUNT = 100
 TOT_REWARD_END_OFFSET_AMOUNT = 0
-LawbotBossMaxDamage = 2700
+
+LawbotBossMaxDamage = 5000
 LawbotBossWinningTilt = 40
 LawbotBossInitialDamage = 1350
 LawbotBossBattleOnePosHpr = (-2.798,
@@ -1200,8 +1215,8 @@ LawbotBossLawyerPosHprs = [(-57,
 LawbotBossLawyerCycleTime = 6
 LawbotBossLawyerToPanTime = 2.5
 LawbotBossLawyerChanceToAttack = 50
-LawbotBossLawyerHeal = 2
-LawbotBossLawyerStunTime = 5
+LawbotBossLawyerHeal = 4
+LawbotBossLawyerStunTime = 10
 LawbotBossDifficultySettings = [(38,
   4,
   8,
@@ -1250,7 +1265,7 @@ LawbotBossDifficultySettings = [(38,
   4,
   1,
   1),
- (22,
+ (30,
   8,
   10,
   4,
@@ -1382,13 +1397,13 @@ LawbotBossChairRow1PosB = (59.3, 48, 14.05)
 LawbotBossChairRow1PosA = (59.3, -18.2, 14.05)
 LawbotBossChairRow2PosB = (75.1, 48, 28.2)
 LawbotBossChairRow2PosA = (75.1, -18.2, 28.2)
-LawbotBossCannonBallMax = 12
-LawbotBossJuryBoxStartPos = (94, -8, 5)
-LawbotBossJuryBoxRelativeEndPos = (30, 0, 12.645)
+LawbotBossCannonBallMax = 24
+LawbotBossJuryBoxStartPos = (0, 0, 0)
+LawbotBossJuryBoxRelativeEndPos = (0, 0, 0)
 LawbotBossJuryBoxMoveTime = 70
 LawbotBossJurorsForBalancedScale = 8
 LawbotBossDamagePerJuror = 68
-LawbotBossCogJurorFlightTime = 10
+LawbotBossCogJurorFlightTime = 70
 LawbotBossCogJurorDistance = 75
 LawbotBossBaseJurorNpcId = 2001
 LawbotBossWitnessEpiloguePosHpr = (-3,
@@ -1398,11 +1413,11 @@ LawbotBossWitnessEpiloguePosHpr = (-3,
  0,
  0)
 LawbotBossChanceForTaunt = 25
-LawbotBossBonusWaitTime = 60
+LawbotBossBonusWaitTime = 0
 LawbotBossBonusDuration = 20
 LawbotBossBonusToonup = 10
 LawbotBossBonusWeightMultiplier = 2
-LawbotBossChanceToDoAreaAttack = 11
+LawbotBossChanceToDoAreaAttack = 0
 LOW_POP_JP = 0
 MID_POP_JP = 100
 HIGH_POP_JP = 200
@@ -1509,8 +1524,8 @@ BossbotElevCamPosHpr = (0,
  0,
  0)
 BossbotFoodModelScale = 0.75
-BossbotNumFoodToExplode = 3
-BossbotBossServingDuration = 300
+BossbotNumFoodToExplode = 2
+BossbotBossServingDuration = 500
 BossbotPrepareBattleThreeDuration = 20
 WaiterBattleAPosHpr = (20,
  -400,
@@ -1542,39 +1557,44 @@ DinerBattleBPosHpr = (-20,
  0,
  0,
  0)
-BossbotBossMaxDamage = 500
+BossbotBossMaxDamage = 3000
 BossbotMaxSpeedDamage = 90
-BossbotSpeedRecoverRate = 20
-BossbotBossDifficultySettings = [(8,
-  4,
-  11,
-  3,
-  30,
-  25),
- (9,
-  5,
-  12,
-  6,
-  28,
-  26),
- (10,
-  6,
-  11,
+BossbotSpeedRecoverRate = 5
+BossbotBossDifficultySettings = [(6,
   7,
-  26,
-  27),
+  10,
+  3,
+  50,
+  50,
+  0),
  (8,
   8,
-  12,
+  11,
+  6,
+  50,
+  50,
+  50),
+ (10,
   8,
-  24,
-  28),
- (13,
-  5,
+  11,
+  7,
+  50,
+  50,
+  100),
+ (12,
+  8,
+  11,
+  8,
+  50,
+  50,
+  150),
+ (14,
+  8,
   12,
   9,
-  22,
-  29)]
+  50,
+  50,
+  250)]
 BossbotRollSpeedMax = 22
 BossbotRollSpeedMin = 7.5
 BossbotTurnSpeedMax = 60
@@ -1671,7 +1691,7 @@ AV_TOUCH_CHECK_DIST_Z = 5.0
 AV_TOUCH_CHECK_TIMELIMIT_CL = 0.002
 AV_TOUCH_COUNT_LIMIT = 5
 AV_TOUCH_COUNT_TIME = 300
-SuitLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+SuitLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
 GravityValue = 32.174
 hood2Id = [
     ('TTC', (ToontownCentral,)),

@@ -1,3 +1,5 @@
+from toontown.toonbase import ToontownBattleGlobals
+from toontown.battle import DistributedBattleWaitersAI
 from otp.ai.AIBaseGlobal import *
 from direct.distributed.ClockDelta import *
 import DistributedBossCogAI
@@ -16,8 +18,8 @@ import SuitDNA, random
 
 class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedSellbotBossAI')
-    limitHitCount = 6
-    numPies = ToontownGlobals.FullPies
+    limitHitCount = 3
+    numPies = 30
 
     def __init__(self, air):
         DistributedBossCogAI.DistributedBossCogAI.__init__(self, air, 's')
@@ -197,7 +199,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             side = random.choice([0, 1])
             direction = random.choice([0, 1])
             self.sendUpdate('doStrafe', [side, direction])
-        delayTime = 9
+        delayTime = 5
         self.waitForNextStrafe(delayTime)
 
     def __sendDooberIds(self):
@@ -228,7 +230,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 return self.invokeSuitPlanner(9, 0)
             else:
                 return self.invokeSuitPlanner(10, 1)
-
+				
     def removeToon(self, avId):
         toon = simbase.air.doId2do.get(avId)
         if toon:
@@ -306,8 +308,8 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             if toon:
                 toon.__touchedCage = 0
 
-        self.waitForNextAttack(5)
-        self.waitForNextStrafe(9)
+        self.waitForNextAttack(3)
+        self.waitForNextStrafe(5)
         self.cagedToonDialogIndex = 100
         self.__saySomethingLater()
 
@@ -351,6 +353,11 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         taskMgr.remove(taskName)
 
     def enterNearVictory(self):
+        #Whisper out the time from the start of VP until end of VP
+        self.pieTime = globalClock.getFrameTime()
+        for doId, do in simbase.air.doId2do.items():
+            if str(doId)[0] != str(simbase.air.districtId)[0]:
+                do.d_setSystemMessage(0, "Crane Round Ended In {0:.5f}s".format(self.pieTime - self.battleThreeStart))
         self.resetBattles()
 
     def exitNearVictory(self):

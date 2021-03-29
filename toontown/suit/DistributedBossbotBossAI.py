@@ -21,10 +21,10 @@ from direct.distributed.ClockDelta import globalClockDelta
 class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedBossbotBossAI')
     maxToonLevels = 77
-    toonUpLevels = [1,
-     2,
-     3,
-     4]
+    toonUpLevels = [4,
+     6,
+     8,
+     10]
 
     def __init__(self, air):
         DistributedBossCogAI.DistributedBossCogAI.__init__(self, air, 'c')
@@ -62,8 +62,8 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         self.toonupsGranted = []
         self.doneOvertimeOneAttack = False
         self.doneOvertimeTwoAttack = False
-        self.overtimeOneTime = simbase.air.config.GetInt('overtime-one-time', 1200)
-        self.battleFourDuration = simbase.air.config.GetInt('battle-four-duration', 1800)
+        self.overtimeOneTime = simbase.air.config.GetInt('overtime-one-time', 300)
+        self.battleFourDuration = simbase.air.config.GetInt('battle-four-duration', 500)
         self.overtimeOneStart = float(self.overtimeOneTime) / self.battleFourDuration
         self.moveAttackAllowed = True
 
@@ -351,7 +351,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 suit = self.__genSuitObject(self.zoneId, 2, 'c', 2, 0)
             else:
                 suitType = 8
-                suitLevel = 12
+                suitLevel = 45
                 suit = self.__genSuitObject(self.zoneId, suitType, 'c', suitLevel, 1)
             active.append(suit)
 
@@ -625,7 +625,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         attackCode = -1
         optionalParam = None
         if self.movingToTable:
-            self.waitForNextAttack(5)
+            self.waitForNextAttack(2)
         elif self.attackCode == ToontownGlobals.BossCogDizzyNow:
             attackCode = ToontownGlobals.BossCogRecoverDizzyAttack
         elif self.getBattleFourTime() > self.overtimeOneStart and not self.doneOvertimeOneAttack:
@@ -911,9 +911,9 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def getDamageMultiplier(self):
         mult = 1.0
         if self.doneOvertimeOneAttack and not self.doneOvertimeTwoAttack:
-            mult = 1.25
+            mult = 2.5
         if self.getBattleFourTime() > 1.0:
-            mult = self.getBattleFourTime() + 1
+            mult = self.getBattleFourTime() + 2
         return mult
 
     def toggleMove(self):

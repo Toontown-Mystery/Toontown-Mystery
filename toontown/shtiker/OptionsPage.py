@@ -11,6 +11,7 @@ from otp.speedchat import SCStaticTextTerminal
 from direct.showbase import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
+import KeybindRemapDialog
 speedChatStyles = ((2000,
   (200 / 255.0, 60 / 255.0, 229 / 255.0),
   (200 / 255.0, 135 / 255.0, 255 / 255.0),
@@ -51,13 +52,18 @@ speedChatStyles = ((2000,
   (170 / 255.0, 120 / 255.0, 20 / 255.0),
   (165 / 255.0, 120 / 255.0, 50 / 255.0),
   (210 / 255.0, 200 / 255.0, 180 / 255.0)))
-PageMode = PythonUtil.Enum('Options, Codes')
+PageMode = PythonUtil.Enum('Options, Codes, NewOptions')
 
 class OptionsPage(ShtikerPage.ShtikerPage):
     notify = DirectNotifyGlobal.directNotify.newCategory('OptionsPage')
 
     def __init__(self):
         ShtikerPage.ShtikerPage.__init__(self)
+        self.optionsTabPage = None
+        self.optionsTabPage2 = None
+        self.title = None
+        self.optionsTab = None
+        self.optionsTab2 = None
 
     def load(self):
         ShtikerPage.ShtikerPage.load(self)
@@ -65,6 +71,8 @@ class OptionsPage(ShtikerPage.ShtikerPage):
         self.optionsTabPage.hide()
         self.codesTabPage = CodesTabPage(self)
         self.codesTabPage.hide()
+        self.optionsTabPage2 = OptionsTabPage2(self)
+        self.optionsTabPage2.hide()
         titleHeight = 0.61
         self.title = DirectLabel(parent=self, relief=None, text=TTLocalizer.OptionsPageTitle, text_scale=0.12, pos=(0, 0, titleHeight))
         normalColor = (1, 1, 1, 1)
@@ -72,8 +80,42 @@ class OptionsPage(ShtikerPage.ShtikerPage):
         rolloverColor = (0.15, 0.82, 1.0, 1)
         diabledColor = (1.0, 0.98, 0.15, 1)
         gui = loader.loadModel('phase_3.5/models/gui/fishingBook')
-        self.optionsTab = DirectButton(parent=self, relief=None, text=TTLocalizer.OptionsPageTitle, text_scale=TTLocalizer.OPoptionsTab, text_align=TextNode.ALeft, text_pos=(0.01, 0.0, 0.0), image=gui.find('**/tabs/polySurface1'), image_pos=(0.55, 1, -0.91), image_hpr=(0, 0, -90), image_scale=(0.033, 0.033, 0.035), image_color=normalColor, image1_color=clickColor, image2_color=rolloverColor, image3_color=diabledColor, text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode, extraArgs=[PageMode.Options], pos=(-0.36, 0, 0.77))
-        self.codesTab = DirectButton(parent=self, relief=None, text=TTLocalizer.OptionsPageCodesTab, text_scale=TTLocalizer.OPoptionsTab, text_align=TextNode.ALeft, text_pos=(-0.035, 0.0, 0.0), image=gui.find('**/tabs/polySurface2'), image_pos=(0.12, 1, -0.91), image_hpr=(0, 0, -90), image_scale=(0.033, 0.033, 0.035), image_color=normalColor, image1_color=clickColor, image2_color=rolloverColor, image3_color=diabledColor, text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode, extraArgs=[PageMode.Codes], pos=(0.11, 0, 0.77))
+        self.optionsTab = DirectButton(
+            parent=self, relief=None, text=TTLocalizer.OptionsPageTitle, text_scale=TTLocalizer.OPoptionsTab, 
+            text_align=TextNode.ALeft, 
+            text_pos=(0.01, 0.0, 0.0), 
+            image=gui.find('**/tabs/polySurface1'), 
+            image_pos=(0.55, 1, -0.91), image_hpr=(0, 0, -90), image_scale=(0.033, 0.033, 0.035), 
+            image_color=normalColor, image1_color=clickColor, image2_color=rolloverColor, image3_color=diabledColor, 
+            text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode, extraArgs=[PageMode.Options], pos=(-0.36, 0, 0.77))
+        self.codesTab = DirectButton(
+            parent=self, relief=None, text=TTLocalizer.OptionsPageCodesTab, text_scale=TTLocalizer.OPoptionsTab, 
+            text_align=TextNode.ALeft, 
+            text_pos=(-0.035, 0.0, 0.0), 
+            image=gui.find('**/tabs/polySurface2'), 
+            image_pos=(0.12, 1, -0.91), image_hpr=(0, 0, -90), image_scale=(0.033, 0.033, 0.035), 
+            image_color=normalColor, image1_color=clickColor, image2_color=rolloverColor, image3_color=diabledColor, 
+            text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode, extraArgs=[PageMode.Codes], pos=(0.11, 0, 0.77))
+        self.optionsTab2 = DirectButton(
+            parent=self, 
+            relief=None, 
+            text=TTLocalizer.OptionsPageTitle2,
+            text_scale=0.06, 
+            text_align=TextNode.ALeft,
+            text_pos=(-0.71, 0.0, 0.0),
+            image=gui.find('**/tabs/polySurface2'), 
+            image_pos=(-0.3, 1, -0.91),
+            image_hpr=(0, 0, -90), 
+            image_scale=(0.033, 0.033, 0.035),
+            image_color=normalColor, 
+            image1_color=clickColor,
+            image2_color=rolloverColor, 
+            image3_color=diabledColor,
+            text_fg=Vec4(0.2, 0.1, 0, 1), 
+            command=self.setMode,
+            extraArgs=[PageMode.NewOptions], 
+            pos=(0.11, 0, 0.77)
+        )
         return
 
     def enter(self):
@@ -83,6 +125,7 @@ class OptionsPage(ShtikerPage.ShtikerPage):
     def exit(self):
         self.optionsTabPage.exit()
         self.codesTabPage.exit()
+        self.optionsTabPage2.exit()
         ShtikerPage.ShtikerPage.exit(self)
 
     def unload(self):
@@ -104,6 +147,8 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.optionsTabPage.enter()
             self.codesTab['state'] = DGG.NORMAL
             self.codesTabPage.exit()
+            self.optionsTab2['state'] = DGG.NORMAL
+            self.optionsTabPage2.exit()
         elif mode == PageMode.Codes:
             self.mode = PageMode.Codes
             self.title['text'] = TTLocalizer.CdrPageTitle
@@ -111,6 +156,17 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.optionsTabPage.exit()
             self.codesTab['state'] = DGG.DISABLED
             self.codesTabPage.enter()
+            self.optionsTab2['state'] = DGG.NORMAL
+            self.optionsTabPage2.exit()
+        elif mode == PageMode.NewOptions:
+            self.mode = PageMode.NewOptions
+            self.title['text'] = TTLocalizer.OptionsPageTitle2
+            self.optionsTab['state'] = DGG.NORMAL
+            self.optionsTabPage.exit()
+            self.codesTab['state'] = DGG.NORMAL
+            self.codesTabPage.exit()
+            self.optionsTab2['state'] = DGG.DISABLED
+            self.optionsTabPage2.enter()
         else:
             raise StandardError, 'OptionsPage::setMode - Invalid Mode %s' % mode
 
@@ -595,3 +651,115 @@ class CodesTabPage(DirectFrame):
         self.codeInput['state'] = DGG.NORMAL
         self.codeInput['focus'] = 1
         self.submitButton['state'] = DGG.NORMAL
+
+class OptionsTabPage2(DirectFrame):
+
+    def __init__(self, parent = aspect2d):
+        self._parent = parent
+        self.currentSizeIndex = None
+        DirectFrame.__init__(self, parent=self._parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
+        self.load()
+
+    def destroy(self):
+        self._parent = None
+        DirectFrame.destroy(self)
+
+    def load(self):
+        guiButton = base.loader.loadModel("phase_3/models/gui/quit_button")
+        gui = base.loader.loadModel("phase_3.5/models/gui/friendslist_gui")
+        options_text_scale = 0.052
+        textStartHeight = 0.45
+        textRowHeight = 0.145
+        leftMargin = -0.72
+        button_image_scale = (0.7, 1, 1)
+        button_textpos = (0, -0.02)
+        buttonbase_xcoord = 0.35
+        buttonbase_ycoord = 0.45
+        self.keybindsLabel = DirectLabel(
+            parent=self,
+            relief=None,
+            text="",
+            text_align=TextNode.ALeft,
+            text_scale=options_text_scale,
+            pos=(leftMargin, 0, textStartHeight - textRowHeight),
+        )
+        self.keybindsToggle = DirectButton(
+            parent=self,
+            relief=None,
+            image=(
+                guiButton.find("**/QuitBtn_UP"),
+                guiButton.find("**/QuitBtn_DN"),
+                guiButton.find("**/QuitBtn_RLVR"),
+            ),
+            image_scale=button_image_scale,
+            text="",
+            text_scale=options_text_scale,
+            text_pos=button_textpos,
+            pos=(buttonbase_xcoord, 0.0, buttonbase_ycoord - textRowHeight),
+            command=self.__doToggleKeybinds,
+        )
+        self.keybindDialogButton = DirectButton(
+            parent=self,
+            relief=None,
+            image=(
+                guiButton.find("**/QuitBtn_UP"),
+                guiButton.find("**/QuitBtn_DN"),
+                guiButton.find("**/QuitBtn_RLVR"),
+            ),
+            image_scale=button_image_scale,
+            text=TTLocalizer.OptionsKeybindsMenu,
+            text_scale=options_text_scale,
+            text_pos=button_textpos,
+            pos=(buttonbase_xcoord, 0.0, buttonbase_ycoord - textRowHeight * 2 + 0.025),
+            command=self.__openKeybindRemapDialog,
+        )
+        self.keybindDialogButton.setScale(0.8)
+        self.keybindDialogButton.hide()
+        guiButton.removeNode()
+        gui.removeNode()
+
+    def enter(self):
+        self.show()
+        self.settingsChanged = 0
+        self.__setCustomKeybinds()
+
+    def exit(self):
+        self.ignore('confirmDone')
+        self.hide()
+
+    def unload(self):
+        self.keybindsLabel.destroy()
+        del self.keybindsLabel
+        self.keybindsToggle.destroy()
+        del self.keybindsToggle
+        self.keybindDialogButton.destroy()
+        del self.keybindDialogButton
+    
+    def __doToggleKeybinds(self):
+        messenger.send('wakeup')
+        if base.wantCustomKeybinds:
+            base.wantCustomKeybinds = False
+            base.settings.updateSetting('game', 'customKeybinds', False)  
+        else:
+            base.wantCustomKeybinds = True
+            base.settings.updateSetting('game', 'customKeybinds', True)
+        base.reloadControls()
+        base.localAvatar.controlManager.reload()
+        base.localAvatar.chatMgr.reloadWASD()
+        base.localAvatar.controlManager.disable()
+        self.settingsChanged = 1
+        self.__setCustomKeybinds()
+
+    def __setCustomKeybinds(self):
+        if base.wantCustomKeybinds:
+            self.keybindsLabel['text'] = TTLocalizer.OptionsEnabledKeybinds
+            self.keybindsToggle['text'] = TTLocalizer.OptionsPageToggleOff
+            self.keybindDialogButton.show()
+        else:
+            self.keybindsLabel['text'] = TTLocalizer.OptionsDisabledKeybinds
+            self.keybindsToggle['text'] = TTLocalizer.OptionsPageToggleOn
+            self.keybindDialogButton.hide()
+
+    def __openKeybindRemapDialog(self):
+        if base.wantCustomKeybinds:
+            self.controlDialog = KeybindRemapDialog.KeybindRemap()

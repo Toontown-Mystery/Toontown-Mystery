@@ -116,7 +116,7 @@ class DistributedLawbotChairAI(DistributedObjectAI.DistributedObjectAI, FSM.FSM)
         self.b_setState('ToonJuror')
         if self.changeToCogTask == None:
             if self.startCogFlyTask == None:
-                delayTime = random.randrange(9, 19)
+                delayTime = 100
                 self.startCogFlyTask = taskMgr.doMethodLater(delayTime, self.cogFlyAndSit, self.uniqueName('startCogFlyTask'))
         return
 
@@ -125,7 +125,7 @@ class DistributedLawbotChairAI(DistributedObjectAI.DistributedObjectAI, FSM.FSM)
 
     def requestEmptyJuror(self):
         self.b_setState('EmptyJuror')
-        delayTime = random.randrange(1, 20)
+        delayTime = 100
         self.startCogFlyTask = taskMgr.doMethodLater(delayTime, self.cogFlyAndSit, self.uniqueName('startCogFlyTask'))
 
     def cogFlyAndSit(self, taskName = None):

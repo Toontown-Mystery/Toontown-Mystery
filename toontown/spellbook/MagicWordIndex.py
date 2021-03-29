@@ -81,6 +81,7 @@ class MagicWord:
         self.invokerId = invokerId
         self.targets = targets
         self.args = args
+        self.posHprString = None
         if self.__class__.__name__ != "MagicWord": # If not the base class,
             self.aliases = self.aliases if self.aliases is not None else [] # if we use [] by default, it might get overwritten
             self.aliases.insert(0, self.__class__.__name__)  # add the class name to the alias list,
@@ -457,6 +458,152 @@ class ToggleCollisionsOff(MagicWord):
         toon.collisionsOff()
 
 
+class GetPos(MagicWord):
+    desc = "Get the current position of your toon."
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+
+    def handleWord(self, invoker, avId, toon, *args):
+        if not base.localAvatar:
+            return "Your Toon does not exist!"
+        return str(base.localAvatar.getPos())
+
+
+class SetPos(MagicWord):
+    desc = "Set the current position of your Toon."
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+    arguments = [("x", float, True), ("y", float, True), ("z", float, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        toonX = args[0]
+        toonY = args[1]
+        toonZ = args[2]
+        if not base.localAvatar:
+            return "Your Toon does not exist!"
+        for arg in args:
+            if not -2500 <= arg <= 2500:
+                return "This position is too far out!"
+        base.localAvatar.setPos(toonX, toonY, toonZ)
+
+
+class GetHpr(MagicWord):
+    desc = "Returns the rotation value of your Toon."
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+
+    def handleWord(self, invoker, avId, toon, *args):
+        if not base.localAvatar:
+            return "No Toon found!"
+        return str(base.localAvatar.getHpr())
+
+
+class SetHpr(MagicWord):
+    desc = "Set the rotation value of your Toon."
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+    arguments = [("h", int, True), ("p", int, True), ("r", int, True), ("part", str, False, '')]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        toonH = args[0]
+
+        if not base.localAvatar:
+            return "No Toon found!"
+
+        part = args[3].lower()
+
+        if part in ('head', 'torso', 'legs'):
+            for lod in toon.getLODNames():
+                base.localAvatar.getPart(part, lod).setH(toonH)
+
+        base.localAvatar.setHpr(args[0], args[1], args[2])
+		
+class PrintPosHpr(MagicWord):
+    aliases = ['pph']
+    desc = "Print Pos Hpr"
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+
+    def handleWord(self, invoker, avId, toon, *args):
+        count = 0
+        def printPosHpr(count):
+            count += 1
+            if count <= 100:
+                print("%s %s" % (toon.getPos(), toon.getHpr()))
+                taskMgr.doMethodLater(0.1, printPosHpr, "print the damn points", extraArgs=[count])
+            else:
+                return
+                
+        printPosHpr(0)  
+        
+		
+class camera(MagicWord):
+    aliases = ['cam']
+    desc = "Set a movie sequence"
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+    arguments = [("command", str, True), ("x", float, False, 0), ("y", float, False, 0), ("z", float, False, 0), ("h", float, False, 0), ("p", float, False, 0), ("r", float, False, 0), ("duration", float, False, 1)]
+    
+    def handleWord(self, invoker, avId, toon, *args):
+        command = args[0]
+        x = args[1]
+        y = args[2]
+        z = args[3]
+        h = args[4]
+        p = args[5]
+        r = args[6]
+        duration = args[7]
+        valid_commands = ['startpoint', 'addpoint', 'clear', 'play', 'list', 'ease']
+        if command not in valid_commands:
+            return "Invalid command! Please use ~camera startpoint or ~camera addpoint."
+        if command == 'startpoint':
+            if None in [x, y, z, h, p, r]:
+                return "The command syntax is [~camera startpoint x y z h p r]!"
+            base.localAvatar.camStart = [x, y, z, h, p, r]
+            return "%d %d %d %d %d %d is set as the starting point!" % (x, y, z, h, p, r)
+        elif command == 'addpoint':
+            if None in [x, y, z, h, p, r]:
+                return "The command syntax is [~camera addpoint x y z h p r duration]!"
+            base.localAvatar.camPoints.append([x, y, z, h, p, r, duration])
+            return "Point %d %d %d %d %d %d with a duration of %d was added!" % (x, y, z, h, p, r, duration)
+        elif command == 'clear':
+            base.localAvatar.camPoints = []
+            return "Successfully cleared all camera points!"
+        elif command == 'play':
+            start = base.localAvatar.camStart
+            camera = base.camera
+            track = Sequence()
+            track.append(Func(base.localAvatar.stopUpdateSmartCamera))
+            track.append(Func(camera.wrtReparentTo, render))
+            track.append(Func(camera.setPosHpr, start[0], start[1], start[2], start[3], start[4], start[5]))
+            for point in base.localAvatar.camPoints:
+                track.append(camera.posHprInterval(point[6], Point3(point[0], point[1], point[2]), Point3(point[3], point[4], point[5])))
+            track.append(Func(camera.wrtReparentTo, base.localAvatar))
+            track.append(Func(base.localAvatar.startUpdateSmartCamera))
+            track.start()
+        elif command == 'ease':
+            start = base.localAvatar.camStart
+            camera = base.camera
+            track = Sequence()
+            track.append(Func(base.localAvatar.stopUpdateSmartCamera))
+            track.append(Func(camera.wrtReparentTo, render))
+            track.append(Func(camera.setPosHpr, start[0], start[1], start[2], start[3], start[4], start[5]))
+            for point in base.localAvatar.camPoints:
+                track.append(camera.posHprInterval(point[6], Point3(point[0], point[1], point[2]), Point3(point[3], point[4], point[5]), blendType='easeInOut'))
+            track.append(Func(camera.wrtReparentTo, base.localAvatar))
+            track.append(Func(base.localAvatar.startUpdateSmartCamera))
+            track.start()
+        elif command == 'list':
+            start = base.localAvatar.camStart
+            points = "[x%d, y%d, z%d, h%d, p%d, r%d]" % (start[0], start[1], start[2], start[3], start[4], start[5])
+            for point in base.localAvatar.camPoints:
+                points = points + "\n [x%d, y%d, z%d, h%d, p%d, r%d, dur%d]" % (point[0], point[1], point[2], point[3], point[4], point[5], point[6])
+            return points
+
+class pc(MagicWord):
+    aliases = ['cacascasc']
+    desc = "Set a movie sequence"
+    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
+    
+    def handleWord(self, invoker, avId, toon, *args):
+        print(base.camera)
+        print(base.localAvatar.camera)
+
+
 class ToggleCollisionsOn(MagicWord):
     aliases = ['collisionson', 'clip', 'yesclip']
     desc = "Enables collisions for the target."
@@ -627,63 +774,6 @@ class SetGravity(MagicWord):
             return "April fools gravity enabled!"
 
 
-class GetPos(MagicWord):
-    desc = "Get the current position of your toon."
-    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
-
-    def handleWord(self, invoker, avId, toon, *args):
-        if not base.localAvatar:
-            return "Your Toon does not exist!"
-        return str(base.localAvatar.getPos())
-
-
-class SetPos(MagicWord):
-    desc = "Set the current position of your Toon."
-    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
-    arguments = [("x", float, True), ("y", float, True), ("z", float, True)]
-
-    def handleWord(self, invoker, avId, toon, *args):
-        toonX = args[0]
-        toonY = args[1]
-        toonZ = args[2]
-        if not base.localAvatar:
-            return "Your Toon does not exist!"
-        for arg in args:
-            if not -2500 <= arg <= 2500:
-                return "This position is too far out!"
-        base.localAvatar.setPos(toonX, toonY, toonZ)
-
-
-class GetH(MagicWord):
-    desc = "Returns the rotation value of your Toon."
-    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
-
-    def handleWord(self, invoker, avId, toon, *args):
-        if not base.localAvatar:
-            return "No Toon found!"
-        return str(base.localAvatar.getH())
-
-
-class SetH(MagicWord):
-    desc = "Set the rotation value of your Toon."
-    execLocation = MagicWordConfig.EXEC_LOC_CLIENT
-    arguments = [("h", int, True), ("part", str, False, '')]
-
-    def handleWord(self, invoker, avId, toon, *args):
-        toonH = args[0]
-
-        if not base.localAvatar:
-            return "No Toon found!"
-
-        part = args[1].lower()
-
-        if part in ('head', 'torso', 'legs'):
-            for lod in toon.getLODNames():
-                base.localAvatar.getPart(part, lod).setH(toonH)
-
-        base.localAvatar.setH(toonH)
-
-
 class TrueFriend(MagicWord):
     aliases = ["tf"]
     desc = "Automatically add a Toon as a true friend."
@@ -832,6 +922,10 @@ class SpawnBuilding(MagicWord):
             suitIndex = SuitDNA.suitHeadTypes.index(suitName)
         except:
             return "Invalid Cog specified.".format(suitName)
+
+        if suitName in SuitDNA.extraSuits.keys():
+            return "Custom Cogs cannot take over buildings."
+
         returnCode = invoker.doBuildingTakeover(suitIndex)
         if returnCode[0] == 'success':
             return "Successfully spawned building with Cog '{0}'!".format(suitName)
@@ -940,6 +1034,147 @@ class SetName(MagicWord):
 
         toon.b_setName(nameStr)
         return "Changed %s's name to %s!" % (oldName, nameStr)
+
+class SetColor(MagicWord):
+    aliases = ["tooncolor"]
+    desc = "Set shirt color of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("partName", str, True), ("colorId", int, False, 0)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+        toonParts = ['all', 'legs', 'arms', 'head']
+        toonPart = args[0]
+        toonColor = args[1]
+
+        if toonPart not in toonParts:
+            return "Invalid toon part specified!"
+        if toonColor not in ToonDNA.defaultBoyColorList:
+            return "Invalid toon color specified!"
+        if toonPart == toonParts[0]:
+            dna.headColor = toonColor
+            dna.armColor = toonColor
+            dna.legColor = toonColor
+        elif toonPart == toonParts[1]:
+            dna.legColor = toonColor
+        elif toonPart == toonParts[2]:
+            dna.armColor = toonColor
+        elif toonPart == toonParts[3]:
+            dna.headColor = toonColor
+        toon.b_setDNAString(dna.makeNetString())
+
+
+class SetTop(MagicWord):
+    aliases = ["shirt"]
+    desc = "Set shirt of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("textureId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+
+        topTex = args[0]
+
+        if not 0 <= topTex <= len(ToonDNA.Shirts):
+            return "Invalid shirt texture specified!"
+        dna.topTex = topTex
+        toon.b_setDNAString(dna.makeNetString())
+
+class SetTopColor(MagicWord):
+    aliases = ["shirtcolor"]
+    desc = "Set shirt color of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("colorId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+
+        topTexColor = args[0]
+
+        if not 0 <= topTexColor <= len(ToonDNA.ClothesColors):
+            return "Invalid shirt color specified!"
+        dna.topTexColor = topTexColor
+        toon.b_setDNAString(dna.makeNetString())
+		
+
+class SetSleeves(MagicWord):
+    aliases = ["sleeves"]
+    desc = "Set sleeves of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("textureId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+
+        sleeveTex = args[0]
+
+        if not 0 <= sleeveTex <= len(ToonDNA.Sleeves):
+            return "Invalid sleeves texture specified!"
+        dna.sleeveTex = sleeveTex
+        toon.b_setDNAString(dna.makeNetString())
+
+class SetSleevesColor(MagicWord):
+    aliases = ["sleevescolor"]
+    desc = "Set sleeves color of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("colorId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+
+        sleeveTexColor = args[0]
+
+        if not 0 <= sleeveTexColor <= len(ToonDNA.ClothesColors):
+            return "Invalid sleeves color specified!"
+        dna.sleeveTexColor = sleeveTexColor
+        toon.b_setDNAString(dna.makeNetString())
+		
+
+class SetBottoms(MagicWord):
+    aliases = ["bottoms"]
+    desc = "Set bottoms of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("textureId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+		
+        if dna.gender == 'm':
+            bottoms = ToonDNA.BoyShorts
+        elif dna.gender == 'f':
+            bottoms = ToonDNA.GirlBottoms
+        else:
+            return 'Unknown gender... perhaps you\'re a helicopter?'
+
+        botTex = args[0]
+
+        if not 0 <= botTex <= len(bottoms):
+            return "Invalid bottoms texture specified!"
+        dna.botTex = botTex
+        toon.b_setDNAString(dna.makeNetString())
+
+class SetBottomsColor(MagicWord):
+    aliases = ["bottomscolor"]
+    desc = "Set bottoms color of target toon."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("colorId", int, True)]
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dna = ToonDNA.ToonDNA()
+        dna.makeFromNetString(toon.getDNAString())
+
+        botTexColor = args[0]
+
+        if not 0 <= botTexColor <= len(ToonDNA.ClothesColors):
+            return "Invalid bottoms color specified!"
+        dna.botTexColor = botTexColor
+        toon.b_setDNAString(dna.makeNetString())
 
 
 class SetHat(MagicWord):
@@ -1431,6 +1666,78 @@ class HitCFO(MagicWord):
 
         boss.magicWordHit(dmg, invoker.doId)
 
+class rcr(MagicWord):
+    desc = "Restarts the crane round"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("round", str, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        battle = args[0]
+        from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedCashbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CFO!"
+
+        battle = battle.lower()
+        boss.exitIntroduction()
+        boss.b_setState('PrepareBattleThree')
+        boss.b_setState('BattleThree')
+        return "Restarting Crane Round"
+
+class setCraneSpawn(MagicWord):
+    desc = "Sets the craning spawn point of a certain toon"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("spawn", int, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        spawn = args[0]
+        from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedCashbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CFO!"
+        if not (1 <= spawn <= 8):
+            return "Incorrect spawn position, please enter between 1 to 8!"
+			
+        boss.wantCustomCraneSpawns = True
+        boss.d_setCraneSpawn(True, args[0]-1, invoker.doId)
+
+        return ("Set your spawn position to #%s"  % (spawn))
+
+class safeRush(MagicWord):
+    desc = "Sets knockout damage in cfo to 2 for safe rush practice"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedCashbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CFO!"
+        if boss.wantSafeRushPractice:
+            boss.wantSafeRushPractice = False
+            return ("Safe Rush => OFF")
+        else:
+            boss.wantSafeRushPractice = True
+            return ("Safe Rush => ON")
+
+        return ("Error, nothing happened :(" )
 
 class DisableGoons(MagicWord):
     desc = "Stuns all of the goons in an area."
@@ -1493,6 +1800,75 @@ class SkipCJ(MagicWord):
                 boss.enterNearVictory()
                 boss.b_setState('Victory')
                 return "Skipping final round..."
+				
+class Stun(MagicWord):
+    desc = "Stuns all the lawyers in the CJ Evidence round."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        boss = None
+        from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedLawbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CJ!"
+        if not boss.state == 'BattleThree':
+            return "You aren't in the evidence round."
+        for suit in boss.lawyers:
+            suit.hitByToon()
+
+        return "Stunned the lawyers!"
+
+class rsc(MagicWord):
+    desc = "Restarts the scale round"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("round", str, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        battle = args[0]
+        from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedLawbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CJ!"
+
+        battle = battle.lower()
+        boss.exitIntroduction()
+        boss.b_setState('BattleThree')
+        return "Restarting Scale Round"
+
+class cannons(MagicWord):
+    desc = "Enters the cannon round"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("round", str, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        battle = args[0]
+        from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedLawbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CJ!"
+
+        battle = battle.lower()
+        boss.exitIntroduction()
+        boss.b_setState('BattleOne')
+        boss.b_setState('PrepareBattleTwo')
+        return "Entering Cannon Round"
 
 
 class FillJury(MagicWord):
@@ -1555,6 +1931,32 @@ class SkipVP(MagicWord):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
                 return "Skipping final round..."
+
+
+class rpr(MagicWord):
+    desc = "Restarts the pie round"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("round", str, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        battle = args[0]
+        from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedSellbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a VP!"
+
+        battle = battle.lower()
+        boss.exitIntroduction()
+        boss.b_setState('PrepareBattleTwo')
+        boss.b_setState('BattleTwo')
+        boss.b_setState('PrepareBattleThree')
+        return "Restarting Pie Round"
 
 
 class StunVP(MagicWord):
@@ -2115,11 +2517,11 @@ class SetSos(MagicWord):
     aliases = ["sos"]
     desc = "Sets the target's SOS cards. The default is 1 Flippy card."
     execLocation = MagicWordConfig.EXEC_LOC_SERVER
-    arguments = [("name", str, False, 'Flippy'), ("amount", int, False, 1)]
+    arguments = [("amount", int, False, 1), ("name", str, False, 'Flippy')]
 
     def handleWord(self, invoker, avId, toon, *args):
-        name = args[0]
-        amt = args[1]
+        amt = args[0]
+        name = args[1]
 
         if not 0 <= amt <= 100:
             return "The amount must be between 0 and 100!"
@@ -2129,10 +2531,8 @@ class SetSos(MagicWord):
                 if npcId not in NPCToons.npcFriends:
                     continue
                 break
-        
         else:
             return "The {0} SOS card was not found!".format(name)
-
         if (amt == 0) and (npcId in invoker.NPCFriendsDict):
             del toon.NPCFriendsDict[npcId]
         else:
