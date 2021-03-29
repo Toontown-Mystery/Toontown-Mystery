@@ -10,7 +10,7 @@ Play to find out! :D
 
 
 # Installation
-* Clone or [Download] https://github.com/Toontown-Mystery/Toontown-Mystery the repository
+* Clone or [Download] (https://github.com/Toontown-Mystery/Toontown-Mystery/archive/refs/heads/master.zip) the repository
 
 * Extract the game file, however you wanna do that.
 
