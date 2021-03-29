@@ -46,7 +46,14 @@ Play to find out! :D
 
 
 
-# Credits
-* Toontown School House - Source code
-* Master Cool Cat - Toontown Mystery
-* 2Epik4u - Some github stuff and server hosting
+# Source Code
+This source code is based on a March 2019 fork of Toontown Offline v1.0.0.0. It has been stripped of all Toontown Offline exclusive features, save one. The brand new Magic Words system made for Toontown Offline has been left alone, and upgraded to the most recent build. This feature will allow users to easily navigate around Toontown without any hassle.
+
+Credits:
+* [The Toontown Offline Team](https://ttoffline.com)
+* [Astron](https://github.com/Astron/Astron)
+* [Panda3D](https://github.com/panda3d/panda3d) (More specifically, the modified Astron Panda3D which can be found [here](https://github.com/Astron/panda3d))
+* [libpandadna](https://github.com/loblao/libpandadna)
+* [libotp-movement](https://github.com/jwcotejr/libotp-movement)
+* [libotp-nametags](https://github.com/loblao/libotp-nametags)
+* Reverse-engineered Toontown Online client/server source code is property of The Walt Disney Company.
