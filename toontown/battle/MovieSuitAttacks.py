@@ -2155,8 +2155,8 @@ def doPlayHardball(attack):
     damageAnims = [['conked',
       damageDelay,
       0.01,
-      0.5], ['slip-backward', 0.01, 0.7]]
-    toonTrack = getToonTrack(attack, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['sidestep'], showDamageExtraTime=3.9)
+      0.5], ['cringe', 0.01, 0.7]]
+    toonTrack = getToonTrack(attack, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['applause'], showDamageExtraTime=3.9)
     return Parallel(suitTrack, toonTrack, propTrack, soundTrack)
 
 
@@ -2186,7 +2186,7 @@ def doPowerTie(attack):
     tiePropTrack.append(Wait(throwDelay))
     tiePropTrack.append(Func(tie.setBillboardPointEye))
     tiePropTrack.append(getPropThrowTrack(attack, tie, [__toonFacePoint(toon)], [__toonGroundPoint(attack, toon, 0.1)], hitDuration=0.4, missDuration=0.8))
-    toonTrack = getToonTrack(attack, damageDelay, ['conked'], dodgeDelay, ['sidestep'])
+    toonTrack = getToonTrack(attack, damageDelay, ['slip-forward'], dodgeDelay, ['sidestep'])
     throwSound = getSoundTrack('SA_powertie_throw.ogg', delay=2.3, node=suit)
     if dmg > 0:
         hitSound = getSoundTrack('SA_powertie_impact.ogg', delay=2.9, node=suit)
@@ -2219,7 +2219,7 @@ def doDoubleTalk(attack):
     suitTrack = getSuitTrack(attack)
     partTrack = getPartTrack(particleEffect, partDelay, 1.8, [particleEffect, suit, 0])
     partTrack2 = getPartTrack(particleEffect2, partDelay, 1.8, [particleEffect2, suit, 0])
-    damageAnims = [['duck',
+    damageAnims = [['wave',
       0.01,
       0.4,
       1.05], ['cringe', 1e-06, 0.8]]
@@ -2268,10 +2268,10 @@ def doFreezeAssets(attack):
     cloudPropTrack.append(LerpScaleInterval(cloud, 0.5, MovieUtil.PNT3_NEARZERO))
     cloudPropTrack.append(Func(MovieUtil.removeProp, cloud))
     cloudPropTrack.append(Func(battle.movie.clearRenderProp, cloud))
-    damageAnims = [['cringe',
+    damageAnims = [['conked',
       0.01,
       0.4,
-      0.8], ['duck', 0.01, 1.6]]
+      0.8], ['confused', 0.01, 1.6]]
     toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['sidestep'], showMissedExtraTime=1.2)
     soundTrack = getSoundTrack('SA_freeze.ogg', delay=2.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, cloudPropTrack)
@@ -2336,11 +2336,11 @@ def doHotAir(attack):
         colorTrack.append(resetColor(legsParts))
         colorTrack.append(Func(battle.movie.clearRestoreColor))
     damageAnims = []
-    damageAnims.append(['cringe',
+    damageAnims.append(['shrug',
      0.01,
      0.7,
      0.62])
-    damageAnims.append(['slip-forward',
+    damageAnims.append(['sit',
      0.01,
      0.4,
      1.2])
@@ -2362,7 +2362,7 @@ def doPickPocket(attack):
     suitTrack = getSuitTrack(attack)
     billPosPoints = [Point3(-0.01, 0.45, -0.25), VBase3(136.424, -46.434, -129.712)]
     billPropTrack = getPropTrack(bill, suit.getRightHand(), billPosPoints, 0.6, 0.55, scaleUpPoint=Point3(1.41, 1.41, 1.41))
-    toonTrack = getToonTrack(attack, 0.6, ['cringe'], 0.01, ['sidestep'])
+    toonTrack = getToonTrack(attack, 0.6, ['confused'], 0.01, ['throw'])
     multiTrackList = Parallel(suitTrack, toonTrack)
     if dmg > 0:
         soundTrack = getSoundTrack('SA_pick_pocket.ogg', delay=0.2, node=suit)
@@ -2681,14 +2681,14 @@ def doWaterSpray(attack):
 
     damageDelay = 1.95
     dodgeDelay = 0.95
-    sprayEffect = BattleParticles.createParticleEffect(file='WaterSpray')
+    sprayEffect = BattleParticles.createParticleEffect('WaterSpray')
     suitName = suit.getStyleName()
     if suitName == 'm':
         sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
     elif suitName == 'sd':
         sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
     else:
-        sprayEffect.setPos(Point3(0.1, 4.6, 2.7))
+        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
     suitTrack = getSuitAnimTrack(attack)
     sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
     liftTracks = Parallel()
@@ -2697,7 +2697,7 @@ def doWaterSpray(attack):
         toon = t['toon']
         dmg = t['hp']
         if dmg > 0:
-            liftEffect = BattleParticles.createParticleEffect('ShiftLift')
+            liftEffect = BattleParticles.createParticleEffect('SprayLift')
             liftEffect.setPos(toon.getPos(battle))
             liftEffect.setZ(liftEffect.getZ() - 1.3)
             liftTracks.append(getPartTrack(liftEffect, 1.1, 4.1, [liftEffect, battle, 0]))
@@ -2750,7 +2750,7 @@ def doWaterSpray(attack):
     dodgeAnims.append(['jump', 0, 0.91])
     toonTracks = getToonTracks(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, splicedDodgeAnims=dodgeAnims, showDamageExtraTime=2.7)
     if hitAtleastOneToon == 1:
-        soundTrack = getSoundTrack('SA_watercooler_spray.ogg', delay=4.4, node=suit)
+        soundTrack = getSoundTrack('SA_watercooler_spray_only.ogg', delay=4.4, node=suit)
         return Parallel(suitTrack, sprayTrack, soundTrack, liftTracks, toonTracks, toonRiseTracks)
     else:
         return Parallel(suitTrack, sprayTrack, liftTracks, toonTracks, toonRiseTracks)

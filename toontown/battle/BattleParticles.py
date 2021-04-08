@@ -96,6 +96,10 @@ def createParticleEffect(name = None, file = None, numParticles = None, color = 
         return loadParticleFile('shiftSpray.ptf')
     elif name == 'ShiftLift':
         return __makeShiftLift()
+    elif name == 'WaterSpray':
+        return loadParticleFile('waterSpray.ptf')
+    elif name == 'SprayLift':
+        return __makeSprayLift()
     elif name == 'Shred':
         return loadParticleFile('shred.ptf')
     elif name == 'Smile':
@@ -161,6 +165,16 @@ def __makeShiftLift():
     particles = effect.getParticlesNamed('particles-1')
     particles.renderer.setCenterColor(Vec4(1, 1, 0, 0.9))
     particles.renderer.setEdgeColor(Vec4(1, 1, 0, 0.6))
+    particles.emitter.setRadius(0.01)
+    effect.setHpr(0, 180, 0)
+    effect.setPos(0, 0, 0)
+    return effect
+	
+def __makeSprayLift():
+    effect = loadParticleFile('pixieDrop.ptf')
+    particles = effect.getParticlesNamed('particles-1')
+    particles.renderer.setCenterColor(Vec4(0.5, 1, 1, 1))
+    particles.renderer.setEdgeColor(Vec4(0.5, 1, 1, 1))
     particles.emitter.setRadius(0.01)
     effect.setHpr(0, 180, 0)
     effect.setPos(0, 0, 0)

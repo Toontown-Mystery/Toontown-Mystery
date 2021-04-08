@@ -82,7 +82,6 @@ class StageInterior(BattlePlace.BattlePlace):
         base.cr.forbidCheesyEffects(1)
 
         def commence(self = self):
-            NametagGlobals.setMasterArrowsOn(1)
             self.fsm.request(requestStatus['how'], [requestStatus])
             base.playMusic(self.music, looping=1, volume=0.8)
             base.transitions.irisIn()
@@ -102,7 +101,6 @@ class StageInterior(BattlePlace.BattlePlace):
         self.acceptOnce('localToonConfrontedStageBoss', handleConfrontedBoss)
 
     def exit(self):
-        NametagGlobals.setMasterArrowsOn(0)
         self._telemLimiter.destroy()
         del self._telemLimiter
         bboard.remove(DistributedStage.DistributedStage.ReadyPost)
