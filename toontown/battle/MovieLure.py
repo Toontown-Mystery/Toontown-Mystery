@@ -316,7 +316,7 @@ def __lureSlideshow(lure, npcs):
 
 def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
     if trapProp == None or trapProp.isEmpty():
-        return Func(suit.loop, 'neutral')
+        return Func(suit.loop, 'lured')
     trapProp.wrtReparentTo(battle)
     trapTrack = ToontownBattleGlobals.TRAP_TRACK
     trapLevel = suit.battleTrap
@@ -462,7 +462,7 @@ def __createSuitResetPosTrack(suit, battle):
     resetPos, resetHpr = battle.getActorPosHpr(suit)
     moveDist = Vec3(suit.getPos(battle) - resetPos).length()
     moveDuration = 0.5
-    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'walk', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'neutral'))
+    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'walk', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'lured'))
     moveTrack = LerpPosInterval(suit, moveDuration, resetPos, other=battle)
     return Parallel(walkTrack, moveTrack)
 
@@ -534,7 +534,7 @@ def createSuitReactionToTrain(battle, suit, hp, lure, trapProp):
     anim = 'flatten'
     suitReact = ActorInterval(suit, anim)
     cogGettingHit = getSoundTrack('TL_train_cog.ogg', node=toon)
-    suitTrack.append(Func(suit.loop, 'neutral'))
+    suitTrack.append(Func(suit.loop, 'soak'))
     suitTrack.append(Wait(timeToGetHit + TRAIN_MATERIALIZE_TIME))
     suitTrack.append(updateHealthBar)
     suitTrack.append(Parallel(suitReact, cogGettingHit))

@@ -14,7 +14,7 @@ from toontown.building import Elevator
 
 class FactoryInterior(BattlePlace.BattlePlace):
     notify = DirectNotifyGlobal.directNotify.newCategory('FactoryInterior')
-
+	
     def __init__(self, loader, parentFSM, doneEvent):
         BattlePlace.BattlePlace.__init__(self, loader, doneEvent)
         self.parentFSM = parentFSM
@@ -23,8 +23,9 @@ class FactoryInterior(BattlePlace.BattlePlace):
 
     def load(self):
         self.fsm = ClassicFSM.ClassicFSM('FactoryInterior', [State.State('start', self.enterStart, self.exitStart, ['walk', 'teleportIn', 'fallDown']),
-         State.State('walk', self.enterWalk, self.exitWalk, ['push',
+        State.State('walk', self.enterWalk, self.exitWalk, ['push',
           'sit',
+          'DFA',
           'stickerBook',
           'WaitForBattle',
           'battle',
@@ -36,11 +37,13 @@ class FactoryInterior(BattlePlace.BattlePlace):
          State.State('stopped', self.enterStopped, self.exitStopped, ['walk', 'teleportOut']),
          State.State('sit', self.enterSit, self.exitSit, ['walk', 'died', 'teleportOut']),
          State.State('push', self.enterPush, self.exitPush, ['walk', 'died', 'teleportOut']),
+         State.State('DFA', self.enterDFA, self.exitDFA, ['DFAReject', 'teleportOut']),
          State.State('stickerBook', self.enterStickerBook, self.exitStickerBook, ['walk',
-          'battle',
-          'WaitForBattle',
-          'died',
-          'teleportOut']),
+         'battle',
+         'WaitForBattle',
+		 'DFA',
+         'died',
+         'teleportOut']),
          State.State('WaitForBattle', self.enterWaitForBattle, self.exitWaitForBattle, ['battle',
           'walk',
           'died',
