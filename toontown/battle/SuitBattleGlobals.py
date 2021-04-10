@@ -369,7 +369,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
                     (18,19,20,21,22),
                     (75,75,75,75,75),
                     (15,15,15,15,15)),
-                ('Rolodex',
+                ('Schmooze',
                     (22,23,24,25,26),
                     (50,50,50,50,50),
                     (15,15,15,15,15)),
