@@ -7,7 +7,7 @@ from direct.particles import Particles
 import random
 TTBG = ToontownBattleGlobals
 TTL = TTLocalizer
-EFFECT_RADIUS = 30
+EFFECT_RADIUS = 500
 RESISTANCE_TOONUP = 0
 RESISTANCE_RESTOCK = 1
 RESISTANCE_MONEY = 2
@@ -15,27 +15,61 @@ resistanceMenu = [RESISTANCE_TOONUP, RESISTANCE_RESTOCK, RESISTANCE_MONEY]
 resistanceDict = {RESISTANCE_TOONUP: {'menuName': TTL.ResistanceToonupMenu,
                      'itemText': TTL.ResistanceToonupItem,
                      'chatText': TTL.ResistanceToonupChat,
-                     'values': [10,
-                                20,
+                     'values': [20,
                                 40,
+                                60,
                                 80,
+								100,
+								120,
+								140,
+								160,
+								180,
+								200,
+								220,
+								240,
+								260,
+								280,
+								300,
                                 -1],
                      'items': [0,
                                1,
                                2,
                                3,
-                               4]},
+                               4,
+							   5,
+							   6,
+							   7,
+							   8,
+							   9,
+							   10,
+							   11,
+							   12,
+							   13,
+							   14,
+							   15]},
  RESISTANCE_MONEY: {'menuName': TTL.ResistanceMoneyMenu,
                     'itemText': TTL.ResistanceMoneyItem,
                     'chatText': TTL.ResistanceMoneyChat,
                     'values': [100,
                                200,
-                               350,
-                               600],
+                               300,
+                               400,
+							   500,
+							   600,
+							   700,
+							   800,
+							   900,
+							   1000],
                     'items': [0,
                               1,
                               2,
-                              3]},
+                              3,
+							  4,
+							  5,
+							  6,
+							  7,
+							  8,
+							  9]},
  RESISTANCE_RESTOCK: {'menuName': TTL.ResistanceRestockMenu,
                       'itemText': TTL.ResistanceRestockItem,
                       'chatText': TTL.ResistanceRestockChat,
@@ -101,7 +135,7 @@ def getItemText(textId):
     value = resistanceDict[menuIndex]['values'][itemIndex]
     text = resistanceDict[menuIndex]['itemText']
     if menuIndex is RESISTANCE_TOONUP:
-        if value is -1:
+        if value is -3:
             value = TTL.ResistanceToonupItemMax
     elif menuIndex is RESISTANCE_RESTOCK:
         value = resistanceDict[menuIndex]['extra'][itemIndex]
