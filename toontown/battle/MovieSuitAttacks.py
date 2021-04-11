@@ -2597,12 +2597,7 @@ def doParadigmShift(attack):
     dodgeDelay = 0.95
     sprayEffect = BattleParticles.createParticleEffect('ShiftSpray')
     suitName = suit.getStyleName()
-    if suitName == 'm':
-        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
-    elif suitName == 'sd':
-        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
-    else:
-        sprayEffect.setPos(Point3(0.1, 4.6, 2.7))
+    sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
     suitTrack = getSuitAnimTrack(attack)
     sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
     liftTracks = Parallel()
@@ -2683,12 +2678,7 @@ def doWaterSpray(attack):
     dodgeDelay = 0.95
     sprayEffect = BattleParticles.createParticleEffect('WaterSpray')
     suitName = suit.getStyleName()
-    if suitName == 'm':
-        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
-    elif suitName == 'sd':
-        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
-    else:
-        sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
+    sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
     suitTrack = getSuitAnimTrack(attack)
     sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
     liftTracks = Parallel()
