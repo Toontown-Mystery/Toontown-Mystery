@@ -3509,7 +3509,7 @@ def doSnowBalls(attack):
 
         return track
 
-    soundTrack = getSoundTrack('SA_hot_air.ogg', delay=0.4, node=suit)
+    soundTrack = getSoundTrack('SA_freeze.ogg', delay=0.4, node=suit)
     if dmg > 0:
         colorTrack = Sequence()
         colorTrack.append(Wait(1.6))
