@@ -124,7 +124,7 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  13100: ('to the', 'in the', 'Judge Sentence Lobby'),
  13200: ('to the', 'in the', "Court Office Lobby"),
  13300: ('to the', 'in the', 'The Office'),
- 13400: ('to the', 'in the', 'Interrogation Room'),
+ 13400: ('to the', 'in the', 'Repair Room'),
  13500: ('to the', 'in the', 'Jail'),
  13600: ('to the', 'in the', 'Judge Office'),
  17000: ('to the', 'in the', 'Playground'),}
