@@ -97,7 +97,7 @@ tm = (('speak', 'speak', 5),
 nd = (('smile', 'smile', 5),
  ('magic1', 'magic1', 5),
  ('smile', 'smile', 5),
- ('effort', 'effort', 5),
+ ('effort', 'effort', 6),
  ('magic2', 'magic2', 5))
 gh = (('speak', 'speak', 5), ('finger-wag', 'finger-wag', 5), ('effort', 'effort', 5), ('roll-o-dex', 'roll-o-dex', 5), ('magic2', 'magic2', 5), ('stomp', 'stomp', 5), ('throw-paper', 'throw-paper', 5))
 ms = (('smile', 'smile', 5),
