@@ -67,66 +67,66 @@ Chip = 'Chip'
 Dale = 'Dale'
 JailbirdDale = 'JailbirdDale'
 PoliceChip = 'PoliceChip'
-lTheBrrrgh = 'The Brrrgh'
-lDaisyGardens = 'Daisy Gardens'
-lDonaldsDock = "Donald's Dock"
-lDonaldsDreamland = "Donald's Dreamland"
-lMinniesMelodyland = "Minnie's Melodyland"
-lToontownCentral = 'Toontown Central'
+lTheBrrrgh = 'Frozen Caverns'
+lDaisyGardens = 'Garden Fields'
+lDonaldsDock = "Pirates Boat Lagoon"
+lDonaldsDreamland = "Space Galaxy Land"
+lMinniesMelodyland = "Piano Lessons"
+lToontownCentral = 'Merry Go Round Land'
 lToonHQ = 'Toon HQ'
-lSellbotHQ = 'Sellbot HQ'
-lGoofySpeedway = 'Goofy Speedway'
-lOutdoorZone = "Chip 'n Dale's Acorn Acres"
-lGolfZone = "Chip 'n Dale's MiniGolf"
+lSellbotHQ = 'Fashionbot HQ'
+lGoofySpeedway = 'Racetrack Training'
+lOutdoorZone = "The Forest"
+lGolfZone = "The Get Good Golfing Area"
 lPartyHood = 'Party Grounds'
 GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
- 1000: ('to the', 'in the', 'Playground'),
- 1100: ('to', 'on', 'Barnacle Boulevard'),
- 1200: ('to', 'on', 'Seaweed Street'),
- 1300: ('to', 'on', 'Lighthouse Lane'),
- 2000: ('to the', 'in the', 'Playground'),
- 2100: ('to', 'on', 'Silly Street'),
- 2200: ('to', 'on', 'Loopy Lane'),
- 2300: ('to', 'on', 'Punchline Place'),
- 3000: ('to the', 'in the', 'Playground'),
- 3100: ('to', 'on', 'Walrus Way'),
- 3200: ('to', 'on', 'Sleet Street'),
- 3300: ('to', 'on', 'Polar Place'),
- 4000: ('to the', 'in the', 'Playground'),
- 4100: ('to', 'on', 'Alto Avenue'),
- 4200: ('to', 'on', 'Baritone Boulevard'),
- 4300: ('to', 'on', 'Tenor Terrace'),
- 5000: ('to the', 'in the', 'Playground'),
- 5100: ('to', 'on', 'Elm Street'),
- 5200: ('to', 'on', 'Maple Street'),
- 5300: ('to', 'on', 'Oak Street'),
+ 1000: ('to the', 'in the', 'Dock'),
+ 1100: ('to', 'on', 'Pirates Shopping Road'),
+ 1200: ('to', 'on', 'Water Street'),
+ 1300: ('to', 'on', 'Lightning Lane'),
+ 2000: ('to the', 'in the', 'Carnival'),
+ 2100: ('to', 'on', 'Tickets Shop Lane'),
+ 2200: ('to', 'on', 'Propcorn Lane'),
+ 2300: ('to', 'on', 'Fun Lane'),
+ 3000: ('to the', 'in the', 'Coldground'),
+ 3100: ('to', 'on', 'Survival Coldness Street'),
+ 3200: ('to', 'on', 'Blocked Ice Path'),
+ 3300: ('to', 'on', 'Danger Cold Place'),
+ 4000: ('to the', 'in the', 'Musicland'),
+ 4100: ('to', 'on', 'Drum Sticks'),
+ 4200: ('to', 'on', 'The 8 Bit Street'),
+ 4300: ('to', 'on', 'Learn Your Piano Street'),
+ 5000: ('to the', 'in the', 'Garden'),
+ 5100: ('to', 'on', 'Flower Area'),
+ 5200: ('to', 'on', 'Grass Area'),
+ 5300: ('to', 'on', 'Sadness Plants Area'),
  6000: ('to the', 'in the', 'Playground'),
  8000: ('to the', 'in the', 'Playground'),
  9000: ('to the', 'in the', 'Playground'),
- 9100: ('to', 'on', 'Lullaby Lane'),
- 9200: ('to', 'on', 'Pajama Place'),
- 10000: ('to', 'in', 'Bossbot HQ Country Club'),
- 10100: ('to the', 'in the', 'Bossbot HQ Lobby'),
- 10200: ('to the', 'in the', 'The Clubhouse'),
- 10500: ('to the', 'in the', 'The Front Three'),
- 10600: ('to the', 'in the', 'The Middle Six'),
- 10700: ('to the', 'in the', 'The Back Nine'),
- 11000: ('to the', 'in the', 'Sellbot HQ Courtyard'),
- 11100: ('to the', 'in the', 'Sellbot HQ Lobby'),
- 11200: ('to the', 'in the', 'Sellbot Factory'),
- 11500: ('to the', 'in the', 'Sellbot Factory'),
- 12000: ('to', 'in', 'Cashbot Train Yard'),
- 12100: ('to the', 'in the', 'Cashbot HQ Lobby'),
- 12500: ('to the', 'in the', 'Cashbot Coin Mint'),
- 12600: ('to the', 'in the', 'Cashbot Dollar Mint'),
- 12700: ('to the', 'in the', 'Cashbot Bullion Mint'),
- 13000: ('to', 'in', 'Lawbot HQ Courtyard'),
- 13100: ('to the', 'in the', 'Courthouse Lobby'),
- 13200: ('to the', 'in the', "DA's Office Lobby"),
- 13300: ('to the', 'in the', 'Lawbot A Office'),
- 13400: ('to the', 'in the', 'Lawbot B Office'),
- 13500: ('to the', 'in the', 'Lawbot C Office'),
- 13600: ('to the', 'in the', 'Lawbot D Office'),
+ 9100: ('to', 'on', 'Me Going Nap Road'),
+ 9200: ('to', 'on', 'NAPPING NOT ALLOWED ROAD'),
+ 10000: ('to', 'in', 'Courtbot HQ Palace'),
+ 10100: ('to the', 'in the', 'Courtbot HQ Lobby'),
+ 10200: ('to the', 'in the', 'The Royal Palace'),
+ 10500: ('to the', 'in the', 'The Easy Three'),
+ 10600: ('to the', 'in the', 'The Wacky Six'),
+ 10700: ('to the', 'in the', 'The Crazy Nine'),
+ 11000: ('to the', 'in the', 'Fashionbot HQ Designers Shop'),
+ 11100: ('to the', 'in the', 'Fashionbot HQ Designers Room'),
+ 11200: ('to the', 'in the', 'Fashionbot Store'),
+ 11500: ('to the', 'in the', 'Fashionbot Store'),
+ 12000: ('to', 'in', 'Carebot HQ Hospital Room'),
+ 12100: ('to the', 'in the', 'Carebot HQ Doctor Room'),
+ 12500: ('to the', 'in the', 'Carebot Waiting Room'),
+ 12600: ('to the', 'in the', 'Carebot Testing Room'),
+ 12700: ('to the', 'in the', 'Carebot Emergency Room'),
+ 13000: ('to', 'in', 'Courtbot HQ Courtyard'),
+ 13100: ('to the', 'in the', 'Judge Sentence Lobby'),
+ 13200: ('to the', 'in the', "Court Office Lobby"),
+ 13300: ('to the', 'in the', 'The Office'),
+ 13400: ('to the', 'in the', 'Interrogation Room'),
+ 13500: ('to the', 'in the', 'Jail'),
+ 13600: ('to the', 'in the', 'Judge Office'),
  17000: ('to the', 'in the', 'Playground'),}
 DonaldsDock = ('to', 'in', lDonaldsDock)
 ToontownCentral = ('to', 'in', lToontownCentral)
@@ -137,23 +137,23 @@ OutdoorZone = ('to', 'in', lOutdoorZone)
 FunnyFarm = ('to the', 'in the', 'Funny Farm')
 GoofySpeedway = ('to', 'in', lGoofySpeedway)
 DonaldsDreamland = ('to', 'in', lDonaldsDreamland)
-BossbotHQ = ('to', 'in', 'Bossbot HQ')
-SellbotHQ = ('to', 'in', 'Sellbot HQ')
-CashbotHQ = ('to', 'in', 'Cashbot HQ')
-LawbotHQ = ('to', 'in', 'Lawbot HQ')
+BossbotHQ = ('to', 'in', 'Royalbot HQ')
+SellbotHQ = ('to', 'in', 'Fashionbot HQ')
+CashbotHQ = ('to', 'in', 'Carebot HQ')
+LawbotHQ = ('to', 'in', 'Courtbot HQ')
 Tutorial = ('to the', 'in the', 'Toon-torial')
 MyEstate = ('to', 'in', 'your house')
 WelcomeValley = ('to', 'in', 'Welcome Valley')
 GolfZone = ('to', 'in', lGolfZone)
 PartyHood = ('to the', 'in the', lPartyHood)
-Factory = 'Factory'
+Factory = 'Store'
 Headquarters = 'Headquarters'
-SellbotFrontEntrance = 'Front Entrance'
-SellbotSideEntrance = 'Side Entrance'
+SellbotFrontEntrance = 'Front Store'
+SellbotSideEntrance = 'Backstage'
 Office = 'Office'
 FactoryNames = {0: 'Factory Mockup',
- 11500: 'Sellbot Cog Factory',
- 13300: 'Lawbot Cog Office'}
+ 11500: 'Fashionbot Cog Office',
+ 13300: 'Courtbot Cog Office'}
 FactoryTypeLeg = 'Leg'
 FactoryTypeArm = 'Arm'
 FactoryTypeTorso = 'Torso'
@@ -2041,7 +2041,7 @@ TeleportPanelUnavailableHood = '%s is not available right now; try again later.'
 TeleportPanelDenySelf = "You can't go to yourself!"
 TeleportPanelOtherShard = "%(avName)s is in district %(shardName)s, and you're in district %(myShardName)s.  Do you want to switch to %(shardName)s?"
 TeleportPanelBusyShard = '%(avName)s is in a full District. Playing in a full District can severely slow down game performance. Are you sure you want to switch districts?'
-BattleBldgBossTaunt = "King Berry and Queen Berry aren't happy with you trespassing here. Leave, or die."
+BattleBldgBossTaunt = "King Berry and Queen Berry aren't happy with you trespassing here. Leave, or face sadness..."
 CogdoBattleBldgBossTaunt = "What!? Toons!? In my office???"
 FactoryBossTaunt = "Welcome to the Fashion Designer's room, how may I assist you?"
 FactoryBossBattleTaunt = 'Would you like to speak to the Fashion Designer?'
@@ -8659,7 +8659,7 @@ TrickOrTreatMsg = 'You have already\nfound this treat!'
 WinterCarolingMsg = 'You have already been caroling here!'
 LawbotBossTempIntro0 = "Ooooh, what's going on here?"
 LawbotBossTempIntro1 = 'Bruh, there is someone here.'
-LawbotBossTempIntro2 = "Get KingShine here, he's gonna do something about this."
+LawbotBossTempIntro2 = "Get King Blueberry here, he's gonna do something about this."
 LawbotBossTempIntro3 = 'Oh, hello fellow royal people.'
 LawbotBossTempIntro4 = "Wait, you're all Toons!"
 LawbotBossTempJury1 = 'Jury selection will now commence.'

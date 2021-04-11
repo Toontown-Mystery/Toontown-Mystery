@@ -1,5 +1,5 @@
 @echo off
-title Toontown Online - AI (District) Server
+title Toontown Mystery - AI (District) Server
 cd..
 
 rem Read the contents of PPYTHON_PATH into %PPYTHON_PATH%:

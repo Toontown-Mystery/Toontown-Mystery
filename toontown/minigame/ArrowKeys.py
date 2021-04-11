@@ -1,7 +1,12 @@
-from panda3d.core import ModifierButtons
+from pandac.PandaModules import ModifierButtons
 from direct.showbase.DirectObject import DirectObject
 
 class ArrowKeys(DirectObject):
+    UP_KEY = 'arrow_up'
+    DOWN_KEY = 'arrow_down'
+    LEFT_KEY = 'arrow_left'
+    RIGHT_KEY = 'arrow_right'
+    JUMP_KEY = 'control'
     UP_INDEX = 0
     DOWN_INDEX = 1
     LEFT_INDEX = 2
@@ -10,11 +15,6 @@ class ArrowKeys(DirectObject):
     NULL_HANDLERS = (None, None, None, None, None)
 
     def __init__(self):
-        UP_KEY = base.MOVE_UP
-        DOWN_KEY = base.MOVE_DOWN
-        LEFT_KEY = base.MOVE_LEFT
-        RIGHT_KEY = base.MOVE_RIGHT
-        JUMP_KEY = base.JUMP
         self.__jumpPost = 0
         self.setPressHandlers(self.NULL_HANDLERS)
         self.setReleaseHandlers(self.NULL_HANDLERS)

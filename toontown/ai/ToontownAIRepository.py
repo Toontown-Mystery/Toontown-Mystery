@@ -148,9 +148,9 @@ class ToontownAIRepository(ToontownInternalRepository):
         self.createZones()
 
         # Make our district available, and we're done.
-        self.notify.info('Making district available...')
+        self.notify.info('Get your districts in, and...')
         self.district.b_setAvailable(1)
-        self.notify.info('District is now ready. Have fun in Toontown Online!')
+        self.notify.info('Districts are now complete. NOW PLAY TOONTOWN MYSTERY OR ELSE!!!!!!')
 
     def createLocals(self):
         """
