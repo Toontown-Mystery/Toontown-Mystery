@@ -406,7 +406,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
                     (28,29,30,32,34),
                     (50,50,50,50,50),
                     (15,15,15,15,15)),
-                ('Liquidate',
+                ('BlackOrb',
                     (28,29,30,32,33),
                     (95,95,95,95,95),
                     (15,15,15,15,15)))},
