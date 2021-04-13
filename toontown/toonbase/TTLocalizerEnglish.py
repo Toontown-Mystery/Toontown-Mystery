@@ -89,13 +89,13 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  2200: ('to', 'on', 'Propcorn Lane'),
  2300: ('to', 'on', 'Fun Lane'),
  3000: ('to the', 'in the', 'Coldground'),
- 3100: ('to', 'on', 'Survival Coldness Street'),
+ 3100: ('to', 'on', 'Garbage Soda Coldness Street'),
  3200: ('to', 'on', 'Blocked Ice Path'),
  3300: ('to', 'on', 'Danger Cold Place'),
  4000: ('to the', 'in the', 'Musicland'),
- 4100: ('to', 'on', 'Drum Sticks'),
+ 4100: ('to', 'on', 'Lizzostrument Road'),
  4200: ('to', 'on', 'The 8 Bit Street'),
- 4300: ('to', 'on', 'Learn Your Piano Street'),
+ 4300: ('to', 'on', 'Lizzy X Peacho Ship Road'),
  5000: ('to the', 'in the', 'Garden'),
  5100: ('to', 'on', 'Flower Area'),
  5200: ('to', 'on', 'Grass Area'),
@@ -9236,8 +9236,8 @@ BoardingTimeWarning = 'Boarding the elevator in '
 BoardingMore = 'more'
 BoardingGoShow = 'Going to\n%s in '
 BoardingGoPreShow = 'Confirming...'
-BossbotBossName = 'KingShine'
-BossbotRTWelcome = "Hello Toons! Welcome to KingShine's Lair!"
+BossbotBossName = 'King Blueberry'
+BossbotRTWelcome = "Hello Toons! Welcome to King Blueberry's Lair!"
 BossbotRTRemoveSuit = 'Cog suits...'
 BossbotRTFightWaiter = 'You know the drill.'
 BossbotRTWearWaiter1 = "Good Job Toons! You defeated the Waiters!"
