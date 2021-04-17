@@ -16,7 +16,7 @@ Play to find out! :D
 
 * Click on the folder after extracting, NOT THE ZIP file.
 
-* Install Panda3D-1.11.0, which can be downloaded here, https://drive.google.com/file/d/1h4K9hud5uWYR799hOaqR8nnzevM4zpmI/view?usp=sharing click on it.
+* Install Panda3D-1.11.0, which can be [downloaded here](https://drive.google.com/file/d/1h4K9hud5uWYR799hOaqR8nnzevM4zpmI/view?usp=sharing)
 
 * Click on win32.
 
