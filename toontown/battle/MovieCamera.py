@@ -363,6 +363,8 @@ def chooseSuitShot(attack, attackDuration):
         camTrack.append(defaultCamera())
     elif name == BITE:
         camTrack.append(defaultCamera(openShotDuration=2.8))
+    elif name == BLACK_ORB:
+        camTrack.append(defaultCamera(openShotDuration=2.7))
     elif name == BOUNCE_CHECK:
         camTrack.append(defaultCamera())
     elif name == BRAIN_STORM:
