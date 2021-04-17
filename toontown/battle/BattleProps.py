@@ -227,7 +227,8 @@ Variants = ('tart',
  'geyser',
  'ship',
  'trolley',
- 'traintrack')
+ 'traintrack',
+ 'black-orb')
 
 class PropPool:
     notify = DirectNotifyGlobal.directNotify.newCategory('PropPool')
@@ -291,6 +292,9 @@ class PropPool:
         self.propTypes[propName] = 'model'
         propName = 'trolley'
         self.propStrings[propName] = ('phase_4/models/modules/trolley_station_TT',)
+        self.propTypes[propName] = 'model'
+        propName = 'black-orb'
+        self.propStrings[propName] = (self.getPath(5, 'evil-eye'),)
         self.propTypes[propName] = 'model'
 
     def getPath(self, phase, model):
@@ -374,6 +378,11 @@ class PropPool:
             self.props[name] = self.props[name].find('**/ship_gag')
         elif name == 'trolley':
             self.props[name] = self.props[name].find('**/trolley_car')
+        elif name == 'black-orb':
+            tex = loader.loadTexture('phase_5/maps/black.png')
+            tex.setMinfilter(Texture.FTLinearMipmapLinear)
+            tex.setMagfilter(Texture.FTLinear)
+            self.props[name].setTexture(tex, 1)
 
     def unloadProps(self):
         for p in self.props.values():
