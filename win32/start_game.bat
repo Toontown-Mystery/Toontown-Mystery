@@ -7,5 +7,5 @@ set /P PPYTHON_PATH=<PPYTHON_PATH
 
 set TTOFF_LOGIN_TOKEN=dev
 
-%PPYTHON_PATH% -m toontown.launcher.TTOffQuickStartLauncher
+"panda/python/python.exe" -m toontown.launcher.TTOffQuickStartLauncher
 pause
