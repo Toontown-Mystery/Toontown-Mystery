@@ -16,5 +16,5 @@ set TTOFF_LOGIN_TOKEN=dev
 set /P TTOFF_GAME_SERVER="Game Server (default: 127.0.0.1): " || ^
 set TTOFF_GAME_SERVER=127.0.0.1
 
-%PPYTHON_PATH% -m toontown.launcher.TTOffQuickStartLauncher
+"panda3d/python/python.exe" -m toontown.launcher.TTOffQuickStartLauncher
 pause
