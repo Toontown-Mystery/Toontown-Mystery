@@ -999,23 +999,25 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Demotion': ('magic1', ATK_TGT_SINGLE),
  'DoubleTalk': ('speak', ATK_TGT_SINGLE),
  'Downsize': ('magic2', ATK_TGT_SINGLE),
- 'WhitePowder': ('finger-wag', ATK_TGT_SINGLE),
  'EvictionNotice': ('throw-paper', ATK_TGT_SINGLE),
  'EvilEye': ('glower', ATK_TGT_SINGLE),
  'Filibuster': ('speak', ATK_TGT_SINGLE),
  'FillWithLead': ('pencil-sharpener', ATK_TGT_SINGLE),
  'FingerWag': ('finger-wag', ATK_TGT_SINGLE),
  'Fired': ('magic2', ATK_TGT_SINGLE),
+ 'FireBalls': ('speak', ATK_TGT_SINGLE),
  'FiveOClockShadow': ('glower', ATK_TGT_SINGLE),
  'FloodTheMarket': ('glower', ATK_TGT_SINGLE),
  'FountainPen': ('pen-squirt', ATK_TGT_SINGLE),
  'FreezeAssets': ('glower', ATK_TGT_SINGLE),
  'Gavel': ('gavel', ATK_TGT_SINGLE),
  'GlowerPower': ('glower', ATK_TGT_SINGLE),
+ 'Golf': ('golf-club-swing', ATK_TGT_SINGLE),
  'GuiltTrip': ('magic1', ATK_TGT_GROUP),
  'HalfWindsor': ('throw-paper', ATK_TGT_SINGLE),
  'HangUp': ('phone', ATK_TGT_SINGLE),
  'HeadShrink': ('magic1', ATK_TGT_SINGLE),
+ 'HeatWave': ('magic2', ATK_TGT_GROUP),
  'HotAir': ('speak', ATK_TGT_SINGLE),
  'Jargon': ('speak', ATK_TGT_SINGLE),
  'Legalese': ('speak', ATK_TGT_SINGLE),
@@ -1023,7 +1025,6 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'MarketCrash': ('throw-paper', ATK_TGT_SINGLE),
  'MumboJumbo': ('speak', ATK_TGT_SINGLE),
  'ParadigmShift': ('magic2', ATK_TGT_GROUP),
- 'WaterSpray': ('magic2', ATK_TGT_GROUP),
  'PeckingOrder': ('throw-object', ATK_TGT_SINGLE),
  'PickPocket': ('pickpocket', ATK_TGT_SINGLE),
  'PinkSlip': ('throw-paper', ATK_TGT_SINGLE),
@@ -1044,19 +1045,18 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Schmooze': ('speak', ATK_TGT_SINGLE),
  'Shake': ('stomp', ATK_TGT_GROUP),
  'Shred': ('shredder', ATK_TGT_SINGLE),
+ 'Snow': ('magic3', ATK_TGT_GROUP),
+ 'SnowBalls': ('effort', ATK_TGT_SINGLE),
  'SongAndDance': ('song-and-dance', ATK_TGT_SINGLE),
  'Spin': ('magic3', ATK_TGT_SINGLE),
  'Synergy': ('magic3', ATK_TGT_GROUP),
- 'Snow': ('magic3', ATK_TGT_GROUP),
- 'HeatWave': ('magic2', ATK_TGT_GROUP),
  'Tabulate': ('phone', ATK_TGT_SINGLE),
- 'Golf': ('golf-club-swing', ATK_TGT_SINGLE),
  'ThrowBook': ('throw-object', ATK_TGT_SINGLE),
  'Tremor': ('stomp', ATK_TGT_GROUP),
  'Watercooler': ('watercooler', ATK_TGT_SINGLE),
+ 'WaterSpray': ('magic2', ATK_TGT_GROUP),
+ 'WhitePowder': ('finger-wag', ATK_TGT_SINGLE),
  'Withdrawal': ('magic1', ATK_TGT_SINGLE),
- 'SnowBalls': ('effort', ATK_TGT_SINGLE),
- 'FireBalls': ('speak', ATK_TGT_SINGLE),
  'WriteOff': ('hold-pencil', ATK_TGT_SINGLE)}
 AUDIT = SuitAttacks.keys().index('Audit')
 BITE = SuitAttacks.keys().index('Bite')
@@ -1072,7 +1072,6 @@ CLIPON_TIE = SuitAttacks.keys().index('ClipOnTie')
 CRUNCH = SuitAttacks.keys().index('Crunch')
 DEMOTION = SuitAttacks.keys().index('Demotion')
 DOWNSIZE = SuitAttacks.keys().index('Downsize')
-WHITE_POWDER = SuitAttacks.keys().index('WhitePowder')
 DOUBLE_TALK = SuitAttacks.keys().index('DoubleTalk')
 EVICTION_NOTICE = SuitAttacks.keys().index('EvictionNotice')
 EVIL_EYE = SuitAttacks.keys().index('EvilEye')
@@ -1080,6 +1079,7 @@ FILIBUSTER = SuitAttacks.keys().index('Filibuster')
 FILL_WITH_LEAD = SuitAttacks.keys().index('FillWithLead')
 FINGER_WAG = SuitAttacks.keys().index('FingerWag')
 FIRED = SuitAttacks.keys().index('Fired')
+FIRE_BALLS = SuitAttacks.keys().index('FireBalls')
 FIVE_O_CLOCK_SHADOW = SuitAttacks.keys().index('FiveOClockShadow')
 FLOOD_THE_MARKET = SuitAttacks.keys().index('FloodTheMarket')
 FOUNTAIN_PEN = SuitAttacks.keys().index('FountainPen')
@@ -1090,6 +1090,7 @@ GUILT_TRIP = SuitAttacks.keys().index('GuiltTrip')
 HALF_WINDSOR = SuitAttacks.keys().index('HalfWindsor')
 HANG_UP = SuitAttacks.keys().index('HangUp')
 HEAD_SHRINK = SuitAttacks.keys().index('HeadShrink')
+HEAT_WAVE = SuitAttacks.keys().index('HeatWave')
 HOT_AIR = SuitAttacks.keys().index('HotAir')
 JARGON = SuitAttacks.keys().index('Jargon')
 LEGALESE = SuitAttacks.keys().index('Legalese')
@@ -1097,7 +1098,6 @@ LIQUIDATE = SuitAttacks.keys().index('Liquidate')
 MARKET_CRASH = SuitAttacks.keys().index('MarketCrash')
 MUMBO_JUMBO = SuitAttacks.keys().index('MumboJumbo')
 PARADIGM_SHIFT = SuitAttacks.keys().index('ParadigmShift')
-WATER_SPRAY = SuitAttacks.keys().index('WaterSpray')
 PECKING_ORDER = SuitAttacks.keys().index('PeckingOrder')
 PICK_POCKET = SuitAttacks.keys().index('PickPocket')
 PINK_SLIP = SuitAttacks.keys().index('PinkSlip')
@@ -1118,19 +1118,19 @@ SANDTRAP = SuitAttacks.keys().index('SandTrap')
 SCHMOOZE = SuitAttacks.keys().index('Schmooze')
 SHAKE = SuitAttacks.keys().index('Shake')
 SHRED = SuitAttacks.keys().index('Shred')
+SNOW = SuitAttacks.keys().index('Snow')
+SNOW_BALLS = SuitAttacks.keys().index('SnowBalls')
 SONG_AND_DANCE = SuitAttacks.keys().index('SongAndDance')
 SPIN = SuitAttacks.keys().index('Spin')
 SYNERGY = SuitAttacks.keys().index('Synergy')
-SNOW = SuitAttacks.keys().index('Snow')
-HEAT_WAVE = SuitAttacks.keys().index('HeatWave')
 TABULATE = SuitAttacks.keys().index('Tabulate')
 TEE_OFF = SuitAttacks.keys().index('Golf')
 THROW_BOOK = SuitAttacks.keys().index('ThrowBook')
 TREMOR = SuitAttacks.keys().index('Tremor')
 WATERCOOLER = SuitAttacks.keys().index('Watercooler')
+WATER_SPRAY = SuitAttacks.keys().index('WaterSpray')
+WHITE_POWDER = SuitAttacks.keys().index('WhitePowder')
 WITHDRAWAL = SuitAttacks.keys().index('Withdrawal')
-SNOW_BALLS = SuitAttacks.keys().index('SnowBalls')
-FIRE_BALLS = SuitAttacks.keys().index('FireBalls')
 WRITE_OFF = SuitAttacks.keys().index('WriteOff')
 
 def getFaceoffTaunt(suitName, doId):
