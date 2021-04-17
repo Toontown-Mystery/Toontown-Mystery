@@ -406,7 +406,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
                     (28,29,30,32,34),
                     (50,50,50,50,50),
                     (15,15,15,15,15)),
-                ('Liquidate',
+                ('BlackOrb',
                     (28,29,30,32,33),
                     (95,95,95,95,95),
                     (15,15,15,15,15)))},
@@ -986,6 +986,7 @@ ATK_TGT_SINGLE = 2
 ATK_TGT_GROUP = 3
 SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Bite': ('throw-paper', ATK_TGT_SINGLE),
+ 'BlackOrb': ('effort', ATK_TGT_SINGLE),
  'BounceCheck': ('throw-paper', ATK_TGT_SINGLE),
  'BrainStorm': ('effort', ATK_TGT_SINGLE),
  'BuzzWord': ('speak', ATK_TGT_SINGLE),
@@ -1000,7 +1001,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Downsize': ('magic2', ATK_TGT_SINGLE),
  'WhitePowder': ('finger-wag', ATK_TGT_SINGLE),
  'EvictionNotice': ('throw-paper', ATK_TGT_SINGLE),
- 'BlackOrb': ('effort', ATK_TGT_SINGLE),
+ 'EvilEye': ('glower', ATK_TGT_SINGLE),
  'Filibuster': ('speak', ATK_TGT_SINGLE),
  'FillWithLead': ('pencil-sharpener', ATK_TGT_SINGLE),
  'FingerWag': ('finger-wag', ATK_TGT_SINGLE),
@@ -1059,6 +1060,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'WriteOff': ('hold-pencil', ATK_TGT_SINGLE)}
 AUDIT = SuitAttacks.keys().index('Audit')
 BITE = SuitAttacks.keys().index('Bite')
+BLACK_ORB = SuitAttacks.keys().index('BlackOrb')
 BOUNCE_CHECK = SuitAttacks.keys().index('BounceCheck')
 BRAIN_STORM = SuitAttacks.keys().index('BrainStorm')
 BUZZ_WORD = SuitAttacks.keys().index('BuzzWord')
@@ -1073,7 +1075,7 @@ DOWNSIZE = SuitAttacks.keys().index('Downsize')
 WHITE_POWDER = SuitAttacks.keys().index('WhitePowder')
 DOUBLE_TALK = SuitAttacks.keys().index('DoubleTalk')
 EVICTION_NOTICE = SuitAttacks.keys().index('EvictionNotice')
-EVIL_EYE = SuitAttacks.keys().index('BlackOrb')
+EVIL_EYE = SuitAttacks.keys().index('EvilEye')
 FILIBUSTER = SuitAttacks.keys().index('Filibuster')
 FILL_WITH_LEAD = SuitAttacks.keys().index('FillWithLead')
 FINGER_WAG = SuitAttacks.keys().index('FingerWag')
