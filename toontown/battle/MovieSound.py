@@ -193,7 +193,7 @@ def __createToonInterval(sound, delay, toon, operaInstrument = None):
         retval.append(ActorInterval(toon, 'sound'))
     if DISTANCE_TO_WALK_BACK and hasLuredSuits and not isNPC:
         retval.append(Parallel(ActorInterval(toon, 'run', startTime=0.0001, duration=TIME_TO_WALK_BACK, endTime=1), LerpPosInterval(toon, TIME_TO_WALK_BACK, oldPos, other=battle)))
-    retval.append(Func(toon.loop, 'applause'))
+    retval.append(Func(toon.loop, 'neutral'))
     return retval
 
 
