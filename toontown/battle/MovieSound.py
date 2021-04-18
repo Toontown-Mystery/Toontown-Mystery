@@ -157,7 +157,7 @@ def __createSuitResetPosTrack(suit, battle):
     resetPos, resetHpr = battle.getActorPosHpr(suit)
     moveDist = Vec3(suit.getPos(battle) - resetPos).length()
     moveDuration = 0.5
-    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'run', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'neutral'))
+    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'run', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'victory'))
     moveTrack = LerpPosInterval(suit, moveDuration, resetPos, other=battle)
     return Parallel(walkTrack, moveTrack)
 
@@ -193,7 +193,7 @@ def __createToonInterval(sound, delay, toon, operaInstrument = None):
         retval.append(ActorInterval(toon, 'sound'))
     if DISTANCE_TO_WALK_BACK and hasLuredSuits and not isNPC:
         retval.append(Parallel(ActorInterval(toon, 'run', startTime=0.0001, duration=TIME_TO_WALK_BACK, endTime=1), LerpPosInterval(toon, TIME_TO_WALK_BACK, oldPos, other=battle)))
-    retval.append(Func(toon.loop, 'neutral'))
+    retval.append(Func(toon.loop, 'applause'))
     return retval
 
 
