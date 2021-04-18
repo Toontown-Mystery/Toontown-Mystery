@@ -95,16 +95,16 @@ def __getSuitTrack(sound, lastSoundThatHit, delay, hitCount, targets, totalDamag
                 suitTrack.append(showDamage)
                 suitTrack.append(updateHealthBar)
             if hitCount == 1:
-                suitTrack.append(Parallel(ActorInterval(suit, 'squirt-small-react'), MovieUtil.createSuitStunInterval(suit, 0.5, 1.8)))
+                suitTrack.append(Parallel(ActorInterval(suit, 'soak'), MovieUtil.createSuitStunInterval(suit, 0.5, 1.8)))
             else:
-                suitTrack.append(ActorInterval(suit, 'squirt-small-react'))
+                suitTrack.append(ActorInterval(suit, 'pie-small-react'))
             if kbbonus == 0:
                 suitTrack.append(__createSuitResetPosTrack(suit, battle))
                 suitTrack.append(Func(battle.unlureSuit, suit))
             bonusTrack = None
             if hpbonus > 0:
                 bonusTrack = Sequence(Wait(delay + tSuitReact + delay + 0.75 + uberDelay), Func(suit.showHpText, -hpbonus, 1, openEnded=0))
-            suitTrack.append(Func(suit.loop, 'neutral'))
+            suitTrack.append(Func(suit.loop, 'victory'))
             if bonusTrack == None:
                 tracks.append(suitTrack)
             else:
@@ -157,7 +157,7 @@ def __createSuitResetPosTrack(suit, battle):
     resetPos, resetHpr = battle.getActorPosHpr(suit)
     moveDist = Vec3(suit.getPos(battle) - resetPos).length()
     moveDuration = 0.5
-    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'walk', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'neutral'))
+    walkTrack = Sequence(Func(suit.setHpr, battle, resetHpr), ActorInterval(suit, 'run', startTime=1, duration=moveDuration, endTime=0.0001), Func(suit.loop, 'neutral'))
     moveTrack = LerpPosInterval(suit, moveDuration, resetPos, other=battle)
     return Parallel(walkTrack, moveTrack)
 
@@ -192,7 +192,7 @@ def __createToonInterval(sound, delay, toon, operaInstrument = None):
     else:
         retval.append(ActorInterval(toon, 'sound'))
     if DISTANCE_TO_WALK_BACK and hasLuredSuits and not isNPC:
-        retval.append(Parallel(ActorInterval(toon, 'walk', startTime=0.0001, duration=TIME_TO_WALK_BACK, endTime=1), LerpPosInterval(toon, TIME_TO_WALK_BACK, oldPos, other=battle)))
+        retval.append(Parallel(ActorInterval(toon, 'run', startTime=0.0001, duration=TIME_TO_WALK_BACK, endTime=1), LerpPosInterval(toon, TIME_TO_WALK_BACK, oldPos, other=battle)))
     retval.append(Func(toon.loop, 'neutral'))
     return retval
 

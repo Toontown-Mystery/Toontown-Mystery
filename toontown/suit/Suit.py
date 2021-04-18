@@ -105,7 +105,7 @@ ms = (('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5),
  ('pickpocket', 'pickpocket', 5),
  ('phone', 'phone', 5),
- ('finger-wag', 'finger-wag', 5))
+ ('finger-wag', 'fingerwag', 5))
 tf = (('smile', 'smile', 5),
  ('magic1', 'magic1', 5),
  ('throw-paper', 'throw-paper', 5),
