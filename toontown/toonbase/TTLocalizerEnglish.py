@@ -2396,7 +2396,7 @@ SuitSpinDoctorP = 'Cog Monkies'
 SuitLegalEagleP = 'Black Eagles'
 SuitBigWigP = 'Full Wigs'
 SuitFaceoffDefaultTaunts = ['Boo!']
-SuitAttackDefaultTaunts = ['Take that!', 'Take a memo on this!']
+SuitAttackDefaultTaunts = ['Take that!', "You're grounded!"]
 SuitAttackNames = {'Audit': 'Audit!',
  'Bite': 'Bite!',
  'BounceCheck': 'Bounce Check!',
