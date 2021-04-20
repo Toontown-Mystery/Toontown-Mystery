@@ -2579,7 +2579,7 @@ def doHangUp(attack):
     phone = globalPropPool.getProp('phone')
     receiver = globalPropPool.getProp('receiver')
     suitTrack = getSuitTrack(attack)
-    suitType = suit.getSuitBodyType(attack['suitName'])
+    suitType = getSuitBodyType(attack['suitName'])
     if suitType == 'a':
         phonePosPoints = [Point3(-0.23, 0.01, -0.26), VBase3(5.939, 2.763, -177.591)]
         receiverPosPoints = [Point3(-0.13, -0.07, -0.06), VBase3(-1.854, 2.434, -177.579)]
