@@ -56,3 +56,5 @@ Credits:
 * [libotp-movement](https://github.com/jwcotejr/libotp-movement)
 * [libotp-nametags](https://github.com/loblao/libotp-nametags)
 * Reverse-engineered Toontown Online client/server source code is property of The Walt Disney Company.
+* Toontown School house ultimate source
+* Thunderzapper for SetCogIndex and SetDNA command
