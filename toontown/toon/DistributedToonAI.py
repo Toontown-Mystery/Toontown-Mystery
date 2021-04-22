@@ -209,6 +209,7 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
         self.unlimitedGags = False
         self.instaKill = False
         self.alwaysHitSuits = False
+        self.setSystemMessage = False
         return
 
     def generate(self):
@@ -344,18 +345,9 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
         if self.cogIndex != -1 and not ToontownAccessAI.canWearSuit(self.doId, newZoneId):
             if simbase.config.GetBool('cogsuit-hack-prevent', False):
                 self.b_setCogIndex(-1)
-            if not simbase.air.cogSuitMessageSent:
-                self.notify.warning('%s handleLogicalZoneChange as a suit: %s' % (self.doId, self.cogIndex))
-                self.air.writeServerEvent('suspicious', self.doId, 'Toon wearing a cog suit with index: %s in a zone they are not allowed to in. Zone: %s' % (self.cogIndex, newZoneId))
-                simbase.air.cogSuitMessageSent = True
-                if simbase.config.GetBool('want-ban-wrong-suit-place', False):
-                    commentStr = 'Toon %s wearing a suit in a zone they are not allowed to in. Zone: %s' % (self.doId, newZoneId)
-                    dislId = self.DISLid
-                    simbase.air.banManager.ban(self.doId, dislId, commentStr)
-
+            
     def announceZoneChange(self, newZoneId, oldZoneId):
         from toontown.pets import PetObserve
-        self.air.welcomeValleyManager.toonSetZone(self.doId, newZoneId)
         broadcastZones = [oldZoneId, newZoneId]
         if self.isInEstate() or self.wasInEstate():
             broadcastZones = union(broadcastZones, self.estateZones)
@@ -1443,14 +1435,13 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
             self.d_setCogIndex(index)
 
     def setCogIndex(self, index):
-        if index != -1 and not ToontownAccessAI.canWearSuit(self.doId, self.zoneId):
-            if not simbase.air.cogSuitMessageSent:
-                self.notify.warning('%s setCogIndex invalid: %s' % (self.doId, index))
-                if simbase.config.GetBool('want-ban-wrong-suit-place', False):
-                    commentStr = 'Toon %s trying to set cog index to %s in Zone: %s' % (self.doId, index, self.zoneId)
-                    simbase.air.banManager.ban(self.doId, self.DISLid, commentStr)
-        else:
-            self.cogIndex = index
+        if index != -1 and config.GetBool('cogsuit-hack-prevent', False) and not ToontownAccessAI.canWearSuit(self.doId,
+                                                                                                              self.zoneId) and self.getAdminAccess() < 500:
+            self.air.writeServerEvent('suspicious', avId=self.doId,
+                                      issue='Toon tried to set cog suit index to %s in non-HQ zone %s' % (
+                                      str(index), str(self.zoneId)))
+            index = -1
+        self.cogIndex = index
 
     def d_setCogIndex(self, index):
         self.sendUpdate('setCogIndex', [index])
@@ -4137,9 +4128,6 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
     def isGM(self):
         return self._isGM
 
-    def d_setRun(self):
-        self.sendUpdate('setRun', [])
-
     def _nameIsPrefixed(self, prefix):
         if len(self.name) > len(prefix):
             if self.name[:len(prefix)] == prefix:
@@ -4367,12 +4355,20 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
 
     def setAlwaysHitSuits(self, alwaysHitSuits):
         self.alwaysHitSuits = alwaysHitSuits
-
+    def setSystemMessage(self, setSystemMessage):
+        return self.setSystemMessage
     def getAlwaysHitSuits(self):
         return self.alwaysHitSuits
 
     def d_setRun(self):
         self.sendUpdate('setRun', [])
 
+    def setMagicDNA(self, hp):
+        self.b_setDNAString(hp)
+        self.d_setSystemMessage(0, "Clothing changed successfully!")
+
     def d_doTeleport(self, hood):
         self.sendUpdateToAvatarId(self.doId, 'doTeleport', [hood])
+
+    def b_setEyes(self, eyes):
+        self.sendUpdate('setEyes', [eyes])
