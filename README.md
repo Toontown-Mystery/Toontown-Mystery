@@ -26,21 +26,9 @@ Play to find out! :D
 
 
 
-# Useful commands:
+# Commands
 
-~maxtoon
-
-~unites (or insert any number) Example: ~unites 50
-
-~fires 255 (or insert any number) Example: ~fires 100
-
-~sos (select an sos name and insert number) Example: ~sos 100 barnacle bessie
-
-~unlimitedgags
-
-~run
-
-~ghost
+All commands can be located in your shticker book
 
 
 
