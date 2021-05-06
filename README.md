@@ -18,7 +18,7 @@ Play to find out! :D
 
 
 
-* SINGLEPLAYER: Click Astron, Uberdog, AI, join-server, type in any username you want, enter, then type in for the gameserver, 127.0.0.1, then it will lead you in the game.
+* SINGLEPLAYER: Run Start-all.bat and it should open all the batch files needed to start the game
 
 * MULTIPLAYER: Click join-server, type in your username or whatever you want, enter, then type the mini-server, enter. (Whoever is hosting the server will give it out.)
 
