@@ -2,9 +2,6 @@
 title Toontown Mystery - AI (District) Server
 cd..
 
-rem Read the contents of PPYTHON_PATH into %PPYTHON_PATH%:
-set /P PPYTHON_PATH=<PPYTHON_PATH
-
 :main
 "panda/python/python.exe" -m toontown.ai.AIStart --base-channel 401000000 ^
                --max-channels 999999 --stateserver 4002 ^
