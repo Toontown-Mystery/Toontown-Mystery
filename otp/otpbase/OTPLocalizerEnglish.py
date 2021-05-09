@@ -27,12 +27,12 @@ DialogNo = lNo
 DialogDoNotShowAgain = 'Do Not\nShow Again'
 WhisperNoLongerFriend = '%s left your friends list.'
 WhisperNowSpecialFriend = '%s is now your True Friend!'
-WhisperComingToVisit = '%s is coming to visit you.'
-WhisperFailedVisit = '%s tried to visit you.'
-WhisperTargetLeftVisit = '%s has gone somewhere else. Try again!'
+WhisperComingToVisit = '%s IS COMING! INCOMING!!!'
+WhisperFailedVisit = '%s is trying to get to you. STOP SCAMMING!'
+WhisperTargetLeftVisit = '%s has disappeared. Muahaha.'
 WhisperGiveupVisit = "%s couldn't find you because you're moving around!"
 WhisperIgnored = '%s is ignoring you!'
-TeleportGreeting = 'Hi, %s.'
+TeleportGreeting = 'There you are, %s.'
 WhisperFriendComingOnline = '%s is coming online!'
 WhisperFriendLoggedOut = '%s has logged out.'
 WhisperPlayerOnline = '%s logged into %s'
@@ -511,11 +511,21 @@ EmoteFuncDict = {'Wave': 0,
  'Sing Note F': 31,
  'Sing Note G2': 32}
 SuitBrushOffs = {'f': ["My boss is going to dislike me!"],
- 'p': ["I'm orange for a reason."],
+ 'p': ["I'm a pencil for a reason."],
+ 'mm': ["-is scared and walks away.-"],
+ 'ds': ["I'm going to date Master Cool Cat! <3"],
+ 'hh': ["I'm sorry, but I don't know you, please talk back later."],
+ 'sc': ["Can I collect my gold in peace please?"],
+ 'bc': ["Mom!"],
+ 'mb': ["Trying to change into my shiny armor."],
  'rb': ["Back off supporter, or else."],
  'ls': ["I trusted you, go away."],
+ 'b': ["I don't look scary enough... Trying to scare people here..."],
+ 'ac': ["Noooooooooo my boss found me ahhh."],
  'mh': ["Brb, I'm talking behind people's backs."],
- 'tw': ["I'm killing people, show up when I'm not busy."],
+ 'le': ["I'm trying to warm up, come back later."],
+ 'bw': ["Can you go away, I'm trying to sell my stuff here!"],
+ 'tw': ["I'm eliminating Toons, show up when I'm not busy."],
  'ym': ["I'm a Yellow Backstabber!"],
  None: ["I'm bored!",
         "I am leaving, bye.",
@@ -654,27 +664,27 @@ SuitFaceoffTaunts = {'b': ['I am scary haha.',
         "My face? It's textured.",
         'Do you wanna look textured like me?',
         "I'm a Cog, how about you?"],
- 'bw': ["Eat up.",
-        "You hungry?",
-        'Get those SINS!',
-        "Ever had KFC?",
-        "Lovely KFC today.",
-        "Pizza Stinks! KFC Rules!",
-        "Join us for chicken.",
-        "I'm the biggest of KFC.",
-        "Come and face me!",
-        "Gimme the Wig!"],
- 'le': ["I am an Officer you know.",
-        'I am an Eagle that is Black.',
-        "I am the Black Eagle!",
-        'Thanks for the Takeover.',
-        "None of this is Illegal right?",
-        "Eagles always follow the Law.",
-        'You must follow rule 3. 1. 2. In Order to become an Officer.',
-        "This is so Legal, we can have fun!",
+ 'bw': ["I have the diamonds!",
+        "I told you to not talk behind my friends, now you'll pay.",
+        'Have you ever tried out my diamonds?',
+        "Blue, green, yellow, whatever diamonds you need, I have them.",
+        "Well, well, well! Look what the Toons did here...",
+        "Hmm, very well. I will just finish you all myself.",
+        "You've done it this time! Stay away from my friends!",
+        "Do you know where room C is?",
+        "According to my calculations, you're going to go sad.",
+        "You've been warned, Toon..."],
+ 'le': ["I will set fire to the sun! Oh, wait, I am the sun.",
+        'I will give you some warmth, come here.',
+        "Get over here so I can heat you!",
+        "If you're cold, always get some sunlight.",
+        "Have you read on what sun benefits you?",
+        "Have you ever gotten a sunburn? I have.",
+        "Be careful Toon, I'm very hot!",
+        "Ah yes, Toons. We can have fun!",
         "No way. Just no, you're not allowed here!",
         "We can obviously tell that you are a Toon.",
-        "We are having this at Trial Court."],
+        "I'm speaking to the sunscreen manager about this..."],
  'sd': ["You'll never know when I'll stop.",
         'I am a Monkey Cog!',
         'Be aware of the fake Toons.',

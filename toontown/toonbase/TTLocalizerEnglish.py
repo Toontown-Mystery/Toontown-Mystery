@@ -2329,8 +2329,8 @@ SuitDoubleTalker = 'Sally'
 SuitAmbulanceChaser = 'Microripoff'
 SuitBackStabber = 'Textured Counter'
 SuitSpinDoctor = 'Cog Monkey'
-SuitLegalEagle = 'Black Eagle'
-SuitBigWig = 'Full Wig'
+SuitLegalEagle = 'Sunlight Elvis'
+SuitBigWig = 'Epic Diamond'
 SuitFlunkyS = 'a Red Hander'
 SuitPencilPusherS = 'a Pencil Head'
 SuitYesmanS = 'a Shiny Stabber'
@@ -2361,8 +2361,8 @@ SuitDoubleTalkerS = 'a Sally'
 SuitAmbulanceChaserS = 'an Microripoff'
 SuitBackStabberS = 'a Textured Counter'
 SuitSpinDoctorS = 'a Cog Monkey'
-SuitLegalEagleS = 'a Black Eagle'
-SuitBigWigS = 'a Full Wig'
+SuitLegalEagleS = 'a Sunlight Elvis'
+SuitBigWigS = 'a Epic Diamond'
 SuitFlunkyP = 'Red Handers'
 SuitPencilPusherP = 'Pencil heads'
 SuitYesmanP = 'Shiny Stabbers'
@@ -2393,8 +2393,8 @@ SuitDoubleTalkerP = 'Sallies'
 SuitAmbulanceChaserP = 'Microripoffs'
 SuitBackStabberP = 'Textured Counters'
 SuitSpinDoctorP = 'Cog Monkies'
-SuitLegalEagleP = 'Black Eagles'
-SuitBigWigP = 'Full Wigs'
+SuitLegalEagleP = 'Sunlight Elvises'
+SuitBigWigP = 'Epic Diamonds'
 SuitFaceoffDefaultTaunts = ['Boo!']
 SuitAttackDefaultTaunts = ['Take that!', 'Take a memo on this!']
 SuitAttackNames = {'Audit': 'Audit!',
@@ -2645,7 +2645,7 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
                   'The bird goes, "Tweet tweet."'],
  'PickPocket': ['Can I have your Money?',
                 "I'll take your Money!",
-				"Huh, What's that? Oops, I got your money.",
+				"Huh, what's that? Oops, I got your money.",
                 'Your pocket is mine to take.'],
  'PinkSlip': ["You earned yourself a trip to the principals office!",
               "Why are you normal, why not Pink?",
@@ -2662,7 +2662,7 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
                   'Ball 4.',
                   "Home run!",
                   "Ball 1, no no wait, strike 1, no no ball, strike, ball, what?"],
- 'PoundKey': ['Call 1800-999-1110 for Toontown Mysterys latest updates.',
+ 'PoundKey': ["Call 1800-999-1110 for Toontown Mystery's latest updates.",
               "Call me please!",
               "Do you want my phone number?",
               "This is crazy, here's my number, so call me maybe!",
@@ -2739,7 +2739,7 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
 		  "I'm taking you for a spin, enjoy.",
           'Are you enjoying your spin-o-round?'],
  'Synergy': ["Do you want some money? Come and get it.",
-             "Enjoy the pool of money, Toon!.",
+             "Enjoy the pool of money, Toon!",
 			 "Where is your money? Did you lose it?",
              'This attack will cause harm.'],
  'Snow': ["Snow? I don't see any snow.",

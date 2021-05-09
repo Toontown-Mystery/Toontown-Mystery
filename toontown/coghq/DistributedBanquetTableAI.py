@@ -24,11 +24,11 @@ class DistributedBanquetTableAI(DistributedObjectAI.DistributedObjectAI, FSM.FSM
             eatingDuration = diffSettings[5]
             hungryDuration += random.uniform(-5, 5)
             eatingDuration += random.uniform(-5, 5)
-            level = 12
+            level = random.choice([10, 11, 12, 13, 14, 15, 16]),
             if type(dinerLevel) == type(0):
                 level = dinerLevel
             else:
-                level = random.choice(dinerLevel)
+                level = random.choice([10, 11, 12, 13, 14, 15, 16]),
             self.dinerInfo[i] = (hungryDuration, eatingDuration, level)
 
         self.transitionTasks = {}

@@ -184,7 +184,7 @@ class SetMaxHP(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         maxhp = args[0]
 
-        if not 15 <= maxhp <= 137:
+        if not 1 <= maxhp <= 358:
             return "Can't set {}'s max laff to {}! Specify a value between 15 and 137.".format(toon.getName(), maxhp)
 
         toon.b_setMaxHp(maxhp)
@@ -1570,7 +1570,7 @@ class SkipCFO(MagicWord):
                     boss = do
                     break
         if not boss:
-            return "You aren't in a CFO!"
+            return "HEY DON'T YOU DARE PRESS THAT!!!!"
 
         battle = battle.lower()
 
@@ -1580,17 +1580,17 @@ class SkipCFO(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping to last round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleThree', 'BattleThree'):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
-                return "Skipping final round..."
+                return "Bruh how dare you skip that's cheating!"
 
 
 class HitCFO(MagicWord):
@@ -1641,7 +1641,7 @@ class SkipCJ(MagicWord):
                     boss = do
                     break
         if not boss:
-            return "You aren't in a CJ!"
+            return "STOP CHEATING!!!!!!!"
 
         battle = battle.lower()
 
@@ -1651,7 +1651,7 @@ class SkipCJ(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('RollToBattleTwo')
-                return "Skipping to second round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'three':
             if boss.state in ('PrepareBattleThree', 'BattleThree'):
@@ -1659,22 +1659,22 @@ class SkipCJ(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping to final round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
                 boss.exitIntroduction()
                 boss.b_setState('RollToBattleTwo')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('RollToBattleTwo', 'PrepareBattleTwo', 'BattleTwo'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleThree', 'BattleThree'):
                 boss.exitIntroduction()
                 boss.enterNearVictory()
                 boss.b_setState('Victory')
-                return "Skipping final round..."
+                return "Bruh how dare you skip that's cheating!"
 
 class Stun(MagicWord):
     desc = "Stuns all the lawyers in the CJ Evidence round."
@@ -1784,7 +1784,7 @@ class SkipVP(MagicWord):
                     boss = do
                     break
         if not boss:
-            return "You aren't in a VP!"
+            return ".....DON'T YOU DARE SKIP YOU CHEATER I HATE THIS!!!!!"
 
         battle = battle.lower()
 
@@ -1794,17 +1794,17 @@ class SkipVP(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping to final round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleThree', 'BattleThree'):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
-                return "Skipping final round..."
+                return "Bruh how dare you skip that's cheating!"
 
 
 class RestartPieRound(MagicWord):
@@ -1959,7 +1959,7 @@ class SkipCEO(MagicWord):
                     boss = do
                     break
         if not boss:
-            return "You aren't in a CEO!"
+            return "WILL YOU FOR THE LOVE OF TOON STOP CHEATING!??!?!?!?!?"
 
         battle = battle.lower()
 
@@ -1970,7 +1970,7 @@ class SkipCEO(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleTwo')
-                return "Skipping to second round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'three':
             if boss.state in ('PrepareBattleFour', 'BattleFour', 'PrepareBattleThree', 'BattleThree'):
@@ -1978,33 +1978,33 @@ class SkipCEO(MagicWord):
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping to third round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'four':
             if boss.state in ('PrepareBattleFour', 'BattleFour'):
-                return "You can not return to previous rounds!"
+                return "Bruh how dare you skip that's cheating!"
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleFour')
-                return "Skipping to last round..."
+                return "Bruh how dare you skip that's cheating!"
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleTwo')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleTwo', 'BattleTwo'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleThree', 'BattleThree'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleFour')
-                return "Skipping current round..."
+                return "Bruh how dare you skip that's cheating!"
             elif boss.state in ('PrepareBattleFour', 'BattleFour'):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
-                return "Skipping final round..."
+                return "Bruh how dare you skip that's cheating!"
 
 
 class FeedDiners(MagicWord):

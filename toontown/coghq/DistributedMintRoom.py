@@ -202,7 +202,7 @@ class DistributedMintRoom(DistributedLevel.DistributedLevel, MintRoomBase.MintRo
         return cogSpecModule.BattleCells[battleCellId]
 
     def getFloorOuchLevel(self):
-        return 8
+        return 100
 
     def getTaskZoneId(self):
         return self.mintId

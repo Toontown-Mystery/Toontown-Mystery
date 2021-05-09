@@ -97,7 +97,7 @@ FM_RecoveredItem = 4
 SPDonaldsBoat = 3
 SPMinniesPiano = 4
 CEVirtual = 14
-MaxHpLimit = 348
+MaxHpLimit = 358
 MaxCarryLimit = 80
 MaxQuestCarryLimit = 4
 CogImmuneColor = Vec4(1, 1, 1, 1)
@@ -1562,39 +1562,34 @@ BossbotMaxSpeedDamage = 90
 BossbotSpeedRecoverRate = 5
 BossbotBossDifficultySettings = [(6,
   7,
-  10,
+  12,
   3,
   50,
-  50,
-  0),
+  50),
  (8,
   8,
-  11,
+  13,
   6,
-  50,
   50,
   50),
  (10,
   8,
-  11,
+  14,
   7,
   50,
-  50,
-  100),
+  50),
  (12,
   8,
-  11,
+  15,
   8,
   50,
-  50,
-  150),
+  50),
  (14,
   8,
-  12,
+  16,
   9,
   50,
-  50,
-  250)]
+  50)]
 BossbotRollSpeedMax = 22
 BossbotRollSpeedMin = 7.5
 BossbotTurnSpeedMax = 60

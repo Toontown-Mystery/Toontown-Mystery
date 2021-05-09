@@ -340,7 +340,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 suit = self.__genSuitObject(self.zoneId, 2, 'c', 2, 0)
             else:
                 info = self.notDeadList[i]
-                suitType = info[2] - 4
+                suitType = info[2] - 9
                 suitLevel = info[2]
                 suit = self.__genSuitObject(self.zoneId, suitType, 'c', suitLevel, 1)
             diners.append((suit, 100))
@@ -470,7 +470,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         currState = self.getCurrentOrNextState()
         if currState != 'BattleFour':
             return
-        bossDamage *= 2
+        bossDamage *= 5
         bossDamage = min(self.getBossDamage() + bossDamage, self.bossMaxDamage)
         self.b_setBossDamage(bossDamage, 0, 0)
         if self.bossDamage >= self.bossMaxDamage:
@@ -913,7 +913,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         if self.doneOvertimeOneAttack and not self.doneOvertimeTwoAttack:
             mult = 2.5
         if self.getBattleFourTime() > 1.0:
-            mult = self.getBattleFourTime() + 2
+            mult = self.getBattleFourTime() + 5
         return mult
 
     def toggleMove(self):

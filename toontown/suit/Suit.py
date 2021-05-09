@@ -167,12 +167,12 @@ sd = (('magic2', 'magic2', 5),
  ('golf-club-swing', 'golf-club-swing', 5),
  ('throw-paper', 'throw-paper', 5))
 le = (('speak', 'speak', 5),
- ('throw-object', 'throw-object', 5),
- ('glower', 'glower', 5),
- ('magic1', 'magic1', 5))
+ ('magic3', 'magic3', 5),
+ ('magic2', 'magic2', 5),
+ ('effort', 'effort', 6))
 bw = (('magic1', 'magic1', 5),
- ('song-and-dance', 'song-and-dance', 8),
- ('cigar-smoke', 'cigar-smoke', 8),
+ ('magic2', 'magic2', 5),
+ ('effort', 'effort', 6),
  ('throw-object', 'throw-object', 5),
  ('throw-paper', 'throw-paper', 5),
  ('magic3', 'magic3', 5),
@@ -345,17 +345,29 @@ def attachSuitHead(node, suitName):
 
 
 class Suit(Avatar.Avatar):
-    healthColors = (Vec4(0, 1, 0, 1),
-     Vec4(1, 1, 0, 1),
-     Vec4(1, 0.5, 0, 1),
+    healthColors = (Vec4(0, 0.7, 0.9, 1),
+	 Vec4(0, 0.6, 0.65, 1),
+	 Vec4(0.5, 1, 0.6, 1),
+	 Vec4(0, 1, 0, 1),
+     Vec4(0.0, 0.0, 1.0, 1),
+	 Vec4(0.5, 0.0, 1.0, 1),
+	 Vec4(0.7, 0.0, 0.9, 1),
+     Vec4(0.95, 0.95, 1, 1),
      Vec4(1, 0, 0, 1),
+	 Vec4(0, 0, 0, 1),
      Vec4(0.3, 0.3, 0.3, 1),
      ToontownGlobals.CogImmuneColor)
-    healthGlowColors = (Vec4(0.25, 1, 0.25, 0.5),
-     Vec4(1, 1, 0.25, 0.5),
-     Vec4(1, 0.5, 0.25, 0.5),
-     Vec4(1, 0.25, 0.25, 0.5),
-     Vec4(0.3, 0.3, 0.3, 0),
+    healthGlowColors = (Vec4(0, 0.7, 0.9, 1),
+	 Vec4(0, 0.6, 0.65, 1),
+	 Vec4(0.5, 1, 0.6, 1),
+	 Vec4(0, 1, 0, 1),
+     Vec4(0.25, 0.25, 1.0, 0.5),
+	 Vec4(0.5, 0.0, 1.0, 1),
+	 Vec4(0.7, 0.0, 0.9, 1),
+     Vec4(0.95, 0.95, 1, 1),
+     Vec4(1, 0, 0, 1),
+	 Vec4(0, 0, 0, 1),
+     Vec4(0.3, 0.3, 0.3, 1),
      ToontownGlobals.CogImmuneGlowColor)
     medallionColors = {'c': Vec4(0.863, 0.776, 0.769, 1.0),
      's': Vec4(0.843, 0.745, 0.745, 1.0),
@@ -538,13 +550,15 @@ class Suit(Avatar.Avatar):
             self.scale = 7.125 / aSize
             self.handColor = VBase4(0, 0, 0, 0)
             self.generateBody()
-            self.generateHead('legaleagle')
+            self.headTexture = 'sun.jpg'
+            self.generateHead('yesman')
             self.setHeight(8.27)
         elif dna.name == 'bw':
             self.scale = 7.0 / aSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
-            self.generateHead('bigwig')
+            self.headTexture = 'diamond.jpg'
+            self.generateHead('yesman')
             self.setHeight(8.69)
         elif dna.name == 'sc':
             self.scale = 3.6 / cSize
@@ -925,24 +939,36 @@ class Suit(Avatar.Avatar):
         if self.isImmune != 1:
             if health > 0.95:
                 condition = 0
-            elif health > 0.7:
+            elif health > 0.9:
                 condition = 1
-            elif health > 0.3:
+            elif health > 0.8:
                 condition = 2
-            elif health > 0.05:
+            elif health > 0.7:
                 condition = 3
-            elif health > 0.0:
+            elif health > 0.6:
                 condition = 4
-            else:
+            elif health > 0.5:
                 condition = 5
+            elif health > 0.3:
+                condition = 6
+            elif health > 0.15:
+                condition = 7
+            elif health > 0.10:
+                condition = 8
+            elif health > 0.5:
+                condition = 9
+            elif health > 0.0:
+                condition = 10
+            else:
+                condition = 11
         elif self.isImmune == 1:
             condition = 6
         if self.healthCondition != condition or forceUpdate:
-            if condition == 4:
+            if condition == 10:
                 blinkTask = Task.loop(Task(self.__blinkRed), Task.pause(0.75), Task(self.__blinkGray), Task.pause(0.1))
                 taskMgr.add(blinkTask, self.uniqueName('blink-task'))
-            elif condition == 5:
-                if self.healthCondition == 4:
+            elif condition == 11:
+                if self.healthCondition == 10:
                     taskMgr.remove(self.uniqueName('blink-task'))
                 blinkTask = Task.loop(Task(self.__blinkRed), Task.pause(0.25), Task(self.__blinkGray), Task.pause(0.1))
                 taskMgr.add(blinkTask, self.uniqueName('blink-task'))
@@ -951,23 +977,23 @@ class Suit(Avatar.Avatar):
                     self.healthBar.setColor(self.healthColors[condition], 1)
                     self.healthBarGlow.setColor(self.healthGlowColors[condition], 1)
                 else:
-                    self.healthBar.setColor(self.healthColors[5], 1)
-                    self.healthBarGlow.setColor(self.healthGlowColors[5], 1)
+                    self.healthBar.setColor(self.healthColors[10], 1)
+                    self.healthBarGlow.setColor(self.healthGlowColors[10], 1)
             self.healthCondition = condition
 
     def __blinkRed(self, task):
-        self.healthBar.setColor(self.healthColors[3], 1)
-        self.healthBarGlow.setColor(self.healthGlowColors[3], 1)
-        if self.healthCondition == 5:
+        self.healthBar.setColor(self.healthColors[9], 1)
+        self.healthBarGlow.setColor(self.healthGlowColors[9], 1)
+        if self.healthCondition == 11:
             self.healthBar.setScale(1.17)
         return Task.done
 
     def __blinkGray(self, task):
         if not self.healthBar:
             return
-        self.healthBar.setColor(self.healthColors[4], 1)
-        self.healthBarGlow.setColor(self.healthGlowColors[4], 1)
-        if self.healthCondition == 5:
+        self.healthBar.setColor(self.healthColors[10], 1)
+        self.healthBarGlow.setColor(self.healthGlowColors[10], 1)
+        if self.healthCondition == 11:
             self.healthBar.setScale(1.0)
         return Task.done
 
@@ -975,7 +1001,7 @@ class Suit(Avatar.Avatar):
         if self.healthBar:
             self.healthBar.removeNode()
             self.healthBar = None
-        if self.healthCondition == 4 or self.healthCondition == 5:
+        if self.healthCondition == 10 or self.healthCondition == 11:
             taskMgr.remove(self.uniqueName('blink-task'))
         self.healthCondition = 0
         return

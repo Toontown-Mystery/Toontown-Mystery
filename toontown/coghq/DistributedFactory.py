@@ -158,7 +158,7 @@ class DistributedFactory(DistributedLevel.DistributedLevel, FactoryBase.FactoryB
         return cogSpecModule.BattleCells[battleCellId]
 
     def getFloorOuchLevel(self):
-        return 2
+        return 50
 
     def getGoonPathId(self):
         return 'sellbotFactory'
