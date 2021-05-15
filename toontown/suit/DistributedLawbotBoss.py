@@ -1385,19 +1385,22 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             ActorInterval(self, 'Ff_lookRt', duration=3),
             ActorInterval(self, 'Ff_lookRt', duration=3, startTime=3, endTime=0),
             ActorInterval(self, 'Ff_neutral', duration=2),
-            ActorInterval(self, 'Ff_speech', duration=7, loop=1))
+            ActorInterval(self, 'Ff_speech', duration=7),
+            ActorInterval(self, 'turn2Fb', duration=2, loop=1))
         track.append(bossAnimTrack)
         attackToons = TTLocalizer.BossCogAttackToons
         dialogTrack = Track(
             (0, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro0, CFSpeech)),
-            (5.6, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro1, CFSpeech)),
+            (5.6, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -125.6, 19.5, 0, 0, 0))),
+            (7, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro1, CFSpeech)),
             (12, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro2, CFSpeech)),
-            (18, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro3, CFSpeech)),
-            (22, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro4, CFSpeech)),
-            (24, Sequence(
+            (16, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro3, CFSpeech)),
+			(20, Sequence(Func(self.loop, 'turn2Fb'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -100.6, 19.5, 0, 0, 0))),
+			(21, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro4, CFSpeech)),
+            (25, Sequence(
                 Func(self.clearChat),
                 self.loseCogSuits(self.toonsA + self.toonsB, render, (-2.798, -70, 10, 180, 0, 0)))),
-            (27, Sequence(
+            (28, Sequence(
                 self.toonNormalEyes(self.involvedToons),
                 Func(self.loop, 'Ff_neutral'),
                 Func(self.setChatAbsolute, attackToons, CFSpeech))))
@@ -1406,7 +1409,6 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.stickToonsToFloor),
             track,
             Func(self.unstickToons), name=self.uniqueName('Introduction'))
-
     def walkToonsToBattlePosition(self, toonIds, battleNode):
         self.notify.debug('walkToonsToBattlePosition-----------------------------------------------')
         self.notify.debug('toonIds=%s  battleNode=%s' % (toonIds, battleNode))
@@ -1561,8 +1563,15 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.notify.debug('__enterProsecutionCol')
 
     def makeVictoryMovie(self):
+        geyser = loader.loadModel('phase_5/models/props/geyser')
+        geyser.setScale(4)
+        whistleSfx = base.loadSfx('phase_5/audio/sfx/incoming_whistleALT.ogg')
+        dropSfx = base.loadSfx('phase_5/audio/sfx/AA_drop_safe.ogg')
         myFromPos = Point3(ToontownGlobals.LawbotBossBattleThreePosHpr[0], ToontownGlobals.LawbotBossBattleThreePosHpr[1], ToontownGlobals.LawbotBossBattleThreePosHpr[2])
+        geyser.setPos(myFromPos)
         myToPos = Point3(myFromPos[0], myFromPos[1] + 30, myFromPos[2])
+        geyserPosStart = Point3(myFromPos[0], myFromPos[1] + 30, myFromPos[2]+30)
+        geyserToPos = Point3(myFromPos[0], myFromPos[1] + 36, myFromPos[2])
         rollThroughDoor = self.rollBossToPoint(fromPos=myFromPos, fromHpr=None, toPos=myToPos, toHpr=None, reverse=0)
         rollTrack = Sequence(
             Func(self.getGeomNode().setH, 180),
@@ -1571,21 +1580,32 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         rollTrackDuration = rollTrack.getDuration()
         self.notify.debug('rollTrackDuration = %f' % rollTrackDuration)
         doorStartPos = self.door3.getPos()
-        doorEndPos = Point3(doorStartPos[0], doorStartPos[1], doorStartPos[2] + 25)
+        doorEndPos = Point3(doorStartPos[0], doorStartPos[1], doorStartPos[2] + 35)
         bossTrack = Track(
             (0.5, Sequence(
                 Func(self.clearChat),
-                Func(camera.reparentTo, render),
-                Func(camera.setPos, -3, 45, 25),
-                Func(camera.setHpr, 0, 10, 0))),
+                Func(base.camera.reparentTo, render),
+                Func(base.camera.setPos, -3, 45, 25),
+                Func(base.camera.setHpr, 0, 10, 0))),
             (1.0, Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins1, CFSpeech)),
             (5.5, Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins2, CFSpeech)),
-            (9.5, Sequence(Func(camera.wrtReparentTo, render))),
+            (9.5, Sequence(Func(base.camera.wrtReparentTo, render))),
             (9.6, Parallel(
                 rollTrack,
                 Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins3, CFSpeech),
                 self.door3.posInterval(2, doorEndPos, startPos=doorStartPos))),
-            (13.1, Sequence(self.door3.posInterval(1, doorStartPos))))
+            (13.1, Sequence(Parallel(SoundInterval(whistleSfx),
+                   Sequence(
+                       Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins4, CFSpeech),
+                       Wait(3),
+                       Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins5, CFSpeech),
+                       LerpScaleInterval(self.dropShadow, 3, Point3(7, 7, 7)),
+                       Func(geyser.reparentTo, render),
+                       Parallel(LerpPosInterval(geyser, 0.1, geyserToPos, startPos = geyserPosStart), 
+                       SoundInterval(dropSfx),
+                       Func(self.stash)),
+                       Func(geyser.detachNode))))),
+            (20, Sequence(self.door3.posInterval(1, doorStartPos))))
         retTrack = Parallel(bossTrack, ActorInterval(self, 'Ff_speech', loop=1))
         return bossTrack
 
