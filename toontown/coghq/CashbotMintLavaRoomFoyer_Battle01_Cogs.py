@@ -6,7 +6,8 @@ BattleParent = 10005
 BattleCellId = 0
 BattleCells = {BattleCellId: {'parentEntId': BattleParent,
                 'pos': Point3(0, 0, 0)}}
-CogData = [{'parentEntId': CogParent,
+CogData = [{'type': 'cm',
+  'parentEntId': CogParent,
   'boss': 1,
   'level': 35,
   'battleCell': BattleCellId,
@@ -14,7 +15,7 @@ CogData = [{'parentEntId': CogParent,
   'h': 180,
   'behavior': 'stand',
   'path': None,
-  'skeleton': 1},
+  'skeleton': 0},
  {'parentEntId': CogParent,
   'boss': 0,
   'level': random.choice([20, 21, 22, 23, 24]),

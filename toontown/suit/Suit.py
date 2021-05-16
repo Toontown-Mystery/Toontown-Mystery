@@ -84,6 +84,9 @@ tbc = (('magic2', 'magic2', 8),
  ('effort', 'effort', 6),
  ('magic3', 'magic3', 8),
  ('smile', 'smile', 5))
+kb = (('effort', 'effort', 6),
+ ('speak', 'speak', 5),
+ ('magic2', 'magic2', 5))
 cc = (('speak', 'speak', 5),
  ('glower', 'glower', 5),
  ('phone', 'phone', 3.5),
@@ -126,6 +129,7 @@ mh = (('magic1', 'magic1', 5),
  ('smile', 'smile', 5),
  ('phone', 'phone', 5),
  ('song-and-dance', 'song-and-dance', 8))
+fd = (('magic1', 'magic1', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
 pp = (('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 5), ('finger-wag', 'finger-wag', 5))
 tw = (('speak', 'speak', 5),
@@ -138,6 +142,7 @@ nc = (('phone', 'phone', 5), ('finger-wag', 'fingerwag', 5), ('glower', 'glower'
 mb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('golf-club-swing', 'golf-club-swing', 5))
 ls = (('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('magic2', 'magic2', 5), ('hold-pencil', 'hold-pencil', 5))
 rb = (('pickpocket', 'pickpocket', 5), ('finger-wag', 'fingerwag', 5), ('speak', 'speak', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('pen-squirt', 'fountain-pen', 7), ('magic1', 'magic1', 5), ('rubber-stamp', 'rubber-stamp', 5))
+dm = (('magic3', 'magic3', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'fingerwag', 5))
 bf = (('pickpocket', 'pickpocket', 5),
  ('rubber-stamp', 'rubber-stamp', 5),
  ('shredder', 'shredder', 3.5),
@@ -178,6 +183,7 @@ bw = (('magic1', 'magic1', 5),
  ('magic3', 'magic3', 5),
  ('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5))
+cm = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('finger-wag', 'fingerwag', 5))
 if not base.config.GetBool('want-new-cogs', 0):
     ModelDict = {'a': ('/models/char/suitA-', 4),
      'b': ('/models/char/suitB-', 4),
@@ -667,10 +673,45 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('yesman')
             self.setHeight(8.95)
+        elif dna.name == 'kb':
+            self.scale = 8.5 / aSize
+            self.handColor = SuitDNA.corpPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(9.5)
+        elif dna.name == 'cm':
+            self.scale = 7.5 / aSize
+            self.handColor = SuitDNA.legalPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(8.5)
+        elif dna.name == 'dm':
+            self.scale = 6.5 / bSize
+            self.handColor = SuitDNA.moneyPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(7.5)
+        elif dna.name == 'fd':
+            self.scale = 8.0 / aSize
+            self.handColor = SuitDNA.salesPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(9)
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
         self.generateHealthBar()
-        self.generateCorporateMedallion()
+        if self.isSkeleton:
+            pass
+        else:
+            self.generateCorporateMedallion()
         return
 
     def generateBody(self):
@@ -685,6 +726,47 @@ class Suit(Avatar.Avatar):
             self.loadModel('phase_3.5' + filePrefix + 'mod')
         self.loadAnims(animDict)
         self.setSuitClothes()
+		
+    def generateSkelSuit(self):
+        dna = self.style
+        self.headParts = []
+        self.headColor = None
+        self.headTexture = None
+        self.loseActor = None
+        self.isSkeleton = 1
+
+        if dna.name in SuitGlobals.suitProperties:
+            self.scale = SuitGlobals.suitProperties[dna.name][SuitGlobals.SCALE_INDEX]
+               
+            print 'b4 skelbody'
+            self.generateSkelBody()
+            print 'after skelbody'
+
+            self.setHeight(SuitGlobals.suitProperties[dna.name][SuitGlobals.HEIGHT_INDEX])
+
+        self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
+        self.getGeomNode().setScale(self.scale)
+        print 'b4 geomnode'
+        self.generateHealthBar()
+        print 'genHealth'
+        self.generateCorporateMedallion()
+        print 'genCorp'
+        self.generateCorporateTie()
+        print 'genTie'
+        self.setBlend(frameBlend=True)
+        
+    def generateSkelBody(self):
+        global Preloaded
+        animDict = self.generateAnimDict()
+        filePrefix, bodyPhase = ModelDict[self.style.body]
+        filepath = 'phase_5/models/char/cog' + string.upper(self.style.body) + '_robot-zero'
+        self.loadModel(Preloaded[filepath], copy = True)
+        self.loadAnims(animDict)
+        parts = self.findAllMatches('**/pPlane*')
+        for partNum in xrange(0, parts.getNumPaths()):
+            bb = parts.getPath(partNum)
+            bb.setTwoSided(1)
+        self.setBlend(frameBlend=True)
 
     def generateAnimDict(self):
         animDict = {}
@@ -1024,12 +1106,28 @@ class Suit(Avatar.Avatar):
                     self.makeWaiter(self.loseActor)
                 else:
                     self.setSuitClothes(self.loseActor)
+              
             else:
                 loseModel = 'phase_5/models/char/cog' + string.upper(self.style.body) + '_robot-lose-mod'
                 filePrefix, phase = TutorialModelDict[self.style.body]
                 loseAnim = 'phase_' + str(phase) + filePrefix + 'lose'
                 self.loseActor = Actor.Actor(loseModel, {'lose': loseAnim})
                 self.generateCorporateTie(self.loseActor)
+                if self.style.name == 'lb':
+                    self.loseActor.setColor(VBase4(0.95, 0.75, 0.95, 1.0))
+                elif self.style.name == 'cm':
+                    self.loseActor.setColor(VBase4(0.65, 0.95, 0.85, 1.0))
+                elif self.style.name == 'dm':
+                    self.loseActor.setColor(VBase4(0.75, 0.75, 0.95, 1.0))
+                elif self.style.name == 'fd':
+                    self.loseActor.setColor(VBase4(0.95, 0.75, 0.75, 1.0))
+                if thing.getName() not in ('joint_attachMeter', 'joint_nameTag', 'def_nameTag'):
+                    thing.setColorScale(1.0, 0.0, 0.0, 1.0)
+                    thing.setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd))
+                    thing.setDepthWrite(False)
+                    thing.setBin('fixed', 1)
+            self.loseActor.find('**/joint_shadow').hide()
+        self.loseActor.setBlend(frameBlend = config.GetBool('interpolate-animations', True))
         self.loseActor.setScale(self.scale)
         self.loseActor.setPos(self.getPos())
         self.loseActor.setHpr(self.getHpr())
@@ -1038,7 +1136,7 @@ class Suit(Avatar.Avatar):
         dropShadow.setScale(0.45)
         dropShadow.setColor(0.0, 0.0, 0.0, 0.5)
         dropShadow.reparentTo(shadowJoint)
-        self.loseActor.setBlend(frameBlend=True)
+        self.setBlend(frameBlend = config.GetBool('interpolate-animations', True))
         return self.loseActor
 
     def cleanupLoseActor(self):
@@ -1063,9 +1161,7 @@ class Suit(Avatar.Avatar):
         model = 'phase_5/models/char/cog' + string.upper(self.style.body) + '_robot-zero'
         anims = self.generateAnimDict()
         anim = self.getCurrentAnim()
-        dropShadow = self.dropShadow
-        if not dropShadow.isEmpty():
-            dropShadow.reparentTo(hidden)
+        dept = self.style.dept
         self.removePart('modelRoot')
         self.loadModel(model)
         self.loadAnims(anims)
@@ -1074,27 +1170,22 @@ class Suit(Avatar.Avatar):
         self.generateCorporateMedallion()
         self.generateCorporateTie()
         self.setHeight(self.height)
-        self.setBlend(frameBlend=True)
         parts = self.findAllMatches('**/pPlane*')
         for partNum in xrange(0, parts.getNumPaths()):
             bb = parts.getPath(partNum)
             bb.setTwoSided(1)
 
-        self.setName(TTLocalizer.Skeleton)
-        nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
-         'dept': self.getStyleDept(),
+    
+        self.setName('Skelecog')
+        nameInfo = '%(name)s\n%(dept)s\n%(level)s' % {'name': 'Skelecog',
+         'dept': dept,
          'level': self.getActualLevel()}
-        self.setDisplayName(nameInfo)
         self.leftHand = self.find('**/joint_Lhold')
         self.rightHand = self.find('**/joint_Rhold')
-        self.shadowJoint = self.find('**/joint_shadow')
         self.nametagNull = self.find('**/joint_nameTag')
-        if not dropShadow.isEmpty():
-            dropShadow.setScale(0.75)
-            if not self.shadowJoint.isEmpty():
-                dropShadow.reparentTo(self.shadowJoint)
         self.loop(anim)
         self.isSkeleton = 1
+        self.setBlend(frameBlend=True)
 
     def getHeadParts(self):
         return self.headParts
@@ -1117,3 +1208,21 @@ class Suit(Avatar.Avatar):
             return SkelSuitDialogArray
         else:
             return SuitDialogArray
+
+    def getStyleDept(self):
+        if hasattr(self, 'dna') and self.dna:
+            return SuitDNA.getDeptFullname(self.dna.dept)
+            
+    def getActualLevel(self):
+        if hasattr(self, 'dna'):
+            return SuitBattleGlobals.getActualFromRelativeLevel(self.getStyleName(), self.level) + 1
+        else:
+            self.notify.warning('called getActualLevel with no DNA, returning 1 for level')
+            return 1
+            
+    def getStyleName(self):
+        if hasattr(self, 'dna') and self.dna:
+            return self.dna.name
+        else:
+            self.notify.error('called getStyleName() before dna was set!')
+            return 'unknown'
