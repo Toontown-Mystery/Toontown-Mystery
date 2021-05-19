@@ -512,6 +512,22 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('bigcheese')
             self.setHeight(9.34)
+        elif dna.name == 'kb':
+            self.scale = 8.5 / aSize
+            self.handColor = SuitDNA.corpPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(9.5)
+        elif dna.name == 'cm':
+            self.scale = 7.5 / aSize
+            self.handColor = SuitDNA.legalPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(8.5)
         elif dna.name == 'bf':
             self.scale = 4.0 / cSize
             self.handColor = SuitDNA.legalPolyColor
@@ -566,6 +582,14 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'diamond.jpg'
             self.generateHead('yesman')
             self.setHeight(8.69)
+        elif dna.name == 'dm':
+            self.scale = 6.5 / bSize
+            self.handColor = SuitDNA.moneyPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(7.5)
         elif dna.name == 'sc':
             self.scale = 3.6 / cSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
@@ -673,30 +697,6 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('yesman')
             self.setHeight(8.95)
-        elif dna.name == 'kb':
-            self.scale = 8.5 / aSize
-            self.handColor = SuitDNA.corpPolyColor
-            self.setPickable(0)
-            self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
-            self.setHeight(9.5)
-        elif dna.name == 'cm':
-            self.scale = 7.5 / aSize
-            self.handColor = SuitDNA.legalPolyColor
-            self.setPickable(0)
-            self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
-            self.setHeight(8.5)
-        elif dna.name == 'dm':
-            self.scale = 6.5 / bSize
-            self.handColor = SuitDNA.moneyPolyColor
-            self.setPickable(0)
-            self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
-            self.setHeight(7.5)
         elif dna.name == 'fd':
             self.scale = 8.0 / aSize
             self.handColor = SuitDNA.salesPolyColor
@@ -1106,28 +1106,12 @@ class Suit(Avatar.Avatar):
                     self.makeWaiter(self.loseActor)
                 else:
                     self.setSuitClothes(self.loseActor)
-              
             else:
                 loseModel = 'phase_5/models/char/cog' + string.upper(self.style.body) + '_robot-lose-mod'
                 filePrefix, phase = TutorialModelDict[self.style.body]
                 loseAnim = 'phase_' + str(phase) + filePrefix + 'lose'
                 self.loseActor = Actor.Actor(loseModel, {'lose': loseAnim})
                 self.generateCorporateTie(self.loseActor)
-                if self.style.name == 'lb':
-                    self.loseActor.setColor(VBase4(0.95, 0.75, 0.95, 1.0))
-                elif self.style.name == 'cm':
-                    self.loseActor.setColor(VBase4(0.65, 0.95, 0.85, 1.0))
-                elif self.style.name == 'dm':
-                    self.loseActor.setColor(VBase4(0.75, 0.75, 0.95, 1.0))
-                elif self.style.name == 'fd':
-                    self.loseActor.setColor(VBase4(0.95, 0.75, 0.75, 1.0))
-                if thing.getName() not in ('joint_attachMeter', 'joint_nameTag', 'def_nameTag'):
-                    thing.setColorScale(1.0, 0.0, 0.0, 1.0)
-                    thing.setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd))
-                    thing.setDepthWrite(False)
-                    thing.setBin('fixed', 1)
-            self.loseActor.find('**/joint_shadow').hide()
-        self.loseActor.setBlend(frameBlend = config.GetBool('interpolate-animations', True))
         self.loseActor.setScale(self.scale)
         self.loseActor.setPos(self.getPos())
         self.loseActor.setHpr(self.getHpr())
@@ -1136,7 +1120,7 @@ class Suit(Avatar.Avatar):
         dropShadow.setScale(0.45)
         dropShadow.setColor(0.0, 0.0, 0.0, 0.5)
         dropShadow.reparentTo(shadowJoint)
-        self.setBlend(frameBlend = config.GetBool('interpolate-animations', True))
+        self.loseActor.setBlend(frameBlend=True)
         return self.loseActor
 
     def cleanupLoseActor(self):

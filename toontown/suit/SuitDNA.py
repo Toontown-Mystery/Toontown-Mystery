@@ -153,11 +153,11 @@ def getSuitType(name):
 
 def getRandomSuitType(level, rng = random):
     try:
-        randint = random.randint(max(level - 9, 1), min(level, 8))
+        returnval = random.randint(max(level - 9, 1), min(level, 8))
     except:
-        randint = 8
+        returnval = 8
 
-    return randint
+    return returnval
 
 
 def getRandomSuitByDept(dept):
