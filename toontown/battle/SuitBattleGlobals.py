@@ -1119,6 +1119,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'BuzzWord': ('speak', ATK_TGT_SINGLE),
  'Calculate': ('phone', ATK_TGT_SINGLE),
  'Canned': ('throw-paper', ATK_TGT_SINGLE),
+ 'CashRain': ('magic1', ATK_TGT_SINGLE),
  'Chomp': ('throw-paper', ATK_TGT_SINGLE),
  'CigarSmoke': ('cigar-smoke', ATK_TGT_SINGLE),
  'ClipOnTie': ('throw-paper', ATK_TGT_SINGLE),
@@ -1194,6 +1195,7 @@ BRAIN_STORM = SuitAttacks.keys().index('BrainStorm')
 BUZZ_WORD = SuitAttacks.keys().index('BuzzWord')
 CALCULATE = SuitAttacks.keys().index('Calculate')
 CANNED = SuitAttacks.keys().index('Canned')
+CASH_RAIN = SuitAttacks.keys().index('CashRain')
 CHOMP = SuitAttacks.keys().index('Chomp')
 CIGAR_SMOKE = SuitAttacks.keys().index('CigarSmoke')
 CLIPON_TIE = SuitAttacks.keys().index('ClipOnTie')
