@@ -199,7 +199,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'freq':(50,30,10,5,5,5,5,5,5,5),
         'acc':(70,75,80,82,85,85,85,85,85,85),
         'attacks':
-                (('HeatWave',
+                (('ReOrg',
                     (27,29,30,32,33,36,39,42,45,50),
                     (80,85,90,95,95,95,95,95,95,95),
                     (20,20,20,20,20,20,20,20,20,20)),
@@ -228,7 +228,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'freq':(30,35,40,45,50,50,50,50,50,50,50),
         'acc':(35,40,45,50,55,60,60,60,60,60,60),
         'attacks':
-                (('HeatWave',
+                (('ReOrg',
                     (34,35,36,38,40,42,46,50,54,58),
                     (75,80,85,90,90,90,90,90,90,90),
                     (25,25,25,25,25,25,25,25,25,25)),
@@ -1037,7 +1037,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'freq':(30,35,40,45,50,50,50,50,50,50),
         'acc':(30,35,40,45,50,50,50,50,50,50),
         'attacks':
-                (('HeatWave',
+                (('Schmooze',
                     (43,44,45,46,48,50,52,54,56,58),
                     (70,75,80,85,95,95,95,95,95,95),
                     (25,25,25,25,25,25,25,25,25,25)),
@@ -1090,23 +1090,27 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
 		        (('EvictionNotice',
 				    (156,),
 					(95,),
-					(20,)),
+					(15,)),
                 ('GuiltTrip',
 				    (189,),
 					(95,),
-					(30,)),
+					(25,)),
                 ('RestrainingOrder',
 				    (150,),
 					(95,),
-					(20,)),
+					(15,)),
+                ('NotThrowPiano',
+				    (284,),
+					(95,),
+					(25,)),
                 ('PoundKey',
 				    (161,),
 					(95,),
-					(15,)),
+					(10,)),
                 ('FingerWag',
 				    (147,),
 					(95,),
-					(15,)))}}
+					(10,)))}}
 
 ATK_TGT_UNKNOWN = 1
 ATK_TGT_SINGLE = 2
@@ -1128,6 +1132,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Downsize': ('magic2', ATK_TGT_SINGLE),
  'WhitePowder': ('finger-wag', ATK_TGT_SINGLE),
  'EvictionNotice': ('throw-paper', ATK_TGT_SINGLE),
+ 'NotThrowPiano': ('throw-object', ATK_TGT_SINGLE),
  'ThrowMoney': ('throw-paper', ATK_TGT_SINGLE),
  'EvilEye': ('glower', ATK_TGT_SINGLE),
  'Filibuster': ('speak', ATK_TGT_SINGLE),
@@ -1203,6 +1208,7 @@ DOWNSIZE = SuitAttacks.keys().index('Downsize')
 WHITE_POWDER = SuitAttacks.keys().index('WhitePowder')
 DOUBLE_TALK = SuitAttacks.keys().index('DoubleTalk')
 EVICTION_NOTICE = SuitAttacks.keys().index('EvictionNotice')
+NOT_THROW_PIANO = SuitAttacks.keys().index('NotThrowPiano')
 THROW_MONEY = SuitAttacks.keys().index('ThrowMoney')
 EVIL_EYE = SuitAttacks.keys().index('EvilEye')
 FILIBUSTER = SuitAttacks.keys().index('Filibuster')

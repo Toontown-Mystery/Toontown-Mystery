@@ -148,6 +148,8 @@ def doSuitAttack(attack):
         suitTrack = doWhitePowder(attack)
     elif name == EVICTION_NOTICE:
         suitTrack = doEvictionNotice(attack)
+    elif name == NOT_THROW_PIANO:
+        suitTrack = doNotThrowPiano(attack)
     elif name == THROW_MONEY:
         suitTrack = doThrowMoney(attack)
     elif name == EVIL_EYE:
@@ -3471,6 +3473,49 @@ def doEvictionNotice(attack):
     propTrack.append(getPropThrowTrack(attack, paper, [hitPoint], [missPoint], parent=battle))
     toonTrack = getToonTrack(attack, 3.4, ['conked'], 2.8, ['jump'])
     soundTrack = getSoundTrack('SA_paper.ogg', delay=0.9, node=suit)
+    return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
+	
+def doNotThrowPiano(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    dmg = target['hp']
+    suitDelay = 2.0
+    propDelay = 0.6
+    throwDuration = 1.5
+    piano = globalPropPool.getProp('piano')
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.01, -0.05, 0.15), VBase3(180.00, -45.00, -45.00)]
+    paperTrack = Sequence(getPropAppearTrack(piano, suit.getRightHand(), posPoints, propDelay, Point3(2.25, 2.25, 2.25), scaleUpTime=0.5))
+    paperTrack.append(Wait(suitDelay))
+    hitPoint = toon.getPos(battle)
+    hitPoint.setX(hitPoint.getX() + 1.2)
+    hitPoint.setY(hitPoint.getY() + 1.5)
+    if dmg > 0:
+        hitPoint.setZ(hitPoint.getZ() + 1.1)
+    movePoint = Point3(hitPoint.getX(), hitPoint.getY() - 1.8, hitPoint.getZ() + 0.2)
+    paperTrack.append(Func(battle.movie.needRestoreRenderProp, piano))
+    paperTrack.append(Func(piano.wrtReparentTo, battle))
+    paperTrack.append(getThrowTrack(piano, hitPoint, duration=throwDuration, parent=battle))
+    paperTrack.append(Wait(0.6))
+    paperTrack.append(LerpPosInterval(piano, 0.4, movePoint))
+    spinTrack = Sequence(Wait(propDelay + suitDelay + 0.2), LerpHprInterval(piano, throwDuration, Point3(180, 90, 90)))
+    sizeTrack = Sequence(Wait(propDelay + suitDelay + 0.2), LerpScaleInterval(piano, throwDuration, Point3(6, 6, 6)), Wait(0.95), LerpScaleInterval(piano, 0.4, MovieUtil.PNT3_NEARZERO))
+    propTrack = Sequence(Parallel(paperTrack, spinTrack, sizeTrack), Func(MovieUtil.removeProp, piano), Func(battle.movie.clearRenderProp, piano))
+    damageAnims = []
+    damageAnims.append(['cringe',
+     0.01,
+     0.21,
+     0.08])
+    damageAnims.append(['slip-forward',
+     0.01,
+     0.6,
+     0.85])
+    damageAnims.extend(getSplicedLerpAnims('slip-forward', 0.31, 0.95, startTime=1.2))
+    damageAnims.append(['slip-forward', 0.01, 1.51])
+    toonTrack = getToonTrack(attack, damageDelay=4.35, splicedDamageAnims=damageAnims, dodgeDelay=2.4, dodgeAnimNames=['sidestep'], showDamageExtraTime=0.4, showMissedExtraTime=1.3)
+    soundTrack = getSoundTrack('AA_drop_piano_miss.ogg', delay=3.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 	
 def doThrowMoney(attack):

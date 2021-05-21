@@ -183,7 +183,7 @@ bw = (('magic1', 'magic1', 5),
  ('magic3', 'magic3', 5),
  ('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5))
-cm = (('magic1', 'magic1', 5), ('phone', 'phone', 5), ('throw-paper', 'throw-paper', 5), ('finger-wag', 'fingerwag', 5))
+cm = (('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('phone', 'phone', 5), ('throw-paper', 'throw-paper', 5), ('finger-wag', 'fingerwag', 5))
 if not base.config.GetBool('want-new-cogs', 0):
     ModelDict = {'a': ('/models/char/suitA-', 4),
      'b': ('/models/char/suitB-', 4),
