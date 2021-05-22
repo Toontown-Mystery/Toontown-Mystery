@@ -130,8 +130,6 @@ def doSuitAttack(attack):
         suitTrack = doCalculate(attack)
     elif name == CANNED:
         suitTrack = doCanned(attack)
-    elif name == CASH_RAIN:
-        suitTrack = doCashRain(attack)
     elif name == CHOMP:
         suitTrack = doChomp(attack)
     elif name == CIGAR_SMOKE:
@@ -3286,47 +3284,6 @@ def doLiquidate(attack):
         return Parallel(suitTrack, toonTrack, cloudPropTrack, soundTrack, puddleTrack)
     else:
         return Parallel(suitTrack, toonTrack, cloudPropTrack, soundTrack)
-
-
-def doCashRain(attack):
-    suit = attack['suit']
-    battle = attack['battle']
-    target = attack['target']
-    toon = target['toon']
-    BattleParticles.loadParticles()
-    rainEffect = BattleParticles.createParticleEffect(file='cashRain')
-    rainEffect2 = BattleParticles.createParticleEffect(file='cashRain')
-    rainEffect3 = BattleParticles.createParticleEffect(file='cashRain')
-    BattleParticles.setEffectTexture(rainEffect, 'dollar-sign')
-    cloud = globalPropPool.getProp('stormcloud')
-    partDelay = 0.2
-    damageDelay = 3.5
-    dodgeDelay = 2.3
-    suitTrack = getSuitTrack(attack, delay=0.9)
-    initialCloudHeight = suit.height + 3
-    cloudPosPoints = [Point3(0, 3, initialCloudHeight), MovieUtil.PNT3_ZERO]
-    cloudPropTrack = Sequence()
-    cloudPropTrack.append(Func(cloud.pose, 'stormcloud', 0))
-    cloudPropTrack.append(getPropAppearTrack(cloud, suit, cloudPosPoints, 1e-06, Point3(3, 3, 3), scaleUpTime=0.7))
-    cloudPropTrack.append(Func(battle.movie.needRestoreRenderProp, cloud))
-    cloudPropTrack.append(Func(cloud.wrtReparentTo, render))
-    targetPoint = __toonFacePoint(toon)
-    targetPoint.setZ(targetPoint[2] + 3)
-    cloudPropTrack.append(Wait(1.1))
-    cloudPropTrack.append(LerpPosInterval(cloud, 1, pos=targetPoint))
-    cloudPropTrack.append(Wait(partDelay))
-    cloudPropTrack.append(ParticleInterval(rainEffect, cloud, worldRelative=0, duration=2.1, cleanup=True))
-    cloudPropTrack.append(Wait(0.4))
-    cloudPropTrack.append(LerpScaleInterval(cloud, 0.5, MovieUtil.PNT3_NEARZERO))
-    cloudPropTrack.append(Func(MovieUtil.removeProp, cloud))
-    cloudPropTrack.append(Func(battle.movie.clearRenderProp, cloud))
-    damageAnims = [['cringe',
-      0.01,
-      0.4,
-      0.8], ['duck', 0.01, 1.6]]
-    toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['sidestep'], showMissedExtraTime=1.2)
-    soundTrack = Sequence(Wait(2.9), SoundInterval(globalBattleSoundCache.getSound('SA_life_insurance_loop.ogg'), node=suit), SoundInterval(globalBattleSoundCache.getSound('SA_life_insurance_loop.ogg'), node=suit))
-    return Parallel(suitTrack, toonTrack, cloudPropTrack, soundTrack)
 
 
 def doMarketCrash(attack):
