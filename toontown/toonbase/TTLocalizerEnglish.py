@@ -2395,8 +2395,8 @@ SuitBackStabberP = 'Textured Counters'
 SuitSpinDoctorP = 'Cog Monkies'
 SuitLegalEagleP = 'Sunlight Elvises'
 SuitBigWigP = 'Epic Diamonds'
-SuitFaceoffDefaultTaunts = ['Boo!']
-SuitAttackDefaultTaunts = ['Take that!', 'Take a memo on this!']
+SuitFaceoffDefaultTaunts = ['I am in the facility. Meet me in there for the real quote.']
+SuitAttackDefaultTaunts = ['Ignore this please.', 'Boring attack 2!']
 SuitAttackNames = {'Audit': 'Audit!',
  'Bite': 'Bite!',
  'BounceCheck': 'Bounce Check!',
@@ -2449,7 +2449,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'Quake': 'Quake!',
  'RazzleDazzle': 'Razzle Dazzle!',
  'RedTape': 'Red Tape!',
- 'ReOrg': 'Re-Org!',
+ 'HypnoEyes': 'HypnoEyes!',
  'RestrainingOrder': 'Restraining Order!',
  'Rolodex': 'Rolodex!',
  'RubberStamp': 'Rubber Stamp!',
@@ -2707,10 +2707,11 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
              "This tape is no2 tape, don't ask.",
 			 "Do you want to feel some tape?",
              "I hope you're not scared of the wrap on this thing."],
- 'ReOrg': ["This needs to be Organized.",
-           "?????????????",
-		   "Hey Toon, your station needs to be organized.",
-           "Clean your room right now!"],
+ 'HypnoEyes': ["You shall be alerted by the Dr. Simon!",
+           "Stop what you're doing this instant!",
+		   "Did I say you could escape?",
+           "You will not hurt my friends!",
+           "Look into my eyes... look into my eyes..."],
  'RestrainingOrder': ["You won't be able to restrain from this.",
                       "Order in the Court!",
 					  "Stay 6 feet away from me!",

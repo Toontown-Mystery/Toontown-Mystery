@@ -14,7 +14,8 @@ PartsPerSuitBitmasks = (131071,
 AllBits = 131071
 MinPartLoss = 2
 MaxPartLoss = 4
-MeritsPerLevel = ((100,
+MeritsPerLevel = (
+ (100,
   130,
   160,
   190,

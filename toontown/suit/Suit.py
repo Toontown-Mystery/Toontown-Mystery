@@ -84,6 +84,7 @@ tbc = (('magic2', 'magic2', 8),
  ('effort', 'effort', 6),
  ('magic3', 'magic3', 8),
  ('smile', 'smile', 5))
+trb = (('magic1', 'magic1', 5), ('glower', 'glower', 5), ('magic2', 'magic2', 5), ('throw-object', 'throw-object', 5))
 kb = (('effort', 'effort', 6),
  ('speak', 'speak', 5),
  ('magic2', 'magic2', 5))
@@ -129,6 +130,7 @@ mh = (('magic1', 'magic1', 5),
  ('smile', 'smile', 5),
  ('phone', 'phone', 5),
  ('song-and-dance', 'song-and-dance', 8))
+ka = (('magic2', 'magic2', 5), ('effort', 'effort', 6), ('speak', 'speak', 5), ('smile', 'smile', 5))
 fd = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
 pp = (('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 5), ('finger-wag', 'finger-wag', 5))
@@ -142,6 +144,7 @@ nc = (('phone', 'phone', 5), ('finger-wag', 'fingerwag', 5), ('glower', 'glower'
 mb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('golf-club-swing', 'golf-club-swing', 5))
 ls = (('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('magic2', 'magic2', 5), ('hold-pencil', 'hold-pencil', 5))
 rb = (('pickpocket', 'pickpocket', 5), ('finger-wag', 'fingerwag', 5), ('speak', 'speak', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('pen-squirt', 'fountain-pen', 7), ('magic1', 'magic1', 5), ('rubber-stamp', 'rubber-stamp', 5))
+gm = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 3.5))
 dm = (('magic3', 'magic3', 5), ('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'finger-wag', 5))
 bf = (('pickpocket', 'pickpocket', 5),
  ('rubber-stamp', 'rubber-stamp', 5),
@@ -183,6 +186,7 @@ bw = (('magic1', 'magic1', 5),
  ('magic3', 'magic3', 5),
  ('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5))
+brv = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('magic1', 'magic1', 5))
 cm = (('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('phone', 'phone', 5), ('throw-paper', 'throw-paper', 5), ('finger-wag', 'fingerwag', 5))
 if not base.config.GetBool('want-new-cogs', 0):
     ModelDict = {'a': ('/models/char/suitA-', 4),
@@ -512,6 +516,13 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('bigcheese')
             self.setHeight(9.34)
+        elif dna.name == 'trb':
+            self.scale = 6.05 / aSize
+            self.handColor = VBase4(0, 0, 1.0, 1.0)
+            self.generateBody()
+            self.headTexture = 'rain.jpg'
+            self.generateHead('numbercruncher')
+            self.setHeight(7.53)
         elif dna.name == 'kb':
             self.scale = 8.5 / aSize
             self.handColor = SuitDNA.corpPolyColor
@@ -520,14 +531,6 @@ class Suit(Avatar.Avatar):
             self.generateHead('yesman')
             self.makeSkeleton()
             self.setHeight(9.5)
-        elif dna.name == 'cm':
-            self.scale = 7.5 / aSize
-            self.handColor = SuitDNA.legalPolyColor
-            self.setPickable(0)
-            self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
-            self.setHeight(8.5)
         elif dna.name == 'bf':
             self.scale = 4.0 / cSize
             self.handColor = SuitDNA.legalPolyColor
@@ -582,14 +585,21 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'diamond.jpg'
             self.generateHead('yesman')
             self.setHeight(8.69)
-        elif dna.name == 'dm':
-            self.scale = 6.5 / bSize
-            self.handColor = SuitDNA.moneyPolyColor
+        elif dna.name == 'brv':
+            self.scale = 5.75 / bSize
+            self.handColor = VBase4(0, 0, 1.0, 1.0)
+            self.generateBody()
+            self.headTexture = 'bravester.jpg'
+            self.generateHead('movershaker')
+            self.setHeight(6.93)
+        elif dna.name == 'cm':
+            self.scale = 7.5 / aSize
+            self.handColor = SuitDNA.legalPolyColor
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
+            self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(7.5)
+            self.setHeight(8.5)
         elif dna.name == 'sc':
             self.scale = 3.6 / cSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
@@ -643,6 +653,22 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'careman.jpg'
             self.generateHead('yesman')
             self.setHeight(8.95)
+        elif dna.name == 'gm':
+            self.scale = 5.5 / cSize
+            self.handColor = SuitDNA.moneyPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('gladhander')
+            self.makeSkeleton()
+            self.setHeight(6.9)
+        elif dna.name == 'dm':
+            self.scale = 6.5 / bSize
+            self.handColor = SuitDNA.moneyPolyColor
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(7.5)
         elif dna.name == 'cc':
             self.scale = 3.5 / cSize
             self.handColor = VBase4(0.5, 0.4, 0.3, 0.1)
@@ -697,6 +723,13 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('yesman')
             self.setHeight(8.95)
+        elif dna.name == 'ka':
+            self.scale = 5.75 / aSize
+            self.handColor = VBase4(0.5, 0, 1.0, 1.0)
+            self.generateBody()
+            self.headTexture = 'karen.jpg'
+            self.generateHead('twoface')
+            self.setHeight(7.61)
         elif dna.name == 'fd':
             self.scale = 8.0 / aSize
             self.handColor = SuitDNA.salesPolyColor

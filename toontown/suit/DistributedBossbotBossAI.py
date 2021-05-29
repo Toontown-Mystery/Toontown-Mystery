@@ -404,7 +404,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         self.resetBattles()
         self.setupBattleFourObjects()
         self.battleFourStart = globalClock.getFrameTime()
-        self.waitForNextAttack(5)
+        self.waitForNextAttack(3)
 
     def exitBattleFour(self):
         self.recordCeoInfo()

@@ -447,7 +447,7 @@ def chooseSuitShot(attack, attackDuration):
         camTrack.append(defaultCamera(openShotDuration=2.2))
     elif name == RED_TAPE:
         camTrack.append(defaultCamera(openShotDuration=3.5))
-    elif name == RE_ORG:
+    elif name == HYPNO_EYES:
         camTrack.append(defaultCamera(openShotDuration=1.1))
     elif name == RESTRAINING_ORDER:
         camTrack.append(defaultCamera(openShotDuration=2.8))

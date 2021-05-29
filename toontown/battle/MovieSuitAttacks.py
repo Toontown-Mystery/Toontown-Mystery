@@ -218,8 +218,8 @@ def doSuitAttack(attack):
         suitTrack = doRazzleDazzle(attack)
     elif name == RED_TAPE:
         suitTrack = doRedTape(attack)
-    elif name == RE_ORG:
-        suitTrack = doReOrg(attack)
+    elif name == HYPNO_EYES:
+        suitTrack = doHypnoEyes(attack)
     elif name == RESTRAINING_ORDER:
         suitTrack = doRestrainingOrder(attack)
     elif name == ROLODEX:
@@ -1707,45 +1707,54 @@ def doPinkSlip(attack):
     return Parallel(suitTrack, toonTrack, propTrack, soundTrack)
 
 
-def doReOrg(attack):
+def doHypnoEyes(attack):
     suit = attack['suit']
     battle = attack['battle']
     target = attack['target']
     toon = target['toon']
     dmg = target['hp']
     damageDelay = 1.7
-    attackDelay = 1.7
-    sprayEffect = BattleParticles.createParticleEffect(file='reorgSpray')
+    sprayEffect = BattleParticles.createParticleEffect(file='organizeSpray')
+    spinEffect1 = BattleParticles.createParticleEffect(file='organizeEffect')
+    spinEffect2 = BattleParticles.createParticleEffect(file='organizeEffect')
+    spinEffect3 = BattleParticles.createParticleEffect(file='organizeEffect')
+    spinEffect1.reparentTo(toon)
+    spinEffect2.reparentTo(toon)
+    spinEffect3.reparentTo(toon)
+    height1 = toon.getHeight() * (random.random() * 0.2 + 0.7)
+    height2 = toon.getHeight() * (random.random() * 0.2 + 0.4)
+    height3 = toon.getHeight() * (random.random() * 0.2 + 0.1)
+    spinEffect1.setPos(0.8, -0.7, height1)
+    spinEffect1.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect1.setHpr(spinEffect1, 0, 50, 0)
+    spinEffect2.setPos(0.8, -0.7, height2)
+    spinEffect2.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect2.setHpr(spinEffect2, 0, 50, 0)
+    spinEffect3.setPos(0.8, -0.7, height3)
+    spinEffect3.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect3.setHpr(spinEffect3, 0, 50, 0)
+    spinEffect1.wrtReparentTo(battle)
+    spinEffect2.wrtReparentTo(battle)
+    spinEffect3.wrtReparentTo(battle)
     suitTrack = getSuitTrack(attack)
-    partTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
+    sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
+    spinTrack1 = getPartTrack(spinEffect1, 2.1, 3.9, [spinEffect1, battle, 0])
+    spinTrack2 = getPartTrack(spinEffect2, 2.1, 3.9, [spinEffect2, battle, 0])
+    spinTrack3 = getPartTrack(spinEffect3, 2.1, 3.9, [spinEffect3, battle, 0])
+    damageAnims = []
+    damageAnims.append(['duck',
+     0.01,
+     0.01,
+     1.1])
+    damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.1, startTime=2.26))
+    damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.1, startTime=2.26))
+    toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=0.91, dodgeAnimNames=['sidestep'], showDamageExtraTime=2.1, showMissedExtraTime=1.0)
+    soundTrack = getSoundTrack('TL_hypnotize.ogg', delay=0.91, node=suit)
     if dmg > 0:
-        headParts = toon.getHeadParts()
-        print '***********headParts pos=', headParts[0].getPos()
-        print '***********headParts hpr=', headParts[0].getHpr()
-        headTracks = Parallel()
-        for partNum in xrange(0, headParts.getNumPaths()):
-            part = headParts.getPath(partNum)
-            x = part.getX()
-            y = part.getY()
-            z = part.getZ()
-            h = part.getH()
-            p = part.getP()
-            r = part.getR()
-            headTracks.append(Sequence(Wait(attackDelay), LerpPosInterval(part, 0.1, Point3(x - 0.2, y, z - 0.03)), LerpPosInterval(part, 0.1, Point3(x + 0.4, y, z - 0.03)), LerpPosInterval(part, 0.1, Point3(x - 0.4, y, z - 0.03)), LerpPosInterval(part, 0.1, Point3(x + 0.4, y, z - 0.03)), LerpPosInterval(part, 0.1, Point3(x - 0.2, y, z - 0.04)), LerpPosInterval(part, 0.25, Point3(x, y, z + 2.2)), LerpHprInterval(part, 0.4, VBase3(360, 0, 180)), LerpPosInterval(part, 0.3, Point3(x, y, z + 3.1)), LerpPosInterval(part, 0.15, Point3(x, y, z + 0.3)), Wait(0.15), LerpHprInterval(part, 0.6, VBase3(-745, 0, 180), startHpr=VBase3(0, 0, 180)), LerpHprInterval(part, 0.8, VBase3(25, 0, 180), startHpr=VBase3(0, 0, 180)), LerpPosInterval(part, 0.15, Point3(x, y, z + 1)), LerpHprInterval(part, 0.3, VBase3(h, p, r)), Wait(0.2), LerpPosInterval(part, 0.1, Point3(x, y, z)), Wait(0.9)))
-
-        def getChestTrack(part, attackDelay = attackDelay):
-            origScale = part.getScale()
-            return Sequence(Wait(attackDelay), LerpHprInterval(part, 1.1, VBase3(180, 0, 0)), Wait(1.1), LerpHprInterval(part, 1.1, part.getHpr()))
-
-        chestTracks = Parallel()
-        arms = toon.findAllMatches('**/arms')
-        sleeves = toon.findAllMatches('**/sleeves')
-        hands = toon.findAllMatches('**/hands')
-        print '*************arms hpr=', arms[0].getHpr()
-        for partNum in xrange(0, arms.getNumPaths()):
-            chestTracks.append(getChestTrack(arms.getPath(partNum)))
-            chestTracks.append(getChestTrack(sleeves.getPath(partNum)))
-            chestTracks.append(getChestTrack(hands.getPath(partNum)))
+        toonSpinTrack = Sequence(Wait(damageDelay + 0.9), LerpHprInterval(toon, 0.7, Point3(-10, 0, 0)), LerpHprInterval(toon, 0.5, Point3(-30, 0, 0)), LerpHprInterval(toon, 0.2, Point3(-60, 0, 0)), LerpHprInterval(toon, 0.7, Point3(-700, 0, 0)), LerpHprInterval(toon, 1.0, Point3(-1310, 0, 0)), LerpHprInterval(toon, 0.4, toon.getHpr()), Wait(0.5))
+        return Parallel(suitTrack, sprayTrack, toonTrack, soundTrack, toonSpinTrack, spinTrack1, spinTrack2, spinTrack3)
+    else:
+        return Parallel(suitTrack, sprayTrack, toonTrack, soundTrack)
 
     damageAnims = [['neutral',
       0.01,

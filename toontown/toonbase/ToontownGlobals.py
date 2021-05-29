@@ -102,12 +102,12 @@ MaxCarryLimit = 150
 MaxQuestCarryLimit = 4
 CogImmuneColor = Vec4(1, 1, 1, 1)
 CogImmuneGlowColor = CogImmuneColor - Vec4(0, 0, 0, 0.5)
-MaxCogSuitLevel = 50 - 1
-CogSuitHPLevels = (15 - 1,
- 20 - 1,
- 30 - 1,
- 40 - 1,
- 50 - 1)
+MaxCogSuitLevel = 18 - 1
+CogSuitHPLevels = (14 - 1,
+ 15 - 1,
+ 16 - 1,
+ 17 - 1,
+ 18 - 1)
 setInterfaceFont(TTLocalizer.InterfaceFont)
 setSignFont(TTLocalizer.SignFont)
 from toontown.toontowngui import TTDialog
@@ -1446,8 +1446,10 @@ LawbotBossChairRow1PosA = (59.3, -18.2, 14.05)
 LawbotBossChairRow2PosB = (75.1, 48, 28.2)
 LawbotBossChairRow2PosA = (75.1, -18.2, 28.2)
 LawbotBossCannonBallMax = 24
-LawbotBossJuryBoxStartPos = (0, 0, 0)
-LawbotBossJuryBoxRelativeEndPos = (0, 0, 0)
+#LawbotBossJuryBoxStartPos = (0, 0, 0)
+#LawbotBossJuryBoxRelativeEndPos = (0, 0, 0)
+LawbotBossJuryBoxStartPos = (94, -8, 5)
+LawbotBossJuryBoxRelativeEndPos = (30, 0, 12.645)
 LawbotBossJuryBoxMoveTime = 45
 LawbotBossJurorsForBalancedScale = 8
 LawbotBossDamagePerJuror = 50
@@ -1613,11 +1615,13 @@ BossbotBossDifficultySettings = [(6,
   12,
   3,
   50,
-  50),
+  50,
+  0),
  (8,
   8,
   13,
   6,
+  50,
   50,
   50),
  (10,
@@ -1625,19 +1629,22 @@ BossbotBossDifficultySettings = [(6,
   14,
   7,
   50,
-  50),
+  50,
+  100),
  (12,
   8,
   15,
   8,
   50,
-  50),
+  50,
+  150),
  (14,
   8,
   16,
   9,
   50,
-  50)]
+  50,
+  250)]
 BossbotRollSpeedMax = 22
 BossbotRollSpeedMin = 7.5
 BossbotTurnSpeedMax = 60
