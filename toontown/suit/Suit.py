@@ -130,7 +130,7 @@ mh = (('magic1', 'magic1', 5),
  ('smile', 'smile', 5),
  ('phone', 'phone', 5),
  ('song-and-dance', 'song-and-dance', 8))
-ka = (('magic2', 'magic2', 5), ('effort', 'effort', 6), ('speak', 'speak', 5), ('smile', 'smile', 5))
+ka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
 fd = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
 pp = (('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 5), ('finger-wag', 'finger-wag', 5))
@@ -392,6 +392,8 @@ class Suit(Avatar.Avatar):
             self.Suit_initialized = 1
 
         Avatar.Avatar.__init__(self)
+        self.isVault = False
+        self.isHat = False
         self.setFont(ToontownGlobals.getSuitFont())
         self.setPlayerType(NametagGroup.CCSuit)
         self.setPickable(1)
@@ -722,6 +724,7 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(1.0, 0.3, 0.2, 0.6)
             self.generateBody()
             self.generateHead('yesman')
+            self.generateVaultStuff()
             self.setHeight(8.95)
         elif dna.name == 'ka':
             self.scale = 5.75 / aSize
@@ -729,6 +732,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.headTexture = 'karen.jpg'
             self.generateHead('twoface')
+            self.generateHatStuff()
             self.setHeight(7.61)
         elif dna.name == 'fd':
             self.scale = 8.0 / aSize
@@ -1243,3 +1247,19 @@ class Suit(Avatar.Avatar):
         else:
             self.notify.error('called getStyleName() before dna was set!')
             return 'unknown'
+			
+    def generateVaultStuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_msk_narrowGlasses')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.4, 0.4, 0.4)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setZ(1.4)
+        self.isVault = True
+		
+    def generateHatStuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_hat_ribbon')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.4, 0.4, 0.4)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setZ(1.4)
+        self.isHat = True

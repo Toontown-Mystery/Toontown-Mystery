@@ -5443,17 +5443,36 @@ ResistanceToonLastPromotion = "\x07Wow, you've reached level %s on your Cog suit
 ResistanceToonHPBoost = "\x07You've done a lot of work for the Resistance.\x07The Toon Council has decided to give you another Laff point. Congratulations!"
 ResistanceToonMaxed = '\x07I see you progressed in this new %s Fighter suit.. Good Job!\x07On this day forth, you will now be helping us protect Jedi from the Jedi council.!'
 CashbotBossCogAttack = 'Finish Them!!'
-ResistanceToonWelcome = "Yay! You Made it Toons, now let's go to the School House before the Doctor sees us."
-ResistanceToonTooLate = "Blast it! The Doctor is here, we're too late!"
-CashbotBossDiscoverToons1 = "What is this?"
-CashbotBossDiscoverToons2 = "I knew something was fishy about you Cogs. You're all Toons!"
-ResistanceToonKeepHimBusy = "Fight the Cogs while I set up a trap!"
-ResistanceToonWatchThis = 'Watch this!'
-CashbotBossGetAwayFromThat = 'Hey!  You get away from that crane!'
-ResistanceToonCraneInstructions1 = 'Get ready for my Trap C.F.O!'
-ResistanceToonCraneInstructions2 = 'You see, we have a powerful weapon.'
-ResistanceToonCraneInstructions3 = "We got Cranes!"
-ResistanceToonCraneInstructions4 = 'Now what you must do is...'
+ResistanceToonWelcome1 = "Yay! You Made it Toons!"
+ResistanceToonWelcome2 = "Alright, just follow directions, and stay near me."
+ResistanceToonTooLate = "Huh? I don't remember this being here..."
+CashbotBossDiscoverToons1 = "Hi everyone."
+CashbotBossDiscoverToons2 = "I heard that you all came here for a meeting."
+CashbotBossDiscoverToons3 = "However, the meeting got canceled due to Lizzy venting."
+CashbotBossDiscoverToons4 = "And she smack talked about Mimi and Dark Angel."
+ResistanceToonFollow1 = "However, that won't be necessary."
+ResistanceToonFollow2 = "These Cogs are actually my siblings."
+ResistanceToonFollow3 = "Ugh did I just-"
+CashbotBossDiscovered1 = "Wait a second..."
+CashbotBossDiscovered2 = "It's Queen supporters in disguise!"
+ResistanceToonKeepHimBusy1 = "Um, um, um, I did nothing. :3"
+ResistanceToonKeepHimBusy2 = "You're on your own bye lol."
+RegretThis1 = "That's it!"
+RegretThis2 = "You Toons will not vent ever again!"
+AttackSupporters = "Destroy Queen Berry's supporters!"
+ResistanceToonWatchThis = 'You looking for this? ;)'
+CashbotBossGetAwayFromThat1 = 'What'
+CashbotBossGetAwayFromThat2 = 'the'
+CashbotBossGetAwayFromThat3 = 'Cog!?'
+CashbotBossGetAwayFromThat4 = 'How did you Toons survive my Mimi trap!?'
+ResistanceToonCraneInstructions1 = 'You see, Elvis.'
+ResistanceToonCraneInstructions2 = 'We have-'
+CashbotBossNotDealing1 = 'Nope, not dealing with this.'
+CashbotBossNotDealing2 = 'You had your chance.'
+CashbotBossNotDealing3 = "If Mimi and Amanda can't take you out..."
+CashbotBossNotDealing4 = "Then I can!"
+CashbotBossGoonsCommand = "Goon, wake yourself."
+CashbotBossGoonAttack = "AND GET THOSE HEAD HUNTER LOVING QUEEN SUPPORTERS OR I'M DATING A HEAD HUNTER!"
 ResistanceToonGetaway = "WHAT! I WASN'T FINISHED YET!"
 ResistanceToonRunaway = "Get out there and fight the Boss, I know you can do it!"
 CashbotCraneLeave = 'Leave Crane'
@@ -6721,6 +6740,9 @@ CatalogCurrentButtonText = 'To Current Items'
 CatalogPastButtonText = 'To Past Items'
 TutorialHQOfficerName = 'HQ Harry'
 NPCToonNames = {20000: 'Tutorial Tom',
+ 555: 'Queen Berry Cat',
+ 777: 'Queen Lillie',
+ 998: 'Furball',
  999: 'Toon Tailor',
  1000: lToonHQ,
  20001: Flippy,
@@ -8676,13 +8698,19 @@ TrickOrTreatMsg = 'You have already\nfound this treat!'
 WinterCarolingMsg = 'You have already been caroling here!'
 LawbotBossTempIntro0 = "Ooooh, what's going on here?"
 LawbotBossTempIntro1 = 'Bruh, there is someone here.'
-LawbotBossTempIntro2 = "Get King Blueberry here, he's gonna do something about this."
-LawbotBossTempIntro3 = 'Oh, hello fellow royal people.'
-LawbotBossTempIntro4 = "Wait, you're all Toons!"
-LawbotBossTempJury1 = 'Jury selection will now commence.'
+LawbotWitnessToon1 = 'Hi, do you miss me?'
+LawbotWitnessToon2 = "It's me, Furball!"
+LawbotWitnessToon3 = "And I'm gonna help the Toons. :)"
+LawbotBossTempShut1 = "NO SHUT."
+LawbotBossTempShut2 = "STOP DISTRACTING MY SPEECH!"
+LawbotWitnessToon4 = "Nope."
+LawbotWitnessToon5 = "It's Head Hunter lovers in disguise."
+LawbotBossTempIntro2 = "What..."
+LawbotBossTempIntro3 = 'So that means...'
+LawbotBossTempJury1 = 'Here we go again...'
 LawbotBossHowToGetEvidence = 'Touch the witness stand to get evidence.'
-LawbotBossTrialChat1 = 'Court is now in session'
-LawbotBossHowToThrowPies = 'Press the Delete key to throw the evidence\n at the lawyers or into the scale!'
+LawbotBossTrialChat1 = 'Here we go again...'
+LawbotBossHowToThrowPies = 'Press the Delete key to throw the evidence\n at the Cogs or into the scale!'
 LawbotBossNeedMoreEvidence = 'You need to get more evidence!'
 LawbotBossDefenseWins1 = 'What?! I lost!?'
 LawbotBossDefenseWins2 = 'Bruh! I hate this! Forget it!'
@@ -8692,25 +8720,25 @@ LawbotBossDefenseWins5 = "NO NO NO NO NO NO NO-"
 LawbotBossProsecutionWins = 'I find in favor of the plaintiff'
 LawbotBossReward = 'I award a promotion and the ability to summon Cogs'
 LawbotBossLeaveCannon = 'Leave cannon'
-LawbotBossPassExam = 'Bah, so you passed the bar exam.'
-LawbotBossTaunts = ['%s, I find you in contempt of court!',
- 'Objection sustained!',
- 'Strike that from the record.',
- 'Your appeal has been rejected. I sentence you to sadness!',
- 'Order in the court!']
-LawbotBossAreaAttackTaunt = "You're all in contempt of court!"
-WitnessToonName = 'Bumpy Bumblebehr'
-WitnessToonPrepareBattleTwo = "Oh no! They're putting only Cogs on the jury!\x07Quick, use the cannons and shoot some Toon jurors into the jury chairs.\x07We need %d to get a balanced scale."
-WitnessToonNoJuror = 'Oh oh, no Toon jurors. This will be a tough trial.'
-WitnessToonOneJuror = 'Cool! There is 1 Toon in the jury!'
-WitnessToonSomeJurors = 'Cool! There are %d Toons in the jury!'
-WitnessToonAllJurors = 'Awesome! All the jurors are Toons!'
-WitnessToonPrepareBattleThree = 'Hurry, touch the witness stand to get evidence.\x07Press the Delete key to throw the evidence at the lawyers, or at the defense pan.'
+LawbotBossPassExam = 'This is suspicious...'
+LawbotBossTaunts = ['%s, you get away from there!',
+ "Don't stop attacking, Cogs!",
+ 'This is just wrong, wrong!',
+ "Now let's see, where were we?",
+ 'Ugh!']
+LawbotBossAreaAttackTaunt = "Stop throwing evidence!"
+WitnessToonName = 'Furball'
+WitnessToonPrepareBattleTwo = "This is not what I planned, smh.\x07So, here's what you do, use the cannons to shoot yourself on a chair.\x07When your Toon is on your chair, you gain an evidence thing.\x07The more Toons you get on chairs, the more your evidence weighs.\x07We need %d to get a balanced scale.\x07Now get out there, and shoot!"
+WitnessToonNoJuror = "Hm, I don't like this..."
+WitnessToonOneJuror = "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1."
+WitnessToonSomeJurors = 'Nice job, there are %d Toons in the chairs.'
+WitnessToonAllJurors = "Oh, I didn't notice everyone was on the chairs."
+WitnessToonPrepareBattleThree = "So, what you must do is, throw evidence on the pan thingy.\x07Press the Delete key to throw the evidence at the Cogs, or at the defense pan.\x07If all Cogs are stunned successfully, you get more bonus weight.\x07Be careful though, the battle may be tough if you're not careful.\x07Now get out there!"
 WitnessToonCongratulations = "You did it!  Thank you for a spectacular defense!\x07Here, take these papers the Chief Justice left behind.\x07With it you'll be able to summon Cogs from your Cog Gallery page."
 WitnessToonLastPromotion = "\x07Wow, you've reached level %s on your Cog Suit!\x07Cogs don't get promoted higher than that.\x07You can't upgrade your Cog Suit anymore, but you can certainly keep working for the Resistance!"
 WitnessToonHPBoost = "\x07You've done a lot of work for the Resistance.\x07The Toon Council has decided to give you another Laff point. Congratulations!"
 WitnessToonMaxed = '\x07I see that you have a level %s Cog Suit. Very impressive!\x07On behalf of the Toon Council, thank you for coming back to defend more Toons!'
-WitnessToonBonus = 'Wonderful! All the lawyers are stunned. Your evidence weight is %s times heavier for %s seconds'
+WitnessToonBonus = 'Wonderful! All the Cogs are stunned. Your evidence weight is %s times heavier for %s seconds'
 WitnessToonJuryWeightBonusSingular = {6: 'This is a tough case. You seated %d Toon juror, so your evidence has a bonus weight of %d.',
  7: 'This is a very tough case. You seated %d Toon juror, so your evidence has a bonus weight of %d.',
  8: 'This is the toughest case. You seated %d Toon juror, so your evidence has a bonus weight of %d.'}
@@ -9257,7 +9285,13 @@ BoardingGoShow = 'Going to\n%s in '
 BoardingGoPreShow = 'Confirming...'
 BossbotBossName = 'King Blueberry'
 BossbotRTWelcome = "Hello Toons! Welcome to King Blueberry's Lair!"
-BossbotRTRemoveSuit = 'Cog suits...'
+BossbotRTRemoveSuit1 = "Wait, haven't you been here before?"
+BossbotRTRemoveSuit2 = "Yeah, that's right, you're the Toons in disguise."
+BossbotRTRemoveSuit3 = "Ugh. Do I have to do everything here???"
+BossbotRTRemoveSuit4 = "Ok. The King is having his dinner, and you can't come looking like that."
+BossbotRTFightAttack1 = "No! Don't take off your disguises!"
+BossbotRTFightAttack2 = "Ok fine, just kill these cogs here with better suits."
+BossbotRTFightAttack3 = "I'll uh, go talk to Queen."
 BossbotRTFightWaiter = 'You know the drill.'
 BossbotRTWearWaiter1 = "Good Job Toons! You defeated the Waiters!"
 BossbotRTWearWaiter2 = "Now be aware, the King is inside these chambers."
@@ -9273,9 +9307,12 @@ BossbotRTServeFood4 = "Serve a Cog with two cakes in a row, and they will explod
 BossbotRTServeFood5 = "But keep in mind, if they get angry, then you will have to restart that Cog."
 BossbotRTServeFood6 = 'Alright, I said enough, now get out there!'
 BossbotResistanceToonName = "Good Ol Giggles"
-BossbotPhase3Speech1 = "I SPECIFICALLY SAID NO MAYO ON THE CAKES!!!!!!!"
-BossbotPhase3Speech2 = 'WHY! DO THE CAKES! HAVE! MAYO!??!?!'
-BossbotPhase3Speech3 = 'Eliminate them from this office!!!'
+BossbotPhase3Speech1 = "You think you won?"
+BossbotPhase3Speech2 = "No, didn't think so."
+BossbotPhase3Speech3 = "You're gonna get it now!"
+BossbotPhase3Speech4 = "Haha I forgot to mention, my cogs are higher and stronger."
+BossbotPhase3Speech5 = "And they're v2.0. Goodluck with that."
+BossbotPhase3Speech6 = 'Eliminate them from this office!!!'
 BossbotPhase4Speech1 = 'OH that does it! I had enough!'
 BossbotPhase4Speech2 = "This battle ends here! And now!! I'll send you straight to the Cog HQS!"
 BossbotRTPhase4Speech1 = "Oh no, he's very angry now..."

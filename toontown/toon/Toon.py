@@ -2,6 +2,7 @@ from otp.avatar import Avatar
 from otp.avatar.Avatar import teleportNotify
 import ToonDNA
 from direct.task.Task import Task
+from toontown.suit import Suit
 from toontown.suit import SuitDNA
 from direct.actor import Actor
 import string
@@ -488,6 +489,7 @@ class Toon(Avatar.Avatar, ToonHead):
         self.__bookActors = []
         self.__holeActors = []
         self.holeClipPath = None
+        self.cogHead = 0
         self.wake = None
         self.lastWakeTime = 0
         self.forceJumpIdle = False
@@ -1221,24 +1223,44 @@ class Toon(Avatar.Avatar, ToonHead):
 
     def getDialogueArray(self):
         animalType = self.style.getType()
+        if self.isDisguised or self.cogHead:
+            dialogueArray = Suit.SuitDialogArray
         if animalType == 'dog':
             dialogueArray = DogDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'cat':
             dialogueArray = CatDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'horse':
             dialogueArray = HorseDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'mouse':
             dialogueArray = MouseDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'rabbit':
             dialogueArray = RabbitDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'duck':
             dialogueArray = DuckDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'monkey':
             dialogueArray = MonkeyDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'bear':
             dialogueArray = BearDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         elif animalType == 'pig':
             dialogueArray = PigDialogueArray
+            if self.isDisguised or self.cogHead:
+                dialogueArray = Suit.SuitDialogArray
         else:
             dialogueArray = None
         return dialogueArray
@@ -2748,21 +2770,21 @@ class Toon(Avatar.Avatar, ToonHead):
         suit.initializeDropShadow()
         suit.setPos(self.getPos())
         suit.setHpr(self.getHpr())
-        for part in suit.getHeadParts():
+        '''for part in suit.getHeadParts():
             part.hide()
 
         suitHeadNull = suit.find('**/joint_head')
-        toonHead = self.getPart('head', '1000')
+        toonHead = self.getPart('head', '1000')'''
         Emote.globalEmote.disableAll(self)
         toonGeom = self.getGeomNode()
         toonGeom.hide()
-        worldScale = toonHead.getScale(render)
+        '''worldScale = toonHead.getScale(render)
         self.headOrigScale = toonHead.getScale()
         headPosNode = hidden.attachNewNode('headPos')
         toonHead.reparentTo(headPosNode)
         toonHead.setPos(0, 0, 0.2)
         headPosNode.reparentTo(suitHeadNull)
-        headPosNode.setScale(render, worldScale)
+        headPosNode.setScale(render, worldScale)'''
         suitGeom = suit.getGeomNode()
         suitGeom.reparentTo(self)
         if rental == True:
@@ -2807,7 +2829,7 @@ class Toon(Avatar.Avatar, ToonHead):
         if not self.isDisguised:
             return
         suitType = self.suit.style.name
-        toonHeadNull = self.find('**/1000/**/def_head')
+        '''toonHeadNull = self.find('**/1000/**/def_head')
         if not toonHeadNull:
             toonHeadNull = self.find('**/1000/**/joint_head')
         toonHead = self.getPart('head', '1000')
@@ -2815,7 +2837,7 @@ class Toon(Avatar.Avatar, ToonHead):
         toonHead.setScale(self.headOrigScale)
         toonHead.setPos(0, 0, 0)
         headPosNode = self.suitGeom.find('**/headPos')
-        headPosNode.removeNode()
+        headPosNode.removeNode()'''
         self.suitGeom.reparentTo(self.suit)
         self.resetHeight()
         self.nametag3d.setPos(0, 0, self.height + 0.5)

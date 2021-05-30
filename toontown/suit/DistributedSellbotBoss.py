@@ -326,6 +326,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 IndirectInterval(dooberTrack, 14),
                 IndirectInterval(toonTrack, 30))),
             (21, Func(self.setChatAbsolute, welcomeToons, CFSpeech)),
+			(24, Func(self.clearChat)),
             (24, Func(self.setChatAbsolute, promoteToons, CFSpeech)),
             (24.5, Sequence(
                 Func(self.cagedToon.nametag3d.setScale, 2),

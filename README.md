@@ -45,3 +45,5 @@ Credits:
 * Reverse-engineered Toontown Online client/server source code is property of The Walt Disney Company.
 * Toontown School house ultimate source
 * Thunderzapper for SetCogIndex and SetDNA command
+* Joey900 for some stuff.
+* Gabe for some stuff as well, mostly with Cogs.

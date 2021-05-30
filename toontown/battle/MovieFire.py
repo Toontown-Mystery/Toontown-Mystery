@@ -293,10 +293,10 @@ def __throwPie(throw, delay, hitCount, showCannon = 1):
         suit.setPos(0, 0, 0)
         suit.setHpr(0, -90, 0)
         suitLevel = suit.getActualLevel()
-        deep = 2.5 + suitLevel * 0.2
-        suitScale = 0.9
+        deep = 3
+        suitScale = 1.1
         import math
-        suitScale = 0.9 - math.sqrt(suitLevel) * 0.1
+        suitScale = 1.1 - math.sqrt(suitLevel) * 0.1
         sival = []
         posInit = cannonHolder.getPos()
         posFinal = Point3(posInit[0] + 0.0, posInit[1] + 0.0, posInit[2] + 7.0)

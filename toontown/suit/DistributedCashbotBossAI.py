@@ -67,7 +67,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 
     def generateSuits(self, battleNumber):
         cogs = self.invokeSuitPlanner(11, 0)
-        skelecogs = self.invokeSuitPlanner(12, 1)
+        skelecogs = self.invokeSuitPlanner(12, 0)
         activeSuits = cogs['activeSuits'] + skelecogs['activeSuits']
         reserveSuits = cogs['reserveSuits'] + skelecogs['reserveSuits']
         random.shuffle(activeSuits)
@@ -291,7 +291,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             if self.want4ManPractice and (self.bossDamage > 20 and self.bossDamage < 50):
                goon.b_setupGoon(velocity=self.progressRandomValue(3, 7), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 15), strength=int(self.progressRandomValue(5, 25)), scale=0.61)
             else:
-               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 110), attackRadius=self.progressRandomValue(6, 12), strength=int(self.progressRandomValue(20, 76)), scale=self.progressRandomValue(0.8, 2.4, noRandom=True))
+               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 150), attackRadius=self.progressRandomValue(6, 12), strength=int(self.progressRandomValue(20, 76)), scale=self.progressRandomValue(0.8, 2.4, noRandom=True))
         goon.request(side)
         return
 

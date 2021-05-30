@@ -1374,6 +1374,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 
     def makeIntroductionMovie(self, delayDeletes):
         self.notify.debug('----- makeIntroductionMovie')
+        self.__showWitnessToon()
         for toonId in self.involvedToons:
             toon = self.cr.doId2do.get(toonId)
             if toon:
@@ -1381,26 +1382,44 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 
         track = Parallel()
         bossAnimTrack = Sequence(
-            ActorInterval(self, 'Ff_speech', startTime=2, duration=10, loop=1),
-            ActorInterval(self, 'Ff_lookRt', duration=3),
-            ActorInterval(self, 'Ff_lookRt', duration=3, startTime=3, endTime=0),
-            ActorInterval(self, 'Ff_neutral', duration=2),
-            ActorInterval(self, 'Ff_speech', duration=7),
-            ActorInterval(self, 'turn2Fb', duration=2, loop=1))
+            ActorInterval(self, 'Ff_speech', startTime=2, duration=12, loop=1),
+            ActorInterval(self, 'Ff_lookRt', duration=4),
+            ActorInterval(self, 'Ff_lookRt', duration=4, startTime=3, endTime=0),
+            ActorInterval(self, 'Ff_neutral', duration=3),
+            ActorInterval(self, 'Ff_speech', duration=9, loop=1))
         track.append(bossAnimTrack)
         attackToons = TTLocalizer.BossCogAttackToons
         dialogTrack = Track(
             (0, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro0, CFSpeech)),
-            (5.6, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -125.6, 19.5, 0, 0, 0))),
-            (7, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro1, CFSpeech)),
-            (12, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro2, CFSpeech)),
-            (16, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro3, CFSpeech)),
-			(20, Sequence(Func(self.loop, 'turn2Fb'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -100.6, 19.5, 0, 0, 0))),
-			(21, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro4, CFSpeech)),
-            (25, Sequence(
+            (2, Func(self.clearChat)),
+            (2, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro1, CFSpeech)),
+            (5, Func(self.clearChat)),
+            (6, Sequence(Func(base.camera.reparentTo, self.witnessToon), Func(base.camera.setPosHpr, 0, 8, 2, 180, 10, 0))),
+            (6, Sequence(Func(self.witnessToon.setChatAbsolute, TTLocalizer.LawbotWitnessToon1, CFSpeech))),
+            (9, Func(self.witnessToon.clearChat)),
+            (9, Sequence(Func(self.witnessToon.setChatAbsolute, TTLocalizer.LawbotWitnessToon2, CFSpeech))),
+            (11.5, Func(self.witnessToon.clearChat)),
+            (11.5, Sequence(Func(self.witnessToon.setChatAbsolute, TTLocalizer.LawbotWitnessToon3, CFSpeech))),
+            (14, Func(self.witnessToon.clearChat)),
+            (14, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -100.6, 19.5, 0, 0, 0))),
+            (14, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempShut1, CFSpeech)),
+            (17, Func(self.clearChat)),
+            (17, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempShut2, CFSpeech)),
+            (19, Func(self.clearChat)),
+            (20, Sequence(Func(base.camera.reparentTo, self.witnessToon), Func(base.camera.setPosHpr, 0, 8, 2, 180, 10, 0))),
+            (20, Sequence(Func(self.witnessToon.setChatAbsolute, TTLocalizer.LawbotWitnessToon4, CFSpeech))),
+            (23, Func(self.witnessToon.clearChat)),
+            (23, Sequence(Func(self.witnessToon.setChatAbsolute, TTLocalizer.LawbotWitnessToon5, CFSpeech))),
+            (26, Func(self.witnessToon.clearChat)),
+            (26, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -100.6, 19.5, 0, 0, 0))),
+            (26, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro2, CFSpeech)),
+			(28, Func(self.clearChat)),
+			(28, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -110.6, 19.5, 0, 0, 0))),
+            (28, Func(self.setChatAbsolute, TTLocalizer.LawbotBossTempIntro3, CFSpeech)),
+            (30, Sequence(
                 Func(self.clearChat),
                 self.loseCogSuits(self.toonsA + self.toonsB, render, (-2.798, -70, 10, 180, 0, 0)))),
-            (28, Sequence(
+            (33, Sequence(
                 self.toonNormalEyes(self.involvedToons),
                 Func(self.loop, 'Ff_neutral'),
                 Func(self.setChatAbsolute, attackToons, CFSpeech))))
@@ -1588,16 +1607,20 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 Func(base.camera.setPos, -3, 45, 25),
                 Func(base.camera.setHpr, 0, 10, 0))),
             (1.0, Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins1, CFSpeech)),
+			(5.5, Func(self.clearChat)),
             (5.5, Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins2, CFSpeech)),
+			(9.5, Func(self.clearChat)),
             (9.5, Sequence(Func(base.camera.wrtReparentTo, render))),
             (9.6, Parallel(
                 rollTrack,
                 Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins3, CFSpeech),
+                Func(self.clearChat),
                 self.door3.posInterval(2, doorEndPos, startPos=doorStartPos))),
             (13.1, Sequence(Parallel(SoundInterval(whistleSfx),
                    Sequence(
                        Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins4, CFSpeech),
                        Wait(3),
+				       Func(self.clearChat),
                        Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins5, CFSpeech),
                        LerpScaleInterval(self.dropShadow, 3, Point3(7, 7, 7)),
                        Func(geyser.reparentTo, render),
@@ -1620,10 +1643,10 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         return bossTrack
 
     def __makeWitnessToon(self):
-        dnaNetString = 't\x1b\x00\x01\x01\x00\x03\x00\x03\x01\x10\x13\x00\x13\x13'
-        npc = Toon.Toon()
-        npc.setDNAString(dnaNetString)
-        npc.setName(TTLocalizer.WitnessToonName)
+        if self.witnessToon:
+            return
+        npc = NPCToons.createLocalNPC(998)
+        npc.setName('Furball')
         npc.setPickable(0)
         npc.setPlayerType(NametagGroup.CCNonPlayer)
         npc.animFSM.request('Sit')
