@@ -3,8 +3,8 @@ PREFIX_DEFAULT = '~'
 PREFIX_ALLOWED = ['~', '?', '/', '<', ':', ';']
 if config.GetBool('exec-chat', False):
     PREFIX_ALLOWED.append('>')
-WIZARD_DEFAULT = 'Queen Berry'
-MAGIC_WORD_SUCCESS_PHRASES = ['Eat yo blueberries!', 'Bow to the Queen!', 'Yay!', 'Pleading!', 'Lol!']
+WIZARD_DEFAULT = 'Firelight'
+MAGIC_WORD_SUCCESS_PHRASES = ['SPACETOZIE ROCKETSHIP!', 'Meow.', 'Yay!', 'PLANET SPACETOZIE', 'Lol!']
 MAGIC_WORD_RESPONSES = {
     "SuccessNoResp": 'response will be randomly selected from MAGIC_WORD_SUCCESS_PHRASES',
     "Success": 'response will be provided by magic word',

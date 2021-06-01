@@ -67,6 +67,8 @@ ds = (('magic1', 'magic1', 5),
  ('magic2', 'magic2', 5),
  ('throw-paper', 'throw-paper', 5),
  ('throw-object', 'throw-object', 5),
+ ('song-and-dance', 'song-and-dance', 8),
+ ('glower', 'glower', 5),
  ('magic3', 'magic3', 5))
 hh = (('quick-jump', 'jump', 6),
  ('effort', 'effort', 5),
@@ -394,6 +396,7 @@ class Suit(Avatar.Avatar):
         Avatar.Avatar.__init__(self)
         self.isVault = False
         self.isHat = False
+        self.isHud = False
         self.setFont(ToontownGlobals.getSuitFont())
         self.setPlayerType(NametagGroup.CCSuit)
         self.setPickable(1)
@@ -465,6 +468,7 @@ class Suit(Avatar.Avatar):
         self.headTexture = None
         self.loseActor = None
         self.isSkeleton = 0
+        self.isVirtual = 0
         self.isImmune = 0
         self.setBlend(frameBlend=True)
         if dna.name == 'f':
@@ -497,6 +501,7 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(0.8, 0.7, 0.7, 1.0)
             self.generateBody()
             self.generateHead('headhunter')
+            self.generateHudStuff()
             self.setHeight(6.08)
         elif dna.name == 'hh':
             self.scale = 6.5 / bSize
@@ -928,7 +933,7 @@ class Suit(Avatar.Avatar):
         for thingIndex in range(0, actorCollection.getNumPaths()):
             thing = actorCollection[thingIndex]
             if thing.getName() not in ('joint_attachMeter', 'joint_nameTag', 'def_nameTag'):
-                thing.setColorScale(0.2, 0.3, 1, 0.9)
+                thing.setColorScale(0.2, 0.3, 1.0, 1.0)
                 thing.setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd))
                 thing.setDepthWrite(False)
                 thing.setBin('fixed', 1)
@@ -1149,6 +1154,19 @@ class Suit(Avatar.Avatar):
                 loseAnim = 'phase_' + str(phase) + filePrefix + 'lose'
                 self.loseActor = Actor.Actor(loseModel, {'lose': loseAnim})
                 self.generateCorporateTie(self.loseActor)
+        if self.isVirtual:
+            actorNode = self.loseActor.find('**/__Actor_modelRoot')
+            actorCollection = actorNode.findAllMatches('*')
+            parts = ()
+            for thingIndex in range(0, actorCollection.getNumPaths()):
+                thing = actorCollection[thingIndex]
+                if thing.getName() not in ('joint_attachMeter', 'joint_nameTag', 'def_nameTag'):
+                    thing.setColorScale(0.2, 0.3, 1.0, 1.0)
+                    thing.setAttrib(ColorBlendAttrib.make(ColorBlendAttrib.MAdd))
+                    thing.setDepthWrite(False)
+                    thing.setBin('fixed', 1)
+            self.loseActor.find('**/joint_shadow').hide()
+        self.loseActor.setBlend(frameBlend=True)
         self.loseActor.setScale(self.scale)
         self.loseActor.setPos(self.getPos())
         self.loseActor.setHpr(self.getHpr())
@@ -1197,10 +1215,11 @@ class Suit(Avatar.Avatar):
             bb.setTwoSided(1)
 
     
-        self.setName('Skelecog')
-        nameInfo = '%(name)s\n%(dept)s\n%(level)s' % {'name': 'Skelecog',
-         'dept': dept,
+        self.setName(TTLocalizer.Skeleton)
+        nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
+         'dept': self.getStyleDept(),
          'level': self.getActualLevel()}
+        self.setDisplayName(nameInfo)
         self.leftHand = self.find('**/joint_Lhold')
         self.rightHand = self.find('**/joint_Rhold')
         self.nametagNull = self.find('**/joint_nameTag')
@@ -1253,7 +1272,7 @@ class Suit(Avatar.Avatar):
         self.Vault.reparentTo(self.find('**/joint_head'))
         self.Vault.setScale(0.4, 0.4, 0.4)
         self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
-        self.Vault.setZ(1.4)
+        self.Vault.setZ(0.7)
         self.isVault = True
 		
     def generateHatStuff(self):
@@ -1263,3 +1282,11 @@ class Suit(Avatar.Avatar):
         self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
         self.Vault.setZ(1.4)
         self.isHat = True
+		
+    def generateHudStuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_hat_crown')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.5, 0.5, 0.5)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setZ(0.5)
+        self.isHud = True

@@ -2441,6 +2441,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'WaterSpray': 'Water Spray!',
  'PeckingOrder': 'Pecking Order!',
  'PickPocket': 'Pick Pocket!',
+ 'StealSafe': 'Steal Safe!',
  'PinkSlip': 'Pink Slip!',
  'PlayHardball': 'Play Hardball!',
  'PoundKey': 'Pound Key!',
@@ -2658,6 +2659,9 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
                 "I'll take your money!",
 				"Huh, what's that? Oops, I got your money.",
                 'Your pocket is mine to take.'],
+ 'StealSafe': ["Ha, stole your safe.",
+               "Stole ya safe.",
+			   "Do you feel safe toon?"],
  'PinkSlip': ["You earned yourself a trip to the principals office!",
               "Why are you normal, why not Pink?",
 			  "I have over 100 slips to organize, I don't have time for this."
@@ -5452,7 +5456,7 @@ CashbotBossDiscoverToons3 = "However, the meeting got canceled due to Lizzy vent
 CashbotBossDiscoverToons4 = "And she smack talked about Mimi and Dark Angel."
 ResistanceToonFollow1 = "However, that won't be necessary."
 ResistanceToonFollow2 = "These Cogs are actually my siblings."
-ResistanceToonFollow3 = "Ugh did I just-"
+ResistanceToonFollow3 = "Ugh, did I just-"
 CashbotBossDiscovered1 = "Wait a second..."
 CashbotBossDiscovered2 = "It's Queen supporters in disguise!"
 ResistanceToonKeepHimBusy1 = "Um, um, um, I did nothing. :3"
@@ -5469,7 +5473,7 @@ ResistanceToonCraneInstructions1 = 'You see, Elvis.'
 ResistanceToonCraneInstructions2 = 'We have-'
 CashbotBossNotDealing1 = 'Nope, not dealing with this.'
 CashbotBossNotDealing2 = 'You had your chance.'
-CashbotBossNotDealing3 = "If Mimi and Amanda can't take you out..."
+CashbotBossNotDealing3 = "If Mimi and Dark Angel can't take you out..."
 CashbotBossNotDealing4 = "Then I can!"
 CashbotBossGoonsCommand = "Goon, wake yourself."
 CashbotBossGoonAttack = "AND GET THOSE HEAD HUNTER LOVING QUEEN SUPPORTERS OR I'M DATING A HEAD HUNTER!"

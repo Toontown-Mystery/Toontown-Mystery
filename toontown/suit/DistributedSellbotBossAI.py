@@ -1,5 +1,6 @@
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.battle import DistributedBattleWaitersAI
+from toontown.battle import DistributedBattleCogsAI
 from otp.ai.AIBaseGlobal import *
 from direct.distributed.ClockDelta import *
 import DistributedBossCogAI
@@ -18,7 +19,7 @@ import SuitDNA, random
 
 class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedSellbotBossAI')
-    limitHitCount = 3
+    limitHitCount = 10
     numPies = 30
 
     def __init__(self, air):
@@ -224,18 +225,44 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             if battleNumber == 1:
                 return self.invokeSuitPlanner(15, 0)
             else:
-                return self.invokeSuitPlanner(16, 1)
+                return self.invokeSuitPlanner(16, 0)
         else:
             if battleNumber == 1:
                 return self.invokeSuitPlanner(9, 0)
             else:
-                return self.invokeSuitPlanner(10, 1)
+                return self.invokeSuitPlanner(10, 0)
 				
     def removeToon(self, avId):
         toon = simbase.air.doId2do.get(avId)
         if toon:
             toon.b_setNumPies(0)
         DistributedBossCogAI.DistributedBossCogAI.removeToon(self, avId)
+		
+    def makeBattle(self, bossCogPosHpr, battlePosHpr, roundCallback, finishCallback, battleNumber, battleSide):
+        if battleNumber == 1:
+            battle = DistributedBattleWaitersAI.DistributedBattleWaitersAI(self.air, self, roundCallback, finishCallback, battleSide)
+        else:
+            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
+        self.setBattlePos(battle, bossCogPosHpr, battlePosHpr)
+        battle.suitsKilled = self.suitsKilled
+        battle.battleCalc.toonSkillPtsGained = self.toonSkillPtsGained
+        battle.toonExp = self.toonExp
+        battle.toonOrigQuests = self.toonOrigQuests
+        battle.toonItems = self.toonItems
+        battle.toonOrigMerits = self.toonOrigMerits
+        battle.toonMerits = self.toonMerits
+        battle.toonParts = self.toonParts
+        battle.helpfulToons = self.helpfulToons
+        mult = ToontownBattleGlobals.getBossBattleCreditMultiplier(battleNumber)
+        battle.battleCalc.setSkillCreditMultiplier(mult)
+        activeSuits = self.activeSuitsA
+        if battleSide:
+            activeSuits = self.activeSuitsB
+        for suit in activeSuits:
+            battle.addSuit(suit)
+
+        battle.generateWithRequired(self.zoneId)
+        return battle
 
     def enterOff(self):
         DistributedBossCogAI.DistributedBossCogAI.enterOff(self)
@@ -376,11 +403,11 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         for toonId in self.involvedToons:
             toon = self.air.doId2do.get(toonId)
             if toon:
-                configMax = simbase.config.GetInt('max-sos-cards', 16)
+                configMax = simbase.config.GetInt('max-sos-cards', 29)
                 if configMax == 8:
                     maxNumCalls = 1
                 else:
-                    maxNumCalls = 2
+                    maxNumCalls = 3
                 if not toon.attemptAddNPCFriend(self.cagedToonNpcId, numCalls=maxNumCalls):
                     self.notify.info('%s.unable to add NPCFriend %s to %s.' % (self.doId, self.cagedToonNpcId, toonId))
                 if self.__shouldPromoteToon(toon):

@@ -419,7 +419,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
                     (22,23,24,25,26,29,32,35,38,40),
                     (75,75,75,75,75,75,75,75,75,75),
                     (15,15,15,15,15,15,15,15,15,15)),
-                ('HangUp',
+                ('StealSafe',
                     (20,21,22,24,25,28,30,32,34,36),
                     (75,75,75,75,75,75,75,75,75,75),
                     (20,20,20,20,20,20,20,20,20,20)),
@@ -1247,6 +1247,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'WaterSpray': ('magic2', ATK_TGT_GROUP),
  'PeckingOrder': ('throw-object', ATK_TGT_SINGLE),
  'PickPocket': ('pickpocket', ATK_TGT_SINGLE),
+ 'StealSafe': ('pickpocket', ATK_TGT_SINGLE),
  'PinkSlip': ('throw-paper', ATK_TGT_SINGLE),
  'PlayHardball': ('throw-object', ATK_TGT_SINGLE),
  'PoundKey': ('phone', ATK_TGT_SINGLE),
@@ -1323,6 +1324,7 @@ PARADIGM_SHIFT = SuitAttacks.keys().index('ParadigmShift')
 WATER_SPRAY = SuitAttacks.keys().index('WaterSpray')
 PECKING_ORDER = SuitAttacks.keys().index('PeckingOrder')
 PICK_POCKET = SuitAttacks.keys().index('PickPocket')
+STEAL_SAFE = SuitAttacks.keys().index('StealSafe')
 PINK_SLIP = SuitAttacks.keys().index('PinkSlip')
 PLAY_HARDBALL = SuitAttacks.keys().index('PlayHardball')
 POUND_KEY = SuitAttacks.keys().index('PoundKey')

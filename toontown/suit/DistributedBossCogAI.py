@@ -291,7 +291,7 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         self.resetBattles()
         self.arenaSide = None
         self.makeBattleOneBattles()
-        self.barrier = self.beginBarrier('Introduction', self.involvedToons, 45, self.doneIntroduction)
+        self.barrier = self.beginBarrier('Introduction', self.involvedToons, 180, self.doneIntroduction)
         return
 
     def doneIntroduction(self, avIds):
@@ -552,17 +552,13 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         planner = SuitPlannerInteriorAI.SuitPlannerInteriorAI(1, buildingCode, self.dna.dept, self.zoneId)
         planner.respectInvasions = 0
         suits = planner.genFloorSuits(0)
-        if skelecog != 0:
+        if skelecog:
             for suit in suits['activeSuits']:
                 suit.b_setSkelecog(1)
-                if skelecog == 2:
-                    suit.b_setVirtual(1)
 
             for reserve in suits['reserveSuits']:
                 suit = reserve[0]
                 suit.b_setSkelecog(1)
-                if skelecog == 2:
-                    suit.b_setVirtual(1)
 
         return suits
 

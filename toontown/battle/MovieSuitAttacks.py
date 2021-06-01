@@ -202,6 +202,8 @@ def doSuitAttack(attack):
         suitTrack = doPeckingOrder(attack)
     elif name == PICK_POCKET:
         suitTrack = doPickPocket(attack)
+    elif name == STEAL_SAFE:
+        suitTrack = doStealSafe(attack)
     elif name == PINK_SLIP:
         suitTrack = doPinkSlip(attack)
     elif name == PLAY_HARDBALL:
@@ -2432,6 +2434,23 @@ def doPickPocket(attack):
     if dmg > 0:
         soundTrack = getSoundTrack('SA_pick_pocket.ogg', delay=0.2, node=suit)
         multiTrackList.append(billPropTrack)
+        multiTrackList.append(soundTrack)
+    return multiTrackList
+	
+def doStealSafe(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    dmg = target['hp']
+    safe = globalPropPool.getProp('safe')
+    suitTrack = getSuitTrack(attack)
+    safePosPoints = [Point3(-0.01, 0.45, -0.25), VBase3(136.424, -46.434, -129.712)]
+    safePropTrack = getPropTrack(safe, suit.getRightHand(), safePosPoints, 0.6, 0.55, scaleUpPoint=Point3(3.41, 3.41, 3.41))
+    toonTrack = getToonTrack(attack, 0.6, ['slip-forward'], 0.01, ['applause'])
+    multiTrackList = Parallel(suitTrack, toonTrack)
+    if dmg > 0:
+        soundTrack = getSoundTrack('AA_drop_safe_miss.ogg', delay=0.2, node=suit)
+        multiTrackList.append(safePropTrack)
         multiTrackList.append(soundTrack)
     return multiTrackList
 

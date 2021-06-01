@@ -190,6 +190,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.bossHealthBar.update(self.bossMaxDamage - bossDamage, self.bossMaxDamage)
         recoverStartTime = globalClockDelta.networkToLocalTime(timestamp)
         self.bossDamage = bossDamage
+        self.updateHealthBar()
         self.recoverRate = recoverRate
         self.recoverStartTime = recoverStartTime
         taskName = 'RecoverBossDamage'
@@ -357,7 +358,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 			    Wait (2.0),
                 self.toonNormalEyes(self.involvedToons),
                 Func(camera.setPosHpr, -23.4, -145.6, 44.0, -10.0, -12.5, 0),
-                Func(self.loop, 'Fb_neutral'),
+                Func(self.loop, 'Fb_neutral'), LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)),
                 Func(self.rampA.request, 'retract'),
                 Func(self.rampB.request, 'retract'),
                 Parallel(self.backupToonsToBattlePosition(self.toonsA, self.battleANode),
@@ -893,6 +894,8 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.bossDamageMovie = self.__makeBossDamageMovie()
         bossDoneEventName = self.uniqueName('DestroyedBoss')
         self.bossDamageMovie.setDoneEvent(bossDoneEventName)
+        self.generateHealthBar()
+        self.updateHealthBar()
         self.acceptOnce(bossDoneEventName, self.__doneBattleThree)
         self.resetMaxDamage()
         self.bossDamageToMovie = self.bossDamageMovie.getDuration() / self.bossMaxDamage
@@ -1230,12 +1233,12 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             door = self.doorB
         gearRoot.setTag('attackCode', str(ToontownGlobals.BossCogStrafeAttack))
         gearModel = self.getGearFrisbee()
-        gearModel.setScale(0.1)
-        t = self.getBossDamage() / 100.0
+        gearModel.setScale(0.2)
+        t = self.getBossDamage() / 1500.0
         gearTrack = Parallel()
         numGears = int(4 + 6 * t + 0.5)
-        time = 5.0 - 4.0 * t
-        spread = 60 * math.pi / 180.0
+        time = 2.0 - 1.5 * t
+        spread = 90 * math.pi / 180.0
         if direction == 1:
             spread = -spread
         dist = 50

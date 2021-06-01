@@ -1,4 +1,13 @@
-from ElevatorConstants import *
+from .ElevatorConstants import *
+from toontown.toonbase import ToontownGlobals
+
+try:
+    config = base.config
+except:
+    config = simbase.config
+    
+SUIT_PLANNER_CFO = 15
+
 SuitBuildingInfo = (((1, 1),
   (1, 3),
   (4, 4),

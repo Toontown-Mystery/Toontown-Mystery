@@ -668,7 +668,7 @@ BossCogBattleBPosHpr = (0,
  180,
  0,
  0)
-SellbotBossMaxDamage = 100
+SellbotBossMaxDamage = 500
 SellbotBossMaxDamageNerfed = 100
 SellbotBossBattleOnePosHpr = (0,
  -35,
@@ -695,24 +695,48 @@ SellbotBossP3PosA = (-50, 40, 18)
 SellbotBossTopRampPosB = (80, -35, 18)
 SellbotBossTopRampTurnPosB = (80, 10, 18)
 SellbotBossP3PosB = (50, 60, 18)
-CashbotBossMaxDamage = 4000
+CashbotBossMaxDamage = 5000
 CashbotBossOffstagePosHpr = (120,
- -195,
+ - 195,
  0,
  0,
  0,
  0)
 CashbotBossBattleOnePosHpr = (120,
- -230,
+ - 230,
+ 0,
+ 90,
+ 0,
+ 0)
+CashbotBossBattleTwoPosHpr = (120,
+ - 315,
  0,
  90,
  0,
  0)
 CashbotRTBattleOneStartPosHpr = (94,
- -220,
+ - 220,
  0,
  110,
  0,
+ 0)
+CashbotRTBattleTwoStartPosHpr = (120,
+ - 260,
+ 0.025,
+ 0,
+ 0,
+ 0)
+CashbotRTBattleTwoEndPosHpr = (120,
+ - 290,
+ 0.025,
+ 0,
+ 0,
+ 0)
+CashbotFlyPosHpr = (93.935, 
+ - 341.065, 
+ 0, 
+ - 45, 
+ 0, 
  0)
 CashbotBossBattleThreePosHpr = (120,
  -315,
@@ -721,51 +745,51 @@ CashbotBossBattleThreePosHpr = (120,
  0,
  0)
 CashbotToonsBattleThreeStartPosHpr = [(105,
-  - 285,
+  -285,
   0,
   208,
   0,
   0),
  (136,
-  - 342,
+  -342,
   0,
   398,
   0,
   0),
  (105,
-  - 342,
+  -342,
   0,
   333,
   0,
   0),
  (135,
-  - 292,
+  -292,
   0,
   146,
   0,
   0),
  (93,
-  - 303,
+  -303,
   0,
   242,
   0,
   0),
  (144,
-  - 327,
+  -327,
   0,
   64,
   0,
   0),
  (145,
-  - 302,
+  -302,
   0,
   117,
   0,
   0),
  (93,
-  - 327,
+  -327,
   0,
-  - 65,
+  -65,
   0,
   0)]
 CashbotBossSafePosHprs = [(120,
@@ -991,9 +1015,9 @@ WACKY_WINTER_CAROLING = 122
 TOT_REWARD_JELLYBEAN_AMOUNT = 100
 TOT_REWARD_END_OFFSET_AMOUNT = 0
 
-LawbotBossMaxDamage = 5000
+LawbotBossMaxDamage = 15000
 LawbotBossWinningTilt = 40
-LawbotBossInitialDamage = 1350
+LawbotBossInitialDamage = 2000
 LawbotBossBattleOnePosHpr = (-2.798,
  -60,
  0,
