@@ -291,7 +291,7 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         self.resetBattles()
         self.arenaSide = None
         self.makeBattleOneBattles()
-        self.barrier = self.beginBarrier('Introduction', self.involvedToons, 180, self.doneIntroduction)
+        self.barrier = self.beginBarrier('Introduction', self.involvedToons, 300, self.doneIntroduction)
         return
 
     def doneIntroduction(self, avIds):
