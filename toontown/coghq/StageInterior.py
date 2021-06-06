@@ -68,7 +68,7 @@ class StageInterior(BattlePlace.BattlePlace):
         self.parentFSM.getStateNamed('stageInterior').addChild(self.fsm)
         BattlePlace.BattlePlace.load(self)
         self.music = base.loadMusic('phase_9/audio/bgm/CogHQ_Stage_bg.ogg')
-        self.loader.battleMusic = base.loadMusic('phase_11/audio/bgm/encntr_head_suit_theme.ogg')
+        self.loader.battleMusic = base.loadMusic('phase_9/audio/bgm/LB_office_encntr.ogg')
 
     def unload(self):
         self.parentFSM.getStateNamed('stageInterior').removeChild(self.fsm)

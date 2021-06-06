@@ -25,12 +25,12 @@ class TownLoader(StateData.StateData):
     notify = DirectNotifyGlobal.directNotify.newCategory('TownLoader')
 	
     zone2music = {
-        ToontownCentral : 'phase_9/audio/bgm/encntr_suit_ttc.ogg',
-	    DonaldsDock : 'phase_9/audio/bgm/encntr_suit_dd.ogg',
-        DaisyGardens : 'phase_9/audio/bgm/encntr_suit_dg.ogg',
-        MinniesMelodyland : 'phase_9/audio/bgm/encntr_suit_mml.ogg',
-        TheBrrrgh : 'phase_9/audio/bgm/encntr_suit_tb.ogg',
-        DonaldsDreamland : 'phase_9/audio/bgm/encntr_suit_ddl.ogg'
+        ToontownCentral : 'phase_3.5/audio/bgm/TC_encntr.ogg',
+	    DonaldsDock : 'phase_6/audio/bgm/DD_encntr.ogg',
+        DaisyGardens : 'phase_8/audio/bgm/DG_encntr.ogg',
+        MinniesMelodyland : 'phase_6/audio/bgm/MM_encntr.ogg',
+        TheBrrrgh : 'phase_8/audio/bgm/TB_encntr.ogg',
+        DonaldsDreamland : 'phase_8/audio/bgm/DL_encntr.ogg'
     }
 
     def __init__(self, hood, parentFSMState, doneEvent):

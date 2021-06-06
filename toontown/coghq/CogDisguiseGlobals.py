@@ -334,6 +334,10 @@ MeritsPerLevel = (
  (0,) * 5,
  (0,) * 5,
  (0,) * 5,
+ (0,) * 5,
+ (0,) * 5,
+ (0,) * 5,
+ (0,) * 5,
  (0,) * 43,)
 leftLegUpper = 1
 leftLegLower = 2

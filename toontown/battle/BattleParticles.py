@@ -96,6 +96,10 @@ def createParticleEffect(name = None, file = None, numParticles = None, color = 
         return loadParticleFile('shiftSpray.ptf')
     elif name == 'ShiftLift':
         return __makeShiftLift()
+    elif name == 'PoisonSpray':
+        return loadParticleFile('poisonSpray.ptf')
+    elif name == 'PoisonLift':
+        return __makePoisonLift()
     elif name == 'WaterSpray':
         return loadParticleFile('waterSpray.ptf')
     elif name == 'SprayLift':
@@ -170,6 +174,16 @@ def __makeShiftLift():
     effect.setPos(0, 0, 0)
     return effect
 	
+def __makePoisonLift():
+    effect = loadParticleFile('pixieDrop.ptf')
+    particles = effect.getParticlesNamed('particles-1')
+    particles.renderer.setCenterColor(Vec4(0, 1, 0, 1))
+    particles.renderer.setEdgeColor(Vec4(0, 1, 0, 1))
+    particles.emitter.setRadius(0.01)
+    effect.setHpr(0, 180, 0)
+    effect.setPos(0, 0, 0)
+    return effect
+	
 def __makeSprayLift():
     effect = loadParticleFile('pixieDrop.ptf')
     particles = effect.getParticlesNamed('particles-1')
@@ -179,3 +193,4 @@ def __makeSprayLift():
     effect.setHpr(0, 180, 0)
     effect.setPos(0, 0, 0)
     return effect
+	

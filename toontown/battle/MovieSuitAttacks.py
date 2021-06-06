@@ -152,6 +152,10 @@ def doSuitAttack(attack):
         suitTrack = doNotThrowPiano(attack)
     elif name == THROW_MONEY:
         suitTrack = doThrowMoney(attack)
+    elif name == BOMB_CAKE:
+        suitTrack = doBombCake(attack)
+    elif name == BOMB:
+        suitTrack = doBomb(attack)
     elif name == EVIL_EYE:
         suitTrack = doEvilEye(attack)
     elif name == FILIBUSTER:
@@ -196,6 +200,8 @@ def doSuitAttack(attack):
         suitTrack = doMumboJumbo(attack)
     elif name == PARADIGM_SHIFT:
         suitTrack = doParadigmShift(attack)
+    elif name == POISON_SPRAY:
+        suitTrack = doPoisonSpray(attack)
     elif name == WATER_SPRAY:
         suitTrack = doWaterSpray(attack)
     elif name == PECKING_ORDER:
@@ -244,6 +250,8 @@ def doSuitAttack(attack):
         suitTrack = doDefault(attack)
     elif name == SPIN:
         suitTrack = doSpin(attack)
+    elif name == SWIRL_BATH:
+        suitTrack = doSwirlBath(attack)
     elif name == SYNERGY:
         suitTrack = doSynergy(attack)
     elif name == SNOW:
@@ -2747,6 +2755,87 @@ def doParadigmShift(attack):
         return Parallel(suitTrack, sprayTrack, soundTrack, liftTracks, toonTracks, toonRiseTracks)
     else:
         return Parallel(suitTrack, sprayTrack, liftTracks, toonTracks, toonRiseTracks)
+		
+
+def doPoisonSpray(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    targets = attack['target']
+    hitAtleastOneToon = 0
+    for t in targets:
+        if t['hp'] > 0:
+            hitAtleastOneToon = 1
+
+    damageDelay = 1.95
+    dodgeDelay = 0.95
+    sprayEffect = BattleParticles.createParticleEffect('PoisonSpray')
+    suitName = suit.getStyleName()
+    sprayEffect.setPos(Point3(-5.2, 4.6, 2.7))
+    suitTrack = getSuitAnimTrack(attack)
+    sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
+    liftTracks = Parallel()
+    toonRiseTracks = Parallel()
+    for t in targets:
+        toon = t['toon']
+        dmg = t['hp']
+        if dmg > 0:
+            liftEffect = BattleParticles.createParticleEffect('PoisonLift')
+            liftEffect.setPos(toon.getPos(battle))
+            liftEffect.setZ(liftEffect.getZ() - 1.3)
+            liftTracks.append(getPartTrack(liftEffect, 1.1, 4.1, [liftEffect, battle, 0]))
+            shadow = toon.dropShadow
+            fakeShadow = MovieUtil.copyProp(shadow)
+            x = toon.getX()
+            y = toon.getY()
+            z = toon.getZ()
+            height = 3
+            groundPoint = Point3(x, y, z)
+            risePoint = Point3(x, y, z + height)
+            shakeRight = Point3(x, y + 0.7, z + height)
+            shakeLeft = Point3(x, y - 0.7, z + height)
+            shakeTrack = Sequence()
+            shakeTrack.append(Wait(damageDelay + 0.25))
+            shakeTrack.append(Func(shadow.hide))
+            shakeTrack.append(LerpPosInterval(toon, 1.1, risePoint))
+            for i in xrange(0, 17):
+                shakeTrack.append(LerpPosInterval(toon, 0.03, shakeLeft))
+                shakeTrack.append(LerpPosInterval(toon, 0.03, shakeRight))
+
+            shakeTrack.append(LerpPosInterval(toon, 0.1, risePoint))
+            shakeTrack.append(LerpPosInterval(toon, 0.1, groundPoint))
+            shakeTrack.append(Func(shadow.show))
+            shadowTrack = Sequence()
+            shadowTrack.append(Func(battle.movie.needRestoreRenderProp, fakeShadow))
+            shadowTrack.append(Wait(damageDelay + 0.25))
+            shadowTrack.append(Func(fakeShadow.hide))
+            shadowTrack.append(Func(fakeShadow.setScale, 0.27))
+            shadowTrack.append(Func(fakeShadow.reparentTo, toon))
+            shadowTrack.append(Func(fakeShadow.setPos, MovieUtil.PNT3_ZERO))
+            shadowTrack.append(Func(fakeShadow.wrtReparentTo, battle))
+            shadowTrack.append(Func(fakeShadow.show))
+            shadowTrack.append(LerpScaleInterval(fakeShadow, 0.4, Point3(0.17, 0.17, 0.17)))
+            shadowTrack.append(Wait(1.81))
+            shadowTrack.append(LerpScaleInterval(fakeShadow, 0.1, Point3(0.27, 0.27, 0.27)))
+            shadowTrack.append(Func(MovieUtil.removeProp, fakeShadow))
+            shadowTrack.append(Func(battle.movie.clearRenderProp, fakeShadow))
+            toonRiseTracks.append(Parallel(shakeTrack, shadowTrack))
+
+    damageAnims = []
+    damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.9, startTime=2.06))
+    damageAnims.append(['slip-forward', 0.01, 0.5])
+    dodgeAnims = []
+    dodgeAnims.append(['jump',
+     0.01,
+     0,
+     0.6])
+    dodgeAnims.extend(getSplicedLerpAnims('jump', 0.31, 1.0, startTime=0.6))
+    dodgeAnims.append(['jump', 0, 0.91])
+    toonTracks = getToonTracks(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, splicedDodgeAnims=dodgeAnims, showDamageExtraTime=2.7)
+    if hitAtleastOneToon == 1:
+        soundTrack = getSoundTrack('SA_watercooler_spray_only.ogg', delay=4.4, node=suit)
+        return Parallel(suitTrack, sprayTrack, soundTrack, liftTracks, toonTracks, toonRiseTracks)
+    else:
+        return Parallel(suitTrack, sprayTrack, liftTracks, toonTracks, toonRiseTracks)
 
 
 def doWaterSpray(attack):
@@ -3564,7 +3653,44 @@ def doThrowMoney(attack):
     toonTrack = getToonTrack(attack, 3.4, ['cringe'], 2.8, ['duck'])
     soundTrack = getSoundTrack('SA_pick_pocket.ogg', delay=2.6, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
-
+	
+def doBombCake(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    cake = globalPropPool.getProp('birthday-cake')
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.04, 0.15, -1.38), VBase3(180.00, -45.00, -45.00)]
+    propTrack = Sequence(getPropAppearTrack(cake, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
+    propTrack.append(Wait(1.73))
+    hitPoint = __toonFacePoint(toon, parent=battle)
+    hitPoint.setX(hitPoint.getX() - 1.4)
+    missPoint = __toonGroundPoint(attack, toon, 0.7, parent=battle)
+    missPoint.setX(missPoint.getX() - 1.1)
+    propTrack.append(getPropThrowTrack(attack, cake, [hitPoint], [missPoint], parent=battle))
+    toonTrack = getToonTrack(attack, 3.4, ['slip-backward'], 2.8, ['jump'])
+    soundTrack = getSoundTrack('AA_cake.ogg', delay=3.4, node=suit)
+    return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
+	
+def doBomb(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    tnt = globalPropPool.getProp('tnt')
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.04, 0.15, -1.38), VBase3(10.584, -11.945, 18.316)]
+    propTrack = Sequence(getPropAppearTrack(tnt, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
+    propTrack.append(Wait(1.73))
+    hitPoint = __toonFacePoint(toon, parent=battle)
+    hitPoint.setX(hitPoint.getX() - 1.4)
+    missPoint = __toonGroundPoint(attack, toon, 0.7, parent=battle)
+    missPoint.setX(missPoint.getX() - 1.1)
+    propTrack.append(getPropThrowTrack(attack, tnt, [hitPoint], [missPoint], parent=battle))
+    toonTrack = getToonTrack(attack, 3.4, ['slip-forward'], 2.8, ['jump'])
+    soundTrack = getSoundTrack('ENC_cogfall_apart.ogg', delay=3.4, node=suit)
+    return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 
 def doWithdrawal(attack):
     suit = attack['suit']
@@ -3921,6 +4047,55 @@ def doSpin(attack):
     damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.1, startTime=2.26))
     toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=0.91, dodgeAnimNames=['sidestep'], showDamageExtraTime=2.1, showMissedExtraTime=1.0)
     soundTrack = getSoundTrack('SA_spin.ogg', delay=0.91, node=suit)
+    if dmg > 0:
+        toonSpinTrack = Sequence(Wait(damageDelay + 0.9), LerpHprInterval(toon, 0.7, Point3(-10, 0, 0)), LerpHprInterval(toon, 0.5, Point3(-30, 0, 0)), LerpHprInterval(toon, 0.2, Point3(-60, 0, 0)), LerpHprInterval(toon, 0.7, Point3(-700, 0, 0)), LerpHprInterval(toon, 1.0, Point3(-1310, 0, 0)), LerpHprInterval(toon, 0.4, toon.getHpr()), Wait(0.5))
+        return Parallel(suitTrack, sprayTrack, toonTrack, soundTrack, toonSpinTrack, spinTrack1, spinTrack2, spinTrack3)
+    else:
+        return Parallel(suitTrack, sprayTrack, toonTrack, soundTrack)
+		
+def doSwirlBath(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    dmg = target['hp']
+    damageDelay = 1.7
+    sprayEffect = BattleParticles.createParticleEffect(file='swirlSpray')
+    spinEffect1 = BattleParticles.createParticleEffect(file='swirlEffect')
+    spinEffect2 = BattleParticles.createParticleEffect(file='swirlEffect')
+    spinEffect3 = BattleParticles.createParticleEffect(file='swirlEffect')
+    spinEffect1.reparentTo(toon)
+    spinEffect2.reparentTo(toon)
+    spinEffect3.reparentTo(toon)
+    height1 = toon.getHeight() * (random.random() * 0.2 + 0.7)
+    height2 = toon.getHeight() * (random.random() * 0.2 + 0.4)
+    height3 = toon.getHeight() * (random.random() * 0.2 + 0.1)
+    spinEffect1.setPos(0.8, -0.7, height1)
+    spinEffect1.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect1.setHpr(spinEffect1, 0, 50, 0)
+    spinEffect2.setPos(0.8, -0.7, height2)
+    spinEffect2.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect2.setHpr(spinEffect2, 0, 50, 0)
+    spinEffect3.setPos(0.8, -0.7, height3)
+    spinEffect3.setHpr(0, 0, -random.random() * 10 - 85)
+    spinEffect3.setHpr(spinEffect3, 0, 50, 0)
+    spinEffect1.wrtReparentTo(battle)
+    spinEffect2.wrtReparentTo(battle)
+    spinEffect3.wrtReparentTo(battle)
+    suitTrack = getSuitTrack(attack)
+    sprayTrack = getPartTrack(sprayEffect, 1.0, 1.9, [sprayEffect, suit, 0])
+    spinTrack1 = getPartTrack(spinEffect1, 2.1, 3.9, [spinEffect1, battle, 0])
+    spinTrack2 = getPartTrack(spinEffect2, 2.1, 3.9, [spinEffect2, battle, 0])
+    spinTrack3 = getPartTrack(spinEffect3, 2.1, 3.9, [spinEffect3, battle, 0])
+    damageAnims = []
+    damageAnims.append(['duck',
+     0.01,
+     0.01,
+     1.1])
+    damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.1, startTime=2.26))
+    damageAnims.extend(getSplicedLerpAnims('think', 0.66, 1.1, startTime=2.26))
+    toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=0.91, dodgeAnimNames=['sidestep'], showDamageExtraTime=2.1, showMissedExtraTime=1.0)
+    soundTrack = getSoundTrack('SA_scream.ogg', delay=0.91, node=suit)
     if dmg > 0:
         toonSpinTrack = Sequence(Wait(damageDelay + 0.9), LerpHprInterval(toon, 0.7, Point3(-10, 0, 0)), LerpHprInterval(toon, 0.5, Point3(-30, 0, 0)), LerpHprInterval(toon, 0.2, Point3(-60, 0, 0)), LerpHprInterval(toon, 0.7, Point3(-700, 0, 0)), LerpHprInterval(toon, 1.0, Point3(-1310, 0, 0)), LerpHprInterval(toon, 0.4, toon.getHpr()), Wait(0.5))
         return Parallel(suitTrack, sprayTrack, toonTrack, soundTrack, toonSpinTrack, spinTrack1, spinTrack2, spinTrack3)

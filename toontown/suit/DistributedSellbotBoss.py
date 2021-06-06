@@ -309,7 +309,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             ActorInterval(self, 'ltTurn2Wave', duration=2),
             ActorInterval(self, 'wave', duration=4, loop=1),
             ActorInterval(self, 'ltTurn2Wave', startTime=2, endTime=0),
-            ActorInterval(self, 'Ff_speech', duration=7, loop=1))
+            ActorInterval(self, 'Ff_speech', duration=9, loop=1))
         track.append(bossAnimTrack)
         dialogTrack = Track(
             (0, Parallel(
@@ -1238,7 +1238,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         gearTrack = Parallel()
         numGears = int(4 + 6 * t + 0.5)
         time = 2.0 - 1.5 * t
-        spread = 90 * math.pi / 180.0
+        spread = 60 * math.pi / 180.0
         if direction == 1:
             spread = -spread
         dist = 50

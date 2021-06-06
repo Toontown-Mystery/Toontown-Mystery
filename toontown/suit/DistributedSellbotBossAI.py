@@ -455,7 +455,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         for toonId in self.involvedToons:
             toon = simbase.air.doId2do.get(toonId)
             if toon:
-                toon.d_setPieType(4)
+                toon.d_setPieType(5)
 
     def takeAwayPies(self):
         for toonId in self.involvedToons:

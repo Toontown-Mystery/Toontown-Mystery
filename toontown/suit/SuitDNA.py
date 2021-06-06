@@ -16,6 +16,7 @@ suitHeadTypes = ['f',
  'cr',
  'tbc',
  'trb',
+ 'dot',
  'kb',
  'bf',
  'b',
@@ -26,6 +27,7 @@ suitHeadTypes = ['f',
  'le',
  'bw',
  'brv',
+ 'sb',
  'cm',
  'sc',
  'pp',
@@ -36,6 +38,7 @@ suitHeadTypes = ['f',
  'ls',
  'rb',
  'gm',
+ 'ad',
  'dm',
  'cc',
  'tm',
@@ -46,6 +49,7 @@ suitHeadTypes = ['f',
  'm',
  'mh',
  'ka',
+ 'bbs',
  'fd']
 suitATypes = ['ym',
  'tbc',
@@ -63,7 +67,9 @@ suitATypes = ['ym',
  'sd',
  'nc',
  'le',
+ 'bbs',
  'cr',
+ 'gm',
  'cm',
  'kb',
  'fd',
@@ -76,6 +82,8 @@ suitBTypes = ['p',
  'bs',
  'tm',
  'dm',
+ 'sb',
+ 'ad',
  'brv',
  'ls',
  'mm',
@@ -84,7 +92,7 @@ suitBTypes = ['p',
 suitCTypes = ['f',
  'bf',
  'sc',
- 'gm',
+ 'dot',
  'cc',
  'ac']
 suitDepts = ['c',
@@ -112,8 +120,9 @@ suitsPerLevel = [1,
  1,
  1,
  1,
+ 1,
  1]
-suitsPerDept = 10
+suitsPerDept = 11
 goonTypes = ['pg', 'sg']
 
 def getSuitBodyType(name):
@@ -162,7 +171,7 @@ def getSuitType(name):
 
 def getRandomSuitType(level, rng = random):
     try:
-        returnval = random.randint(max(level - 9, 1), min(level, 9))
+        returnval = random.randint(max(level - 9, 1), min(level, 10))
     except:
         returnval = 8
 

@@ -424,6 +424,8 @@ def chooseSuitShot(attack, attackDuration):
     elif name == MUMBO_JUMBO:
         camTrack.append(defaultCamera(openShotDuration=2.8))
     elif name == PARADIGM_SHIFT:
+        camTrack.append(defaultCamera(openShotDuration=2.8))
+    elif name == POISON_SPRAY:
         camTrack.append(defaultCamera(openShotDuration=1.6))
     elif name == PECKING_ORDER:
         camTrack.append(defaultCamera(openShotDuration=2.8))
