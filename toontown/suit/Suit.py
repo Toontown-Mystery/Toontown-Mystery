@@ -191,6 +191,7 @@ bw = (('magic1', 'magic1', 5),
  ('throw-object', 'throw-object', 5),
  ('throw-paper', 'throw-paper', 5),
  ('magic3', 'magic3', 5),
+ ('effort', 'effort', 6),
  ('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5))
 brv = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('magic1', 'magic1', 5))
