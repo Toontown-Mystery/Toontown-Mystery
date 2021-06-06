@@ -228,8 +228,8 @@ class BattleBase:
      posC,
      posB,
      posA]
-    suitSpeed = 20.0
-    toonSpeed = 50.0
+    suitSpeed = 7.5
+    toonSpeed = 13.0
 
     def __init__(self):
         self.pos = Point3(0, 0, 0)
