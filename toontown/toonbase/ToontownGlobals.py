@@ -1631,7 +1631,7 @@ DinerBattleBPosHpr = (-20,
  0,
  0,
  0)
-BossbotBossMaxDamage = 3000
+BossbotBossMaxDamage = 1000
 BossbotMaxSpeedDamage = 90
 BossbotSpeedRecoverRate = 5
 BossbotBossDifficultySettings = [(14,
@@ -1647,34 +1647,34 @@ BossbotBossDifficultySettings = [(14,
   6,
   65,
   65,
-  50),
+  250),
  (11,
   6,
   14,
   7,
   55,
   55,
-  100),
+  500),
  (10,
   7,
   16,
   8,
   45,
   45,
-  150),
+  1000),
  (9,
   8,
   18,
   9,
   30,
   30,
-  250)]
-BossbotRollSpeedMax = 22
-BossbotRollSpeedMin = 7.5
-BossbotTurnSpeedMax = 60
-BossbotTurnSpeedMin = 20
-BossbotTreadSpeedMax = 10.5
-BossbotTreadSpeedMin = 3.5
+  1500)]
+BossbotRollSpeedMax = 45
+BossbotRollSpeedMin = 15
+BossbotTurnSpeedMax = 120
+BossbotTurnSpeedMin = 40
+BossbotTreadSpeedMax = 21
+BossbotTreadSpeedMin = 10
 CalendarFilterShowAll = 0
 CalendarFilterShowOnlyHolidays = 1
 CalendarFilterShowOnlyParties = 2
