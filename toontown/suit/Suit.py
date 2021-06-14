@@ -132,7 +132,8 @@ mh = (('magic1', 'magic1', 5),
  ('pickpocket', 'pickpocket', 5),
  ('smile', 'smile', 5),
  ('phone', 'phone', 5),
- ('song-and-dance', 'song-and-dance', 8))
+ ('song-and-dance', 'song-and-dance', 8),
+ ('finger-wag', 'fingerwag', 5))
 ka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
 bbs = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 6))
 fd = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
