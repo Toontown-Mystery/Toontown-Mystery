@@ -1,0 +1,19 @@
+Rebind Script:
+F4 = Delete Key
+F5 = Cursor Click
+
+Stunning Macro: 
+F1: 120/70% Lob
+F2: 150/80% Lob
+F3: 180/90% Lob
+F4: 195/99% Lob
+F5: HOLD Infinite 0% Throw
+F6: Reload Script
+F7: TOGGLE Infinite 0% Throw
+
+`(Tilde): Control + V(Paste from Clipboard)
+Control + `(Tilde): Force Quit Script
+
+***F7 DISCLAIMER***
+"F7/Toggle Infinite Throw" only turns on the script and does not turn it off upon pressing it again.
+The only way to stop throwing is to either Reload, Suspend or Force Quit the script.

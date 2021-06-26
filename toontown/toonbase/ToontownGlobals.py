@@ -1175,7 +1175,7 @@ LawbotBossInjusticePosHpr = (-3,
  0,
  0)
 LawbotBossInjusticeScale = (1.75, 1.75, 1.5)
-LawbotBossDefensePanDamage = 2
+LawbotBossDefensePanDamage = 1
 LawbotBossLawyerPosHprs = [(-57,
   -24,
   0,
@@ -1474,9 +1474,9 @@ LawbotBossCannonBallMax = 24
 #LawbotBossJuryBoxRelativeEndPos = (0, 0, 0)
 LawbotBossJuryBoxStartPos = (94, -8, 5)
 LawbotBossJuryBoxRelativeEndPos = (30, 0, 12.645)
-LawbotBossJuryBoxMoveTime = 45
-LawbotBossJurorsForBalancedScale = 8
-LawbotBossDamagePerJuror = 50
+LawbotBossJuryBoxMoveTime = 50
+LawbotBossJurorsForBalancedScale = 12
+LawbotBossDamagePerJuror = 150
 LawbotBossCogJurorFlightTime = 70
 LawbotBossCogJurorDistance = 105
 LawbotBossBaseJurorNpcId = 2001

@@ -8,7 +8,7 @@ from toontown.coghq import LaserGameBase
 class LaserGameMineSweeper(LaserGameBase.LaserGameBase):
     def __init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid):
         LaserGameBase.LaserGameBase.__init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid)
-        self.setGridSize(18, 18)
+        self.setGridSize(10, 10)
         self.blankGrid()
 
 
@@ -35,7 +35,7 @@ class LaserGameMineSweeper(LaserGameBase.LaserGameBase):
             self.hiddenData.append([
                 0] * self.gridNumY)
 
-        numBombs = int(self.gridNumX * self.gridNumY / 8)
+        numBombs = int(self.gridNumX * self.gridNumY / 2)
         numBombs += 1
         bomb = 0
         sanity = 1000

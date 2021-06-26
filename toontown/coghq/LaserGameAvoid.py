@@ -49,7 +49,7 @@ class LaserGameAvoid(LaserGameBase.LaserGameBase):
                 self.gridData[column][row] = tile
 
 
-        taskMgr.doMethodLater(0.1, self._LaserGameAvoid__cycle, self.cycleName)
+        taskMgr.doMethodLater(1.0, self._LaserGameAvoid__cycle, self.cycleName)
 
 
     def _LaserGameAvoid__cycle(self, taskMgrFooler = 0):
@@ -75,7 +75,7 @@ class LaserGameAvoid(LaserGameBase.LaserGameBase):
 
 
         if not self.finshed:
-            taskMgr.doMethodLater(0.1, self._LaserGameAvoid__cycle, self.cycleName)
+            taskMgr.doMethodLater(1.0, self._LaserGameAvoid__cycle, self.cycleName)
             self.funcSendGrid()
 
         return Task.done

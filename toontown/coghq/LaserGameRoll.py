@@ -8,7 +8,7 @@ from toontown.coghq import LaserGameBase
 class LaserGameRoll(LaserGameBase.LaserGameBase):
     def __init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid):
         LaserGameBase.LaserGameBase.__init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid)
-        self.setGridSize(20, 20)
+        self.setGridSize(8, 8)
         self.blankGrid()
 
 
