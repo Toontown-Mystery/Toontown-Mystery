@@ -762,21 +762,21 @@ def isGroup(track, level):
 
 
 def getCreditMultiplier(floorIndex):
-    return 1 + floorIndex * 0.5
+    return 2 + floorIndex * 1.5
 
 
 def getFactoryCreditMultiplier(factoryId):
-    return 2.0
+    return 5.0
 
 
 def getFactoryMeritMultiplier(factoryId):
-    return 4.0
+    return 12.0
 
 
 def getMintCreditMultiplier(mintId):
-    return {CashbotMintIntA: 2.0,
-     CashbotMintIntB: 2.5,
-     CashbotMintIntC: 3.0}.get(mintId, 1.0)
+    return {CashbotMintIntA: 3.0,
+     CashbotMintIntB: 5.0,
+     CashbotMintIntC: 7.0}.get(mintId, 1.0)
 
 
 def getStageCreditMultiplier(floor):
@@ -784,21 +784,21 @@ def getStageCreditMultiplier(floor):
 
 
 def getCountryClubCreditMultiplier(countryClubId):
-    return {BossbotCountryClubIntA: 2.0,
-     BossbotCountryClubIntB: 2.5,
-     BossbotCountryClubIntC: 3.0}.get(countryClubId, 1.0)
+    return {BossbotCountryClubIntA: 1.0,
+     BossbotCountryClubIntB: 1.0,
+     BossbotCountryClubIntC: 1.0}.get(countryClubId, 1.0)
 
 
 def getBossBattleCreditMultiplier(battleNumber):
-    return 1 + battleNumber
+    return 0 + battleNumber
 
 
 def getInvasionMultiplier():
-    return 2.0
+    return 4.0
 
 
 def getMoreXpHolidayMultiplier():
-    return 2.0
+    return 4.0
 
 
 def encodeUber(trackList):
