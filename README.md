@@ -46,5 +46,6 @@ Credits:
 * Toontown School house ultimate source
 * Thunderzapper for SetCogIndex and SetDNA command
 * Joey900 for some stuff.
-* Queen Berry Cat for the TTC music.
+* Prof Control for helping with Cog stuff, and whatever else he did.
+* Queen Berry Cat for a few songs.
 * Gabe for some stuff as well, mostly with Cogs.

@@ -6758,6 +6758,8 @@ CatalogPastButtonText = 'To Past Items'
 TutorialHQOfficerName = 'HQ Harry'
 NPCToonNames = {20000: 'Tutorial Tom',
  555: 'Queen Berry Cat',
+ 753: 'Boris',
+ 754: 'Caillou',
  777: 'Queen Lillie',
  998: 'Furball',
  999: 'Toon Tailor',

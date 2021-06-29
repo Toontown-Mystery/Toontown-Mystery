@@ -23,33 +23,24 @@ from toontown.battle import BattleProps
 class YourAnim():
 
     def __init__(self, leaveFunction):
-        self.karenintro = base.loader.loadMusic('phase_9/audio/bgm/encntr_factory.ogg')
-        self.karenbattle = base.loader.loadMusic('phase_7/audio/bgm/encntr_general_bg_indoor.ogg')
-        self.karendefeat = base.loader.loadMusic('phase_9/audio/bgm/Victory_dance.ogg')
+        self.coolintro = base.loader.loadMusic('phase_4/audio/bgm/building_shop.ogg')
         
     def create(self):
-        self.dnaStore = DNAStorage()
-        loader.loadDNAFile(self.dnaStore, 'phase_8/dna/storage_BR.dna')
-        loader.loadDNAFile(self.dnaStore, 'phase_8/dna/storage_BR_sz.dna')
-        loader.loadDNAFile(self.dnaStore, 'phase_8/dna/storage_BR_town.dna')
-        loader.loadDNAFile(self.dnaStore, 'phase_4/dna/storage.dna')
-        loader.loadDNAFile(self.dnaStore, 'phase_5/dna/storage_town.dna')
-        self.BR = loader.loadDNAFile(self.dnaStore, 'phase_8/dna/the_burrrgh_sz.dna')
-        render.attachNewNode(self.BR)
-        self.TTSky = loader.loadModel('phase_3.5/models/props/TT_sky.bam')
-        self.TTSky.reparentTo(render)
+        self.cogVariable = loader.loadModel('phase_9/models/cogHQ/BossRoomHQ.bam')
+        self.cogVariable.reparentTo(render)
         base.oobe()
-        
-        self.toon = NPCToons.createLocalNPC(555)
-        self.toon.pose('throw', 30)
-        self.toon.setPos(-5, -45, 6.3)
-        self.toon.reparentTo(render)
 
-        self.BombProp = loader.loadModel('phase_5/models/props/birthday-cake-mod.bam')
-        self.BombProp.setPos(-5, -43, 7)
-        self.BombProp.reparentTo(render)
+        self.Elevator2Prop = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_csa_elevator.bam')
+        self.Elevator2Prop.setPos(0, 75, 16)
+        self.Elevator2Prop.setHpr(0, 0, 0)
+        self.Elevator2Prop.setScale(3.5)
+        self.Elevator2Prop.reparentTo(render)
         
-        camera.setPos(3, -40, 7)
+        self.toon = NPCToons.createLocalNPC(753)
+        self.toon.pose('angry', 30)
+        self.toon.setPos(-4, -30, 0)
+        self.toon.setHpr(270, 0, 0)
+        self.toon.reparentTo(render)
         
         self.nametagJ = None
         self.nametagS = None
@@ -61,28 +52,32 @@ class YourAnim():
         self.nametagJ.getNametag3d().setBillboardOffset(4)
         nametagNode = self.nametagJ.getNametag3d().upcastToPandaNode()
         self.nametagS = self.toon.attachNewNode(nametagNode)
-        self.nametagS.setPos(0, 0, 3.5)
+        self.nametagS.setPos(0, 0, 4.5)
         
-        self.Karen = Suit.Suit()
-        self.Karen.dna = SuitDNA.SuitDNA()
-        self.Karen.dna.newSuit('ka')
-        self.Karen.setDNA(self.Karen.dna)
-        self.Karen.setPos(3, -45, 6.3)
-        self.Karen.pose('glower', 30)
-        self.Karen.reparentTo(render)
-        self.Karen = self.Karen
+        self.toon2 = NPCToons.createLocalNPC(754)
+        self.toon2.pose('cringe', 30)
+        self.toon2.setPos(4, -30, 0)
+        self.toon2.setHpr(180, 0, 0)
+        self.toon2.reparentTo(render)
         
         self.nametagJ2 = None
         self.nametagS2 = None
         self.nametagJ2 = NametagGroup()
-        self.nametagJ2.setAvatar(self.Karen)
+        self.nametagJ2.setAvatar(self.toon2)
         self.nametagJ2.setFont(ToontownGlobals.getToonFont())
         self.nametagJ2.setName('')
         self.nametagJ2.manage(base.marginManager)
         self.nametagJ2.getNametag3d().setBillboardOffset(4)
         nametagNode2 = self.nametagJ2.getNametag3d().upcastToPandaNode()
-        self.nametagS2 = self.Karen.attachNewNode(nametagNode2)
-        self.nametagS2.setPos(0, 0, 8)
+        self.nametagS2 = self.toon2.attachNewNode(nametagNode2)
+        self.nametagS2.setPos(0, 0, 3.8)
+        
+        camera.setPos(0, 20, 35)
+
+        self.cogRoomSfx = base.loader.loadSfx('phase_3.5/audio/dial/go_to_your_room.ogg')
+        self.cogWrongSfx = base.loader.loadSfx('phase_3.5/audio/dial/not_wrong.ogg')
+        self.cogNothingSfx = base.loader.loadSfx('phase_3.5/audio/dial/nothing.ogg')
+        self.cogWaSfx = base.loader.loadSfx('phase_3.5/audio/dial/wa.ogg')
 
         
         GoodTrack = Sequence()
