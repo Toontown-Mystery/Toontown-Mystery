@@ -351,7 +351,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             if simbase.config.GetBool('bossbot-boss-cheat', 0):
                 suit = self.__genSuitObject(self.zoneId, 2, 'c', 2, 0)
             else:
-                suitType = 8
+                suitType = 11
                 suitLevel = 45
                 suit = self.__genSuitObject(self.zoneId, suitType, 'c', suitLevel, 1)
             active.append(suit)

@@ -29,17 +29,17 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedVehicle')
     cheatFactor = 1.0
     proRacer = 0
-    physicsCalculationsPerSecond = 60
+    physicsCalculationsPerSecond = 200
     maxPhysicsDt = 1.0
     physicsDt = 1.0 / float(physicsCalculationsPerSecond)
     maxPhysicsFrames = maxPhysicsDt * physicsCalculationsPerSecond
-    maxSpeed = 200 * cheatFactor
+    maxSpeed = 1000 * cheatFactor
     turnRatio = 1.0 / 0.025 * math.sqrt(cheatFactor)
-    accelerationMult = 35
-    accelerationBase = 20
+    accelerationMult = 500
+    accelerationBase = 500
     if proRacer:
-        accelerationMult = 35
-        accelerationBase = 30
+        accelerationMult = 500
+        accelerationBase = 500
     surfaceModifiers = {'asphalt': {'shake': 0.1,
                  'driftMin': 65,
                  'windResistance': 0.2,
@@ -85,8 +85,8 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         Kart.Kart.__init__(self)
         if base.config.GetBool('want-racer', 0) == 1:
             DistributedVehicle.proRacer = 1
-            DistributedVehicle.accelerationMult = 35
-            DistributedVehicle.accelerationBase = 30
+            DistributedVehicle.accelerationMult = 500
+            DistributedVehicle.accelerationBase = 500
         self.speedometer = None
         self.speedGauge = None
         self.leanAmount = 0
@@ -111,12 +111,12 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         self.wrongWay = False
         self.wallCollideTrack = None
         self.wheelMaxTurn = 1.0
-        self.wheelMinTurn = 0.15
-        self.speedMaxTurn = 90
+        self.wheelMinTurn = 0.55
+        self.speedMaxTurn = 10
         self.speedMinTurn = 300
-        self.wheelTurnTime = 0.6
-        self.wheelReturnTime = 0.3
-        self.wheelFightTime = 0.2
+        self.wheelTurnTime = 0.1
+        self.wheelReturnTime = 0.1
+        self.wheelFightTime = 5.2
         self.wheelPosition = 0.0
         self.outPutCounter = 0
         self.proCameraHeading = 0
@@ -131,7 +131,7 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         self.numPieChunks = 6
         self.pieSlideSpeed = []
         for piece in xrange(self.numPieChunks):
-            self.pieSlideSpeed.append(randFloat(0.0, 0.2))
+            self.pieSlideSpeed.append(randFloat(0.0, 5.2))
 
         self.wantSmoke = ConfigVariableBool('want-kart-smoke', 1).getValue()
         self.wantSparks = ConfigVariableBool('want-kart-sparks', 1).getValue()
@@ -174,10 +174,10 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         self.turboLoopSfx = base.loader.loadSfx(self.SFX_TurboLoop)
         self.turboLoopSfx.setLoop()
         self.forward.reparentTo(self.geom[0])
-        self.anvil = globalPropPool.getProp('anvil')
-        self.anvil.setScale(5)
+        self.anvil = globalPropPool.getProp('piano')
+        self.anvil.setScale(25)
         self.anvil.reparentTo(hidden)
-        self.anvil.setColor(1, 1, 1, 1)
+        self.anvil.setColor(0, 0, 0, 1)
         self.anvil.setTransparency(1)
         self.reparentTo(render)
 

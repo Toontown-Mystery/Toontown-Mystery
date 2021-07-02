@@ -555,6 +555,8 @@ class Suit(Avatar.Avatar):
             self.generateHead('yesman')
             self.makeSkeleton()
             self.setHeight(9.5)
+            self.setTransparency(1)
+            self.setColor(0, 0.5, 1, 1)
         elif dna.name == 'bf':
             self.scale = 4.0 / cSize
             self.handColor = SuitDNA.legalPolyColor
@@ -630,6 +632,8 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
+            self.setTransparency(1)
+            self.setColor(0, 1, 1, 1)
             self.setHeight(8.5)
         elif dna.name == 'sc':
             self.scale = 3.6 / cSize
@@ -706,6 +710,8 @@ class Suit(Avatar.Avatar):
             self.generateHead('movershaker')
             self.makeSkeleton()
             self.setHeight(7.5)
+            self.setTransparency(1)
+            self.setColor(0, 1, 0.5, 1)
         elif dna.name == 'cc':
             self.scale = 3.5 / cSize
             self.handColor = VBase4(0.5, 0.4, 0.3, 0.1)
@@ -785,6 +791,8 @@ class Suit(Avatar.Avatar):
             self.generateHead('yesman')
             self.makeSkeleton()
             self.setHeight(9)
+            self.setTransparency(1)
+            self.setColor(0, 0, 0, 1)
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
         self.generateHealthBar()

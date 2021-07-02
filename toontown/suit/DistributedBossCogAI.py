@@ -674,7 +674,7 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         self.attackCode = attackCode
         self.attackAvId = avId
         if attackCode == ToontownGlobals.BossCogDizzy or attackCode == ToontownGlobals.BossCogDizzyNow:
-            delayTime = self.progressValue(10, 4)
+            delayTime = self.progressValue(12, 4)
             self.hitCount = 0
         else:
             if attackCode == ToontownGlobals.BossCogSlowDirectedAttack:

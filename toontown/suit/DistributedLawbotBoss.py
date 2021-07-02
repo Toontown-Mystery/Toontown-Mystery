@@ -1794,9 +1794,9 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (9.6, Parallel(
                 rollTrack,
                 Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins3, CFSpeech),
-                Func(self.clearChat),
                 self.door3.posInterval(2, doorEndPos, startPos=doorStartPos))),
             (13.1, Sequence(Parallel(SoundInterval(whistleSfx),
+                       Func(self.clearChat),
                    Sequence(
                        Func(self.setChatAbsolute, TTLocalizer.LawbotBossDefenseWins4, CFSpeech),
                        Wait(3),

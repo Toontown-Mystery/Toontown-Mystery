@@ -20,7 +20,7 @@ import SuitDNA, random
 class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedSellbotBossAI')
     limitHitCount = 10
-    numPies = 30
+    numPies = ToontownGlobals.FullPies
 
     def __init__(self, air):
         DistributedBossCogAI.DistributedBossCogAI.__init__(self, air, 's')
@@ -223,12 +223,12 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def generateSuits(self, battleNumber):
         if self.nerfed:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(15, 0)
+                return self.invokeSuitPlanner(15, 1)
             else:
                 return self.invokeSuitPlanner(16, 0)
         else:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(9, 0)
+                return self.invokeSuitPlanner(9, 1)
             else:
                 return self.invokeSuitPlanner(10, 0)
 				

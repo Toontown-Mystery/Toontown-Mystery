@@ -301,6 +301,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         welcomeToons = TTLocalizer.BossCogWelcomeToons
         promoteToons = TTLocalizer.BossCogPromoteToons % SuitDNA.getDeptFullnameP(self.style.dept)
         discoverToons = TTLocalizer.BossCogDiscoverToons
+        AlertNoise = base.loader.loadSfx('phase_9/audio/sfx/CHQ_GOON_tractor_beam_alarmed.ogg')
         attackToons = TTLocalizer.BossCogAttackToons
         interruptBoss = TTLocalizer.CagedToonInterruptBoss
         rescueQuery = TTLocalizer.CagedToonRescueQuery
@@ -309,63 +310,81 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             ActorInterval(self, 'ltTurn2Wave', duration=2),
             ActorInterval(self, 'wave', duration=4, loop=1),
             ActorInterval(self, 'ltTurn2Wave', startTime=2, endTime=0),
-            ActorInterval(self, 'Ff_speech', duration=9, loop=1))
+            ActorInterval(self, 'Ff_speech', duration=19, loop=1))
         track.append(bossAnimTrack)
         dialogTrack = Track(
             (0, Parallel(
                 camera.posHprInterval(8, Point3(-22, -100, 35), Point3(-10, -13, 0), blendType='easeInOut'),
                 IndirectInterval(toonTrack, 0, 18))),
-            (5.6, Func(self.setChatAbsolute, promoteDoobers, CFSpeech)),
+            (5.6, Func(self.setChatAbsolute, "Hello, Fashionbots! Today, we will be determining who will win that grand prize for fashion!", CFSpeech)),
             (9, IndirectInterval(dooberTrack, 0, 9)),
             (10, Sequence(
                 Func(self.clearChat),
-                camera.posHprInterval(5, (0, -80.0, 0), (0, 13, 0), blendType='easeInOut'))),
-            (12, Func(self.setChatAbsolute, doobersAway, CFSpeech)),
+                camera.posHprInterval(5, (0, -70.0, 5), (0, 25, 0), blendType='easeInOut'))),
+            (12, Func(self.setChatAbsolute, "Goodluck out there! My fellow Fashionbots!", CFSpeech)),
             (18, Parallel(
                 Func(self.clearChat),
                 camera.posHprInterval(4, (-25, -99, 10), (-14, 10, 0), blendType='easeInOut'),
                 IndirectInterval(dooberTrack, 14),
                 IndirectInterval(toonTrack, 30))),
-            (21, Func(self.setChatAbsolute, welcomeToons, CFSpeech)),
+            (21, Func(self.setChatAbsolute, "Ah yes, the new Fashionbots.", CFSpeech)),
 			(24, Func(self.clearChat)),
-            (24, Func(self.setChatAbsolute, promoteToons, CFSpeech)),
-            (24.5, Sequence(
+            (24, Func(self.setChatAbsolute, "The Fashion Designer must have sent you here for the new store products.", CFSpeech)),
+			(27, Func(self.clearChat)),
+            (27, camera.posHprInterval(4, (-25, -35, 20), (270, 10, 0), blendType='easeInOut')),
+            (31, Func(self.setChatAbsolute, "And before I forget, we have that new deal we need to discuss.", CFSpeech)),
+			(34, Func(self.clearChat)),
+            (34, camera.posHprInterval(0, (-35, -35, 3), (270, 45, 0), blendType='easeInOut')),
+            (34, Func(self.setChatAbsolute, "When I mean deal, I mean we need to get rid of the Toons!", CFSpeech)),
+            (34.5, Sequence(
                 Func(self.cagedToon.nametag3d.setScale, 2),
-                Func(self.cagedToon.setChatAbsolute, interruptBoss, CFSpeech),
+                Func(self.cagedToon.setChatAbsolute, "Hi! I'm over here!", CFSpeech),
                 ActorInterval(self.cagedToon, 'wave'),
                 Func(self.cagedToon.loop, 'neutral'))),
-            (27, Sequence(
+            (37, Sequence(
                 Func(self.clearChat),
                 Func(self.cagedToon.clearChat),
                 Func(camera.setPosHpr, -12, -15, 27, -151, -15, 0),
                 ActorInterval(self, 'Ff_lookRt'))),
-            (29, Sequence(
-                Func(self.cagedToon.setChatAbsolute, rescueQuery, CFSpeech),
-                Func(camera.setPosHpr, -12, 48, 94, -26, 20, 0),
+            (40, Sequence(
+                Func(self.cagedToon.setChatAbsolute, "Can you get me out of this cage, Toons? It's getting uncomfortable standing here...", CFSpeech),
+                camera.posHprInterval(1, (0, 65, 104), (0, 10, 0), blendType='easeInOut'),
                 ActorInterval(self.cagedToon, 'wave'),
                 Func(self.cagedToon.loop, 'neutral'))),
-            (32, Sequence(
+            (43, Sequence(
                 camera.posHprInterval(1, (-20, -35, 10), (-88, 25, 0), blendType='easeOut'),
-                Func(self.setChatAbsolute, discoverToons, CFSpeech),
+                Parallel(Func(self.setChatAbsolute, "Impossible!", CFSpeech), SoundInterval(AlertNoise)),
+                Func(self.clearChat),
+                ActorInterval(self, 'Fb_firstHit'))),
+            (46, Sequence(
+                camera.posHprInterval(1, (-25, -35, 10), (-88, 25, 0), blendType='easeOut'),
+                Func(self.setChatAbsolute, "That means...", CFSpeech),
                 Func(self.cagedToon.nametag3d.setScale, 1),
                 Func(self.cagedToon.clearChat),
                 ActorInterval(self, 'turn2Fb'))),
-            (36, Sequence(
+            (50, Sequence(
                 Func(self.clearChat),
                 self.loseCogSuits(self.toonsA, self.battleANode, (0, 18, 5, -180, 0, 0)),
-                self.loseCogSuits(self.toonsB, self.battleBNode, (0, 18, 5, -180, 0, 0)))),
-            (40, Sequence(
-			    Wait (2.0),
+                Wait(2),
+                self.loseCogSuits(self.toonsB, self.battleBNode, (0, 18, 5, -180, 0, 0)),
+                LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)))),
+            (57, Sequence(
                 self.toonNormalEyes(self.involvedToons),
                 Func(camera.setPosHpr, -23.4, -145.6, 44.0, -10.0, -12.5, 0),
-                Func(self.loop, 'Fb_neutral'), LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)),
+                Func(self.loop, 'Fb_neutral'),
                 Func(self.rampA.request, 'retract'),
                 Func(self.rampB.request, 'retract'),
                 Parallel(self.backupToonsToBattlePosition(self.toonsA, self.battleANode),
                          self.backupToonsToBattlePosition(self.toonsB, self.battleBNode),
                          Sequence(
-                             Wait(2),
-                             Func(self.setChatAbsolute, attackToons, CFSpeech))))))
+                             Wait(3),
+                             camera.posHprInterval(1, (-25, -35, 16), (270, 10, 0), blendType='easeInOut'),
+                             Func(self.setChatAbsolute, "I should have known you were Toons in disguise...", CFSpeech),
+                             Wait(3),
+                             Func(self.clearChat),
+                             Func(self.setChatAbsolute, attackToons, CFSpeech),
+                             camera.posHprInterval(1.5, (-25, -35, 18.5), (270, 10, 0), blendType='easeInOut'),
+                             Wait(2))))))
         track.append(dialogTrack)
         return Sequence(Func(self.stickToonsToFloor), track, Func(self.unstickToons), name=self.uniqueName('Introduction'))
 

@@ -5417,7 +5417,7 @@ CagedToonDrop = ["HURRY UP YOU LAME TOONS!!",
  "YOU CAN'T DO IT! YOUR GONNA FAIL!",
  "YOU CAN'T DO IT! YOUR GONNA FAIL!"]
 CagedToonPrepareBattleTwo = "Help Me! The Boss is getting stronger!\x07Go on and defeat his next set of Cogs.\x07But before you do, I must say this.\x07Just remember, you're going to fail!"
-CagedToonPrepareBattleThree = "What you must do is throw a bunch of pies at the Boss.\x07But don't worry, I got pies that you can use.\x07Just jump up to my cage, and you can get cakes.\x07But there is a limit of 30 cakes. So you will need to jump back after you run out to restock.\x07Good Luck Toons!"
+CagedToonPrepareBattleThree = "What you must do is throw a bunch of pies at the Boss.\x07But don't worry, I got pies that you can use.\x07Just jump up to my cage, and you can get cakes.\x07Good Luck Toons!"
 BossBattleNeedMorePies = 'Get pies you lame Toon!'
 BossBattleHowToGetPies = 'ARE YOU NEW OR SOMETHING!??!?!??!?!'
 BossBattleHowToThrowPies = 'THERES A DELETE KEY YOU KNOW!!'
@@ -5463,14 +5463,14 @@ CashbotBossCogAttack = 'Finish Them!!'
 ResistanceToonWelcome1 = "Yay! You Made it Toons!"
 ResistanceToonWelcome2 = "Alright, just follow directions, and stay near me."
 ResistanceToonTooLate = "Huh? I don't remember this being here..."
-CashbotBossDiscoverToons1 = "Hi everyone."
+CashbotBossDiscoverToons1 = "Welcome, everyone."
 CashbotBossDiscoverToons2 = "I heard that you all came here for a meeting."
 CashbotBossDiscoverToons3 = "However, the meeting got canceled due to Lizzy's drama."
-CashbotBossDiscoverToons4 = "And she smack talked about Mimi, Amanda, and Dark Angel."
+CashbotBossDiscoverToons4 = "She smack talked about Mimi, Amanda, and Dark Angel."
 ResistanceToonFollow1 = "I do, Mr. Elvis."
 ResistanceToonFollow2 = "You see, I don't think all this will be necessary."
-ResistanceToonFollow3 = "What, no! That's no-"
-CashbotBossDiscovered1 = "Huh? Toons?"
+ResistanceToonFollow3 = "What? no! That's no-"
+CashbotBossDiscovered1 = "What in the world, Toons?"
 CashbotBossDiscovered2 = "But wait, that can't be possible..."
 ResistanceToonKeepHimBusy1 = "Um, um, um, I did nothing. :3"
 ResistanceToonKeepHimBusy2 = "You're on your own bye lol."
