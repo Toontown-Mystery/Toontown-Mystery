@@ -1,6 +1,7 @@
 import math
 import random
 from direct.showbase.PythonUtil import *
+from panda3d.physics import *
 from direct.showbase.DirectObject import DirectObject
 from direct.task import Task
 from panda3d.core import *

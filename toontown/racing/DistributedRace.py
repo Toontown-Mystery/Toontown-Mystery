@@ -694,9 +694,9 @@ class DistributedRace(DistributedObject.DistributedObject):
         return taskMgr.add(countdownTask, self.uniqueName('countdownTimerTask'))
 
     def initGags(self):
-        self.banana = globalPropPool.getProp('banana')
+        self.banana = globalPropPool.getProp('tnt')
         self.banana.setScale(2)
-        self.pie = globalPropPool.getProp('creampie')
+        self.pie = globalPropPool.getProp('birthday-cake')
         self.pie.setScale(1)
 
     def makeCheckPoint(self, trigger, location, event):

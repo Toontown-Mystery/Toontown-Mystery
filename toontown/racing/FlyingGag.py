@@ -1,4 +1,5 @@
 from panda3d.core import *
+from panda3d.physics import ActorNode
 from direct.gui.DirectGui import *
 from direct.interval.IntervalGlobal import *
 from otp.avatar.ShadowCaster import ShadowCaster

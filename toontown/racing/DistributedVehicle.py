@@ -29,17 +29,17 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedVehicle')
     cheatFactor = 1.0
     proRacer = 0
-    physicsCalculationsPerSecond = 200
+    physicsCalculationsPerSecond = 500
     maxPhysicsDt = 1.0
     physicsDt = 1.0 / float(physicsCalculationsPerSecond)
     maxPhysicsFrames = maxPhysicsDt * physicsCalculationsPerSecond
     maxSpeed = 1000 * cheatFactor
-    turnRatio = 1.0 / 0.025 * math.sqrt(cheatFactor)
-    accelerationMult = 500
-    accelerationBase = 500
+    turnRatio = 5.0 / 0.025 * math.sqrt(cheatFactor)
+    accelerationMult = 1000
+    accelerationBase = 1000
     if proRacer:
-        accelerationMult = 500
-        accelerationBase = 500
+        accelerationMult = 1000
+        accelerationBase = 1000
     surfaceModifiers = {'asphalt': {'shake': 0.1,
                  'driftMin': 65,
                  'windResistance': 0.2,
@@ -111,12 +111,12 @@ class DistributedVehicle(DistributedSmoothNode.DistributedSmoothNode, Kart.Kart,
         self.wrongWay = False
         self.wallCollideTrack = None
         self.wheelMaxTurn = 1.0
-        self.wheelMinTurn = 0.55
-        self.speedMaxTurn = 10
+        self.wheelMinTurn = 0.15
+        self.speedMaxTurn = 90
         self.speedMinTurn = 300
-        self.wheelTurnTime = 0.1
-        self.wheelReturnTime = 0.1
-        self.wheelFightTime = 5.2
+        self.wheelTurnTime = 0.6
+        self.wheelReturnTime = 0.3
+        self.wheelFightTime = 0.2
         self.wheelPosition = 0.0
         self.outPutCounter = 0
         self.proCameraHeading = 0

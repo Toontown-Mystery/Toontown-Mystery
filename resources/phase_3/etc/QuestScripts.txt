@@ -79,6 +79,7 @@ LOAD cogBuilding "phase_3.5/models/gui/tutorial_gui" "suit_buildings"
 LOAD cogs "phase_3.5/models/gui/tutorial_gui" "suits"
 LOAD tart "phase_3.5/models/props/tart"
 LOAD flower "phase_3.5/models/props/squirting-flower"
+LOAD flowerpot "phase_5/models/props/flowerpot-mod"
 LOAD_DIALOGUE tomDialogue_01 "phase_3.5/audio/dial/CC_tom_tutorial_questscript01.ogg"
 LOAD_DIALOGUE tomDialogue_02 "phase_3.5/audio/dial/CC_tom_tutorial_questscript03.ogg"
 LOAD_DIALOGUE tomDialogue_03 "phase_3.5/audio/dial/CC_tom_tutorial_questscript04.ogg"
@@ -141,14 +142,31 @@ LOCAL_CHAT_CONFIRM npc QuestScript101_7 "CFReversed" tomDialogue_07
 # handing them out.
 SET_INVENTORY 4 0 0
 SET_INVENTORY 5 0 0
+SET_INVENTORY 6 0 0
 REPARENTTO inventory camera
 SHOW inventory
 SET_INVENTORY_DETAIL -1
 POSHPRSCALE inventory -0.77 7.42 1.11 0 0 0 .01 .01 .01
-SET_INVENTORY_YPOS 4 0  -.1
-SET_INVENTORY_YPOS 5 0  -.1
+SET_INVENTORY_YPOS 4 0  -.2
+SET_INVENTORY_YPOS 5 0  -.2
+SET_INVENTORY_YPOS 6 0  -.2
 LERP_SCALE inventory 3 .01 3 1
 WAIT 1
+REPARENTTO flowerpot npc "**/1000/**/def_joint_right_hold"
+POSHPRSCALE flowerpot 0.10 -0.14 0.20 180.00 287.10 168.69 0.70 0.70 0.70
+PLAY_ANIM npc 'right-hand-start' 1.8
+WAIT 1.1574
+LOOP_ANIM npc 'right-hand' 1.1
+WAIT 0.8
+WRTREPARENTTO flowerpot camera
+LERP_POSHPRSCALE flowerpot -1.75 4.77 0.00 30.00 180.00 16.39 0.75 0.75 0.75 0.589
+WAIT 1.094
+LERP_POSHPRSCALE flowerpot -1.76 7.42 -0.63 179.96 -89.9 -153.43 0.12 0.12 0.12 1
+PLAY_ANIM npc 'right-hand-start' -1.5
+WAIT 1
+ADD_INVENTORY 6 0 1
+POSHPRSCALE inventory -0.77 7.42 1.11 0 0 0 3 .01 3
+REPARENTTO flowerpot hidden
 REPARENTTO flower npc "**/1000/**/def_joint_right_hold"
 POSHPRSCALE flower 0.10 -0.14 0.20 180.00 287.10 168.69 0.70 0.70 0.70
 PLAY_ANIM npc 'right-hand-start' 1.8

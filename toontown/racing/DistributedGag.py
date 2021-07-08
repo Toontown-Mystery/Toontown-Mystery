@@ -29,9 +29,9 @@ class DistributedGag(DistributedObject.DistributedObject):
             self.makeNodePath()
         self.delta = -globalClockDelta.networkToLocalTime(self.initTime, globalClock.getFrameTime(), 16, 100) + globalClock.getFrameTime()
         if self.type == 0:
-            self.name = self.uniqueName('banana')
+            self.name = self.uniqueName('tnt')
         elif self.type == 1:
-            self.name = self.uniqueName('pie')
+            self.name = self.uniqueName('birthday-cake')
         self.nodePath.reparentTo(self.race.geom)
         if self.ownerId == localAvatar.doId:
             base.race.thrownGags[0].removeNode()

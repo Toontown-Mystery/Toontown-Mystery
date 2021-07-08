@@ -26,20 +26,25 @@ class YourAnim():
         self.coolintro = base.loader.loadMusic('phase_4/audio/bgm/building_shop.ogg')
         
     def create(self):
-        self.cogVariable = loader.loadModel('phase_9/models/cogHQ/BossRoomHQ.bam')
+        self.cogVariable = loader.loadModel('phase_11/models/lawbotHQ/LB_DA_Lobby.bam')
         self.cogVariable.reparentTo(render)
         base.oobe()
 
-        self.Elevator2Prop = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_csa_elevator.bam')
-        self.Elevator2Prop.setPos(0, 75, 16)
-        self.Elevator2Prop.setHpr(0, 0, 0)
-        self.Elevator2Prop.setScale(3.5)
+        self.Elevator2Prop = loader.loadModel('phase_5/models/props/birthday-cake-mod.bam')
+        self.Elevator2Prop.setPos(-4, 0, 33.9)
+        self.Elevator2Prop.setScale(0.7)
         self.Elevator2Prop.reparentTo(render)
+
+        self.ElevatorProp = loader.loadModel('phase_5.5/models/estate/UWtable.bam')
+        self.ElevatorProp.setPos(-4, 0, 32)
+        self.ElevatorProp.setScale(0.6)
+        self.ElevatorProp.reparentTo(render)
         
-        self.toon = NPCToons.createLocalNPC(753)
-        self.toon.pose('angry', 30)
-        self.toon.setPos(-4, -30, 0)
-        self.toon.setHpr(270, 0, 0)
+        self.toon = NPCToons.createLocalNPC(755)
+        self.toon.pose('victory', 115)
+        self.toon.setPos(-4, -3, 32)
+        self.toon.setHpr(0, 0, 0)
+        self.toon.setScale(1.3)
         self.toon.reparentTo(render)
         
         self.nametagJ = None
@@ -53,24 +58,6 @@ class YourAnim():
         nametagNode = self.nametagJ.getNametag3d().upcastToPandaNode()
         self.nametagS = self.toon.attachNewNode(nametagNode)
         self.nametagS.setPos(0, 0, 4.5)
-        
-        self.toon2 = NPCToons.createLocalNPC(754)
-        self.toon2.pose('cringe', 30)
-        self.toon2.setPos(4, -30, 0)
-        self.toon2.setHpr(180, 0, 0)
-        self.toon2.reparentTo(render)
-        
-        self.nametagJ2 = None
-        self.nametagS2 = None
-        self.nametagJ2 = NametagGroup()
-        self.nametagJ2.setAvatar(self.toon2)
-        self.nametagJ2.setFont(ToontownGlobals.getToonFont())
-        self.nametagJ2.setName('')
-        self.nametagJ2.manage(base.marginManager)
-        self.nametagJ2.getNametag3d().setBillboardOffset(4)
-        nametagNode2 = self.nametagJ2.getNametag3d().upcastToPandaNode()
-        self.nametagS2 = self.toon2.attachNewNode(nametagNode2)
-        self.nametagS2.setPos(0, 0, 3.8)
         
         camera.setPos(0, 20, 35)
 

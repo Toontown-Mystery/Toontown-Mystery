@@ -347,8 +347,8 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 Func(camera.setPosHpr, -12, -15, 27, -151, -15, 0),
                 ActorInterval(self, 'Ff_lookRt'))),
             (40, Sequence(
-                Func(self.cagedToon.setChatAbsolute, "Can you get me out of this cage, Toons? It's getting uncomfortable standing here...", CFSpeech),
                 camera.posHprInterval(1, (0, 65, 104), (0, 10, 0), blendType='easeInOut'),
+                Func(self.cagedToon.setChatAbsolute, "Can you get me out of this cage, Toons? It's getting uncomfortable standing here...", CFSpeech),
                 ActorInterval(self.cagedToon, 'wave'),
                 Func(self.cagedToon.loop, 'neutral'))),
             (43, Sequence(

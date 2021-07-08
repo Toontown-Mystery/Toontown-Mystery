@@ -184,7 +184,7 @@ class SetMaxHP(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         maxhp = args[0]
 
-        if not 1 <= maxhp <= 358:
+        if not 1 <= maxhp <= 430:
             return "Can't set {}'s max laff to {}! Specify a value between 15 and 137.".format(toon.getName(), maxhp)
 
         toon.b_setMaxHp(maxhp)
@@ -2358,12 +2358,12 @@ class SetExp(MagicWord):
             return "Invalid gag track specified!"
 
         if not 0 <= amt <= 10000:
-            return "Can't set {0}'s jellybean count to {1}! Specify a value between 0 and 10,000.".format(
+            return "Can't set {0}'s jellybean count to {1}! Specify a value between 0 and 20,000.".format(
                 toon.getName(), amt)
 
         if track in maxed:
             for track in tracks:
-                toon.experience.setExp(track, 10000)
+                toon.experience.setExp(track, 20000)
             toon.b_setExperience(toon.experience.makeNetString())
             return "Maxed all of {}'s gag tracks.".format(toon.getName())
         else:
@@ -2462,11 +2462,11 @@ class SetCogSuit(MagicWord):
         # Find out if they need laff boosts or laff points removed.
         for levelBoost in [14, 19, 29, 39, 49]:
             if level <= levelBoost and not levelBoost > toon.getCogLevels()[corpIndex]:
-                if toon.getMaxHp() <= 15:
+                if toon.getMaxHp() <= 1:
                     continue
                 toon.b_setMaxHp(toon.getMaxHp() - 1)
             elif level > levelBoost and not levelBoost <= toon.getCogLevels()[corpIndex]:
-                if toon.getMaxHp() >= 137:
+                if toon.getMaxHp() >= 430:
                     continue
                 toon.b_setMaxHp(toon.getMaxHp() + 1)
         # Lets be nice and give them a toonup or make them suffer.

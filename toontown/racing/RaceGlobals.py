@@ -264,7 +264,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                      RT_Speedway_1_rev_Gags,
                      Speedway_1_Rev_Boosts,
                      1.0,
-                     'GS_Race_SS.ogg',
+                     'GS_Race_CoCo.ogg',
                      (0.01, 0.015)),
  RT_Speedway_2: (TrackPath + 'RT_SpeedwayB',
                  335.0,
@@ -282,7 +282,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                      RT_Speedway_2_Gags,
                      Speedway_2_Rev_Boosts,
                      1.0,
-                     'GS_Race_SS.ogg',
+                     'GS_Race_CoCo.ogg',
                      (0.01, 0.015)),
  RT_Rural_1: (TrackPath + 'RT_RuralB',
               360.0,
@@ -300,7 +300,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                   RT_Rural_1_Gags,
                   Rural_1_Rev_Boosts,
                   0.75,
-                  'GS_Race_RR.ogg',
+                  'GS_Race_AA.ogg',
                   (0.003, 0.004)),
  RT_Rural_2: (TrackPath + 'RT_RuralB2',
               480.0,
@@ -318,7 +318,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                   RT_Rural_2_Gags,
                   Rural_2_Rev_Boosts,
                   0.75,
-                  'GS_Race_RR.ogg',
+                  'GS_Race_AA.ogg',
                   (0.003, 0.004)),
  RT_Urban_1: (TrackPath + 'RT_UrbanA',
               480.0,
@@ -336,7 +336,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                   RT_Urban_1_rev_Gags,
                   Urban_1_Rev_Boosts,
                   1.0,
-                  'GS_Race_CC.ogg',
+                  'GS_Race_BB.ogg',
                   (0.002, 0.003)),
  RT_Urban_2: (TrackPath + 'RT_UrbanB',
               480.0,
@@ -354,7 +354,7 @@ TrackDict = {RT_Speedway_1: (TrackPath + 'RT_SpeedwayA',
                   RT_Urban_2_Gags,
                   Urban_2_Rev_Boosts,
                   1.0,
-                  'GS_Race_CC.ogg',
+                  'GS_Race_BB.ogg',
                   (0.002, 0.003))}
 TrackIds = TrackDict.keys()
 TrackIds.sort()
@@ -456,13 +456,13 @@ CircuitQualList = [CircuitQuals1, CircuitQuals2, CircuitQuals3]
 AllQualsList = [SpeedwayQualsList, RuralQualsList, UrbanQualsList]
 AllWinsList = [SpeedwayWinsList, RuralWinsList, UrbanWinsList]
 TrophiesPerCup = NumTrophies / NumCups
-QualifiedRaces = [1, 10, 100]
-TotalQualifiedRaces = 100
-WonRaces = [1, 10, 100]
-TotalWonRaces = 100
-WonCircuitRaces = [1, 5, 25]
-SweptCircuitRaces = [1, 5, 25]
-QualifiedCircuitRaces = [1, 5, 25]
+QualifiedRaces = [1, 5, 20]
+TotalQualifiedRaces = 25
+WonRaces = [1, 5, 10]
+TotalWonRaces = 15
+WonCircuitRaces = [1, 5, 10]
+SweptCircuitRaces = [1, 5, 10]
+QualifiedCircuitRaces = [1, 5, 10]
 LBSubscription = {'stadium': [(RT_Speedway_1, Daily),
              (RT_Speedway_1, Weekly),
              (RT_Speedway_1, AllTime),
@@ -499,34 +499,34 @@ LBSubscription = {'stadium': [(RT_Speedway_1, Daily),
           (RT_Urban_2_rev, Daily),
           (RT_Urban_2_rev, Weekly),
           (RT_Urban_2_rev, AllTime)]}
-BANANA = 1
+TNT = 1
 TURBO = 2
-ANVIL = 3
-PIE = 4
-GagFreq = [[PIE,
-  BANANA,
-  BANANA,
-  BANANA,
+PIANO = 3
+CAKE = 4
+GagFreq = [[CAKE,
+  PIANO,
+  TNT,
+  PIANO,
   TURBO,
-  PIE],
- [PIE,
-  BANANA,
-  BANANA,
+  PIANO],
+ [TNT,
+  TNT,
+  TNT,
   TURBO,
-  ANVIL,
-  PIE],
- [PIE,
-  BANANA,
+  PIANO,
+  CAKE],
+ [CAKE,
+  TNT,
+  TURBO,
+  CAKE,
+  PIANO,
+  CAKE],
+ [TNT,
   TURBO,
   TURBO,
-  ANVIL,
-  PIE],
- [BANANA,
   TURBO,
-  TURBO,
-  TURBO,
-  ANVIL,
-  PIE]]
+  PIANO,
+  CAKE]]
 CircuitLoops = [[RT_Speedway_1, RT_Rural_1, RT_Urban_1],
  [RT_Speedway_1_rev, RT_Rural_1_rev, RT_Urban_1_rev],
  [RT_Speedway_2, RT_Rural_2, RT_Urban_2],

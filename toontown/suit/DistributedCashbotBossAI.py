@@ -185,6 +185,20 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             self.waitForNextHelmet()
         return
 
+    def doNextAttack(self, task):
+        if random.random() <= 0.2:
+            self.b_setAttackCode(ToontownGlobals.BossCogAreaAttack)
+            taskMgr.doMethodLater(7.36, self.__reviveGoons, self.uniqueName('reviveGoons'))
+        else:
+            self.__doDirectedAttack()
+            if self.heldObject == None and not self.waitingForHelmet:
+                self.waitForNextHelmet()
+    
+    def __reviveGoons(self, task):
+        for goon in self.goons:
+            if goon.state == 'Stunned':
+                goon.request('Recovery')
+
     def __doDirectedAttack(self):
         if self.toonsToAttack:
             toonId = self.toonsToAttack.pop(0)
@@ -315,13 +329,13 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             self.goons.append(goon)
         if self.getBattleThreeTime() > 1.0:
             goon.STUN_TIME = 4
-            goon.b_setupGoon(velocity=6, hFov=90, attackRadius=10, strength=250, scale=3.3)
+            goon.b_setupGoon(velocity=6, hFov=90, attackRadius=10, strength=250, scale=2.2)
         else:
             goon.STUN_TIME = self.progressValue(15, 6)
             if self.want4ManPractice and (self.bossDamage > 20 and self.bossDamage < 50):
                goon.b_setupGoon(velocity=self.progressRandomValue(3, 7), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 15), strength=int(self.progressRandomValue(5, 25)), scale=0.61)
             else:
-               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(4, 8), strength=int(self.progressRandomValue(30, 101)), scale=self.progressRandomValue(1.0, 2.8, noRandom=True))
+               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(4, 8), strength=int(self.progressRandomValue(30, 101)), scale=self.progressRandomValue(1.0, 2.0, noRandom=True))
         goon.request(side)
         return
 

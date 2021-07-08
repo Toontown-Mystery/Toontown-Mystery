@@ -54,10 +54,10 @@ QuestDictRewardIndex = 5
 QuestDictNextQuestIndex = 6
 QuestDictDialogIndex = 7
 VeryEasy = 100
-Easy = 75
-Medium = 50
-Hard = 25
-VeryHard = 20
+Easy = 80
+Medium = 60
+Hard = 30
+VeryHard = 10
 TT_TIER = 0
 DD_TIER = 4
 DG_TIER = 7
@@ -66,7 +66,7 @@ BR_TIER = 11
 DL_TIER = 14
 LAWBOT_HQ_TIER = 18
 BOSSBOT_HQ_TIER = 32
-ELDER_TIER = 49
+ELDER_TIER = 51
 LOOPING_FINAL_TIER = ELDER_TIER
 VISIT_QUEST_ID = 1000
 TROLLEY_QUEST_ID = 110
@@ -1293,6 +1293,156 @@ class MintNewbieQuest(MintQuest, NewbieQuest):
             return self.getNumNewbies(avId, avList)
         else:
             return num
+            
+class DAOfficeQuest(LocationBasedQuest):
+    def __init__(self, id, quest):
+        LocationBasedQuest.__init__(self, id, quest)
+        self.checkNumDAOffices(self.quest[1])
+
+    def getNumQuestItems(self):
+        return self.getNumDAOffices()
+
+    def getNumDAOffices(self):
+        return self.quest[1]
+
+    def getCompletionStatus(self, av, questDesc, npc = None):
+        questId, fromNpcId, toNpcId, rewardId, toonProgress = questDesc
+        questComplete = toonProgress >= self.getNumDAOffices()
+        return getCompleteStatusWithNpc(questComplete, toNpcId, npc)
+
+    def getProgressString(self, avatar, questDesc):
+        if self.getCompletionStatus(avatar, questDesc) == COMPLETE:
+            return CompleteString
+        elif self.getNumDAOffices() == 1:
+            return ''
+        else:
+            return TTLocalizer.QuestsDAOfficeQuestProgressString % {'progress': questDesc[4],
+             'num': self.getNumDAOffices()}
+
+    def getObjectiveStrings(self):
+        count = self.getNumMints()
+        if count == 1:
+            text = TTLocalizer.QuestsDAOfficeQuestDesc
+        else:
+            text = TTLocalizer.QuestsDAOfficeQuestDescC % {'count': count}
+        return (text,)
+
+    def getString(self):
+        return TTLocalizer.QuestsDAOfficeQuestString % self.getObjectiveStrings()[0]
+
+    def getSCStrings(self, toNpcId, progress):
+        if progress >= self.getNumDAOffices():
+            return getFinishToonTaskSCStrings(toNpcId)
+        count = self.getNumDAOffices()
+        if count == 1:
+            objective = TTLocalizer.QuestsDAOfficeQuestDesc
+        else:
+            objective = TTLocalizer.QuestsDAOfficeQuestDescI
+        location = self.getLocationName()
+        return TTLocalizer.QuestsDAOfficeQuestSCString % {'objective': objective,
+         'location': location}
+
+    def getHeadlineString(self):
+        return TTLocalizer.QuestsDAOfficeQuestHeadline
+
+    def doesDAOfficeCount(self, avId, location, avList):
+        return self.isLocationMatch(location)
+
+
+class DAOfficeNewbieQuest(DAOfficeQuest, NewbieQuest):
+    def __init__(self, id, quest):
+        DAOfficeQuest.__init__(self, id, quest)
+        self.checkNewbieLevel(self.quest[2])
+
+    def getNewbieLevel(self):
+        return self.quest[2]
+
+    def getString(self):
+        return NewbieQuest.getString(self)
+
+    def getHeadlineString(self):
+        return TTLocalizer.QuestsNewbieQuestHeadline
+
+    def doesDAOfficeCount(self, avId, location, avList):
+        if DAOfficeQuest.doesDAOfficeCount(self, avId, location, avList):
+            return self.getNumNewbies(avId, avList)
+        else:
+            return num
+            
+class GolfQuest(LocationBasedQuest):
+    def __init__(self, id, quest):
+        LocationBasedQuest.__init__(self, id, quest)
+        self.checkNumGolfs(self.quest[1])
+
+    def getNumQuestItems(self):
+        return self.getNumGolfs()
+
+    def getNumDAOffices(self):
+        return self.quest[1]
+
+    def getCompletionStatus(self, av, questDesc, npc = None):
+        questId, fromNpcId, toNpcId, rewardId, toonProgress = questDesc
+        questComplete = toonProgress >= self.getNumGolfs()
+        return getCompleteStatusWithNpc(questComplete, toNpcId, npc)
+
+    def getProgressString(self, avatar, questDesc):
+        if self.getCompletionStatus(avatar, questDesc) == COMPLETE:
+            return CompleteString
+        elif self.getNumGolfs() == 1:
+            return ''
+        else:
+            return TTLocalizer.QuestsGolfQuestProgressString % {'progress': questDesc[4],
+             'num': self.getNumGolfs()}
+
+    def getObjectiveStrings(self):
+        count = self.getNumGolfs()
+        if count == 1:
+            text = TTLocalizer.QuestsGolfQuestDesc
+        else:
+            text = TTLocalizer.QuestsGolfQuestDescC % {'count': count}
+        return (text,)
+
+    def getString(self):
+        return TTLocalizer.QuestsGolfQuestString % self.getObjectiveStrings()[0]
+
+    def getSCStrings(self, toNpcId, progress):
+        if progress >= self.getNumGolfs():
+            return getFinishToonTaskSCStrings(toNpcId)
+        count = self.getNumGolfs()
+        if count == 1:
+            objective = TTLocalizer.QuestsGolfQuestDesc
+        else:
+            objective = TTLocalizer.QuestsGolfQuestDescI
+        location = self.getLocationName()
+        return TTLocalizer.QuestsGolfQuestSCString % {'objective': objective,
+         'location': location}
+
+    def getHeadlineString(self):
+        return TTLocalizer.QuestsvQuestHeadline
+
+    def doesGolfCount(self, avId, location, avList):
+        return self.isLocationMatch(location)
+
+
+class GolfNewbieQuest(GolfQuest, NewbieQuest):
+    def __init__(self, id, quest):
+        GolfQuest.__init__(self, id, quest)
+        self.checkNewbieLevel(self.quest[2])
+
+    def getNewbieLevel(self):
+        return self.quest[2]
+
+    def getString(self):
+        return NewbieQuest.getString(self)
+
+    def getHeadlineString(self):
+        return TTLocalizer.QuestsNewbieQuestHeadline
+
+    def doesGolfCount(self, avId, location, avList):
+        if GolfQuest.doesGolfCount(self, avId, location, avList):
+            return self.getNumNewbies(avId, avList)
+        else:
+            return num
 
 
 class CogPartQuest(LocationBasedQuest):
@@ -2050,7 +2200,7 @@ QuestDict = {
        OBSOLETE,
        (RecoverItemQuest,
         ToontownGlobals.ToontownCentral,
-        1,
+        3,
         2,
         VeryEasy,
         Any,
@@ -2072,7 +2222,7 @@ QuestDict = {
        OBSOLETE,
        (RecoverItemQuest,
         ToontownGlobals.ToontownCentral,
-        1,
+        2,
         3,
         VeryEasy,
         Any,
@@ -2094,7 +2244,7 @@ QuestDict = {
        OBSOLETE,
        (RecoverItemQuest,
         ToontownGlobals.ToontownCentral,
-        1,
+        2,
         1,
         VeryEasy,
         Any,
@@ -2130,7 +2280,7 @@ QuestDict = {
        OBSOLETE,
        (CogTrackQuest,
         ToontownGlobals.ToontownCentral,
-        3,
+        5,
         'c'),
        Same,
        ToonHQ,
@@ -2141,7 +2291,7 @@ QuestDict = {
        OBSOLETE,
        (CogTrackQuest,
         ToontownGlobals.ToontownCentral,
-        3,
+        5,
         'l'),
        Same,
        ToonHQ,
@@ -2152,7 +2302,7 @@ QuestDict = {
        OBSOLETE,
        (CogTrackQuest,
         ToontownGlobals.ToontownCentral,
-        3,
+        5,
         's'),
        Same,
        ToonHQ,
@@ -2163,7 +2313,7 @@ QuestDict = {
        OBSOLETE,
        (CogTrackQuest,
         ToontownGlobals.ToontownCentral,
-        3,
+        5,
         'm'),
        Same,
        ToonHQ,
@@ -2190,7 +2340,7 @@ QuestDict = {
        Start,
        (CogQuest,
         Anywhere,
-        4,
+        2,
         Any),
        2001,
        Same,
@@ -2204,7 +2354,7 @@ QuestDict = {
        Cont,
        (CogTrackQuest,
         Anywhere,
-        4,
+        2,
         'c'),
        Same,
        Same,
@@ -2215,7 +2365,7 @@ QuestDict = {
        Cont,
        (CogTrackQuest,
         Anywhere,
-        4,
+        2,
         'l'),
        Same,
        Same,
@@ -2226,7 +2376,7 @@ QuestDict = {
        Cont,
        (CogTrackQuest,
         Anywhere,
-        4,
+        2,
         's'),
        Same,
        Same,
@@ -2237,7 +2387,7 @@ QuestDict = {
        Cont,
        (CogTrackQuest,
         Anywhere,
-        4,
+        2,
         'm'),
        Same,
        Same,
@@ -2280,7 +2430,7 @@ QuestDict = {
         Start,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         3,
+         5,
          Any),
         Any,
         ToonHQ,
@@ -2291,7 +2441,7 @@ QuestDict = {
         Start,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         4,
+         2,
          Any),
         Any,
         ToonHQ,
@@ -2302,7 +2452,7 @@ QuestDict = {
         Start,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         5,
+         4,
          Any),
         Any,
         ToonHQ,
@@ -2313,7 +2463,7 @@ QuestDict = {
         Start,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         6,
+         3,
          Any),
         Any,
         ToonHQ,
@@ -2324,7 +2474,7 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
+         4,
          'f'),
         Any,
         ToonHQ,
@@ -2335,7 +2485,7 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
+         3,
          'p'),
         Any,
         ToonHQ,
@@ -2347,7 +2497,7 @@ QuestDict = {
         (CogQuest,
          Anywhere,
          2,
-         'bf'),
+         'ym'),
         Any,
         ToonHQ,
         Any,
@@ -2357,8 +2507,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
-         'b'),
+         1,
+         'mm'),
         Any,
         ToonHQ,
         Any,
@@ -2368,8 +2518,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
-         'sc'),
+         4,
+         'bf'),
         Any,
         ToonHQ,
         Any,
@@ -2379,8 +2529,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
-         'pp'),
+         3,
+         'b'),
         Any,
         ToonHQ,
         Any,
@@ -2391,7 +2541,7 @@ QuestDict = {
         (CogQuest,
          Anywhere,
          2,
-         'cc'),
+         'dt'),
         Any,
         ToonHQ,
         Any,
@@ -2401,8 +2551,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         2,
-         'tm'),
+         1,
+         'ac'),
         Any,
         ToonHQ,
         Any,
@@ -2413,7 +2563,7 @@ QuestDict = {
         (CogQuest,
          Anywhere,
          4,
-         'f'),
+         'sc'),
         Any,
         ToonHQ,
         Any,
@@ -2423,8 +2573,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         4,
-         'p'),
+         3,
+         'pp'),
         Any,
         ToonHQ,
         Any,
@@ -2434,8 +2584,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         4,
-         'bf'),
+         2,
+         'tw'),
         Any,
         ToonHQ,
         Any,
@@ -2445,8 +2595,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         4,
-         'b'),
+         1,
+         'bc'),
         Any,
         ToonHQ,
         Any,
@@ -2456,8 +2606,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         1,
-         'ym'),
+         4,
+         'cc'),
         Any,
         ToonHQ,
         Any,
@@ -2467,8 +2617,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         1,
-         'nd'),
+         3,
+         'tm'),
         Any,
         ToonHQ,
         Any,
@@ -2478,8 +2628,8 @@ QuestDict = {
         Start,
         (CogQuest,
          Anywhere,
-         1,
-         'tw'),
+         2,
+         'nd'),
         Any,
         ToonHQ,
         Any,
@@ -2490,7 +2640,7 @@ QuestDict = {
         (CogQuest,
          Anywhere,
          1,
-         'dt'),
+         'gh'),
         Any,
         ToonHQ,
         Any,
@@ -2500,8 +2650,8 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         2,
-         2),
+         3,
+         1),
         Any,
         ToonHQ,
         Any,
@@ -2511,7 +2661,7 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         6,
+         2,
          2),
         Any,
         ToonHQ,
@@ -2522,8 +2672,8 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         3,
-         2),
+         1,
+         4),
         Any,
         ToonHQ,
         Any,
@@ -2533,8 +2683,8 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         4,
-         2),
+         2,
+         3),
         Any,
         ToonHQ,
         Any,
@@ -2544,7 +2694,7 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         4,
+         1,
          3),
         Any,
         ToonHQ,
@@ -2555,8 +2705,8 @@ QuestDict = {
         Start,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         6,
-         3),
+         1,
+         5),
         Any,
         ToonHQ,
         Any,
@@ -2566,7 +2716,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         2,
+         1,
          'm'),
         Any,
         ToonHQ,
@@ -2577,7 +2727,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         2,
+         1,
          's'),
         Any,
         ToonHQ,
@@ -2588,7 +2738,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         2,
+         1,
          'c'),
         Any,
         ToonHQ,
@@ -2599,7 +2749,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         2,
+         1,
          'l'),
         Any,
         ToonHQ,
@@ -2610,7 +2760,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         3,
+         2,
          'm'),
         Any,
         ToonHQ,
@@ -2621,7 +2771,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         3,
+         2,
          's'),
         Any,
         ToonHQ,
@@ -2632,7 +2782,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         3,
+         2,
          'c'),
         Any,
         ToonHQ,
@@ -2643,7 +2793,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         3,
+         2,
          'l'),
         Any,
         ToonHQ,
@@ -2654,7 +2804,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         5,
+         3,
          'm'),
         Any,
         ToonHQ,
@@ -2665,7 +2815,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         5,
+         3,
          's'),
         Any,
         ToonHQ,
@@ -2676,7 +2826,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         5,
+         3,
          'c'),
         Any,
         ToonHQ,
@@ -2687,7 +2837,7 @@ QuestDict = {
         Start,
         (CogTrackQuest,
          ToontownGlobals.ToontownCentral,
-         5,
+         3,
          'l'),
         Any,
         ToonHQ,
@@ -2738,7 +2888,7 @@ QuestDict = {
         Cont,
         (RecoverItemQuest,
          Anywhere,
-         4,
+         2,
          7,
          VeryEasy,
          Any,
@@ -2768,10 +2918,10 @@ QuestDict = {
         Start,
         (RecoverItemQuest,
          Anywhere,
-         5,
+         3,
          9,
          VeryEasy,
-         'm',
+         'c',
          'track'),
         2127,
         Same,
@@ -2790,10 +2940,10 @@ QuestDict = {
         Cont,
         (RecoverItemQuest,
          Anywhere,
-         10,
+         2,
          2007,
          VeryEasy,
-         3,
+         4,
          'level'),
         Same,
         Same,
@@ -2820,7 +2970,7 @@ QuestDict = {
         Start,
         (RecoverItemQuest,
          Anywhere,
-         4,
+         10,
          10,
          Easy,
          AnyFish),
@@ -2841,8 +2991,8 @@ QuestDict = {
         Cont,
         (CogLevelQuest,
          ToontownGlobals.ToontownCentral,
-         6,
-         3),
+         1,
+         4),
         Same,
         Same,
         NA,
@@ -2868,7 +3018,7 @@ QuestDict = {
         Start,
         (RecoverItemQuest,
          Anywhere,
-         1,
+         5,
          12,
          Medium,
          AnyFish),
@@ -2881,8 +3031,8 @@ QuestDict = {
         Cont,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         6,
-         'p'),
+         2,
+         'bc'),
         Same,
         Same,
         101,
@@ -2892,8 +3042,8 @@ QuestDict = {
         Cont,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         6,
-         'b'),
+         1,
+         'ms'),
         Same,
         Same,
         101,
@@ -2913,8 +3063,8 @@ QuestDict = {
          Anywhere,
          1,
          13,
-         Medium,
-         3,
+         VeryEasy,
+         4,
          'level'),
         2201,
         Same,
@@ -2933,7 +3083,7 @@ QuestDict = {
         Cont,
         (CogQuest,
          ToontownGlobals.ToontownCentral,
-         10,
+         5,
          Any),
         Same,
         Same,
@@ -2946,8 +3096,8 @@ QuestDict = {
          Anywhere,
          1,
          13,
-         Medium,
-         'm',
+         VeryEasy,
+         'l',
          'track'),
         Same,
         Same,
@@ -2960,7 +3110,7 @@ QuestDict = {
          Anywhere,
          1,
          13,
-         Medium,
+         VeryEasy,
          's',
          'track'),
         Same,
@@ -2974,7 +3124,7 @@ QuestDict = {
          Anywhere,
          1,
          13,
-         Medium,
+         VeryEasy,
          'c',
          'track'),
         Same,
@@ -3002,9 +3152,9 @@ QuestDict = {
         Cont,
         (RecoverItemQuest,
          Anywhere,
-         1,
+         3,
          13,
-         Hard,
+         VeryEasy,
          Any),
         Same,
         Same,
@@ -7258,9 +7408,9 @@ QuestDict = {
  4208: (MM_TIER + 1,
         Cont,
         (DeliverGagQuest,
-         1,
+         2,
          ToontownBattleGlobals.THROW_TRACK,
-         4),
+         5),
         Same,
         Same,
         NA,
@@ -17667,7 +17817,99 @@ QuestDict = {
          2001,
          4216,
          NA,
-         TTLocalizer.QuestDialogDict[12032])}
+         TTLocalizer.QuestDialogDict[12032]),
+ 13000: (BOSSBOT_HQ_TIER + 17,
+         Start,
+         (VisitQuest,),
+         Any,
+         753,
+         NA,
+         13001,
+         {GREETING: 'Welcome, _avName_!',
+          LEAVING: 'Get out there right now _avName_!',
+          QUEST: "So, there is this guy named Boris who's at his place.\x07He's not in his mood at the moment due to Caillou doing something bad.\x07We're not sure what it is though, so... You'll need to speak to him to find out.\x07 He's right on Punchline Place at a building to the left of the 2 pathways.",
+          INCOMPLETE_PROGRESS: "Hopefully he doesn't get angry at us..."}),
+ 13001: (BOSSBOT_HQ_TIER + 17,
+         Start,
+        (CogQuest,
+         Anywhere,
+         20,
+         14),
+        Same,
+        Same,
+        NA,
+        13002,
+        {GREETING: "GOOD THING YOU'RE HERE, _avName_!",
+         LEAVING: '',
+         QUEST: "CAILLOU IS SO GROUNDED, GROUNDED, GROUNDED, FOR 57357856569262687942692 YEARS!!!!\x07BECAUSE HE DID ABSOLUTELY NOTHING!!!!\x07WHAT! MY PHONE!!! NOOOOO!!! OH OH OH OH OH OH OH!!!\x07Hold on... I just realized...\x07I probably left it in my room, so uh...\x07Destroy 20 Cogs while I find my phone. Thank you!",
+         INCOMPLETE_PROGRESS: "YOU'RE SO GROUNDED!\x07WHERE IS MY PHONE!?!?!??!?!?!\x07GROUNDED GROUNDED GROUNDED!!!!"}),
+ 13002: (BOSSBOT_HQ_TIER + 17,
+         Cont,
+         (RecoverItemQuest,
+          Anywhere,
+          1,
+          21,
+          VeryHard,
+          'mh'),
+         2310,
+         2310,
+         NA,
+         13003,
+         {GREETING: '....',
+          QUEST: "I CAN'T FIND IT!\x07IT'S NOT HERE!!!\x07CAILLOU MUST HAVE TAKEN IT!!!!\x07BUT I CAN'T SEEM TO REACH HIM AND HE'S SAYING HE DIDN'T DO IT!!!!\x07HE'S SAYING THAT HE MADE AMANDA ROSE CLONES AND THEY TOOK THE PHONE!!!!\x07IDK WHICH ONE IS WHICH, SO JUST FIGHT AMANDA ROSES UNTIL I GET MY PHONE!!!!\x07WHAT ARE YOU SITTING THERE FOR!?!??!?!! GET THEM!!!!!!",
+          INCOMPLETE: 'MY PHONE BETTER BE HERE AFTER THIS MISHAP, OR ELSE!!!!!!!!',
+          LEAVING: ''}),
+ 13003: (BOSSBOT_HQ_TIER + 17,
+         Cont,
+        (CogQuest,
+         Anywhere,
+         1,
+         'ls'),
+        Same,
+        Same,
+        NA,
+        13004,
+        {GREETING: "Well, any luck?",
+         QUEST: "STILL NOT THERE!?!?!??!?!?\x07OK! THAT'S IT!!!\x07IF SHE DIDN'T DO IT, THEN HER TWO_FACE DWEEB GIRLFRIEND DID!!!!\x07GET HER TOO!!!",
+         INCOMPLETE: "May I have my phone back right now?!??!?!?!?!",
+         LEAVING: ''}),
+ 13004: (BOSSBOT_HQ_TIER + 17,
+         Cont,
+        (CogTrackQuest,
+         Anywhere,
+         50,
+         's'),
+        Same,
+        Same,
+        NA,
+        13005,
+        {GREETING: "Welcome back.",
+         QUEST: "Alright, I finally found my phone, lol.\x07Except, one more problem...\x07There are too many Fashionbots here, and I'm worried about my phone getting taken away again...\x07How about you go get rid of them?\x07Thanks!",
+         INCOMPLETE: "Just thinking about grounding Caillou.",
+         LEAVING: ''}),
+ 13005: (BOSSBOT_HQ_TIER + 17,
+         Cont,
+         (FactoryQuest, ToontownGlobals.SellbotHQ, 1),
+         2310,
+         2310,
+         NA,
+         13006,
+         {GREETING: 'Hi, again...',
+          QUEST: "Ok. I don't understand, how are they reconstructing Cogs??\x07Wait. I know! The Fashionbot Factory!\x07You know, that place with that big ol' black looking Skelecog?\x07Yes, the Fashion Designer.\x07I need you to go out, and eliminate it.\x07See ya!",
+          INCOMPLETE: "Please be over already...",
+          LEAVING: ''}),
+ 13006: (BOSSBOT_HQ_TIER + 17,
+         Cont,
+         (MintQuest, ToontownGlobals.CashbotMintIntC, 1),
+         2310,
+         2310,
+         109,
+         NA,
+         {GREETING: "Yay, you're back!",
+          QUEST: "Oh wait. One more thing.\x07Go fight a Carebot Waiting Room.\x07There has been some Carebots who have been scaring me as well.",
+          INCOMPLETE: "Please be over already...",
+          LEAVING: '',
+          COMPLETE: "Thank you for everything!\x07I got my phone, I grounded Caillou, I'm all set!\x07Listen, I'm sorry for being a hothead earlier.\x07I want to give you a prize.\x07Here is the biggest laff boost you'll probably ever see.\x07Thank you, and enjoy your reward!"})}
 
 Tier2QuestsDict = {}
 for questId, questDesc in QuestDict.items():
