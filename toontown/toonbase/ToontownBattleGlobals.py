@@ -762,11 +762,11 @@ def isGroup(track, level):
 
 
 def getCreditMultiplier(floorIndex):
-    return 2 + floorIndex * 1.5
+    return 0 + floorIndex * 1.5
 
 
 def getFactoryCreditMultiplier(factoryId):
-    return 5.0
+    return 2.5
 
 
 def getFactoryMeritMultiplier(factoryId):
@@ -774,9 +774,9 @@ def getFactoryMeritMultiplier(factoryId):
 
 
 def getMintCreditMultiplier(mintId):
-    return {CashbotMintIntA: 3.0,
-     CashbotMintIntB: 5.0,
-     CashbotMintIntC: 7.0}.get(mintId, 1.0)
+    return {CashbotMintIntA: 1.5,
+     CashbotMintIntB: 2.5,
+     CashbotMintIntC: 3.5}.get(mintId, 1.0)
 
 
 def getStageCreditMultiplier(floor):
@@ -784,9 +784,9 @@ def getStageCreditMultiplier(floor):
 
 
 def getCountryClubCreditMultiplier(countryClubId):
-    return {BossbotCountryClubIntA: 1.0,
-     BossbotCountryClubIntB: 1.0,
-     BossbotCountryClubIntC: 1.0}.get(countryClubId, 1.0)
+    return {BossbotCountryClubIntA: 0.5,
+     BossbotCountryClubIntB: 0.5,
+     BossbotCountryClubIntC: 0.5}.get(countryClubId, 1.0)
 
 
 def getBossBattleCreditMultiplier(battleNumber):
