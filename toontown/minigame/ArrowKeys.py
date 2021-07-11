@@ -1,4 +1,4 @@
-from pandac.PandaModules import ModifierButtons
+from panda3d.core import *
 from direct.showbase.DirectObject import DirectObject
 
 class ArrowKeys(DirectObject):
