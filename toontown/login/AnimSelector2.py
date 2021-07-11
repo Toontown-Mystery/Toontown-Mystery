@@ -28,7 +28,7 @@ class AnimSelector2():
         self.Hover = gui.find('**/QuitBtn_RLVR')
         self.Hover = self.Hover
         
-        self.AnimButton = DirectButton(image=(self.YB, self.Hover), relief=None, text="Amanada's Doughnuts", text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.5), command=self.loadAnimationOne)
+        self.AnimButton = DirectButton(image=(self.YB, self.Hover), relief=None, text="Trailer", text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.5), command=self.loadAnimationOne)
         self.AnimButton = self.AnimButton
         
         self.toontownsky = loader.loadModel('phase_3.5/models/props/TT_sky.bam')

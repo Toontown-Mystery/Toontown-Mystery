@@ -114,7 +114,7 @@ class GiftAvatarAI:
             minutes = 0
 
         item.giftTag = avId
-        item.deliveryDate = int(time.time() / 60. + minutes + .5)
+        item.deliveryDate = int(time.time() / 1. + minutes + .1)
         self.onGiftOrder.append(item)
         simbase.air.send(
             simbase.air.dclassesByName['DistributedToonAI'].aiFormatUpdate('setGiftSchedule', targetId, targetId,

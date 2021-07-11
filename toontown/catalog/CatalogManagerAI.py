@@ -27,15 +27,15 @@ class CatalogManagerAI(DistributedObjectAI):
         mailboxContents = av.mailboxNotify
         currentTime = time.time()
         if previousTime:
-            elapsedWeeks = int((time.time() - previousTime * 60) // 604800)
+            elapsedWeeks = int((time.time() - previousTime * 1) // 604800)
             if elapsedWeeks < 1:
-                currentTime = previousTime * 60
+                currentTime = previousTime * 1
             else:
-                currentTime = previousTime * 60 + elapsedWeeks * 604800
+                currentTime = previousTime * 1 + elapsedWeeks * 604800
 
         nextWeek = currentTime + 604800
         currentWeek = previousWeek + 1
-        monthlyCatalog = self.catalogGenerator.generateMonthlyCatalog(av, currentTime / 60)
+        monthlyCatalog = self.catalogGenerator.generateMonthlyCatalog(av, currentTime / 1)
         weeklyCatalog = self.catalogGenerator.generateWeeklyCatalog(av, currentWeek, monthlyCatalog)
         backlogCatalog = self.catalogGenerator.generateBackCatalog(av, currentWeek, previousWeek, weeklyCatalog)
         av.b_setCatalogSchedule(currentWeek, nextWeek / 60)
