@@ -16,8 +16,6 @@ Play to find out! :D
 
 * Click on the folder after extracting, NOT THE ZIP file.
 
-* Download the panda here. https://drive.google.com/file/d/1h4K9hud5uWYR799hOaqR8nnzevM4zpmI/view?usp=sharing
-
 
 
 * SINGLEPLAYER: Run Start-all.bat and it should open all the batch files needed to start the game
