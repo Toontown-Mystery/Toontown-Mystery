@@ -6764,6 +6764,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  755: 'Richie Verdi',
  756: 'Lady Horse Hay',
  777: 'Queen Lillie',
+ 784: 'Timinator'
  998: 'Furball',
  999: 'Toon Tailor',
  1000: lToonHQ,
