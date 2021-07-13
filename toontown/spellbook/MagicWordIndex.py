@@ -1686,6 +1686,14 @@ class SkipCFO(MagicWord):
         battle = battle.lower()
 
         if battle == 'two':
+            if boss.state in ('PrepareBattleThree', 'BattleThree', 'PrepareBattleTwo', 'BattleTwo'):
+                return "You can not return to previous rounds!"
+            else:
+                boss.exitIntroduction()
+                boss.b_setState('PrepareBattleTwo')
+                return "Bruh how dare you skip that's cheating!"
+
+        if battle == 'three':
             if boss.state in ('PrepareBattleThree', 'BattleThree'):
                 return "You can not return to previous rounds!"
             else:
@@ -1695,6 +1703,10 @@ class SkipCFO(MagicWord):
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
+                boss.exitIntroduction()
+                boss.b_setState('PrepareBattleTwo')
+                return "Bruh how dare you skip that's cheating!"
+            elif boss.state in ('PrepareBattleTwo', 'BattleTwo'):
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
                 return "Bruh how dare you skip that's cheating!"
