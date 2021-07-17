@@ -31,4 +31,4 @@ class CatalogSurfaceItem(CatalogAtticItem.CatalogAtticItem):
         return retcode
 
     def getDeliveryTime(self):
-        return 0.1
+        return 60

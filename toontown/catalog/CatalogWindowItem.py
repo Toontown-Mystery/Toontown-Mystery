@@ -44,7 +44,7 @@ class CatalogWindowItem(CatalogAtticItem.CatalogAtticItem):
         return retcode
 
     def getDeliveryTime(self):
-        return 0 * 0.1
+        return 4 * 60
 
     def getPicture(self, avatar):
         frame = self.makeFrame()

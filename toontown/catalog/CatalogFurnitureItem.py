@@ -1035,7 +1035,7 @@ class CatalogFurnitureItem(CatalogAtticItem.CatalogAtticItem):
         return retcode
 
     def getDeliveryTime(self):
-        return 1 * 1
+        return 24 * 60
 
     def getPicture(self, avatar):
         model = self.loadModel()

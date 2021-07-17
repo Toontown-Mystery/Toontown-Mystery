@@ -84,10 +84,10 @@ class YourAnim():
         self.nametagJ2.getNametag3d().setBillboardOffset(4)
         nametagNode2 = self.nametagJ2.getNametag3d().upcastToPandaNode()
         self.nametagS2 = self.toon2.attachNewNode(nametagNode2)
-        self.nametagS2.setPos(0, 0, 5)
+        self.nametagS2.setPos(0, 0, 9.5)
 
         self.toon3 = NPCToons.createLocalNPC(1116)
-        self.toon3.pose('book', 60)
+        self.toon3.pose('book', 30)
         self.toon3.setPos(50, -3, 4)
         self.toon3.setHpr(270, 0, 0)
         self.toon3.reparentTo(render)
@@ -122,6 +122,7 @@ class YourAnim():
         self.amandaStatementSpeech = base.loader.loadSfx('phase_9/audio/sfx/Boss_COG_VO_statement.ogg')
 
         
-        GoodTrack = Sequence()
+        GoodTrack = Sequence(Func(self.nametagJ8.setChat, "", CFSpeech | CFTimeout),
+        Wait(1.5))
         
         GoodTrack.start()
