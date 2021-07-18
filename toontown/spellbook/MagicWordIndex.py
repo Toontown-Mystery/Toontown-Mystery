@@ -2551,7 +2551,7 @@ class Pouch(MagicWord):
         amt = args[0]
 
         if not 1 <= amt <= 255:
-            return "Can't set {0}'s pouch size to {1}! Specify a value between 1 and 255.".format(toon.getName(), amt)
+            return "Can't set {0}'s pouch size to {1}! Specify a value between 1 and 800.".format(toon.getName(), amt)
 
         toon.b_setMaxCarry(amt)
         return "Set %s's pouch size to %d" % (toon.getName(), amt)
