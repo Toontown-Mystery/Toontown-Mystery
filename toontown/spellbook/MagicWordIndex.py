@@ -2138,10 +2138,10 @@ class RestartSeltzerRound(MagicWord):
 
     def handleWord(self, invoker, avId, toon, *args):
         battle = args[0]
-        from toontown.suit.DistributedCashbotBossAI import DistributedBossbotBossAI
+        from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
         boss = None
         for do in simbase.air.doId2do.values():
-            if isinstance(do, DistributedCashbotBossAI):
+            if isinstance(do, DistributedBossbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
                     break
