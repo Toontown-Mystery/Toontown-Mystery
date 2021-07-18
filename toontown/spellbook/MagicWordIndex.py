@@ -1968,7 +1968,7 @@ class RestartCraneRound(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
         boss = None
-        for do in simbase.air.doId2do.values():
+        for do in list(simbase.air.doId2do.values()):
             if isinstance(do, DistributedCashbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2128,6 +2128,31 @@ class SkipCEO(MagicWord):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
                 return "Bruh how dare you skip that's cheating!"
+
+class RestartSeltzerRound(MagicWord):
+    desc = "Restarts the crane round"
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    aliases = ["rsr", "Restartseltzer"]
+    arguments = [("round", str, False, "next")]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        battle = args[0]
+        from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedCashbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CEO!"
+
+        battle = battle.lower()
+        boss.exitIntroduction()
+        boss.b_setState('PrepareBattleFour')
+        boss.b_setState('BattleFour')
+        return "Restarting Seltzer Round"
 
 
 class FeedDiners(MagicWord):
