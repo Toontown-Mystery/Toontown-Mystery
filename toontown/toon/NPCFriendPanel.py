@@ -164,7 +164,7 @@ class NPCFriendCard(DirectFrame):
             self.NPCHead.reparentTo(self.front)
             self.NPCHead.setZ(self.NPCHeadPosZ)
             track, level, hp, rarity = NPCToons.getNPCTrackLevelHpRarity(NPCID)
-            sosText = self.sosTracks[track]
+            sosText = self.sosTracks[1]
             if track == ToontownBattleGlobals.NPC_RESTOCK_GAGS:
                 if level == -1:
                     sosText += ' All'

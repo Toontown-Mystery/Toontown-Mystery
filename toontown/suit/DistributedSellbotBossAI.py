@@ -403,7 +403,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         for toonId in self.involvedToons:
             toon = self.air.doId2do.get(toonId)
             if toon:
-                configMax = simbase.config.GetInt('max-sos-cards', 29)
+                configMax = simbase.config.GetInt('max-sos-cards', 16)
                 if configMax == 8:
                     maxNumCalls = 1
                 else:
