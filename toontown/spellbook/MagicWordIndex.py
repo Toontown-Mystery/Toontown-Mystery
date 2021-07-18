@@ -184,7 +184,7 @@ class SetMaxHP(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         maxhp = args[0]
 
-        if not 1 <= maxhp <= 430:
+        if not 1 <= maxhp <= 32767:
             return "Can't set {}'s max laff to {}! Specify a value between 15 and 137.".format(toon.getName(), maxhp)
 
         toon.b_setMaxHp(maxhp)
