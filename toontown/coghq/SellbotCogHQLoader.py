@@ -39,6 +39,7 @@ class SellbotCogHQLoader(CogHQLoader.CogHQLoader):
 
     def load(self, zoneId):
         CogHQLoader.CogHQLoader.load(self, zoneId)
+        self.battleMusic = base.loader.loadMusic('phase_9/audio/bgm/sellbot_hq_battle.ogg')
         Toon.loadSellbotHQAnims()
 
     def unloadPlaceGeom(self):
