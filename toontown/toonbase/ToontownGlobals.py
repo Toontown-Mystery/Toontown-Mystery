@@ -1476,7 +1476,7 @@ LawbotBossJuryBoxStartPos = (94, -8, 5)
 LawbotBossJuryBoxRelativeEndPos = (30, 0, 12.645)
 LawbotBossJuryBoxMoveTime = 50
 LawbotBossJurorsForBalancedScale = 12
-LawbotBossDamagePerJuror = 150
+LawbotBossDamagePerJuror = 500
 LawbotBossCogJurorFlightTime = 70
 LawbotBossCogJurorDistance = 105
 LawbotBossBaseJurorNpcId = 2001
@@ -1645,26 +1645,26 @@ BossbotBossDifficultySettings = [(14,
   5,
   12,
   6,
-  65,
-  65,
+  60,
+  60,
   0),
  (11,
   6,
-  14,
+  15,
   7,
-  55,
-  55,
+  45,
+  45,
   0),
  (10,
   7,
-  16,
+  17,
   8,
-  45,
-  45,
+  35,
+  35,
   0),
  (9,
   8,
-  18,
+  19,
   9,
   30,
   30,

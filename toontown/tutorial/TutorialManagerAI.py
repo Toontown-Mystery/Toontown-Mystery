@@ -56,14 +56,14 @@ class TutorialFSM(FSM):
         self.suit = None
         self.flippy = None
 
-        tutorialTomDesc = NPCToons.NPCToonDict.get(755)
-        self.tutorialTom = NPCToons.createNPC(self.air, 755, tutorialTomDesc, self.zones.SHOP, 0)
+        tutorialTomDesc = NPCToons.NPCToonDict.get(20000)
+        self.tutorialTom = NPCToons.createNPC(self.air, 20000, tutorialTomDesc, self.zones.SHOP, 0)
         self.tutorialTom.setTutorial(1)
 
         hqHarryDesc = (
-            -1, TTLocalizer.TutorialHQOfficerName, ('hss', 'ms', 'm', 'f', 21, 0, 21, 21, 47, 27, 0, 27, 45, 27), 'f', 1,
+            -1, TTLocalizer.TutorialHQOfficerName, ('dls', 'ms', 'm', 'm', 6, 0, 6, 6, 0, 10, 0, 10, 0, 9), 'm', 1,
             NPCToons.NPC_HQ)
-        self.hqHarry = NPCToons.createNPC(self.air, 756, hqHarryDesc, self.zones.HQ, 0)
+        self.hqHarry = NPCToons.createNPC(self.air, 20002, hqHarryDesc, self.zones.HQ, 0)
         self.hqHarry.setTutorial(1)
 
         self.building = TutorialBuildingAI(self.air, zones.STREET, zones.SHOP, self.tutorialTom.getDoId())
@@ -186,8 +186,8 @@ class TutorialManagerAI(DistributedObjectAI):
         av.b_setQuests([])
         av.b_setQuestHistory([])
         av.b_setRewardHistory(0, [])
-        av.b_setHp(145)
-        av.b_setMaxHp(145)
+        av.b_setHp(15)
+        av.b_setMaxHp(15)
 
         av.inventory.zeroInv()
         if av.inventory.numItem(ToontownBattleGlobals.THROW_TRACK, 0) == 0:
@@ -195,9 +195,6 @@ class TutorialManagerAI(DistributedObjectAI):
 
         if av.inventory.numItem(ToontownBattleGlobals.SQUIRT_TRACK, 0) == 0:
             av.inventory.addItem(ToontownBattleGlobals.SQUIRT_TRACK, 0)
-
-        if av.inventory.numItem(ToontownBattleGlobals.DROP_TRACK, 0) == 0:
-            av.inventory.addItem(ToontownBattleGlobals.DROP_TRACK, 0)
 
         av.d_setInventory(av.inventory.makeNetString())
         av.experience.zeroOutExp()
