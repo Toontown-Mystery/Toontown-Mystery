@@ -15,7 +15,7 @@ from direct.showbase import PythonUtil
 from direct.task import Task
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
-from toontown.login import YourAnim
+from toontown.login import Animation
 class AnimSelector2():
 
     def __init__(self, leaveFunction):
@@ -28,7 +28,7 @@ class AnimSelector2():
         self.Hover = gui.find('**/QuitBtn_RLVR')
         self.Hover = self.Hover
         
-        self.AnimButton = DirectButton(image=(self.YB, self.Hover), relief=None, text="Trailer", text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.5), command=self.loadAnimationOne)
+        self.AnimButton = DirectButton(image=(self.YB, self.Hover), relief=None, text="The Battle of Redsonic", text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.5), command=self.TheSandwitchAnimation)
         self.AnimButton = self.AnimButton
         
         self.toontownsky = loader.loadModel('phase_3.5/models/props/TT_sky.bam')
@@ -48,7 +48,7 @@ class AnimSelector2():
         base.playMusic(self.enterMusic, looping=1, volume=1.0)
 		
     def TheSandwitchAnimation(self):
-		LoadInTrack = Sequence(Func(self.AnimButton.hide), Func(base.transitions.irisOut, 1.0), Wait(1.5), Func(self.loadSandwichAnim))
+		LoadInTrack = Sequence(Func(self.AnimButton.hide), Func(base.transitions.irisOut, 1.0), Wait(1.5), Func(self.loadAnimationOne))
 		LoadInTrack.start()
 		
     def loadAnimationOne(self):
@@ -57,5 +57,5 @@ class AnimSelector2():
 		self.enterMusic.stop()
 		self.SpinTask.finish()
 		self.AnimButton.hide()
-		YourAnim.YourAnim(self).create()
+		Animation.Animation(self).create()
 		

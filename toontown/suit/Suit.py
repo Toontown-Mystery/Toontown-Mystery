@@ -408,6 +408,7 @@ class Suit(Avatar.Avatar):
         self.isVault = False
         self.isHat = False
         self.isHud = False
+        self.isHolly = False
         self.setFont(ToontownGlobals.getSuitFont())
         self.setPlayerType(NametagGroup.CCSuit)
         self.setPickable(1)
@@ -600,10 +601,11 @@ class Suit(Avatar.Avatar):
             self.setHeight(7.9)
         elif dna.name == 'le':
             self.scale = 7.125 / aSize
-            self.handColor = VBase4(0, 0, 0, 0)
+            self.handColor = SuitDNA.salesPolyColor
             self.generateBody()
-            self.headTexture = 'sun.jpg'
+            self.headTexture = 'yes_man3.jpg'
             self.generateHead('yesman')
+            self.generateHollyStuff()
             self.setHeight(8.27)
         elif dna.name == 'bw':
             self.scale = 7.0 / aSize
@@ -1351,6 +1353,15 @@ class Suit(Avatar.Avatar):
         self.Vault.setScale(0.4, 0.4, 0.4)
         self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
         self.Vault.setZ(0.7)
+        self.isVault = True
+
+    def generateHollyStuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_msk_narrowGlasses')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.4, 0.4, 0.4)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setY(-0.1)
+        self.Vault.setZ(1.2)
         self.isVault = True
 		
     def generateHatStuff(self):
