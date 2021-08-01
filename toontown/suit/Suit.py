@@ -601,10 +601,9 @@ class Suit(Avatar.Avatar):
             self.setHeight(7.9)
         elif dna.name == 'le':
             self.scale = 7.125 / aSize
-            self.handColor = SuitDNA.salesPolyColor
+            self.handColor = VBase4(1, 1, 0, 1.0)
             self.generateBody()
-            self.headTexture = 'yes_man3.jpg'
-            self.generateHead('yesman')
+            self.generateHead('Sphere.001', 'phase_4/models/char/sun.bam')
             self.generateHollyStuff()
             self.setHeight(8.27)
         elif dna.name == 'bw':
@@ -1047,6 +1046,12 @@ class Suit(Avatar.Avatar):
                 headPart.setScale(0.87)
             elif headType == 'Icosphere':
                 headPart.setH(180)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(0.7)
+                headPart.setScale(1.57)
+            elif headType == 'Sphere.001':
+                headPart.setH(270)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.7)
