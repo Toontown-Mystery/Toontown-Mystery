@@ -180,7 +180,7 @@ def getSuitType(name):
 
 def getRandomSuitType(level, rng = random):
     try:
-        returnval = random.randint(max(level - 12, 1), min(level, 24))
+        returnval = random.randint(max(level - 12, 1), min(level, 10))
     except:
         returnval = 12
 

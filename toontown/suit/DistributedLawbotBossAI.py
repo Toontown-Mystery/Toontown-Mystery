@@ -279,9 +279,14 @@ class DistributedLawbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FSM
             if simbase.config.GetBool('lawbot-boss-cheat', 0):
                 listVersion[13] = weakenedValue
                 SuitBuildingGlobals.SuitBuildingInfo = tuple(listVersion)
-            return self.invokeSuitPlanner(13, 1)
-        else:
-            return self.invokeSuitPlanner(13, 1)
+        cogs = self.invokeSuitPlanner(13, 0)
+        skelecogs = self.invokeSuitPlanner(13, 1)
+        activeSuits = cogs['activeSuits'] + skelecogs['activeSuits']
+        reserveSuits = cogs['reserveSuits'] + skelecogs['reserveSuits']
+        random.shuffle(activeSuits)
+        while len(activeSuits) > 4:
+            suit = activeSuits.pop()
+            reserveSuits.append((suit, 100))
 			
 			
     def invokeSuitPlanner(self, buildingCode, skelecog):
