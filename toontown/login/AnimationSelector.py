@@ -111,5 +111,6 @@ class AnimationSelector():
         self.AnimButton.removeNode()
         self.AnimButton2.removeNode()
         self.AnimButton3.removeNode()
+        self.AnimButton4.removeNode()
         self.ExitButton.removeNode()
 		
