@@ -134,7 +134,7 @@ class SuitPlannerInteriorAI:
         if suitName and self.respectInvasions:
             suitType = SuitDNA.getSuitType(suitName)
             bldgTrack = SuitDNA.getSuitDept(suitName)
-            suitLevel = min(max(suitLevel, suitType), suitType + 9)
+            suitLevel = min(max(suitLevel, suitType), suitType + 12)
         dna = SuitDNA.SuitDNA()
         dna.newSuitRandom(suitType, bldgTrack)
         suit.dna = dna

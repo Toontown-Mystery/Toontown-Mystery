@@ -5,7 +5,8 @@ CogParent = 10000
 BattleCellId = 0
 BattleCells = {BattleCellId: {'parentEntId': CogParent,
                 'pos': Point3(0, 0, 0)}}
-CogData = [{'parentEntId': CogParent,
+CogData = [{'type': 'ggm',
+  'parentEntId': CogParent,
   'boss': 0,
   'level': 25,
   'battleCell': BattleCellId,

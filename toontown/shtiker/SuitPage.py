@@ -207,8 +207,8 @@ class SuitPage(ShtikerPage.ShtikerPage):
         base.panels = []
         xStart = -0.66
         yStart = -0.18
-        xOffset = 0.144
-        yOffset = 0.284
+        xOffset = 0.134
+        yOffset = 0.274
         for dept in xrange(0, len(SuitDNA.suitDepts)):
             row = []
             color = PANEL_COLORS[dept]

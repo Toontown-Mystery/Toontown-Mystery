@@ -70,8 +70,16 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         self.initializeBattles(1, ToontownGlobals.CashbotBossBattleOnePosHpr)
 
     def generateSuits(self, battleNumber):
-        cogs = self.invokeSuitPlanner(11, 0)
-        skelecogs = self.invokeSuitPlanner(12, 1)
+        if self.nerfed:
+            if battleNumber == 1:
+                return self.invokeSuitPlanner(15, 1)
+            else:
+                return self.invokeSuitPlanner(16, 0)
+        else:
+            if battleNumber == 1:
+                return self.invokeSuitPlanner(11, 1)
+            else:
+                return self.invokeSuitPlanner(12, 0)
         activeSuits = cogs['activeSuits'] + skelecogs['activeSuits']
         reserveSuits = cogs['reserveSuits'] + skelecogs['reserveSuits']
         random.shuffle(activeSuits)
@@ -104,9 +112,9 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 		
     def makeBattle(self, bossCogPosHpr, battlePosHpr, roundCallback, finishCallback, battleNumber, battleSide):
         if battleNumber == 1:
-            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
-        else:
             battle = DistributedBattleWaitersAI.DistributedBattleWaitersAI(self.air, self, roundCallback, finishCallback, battleSide)
+        else:
+            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
         self.setBattlePos(battle, bossCogPosHpr, battlePosHpr)
         battle.suitsKilled = self.suitsKilled
         battle.battleCalc.toonSkillPtsGained = self.toonSkillPtsGained

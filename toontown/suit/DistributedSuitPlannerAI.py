@@ -1148,11 +1148,11 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
         if level == None:
             level = random.choice(self.SuitHoodInfo[self.hoodInfoIdx][self.SUIT_HOOD_INFO_LVL])
         if type == None:
-            typeChoices = xrange(max(level - 9, 1), min(level, self.MAX_SUIT_TYPES) + 1)
+            typeChoices = xrange(max(level - 12, 1), min(level, self.MAX_SUIT_TYPES) + 1)
             type = random.choice(typeChoices)
 
         if level not in ToontownGlobals.SuitLevels:
-            level = min(max(level, type), type + 9)
+            level = min(max(level, type), type + 12)
 
         if track == None:
             track = SuitDNA.suitDepts[SuitBattleGlobals.pickFromFreqList(self.SuitHoodInfo[self.hoodInfoIdx][self.SUIT_HOOD_INFO_TRACK])]
