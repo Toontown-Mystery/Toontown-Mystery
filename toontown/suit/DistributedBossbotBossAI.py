@@ -341,7 +341,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 suit = self.__genSuitObject(self.zoneId, 2, 'c', 2, 0)
             else:
                 info = self.notDeadList[i]
-                suitType = info[2] - 9
+                suitType = info[2] - 12
                 suitLevel = info[2]
                 suit = self.__genSuitObject(self.zoneId, suitType, 'c', suitLevel, 1)
             diners.append((suit, 100))
