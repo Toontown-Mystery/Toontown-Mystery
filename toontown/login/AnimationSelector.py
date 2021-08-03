@@ -33,7 +33,7 @@ class AnimationSelector():
         self.AnimButton3 = DirectButton(image=(self.YB, self.Hover), relief=None, text='And His Pal Timinator!', text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.2), command=self.TransitionThree)
 
         #Red sonic
-        self.AnimButton3 = DirectButton(image=(self.YB, self.Hover), relief=None, text='Red sonic', text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.9), command=self.TransitionFour)
+        self.AnimButton4 = DirectButton(image=(self.YB, self.Hover), relief=None, text='Red sonic', text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(0, 0, 0.9), command=self.TransitionFour)
           
         self.ExitButton = DirectButton(image=(self.YB, self.Hover), relief=None, text='Exit', text_font=ToontownGlobals.getToonFont(), text_fg=(0.1, 0.1, 0.1, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.05, image_scale=1, image1_scale=0.9, image2_scale=0.9, scale=0.9, pos=(-0.8, 0, -0.8), command=self.exit)
         
