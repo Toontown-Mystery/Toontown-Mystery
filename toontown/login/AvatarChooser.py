@@ -1,7 +1,7 @@
 from panda3d.core import *
 from toontown.toonbase import ToontownGlobals
 import AvatarChoice
-import AnimSelector2
+import AnimationSelector
 from direct.fsm import StateData
 from direct.fsm import ClassicFSM, State
 from direct.fsm import State
@@ -115,7 +115,6 @@ class AvatarChooser(StateData.StateData):
         self.pickAToonBG.reparentTo(hidden)
         self.pickAToonBG.setPos(0.0, 2.73, 0.0)
         self.pickAToonBG.setScale(1, 1, 1)
-        AnimSelector2.AnimSelector2(self.enter)
         self.title = OnscreenText(TTLocalizer.AvatarChooserPickAToon, scale=TTLocalizer.ACtitle, parent=hidden, font=ToontownGlobals.getSignFont(), fg=(1, 0.9, 0.1, 1), pos=(0.0, 0.82))
         quitHover = gui.find('**/QuitBtn_RLVR')
         #QuitButton
@@ -321,7 +320,18 @@ class AvatarChooser(StateData.StateData):
         else:
             self.shine['scale'] = (1.33, 1, 1)
             self.shadow['scale'] = (1.33, 1, 1)
-       
+    def enterSelector(self):
+        self.notify.info('AvatarChooser.exit')
+        if not self.displayOptions:
+            self.displayOptions = DisplayOptions.DisplayOptions()
+        self.notify.info('calling self.displayOptions.restrictToEmbedded(False)')
+        if base.appRunner:
+            self.displayOptions.loadFromSettings()
+            self.displayOptions.restrictToEmbedded(False)
+        if self.isLoaded == 0:
+            self.load()
+        base.disableMouse()  
+
     def openAnimations(self):
-		self.exit()
-		AnimSelector2.AnimSelector2(self.enterAnimation).create()
+        self.exit()
+        AnimationSelector.AnimationSelector(self.enterSelector).create()

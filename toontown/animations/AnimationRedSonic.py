@@ -1,5 +1,4 @@
 from direct.gui.DirectGui import OnscreenImage, DirectLabel, DirectButton, OnscreenText
-import AvatarChooser
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from libotp import *
@@ -20,7 +19,7 @@ from toontown.toon import NPCToons
 from toontown.suit import Suit
 from toontown.suit import SuitDNA
 from toontown.battle import BattleProps
-class Animation():
+class AnimationRedSonic():
 
     def __init__(self, leaveFunction):
         self.mixsong = base.loader.loadMusic('phase_14/audio/bgm/estate_interior.ogg')
