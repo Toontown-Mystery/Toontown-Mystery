@@ -589,7 +589,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         loseSuitCamAngle = (0, 19, 6, -180, -5, 0)
         track = Sequence(
             Func(camera.reparentTo, self),
-            Func(camera.setPos, Point3(0, -40, 8)),
+            Func(camera.setPos, Point3(0, -40, 12)),
             Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech1, CFSpeech),
             Wait(3),
@@ -606,12 +606,12 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             self.toonNormalEyes(self.involvedToons),
             Wait(2),
             Func(camera.reparentTo, self),
-            Func(camera.setPos, Point3(0, -40, 8)),
+            Func(camera.setPos, Point3(0, -40, 12)),
             Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech4, CFSpeech),
             Wait(3),
 			Func(self.clearChat),
-            LerpPosHprInterval(camera, duration=0.8, pos=Point3(0, -38, 8), hpr=(0, 10, 0), blendType='easeInOut'),
+            LerpPosHprInterval(camera, duration=0.8, pos=Point3(0, -35, 17), hpr=(0, 10, 0), blendType='easeInOut'),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech5, CFSpeech),
             Wait(3),
 			Func(self.clearChat),
