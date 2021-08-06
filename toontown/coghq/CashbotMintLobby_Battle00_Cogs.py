@@ -3,13 +3,17 @@ import random
 from toontown.toonbase import ToontownGlobals
 CogParent = 10000
 MidCogParent = 10022
+BeginCogParent = 10040
 FrontCogParent = 10060
 BattleCellId = 0
 MidBattleCellId = 1
-FrontBattleCellId = 2
+BeginBattleCellId = 2
+FrontBattleCellId = 3
 BattleCells = {BattleCellId: {'parentEntId': CogParent,
                 'pos': Point3(0, 0, 0)},
  MidBattleCellId: {'parentEntId': MidCogParent,
+                   'pos': Point3(0, 0, 0)},
+ BeginBattleCellId: {'parentEntId': BeginCogParent,
                    'pos': Point3(0, 0, 0)},
  FrontBattleCellId: {'parentEntId': FrontCogParent,
                      'pos': Point3(0, 0, 0)}}
@@ -80,6 +84,42 @@ CogData = [{'parentEntId': CogParent,
   'boss': 0,
   'level': 16,
   'battleCell': MidBattleCellId,
+  'pos': Point3(6, 0, 0),
+  'h': 180,
+  'behavior': 'stand',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': BeginCogParent,
+  'boss': 0,
+  'level': 10,
+  'battleCell': BeginBattleCellId,
+  'pos': Point3(-6, 0, 0),
+  'h': 180,
+  'behavior': 'stand',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': BeginCogParent,
+  'boss': 0,
+  'level': 11,
+  'battleCell': BeginBattleCellId,
+  'pos': Point3(-2, 0, 0),
+  'h': 180,
+  'behavior': 'stand',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': BeginCogParent,
+  'boss': 0,
+  'level': 10,
+  'battleCell': BeginBattleCellId,
+  'pos': Point3(2, 0, 0),
+  'h': 180,
+  'behavior': 'stand',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': BeginCogParent,
+  'boss': 0,
+  'level': 11,
+  'battleCell': BeginBattleCellId,
   'pos': Point3(6, 0, 0),
   'h': 180,
   'behavior': 'stand',

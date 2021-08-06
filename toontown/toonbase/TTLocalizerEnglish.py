@@ -62,7 +62,7 @@ Goofy = 'Goofy'
 SuperGoofy = 'SuperGoofy'
 Pluto = 'Pluto'
 WesternPluto = 'WesternPluto'
-Flippy = 'Marma Marmie'
+Flippy = 'Gabe the Happy Dog'
 Chip = 'Chip'
 Dale = 'Dale'
 JailbirdDale = 'JailbirdDale'
@@ -6766,6 +6766,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  777: 'Queen Lillie',
  784: 'Timinator',
  788: 'Redsonic',
+ 888: 'Gabe The Happy Dog',
  998: 'Furball',
  999: 'Toon Tailor',
  1000: lToonHQ,

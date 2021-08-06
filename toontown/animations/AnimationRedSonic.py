@@ -25,8 +25,17 @@ class AnimationRedSonic():
         self.mixsong = base.loader.loadMusic('phase_14/audio/bgm/estate_interior.ogg')
         self.sonicintrosong = base.loader.loadMusic('phase_14/audio/bgm/CFO_win.ogg')
         self.HQsong = base.loader.loadMusic('phase_9/audio/bgm/CogHQ_Stage_bg.ogg')
+        self.battlesong = base.loader.loadMusic('phase_14/audio/bgm/SBHQ_prepare_objective.ogg')
+        self.sonicpreparesong = base.loader.loadMusic('phase_14/audio/bgm/Boss_Prepare.ogg')
+        self.factorysong = base.loader.loadMusic('phase_14/audio/bgm/Factory_Music.ogg')
 
     def create(self):
+        base.playMusic(self.factorysong, looping=1, volume=2)
+
+        base.playMusic(self.sonicpreparesong, looping=1, volume=1)
+        
+        base.playMusic(self.battlesong, looping=1, volume=1)
+
         base.playMusic(self.HQsong, looping=1, volume=1)
 
         base.playMusic(self.mixsong, looping=1, volume=1)
@@ -37,6 +46,10 @@ class AnimationRedSonic():
         self.placeVariable = loader.loadModel('phase_7/models/modules/suit_interior.bam')
 
         self.HQVariable = loader.loadModel('phase_9/models/cogHQ/SellbotHQExterior.bam')
+
+        self.sonicplaceVariable = loader.loadModel('phase_7/models/modules/suit_interior.bam')
+
+        self.factoryVariable = loader.loadModel('phase_9/models/cogHQ/SelbotLegFactory.bam')
 
         self.TTSky = loader.loadModel('phase_9/models/cogHQ/cog_sky.bam')
         self.TTSky.reparentTo(render)
@@ -89,8 +102,17 @@ class AnimationRedSonic():
         self.CarPropTexture = loader.loadTexture('phase_14/maps/map.jpg')
         self.CarProp.setTexture(self.CarPropTexture, 1)
 
+        self.map = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_csa_memo.bam')
+        self.map.setScale(1.5)
+
+        self.mapTexture = loader.loadTexture('phase_14/maps/map.jpg')
+        self.map.setTexture(self.mapTexture, 1)
+
         self.book = loader.loadModel('phase_3.5/models/props/book-mod.bam')
         self.book.setScale(0.7)
+
+        self.button = loader.loadModel('phase_3.5/models/props/button.bam')
+        self.button.setScale(1)
         
         self.toon = NPCToons.createLocalNPC(555)
         self.toon.loop('sit')
@@ -436,7 +458,7 @@ class AnimationRedSonic():
         Func(self.toon3.blinkEyes),
         Func(self.toon3.pose, 'conked', 30), Func(self.toon3.pose, 'conked', 30),
         Parallel(SoundInterval(self.alarmAlertSfx)),
-        Func(self.nametagJ3.setChat, "Hollywood???!", CFSpeech | CFTimeout), SoundInterval(self.dogExclaimSpeech), SoundInterval(self.dogQuestionSpeech),
+        Func(self.nametagJ3.setChat, "Sunlight Elvis???!", CFSpeech | CFTimeout), SoundInterval(self.dogExclaimSpeech), SoundInterval(self.dogQuestionSpeech),
         Wait(2.5),
         Func(self.nametagJ3.clearChat),
         LerpPosHprInterval(camera, duration=1, pos=Point3(-7, -15, 3), hpr=(280, 0, 0), blendType='easeInOut'),
@@ -475,7 +497,7 @@ class AnimationRedSonic():
         LerpPosHprInterval(self.Rose, duration=2, pos=Point3(-8, -15, -20), hpr=(270, 0, 0), blendType='noBlend'),
         LerpPosHprInterval(camera, duration=2, pos=Point3(-4, -29, 3), hpr=(0, 13, 0), blendType='easeInOut'),
         LerpPosHprInterval(self.Rose, duration=3, pos=Point3(-8, -15, 0), hpr=(270, 0, 0), blendType='noBlend'),
-        Func(self.nametagJ4.setChat, "When did a good sir like you become so aggressive around the mighty Mr. Hollywood??", CFSpeech | CFTimeout), SoundInterval(self.cogQuestionSpeech), SoundInterval(self.cogQuestionSpeech),
+        Func(self.nametagJ4.setChat, "What made a good sir like you want to judge the almighty Sunlight Elvis?", CFSpeech | CFTimeout), SoundInterval(self.cogQuestionSpeech), SoundInterval(self.cogQuestionSpeech),
         Wait(3),
         Func(self.nametagJ4.clearChat),
         LerpPosHprInterval(camera, duration=0, pos=Point3(-5, -15, 4), hpr=(270, 0, 0), blendType='easeInOut'),
@@ -518,7 +540,7 @@ class AnimationRedSonic():
         Func(self.nametagJ4.setChat, "You're doomed, Toon!", CFSpeech | CFTimeout), SoundInterval(self.cogStatementSpeech), SoundInterval(self.cogGruntSpeech),
         Wait(3),
         LerpPosHprInterval(camera, duration=1, pos=Point3(0, -5, 8), hpr=(180, 0, 0), blendType='easeInOut'),
-        Func(self.nametagJ4.setChat, "You will not mess with the Mr. Hollywood!", CFSpeech | CFTimeout), SoundInterval(self.cogMurmurSpeech), SoundInterval(self.cogGruntSpeech),
+        Func(self.nametagJ4.setChat, "You will not mess with the Sunlight Elvis!", CFSpeech | CFTimeout), SoundInterval(self.cogMurmurSpeech), SoundInterval(self.cogGruntSpeech),
         Wait(2.5),
         Func(self.nametagJ4.clearChat),
         Func(base.transitions.irisOut, 0),
@@ -548,7 +570,7 @@ class AnimationRedSonic():
         Func(self.toon2.pose, 'think', 30), Func(self.toon2.pose, 'think', 30),
         Func(self.nametagJ2.setChat, "Ok. I'm here, so now what?", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech), SoundInterval(self.catQuestionSpeech),
         Wait(2.5),
-        Parallel(LerpPosHprInterval(self.book, duration=0, pos=Point3(0, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'book', 60)),
+        Parallel(LerpPosHprInterval(self.book, duration=0, pos=Point3(-0.5, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'book', 60)),
         LerpPosHprInterval(camera, duration=0, pos=Point3(-50, -105, 4), hpr=(100, 0, 0), blendType='easeInOut'),
         Func(self.nametagJ2.setChat, "According to this map, there should be secret treasure here.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
         Wait(2.5),
@@ -570,10 +592,10 @@ class AnimationRedSonic():
         LerpPosHprInterval(self.toon2, duration=3, pos=Point3(-60, -135, 0.5), hpr=(180, 0, 0), blendType='noBlend'),
         Func(self.toon2.loop, 'walk'), Func(self.toon2.loop, 'walk'),
         LerpPosHprInterval(self.toon2, duration=2, pos=Point3(-60, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
-        LerpPosHprInterval(self.toon2, duration=3, pos=Point3(-57, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.toon2, duration=3, pos=Point3(-53, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
         Func(self.toon2.loop, 'neutral'), Func(self.toon2.loop, 'neutral'),
-        LerpPosHprInterval(camera, duration=2, pos=Point3(-57, -125, 4), hpr=(180, 0, 0), blendType='easeInOut'),
-        LerpPosHprInterval(self.book, duration=0, pos=Point3(0, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'book', 60),
+        LerpPosHprInterval(camera, duration=2, pos=Point3(-53, -125, 4), hpr=(180, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.book, duration=0, pos=Point3(-0.5, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'book', 60),
         Func(self.nametagJ2.setChat, "Hm. What does this say?", CFSpeech | CFTimeout), SoundInterval(self.catShortSpeech), SoundInterval(self.catQuestionSpeech),
         Wait(2.5),
         Func(self.nametagJ2.setChat, "According to the map, it looks like a pathway to freedom.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
@@ -586,11 +608,114 @@ class AnimationRedSonic():
         Func(self.HQsong.stop),
         LerpPosHprInterval(camera, duration=0.8, pos=Point3(-75, -105, 4), hpr=(235, 0, 0), blendType='easeInOut'),
         SoundInterval(self.HoldUpSfx),
-        LerpPosHprInterval(camera, duration=0, pos=Point3(-57, -120, 4), hpr=(185, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-57, -125, 4), hpr=(185, 0, 0), blendType='easeInOut'),
         Func(self.nametagJ2.setChat, "Wait what...", CFSpeech | CFTimeout), SoundInterval(self.catEmotionalSpeech),
         Wait(3),
         Func(self.nametagJ2.setChat, "It's right here though, I can just grab it.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
         Wait(2.5),
+        Func(self.nametagJ2.clearChat),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-48, -135, 4), hpr=(120, 0, 0), blendType='easeInOut'),
+        Func(self.toon2.loop, 'walk'), Func(self.toon2.loop, 'walk'),
+        LerpPosHprInterval(self.toon2, duration=1, pos=Point3(-59, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-57, -135, 4), hpr=(70, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.book, duration=0, pos=Point3(3, 0, 0), hpr=(3, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'jump', 20),
+        LerpPosHprInterval(self.book, duration=0, pos=Point3(0, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.hide), Func(self.toon2.pose, 'jump', 20),
+        Wait(2),
+        LerpPosHprInterval(self.map, duration=0, pos=Point3(0, 0, 0), hpr=(3, 0, 0)), Func(self.map.reparentTo, self.toon2.rightHand), Func(self.map.show), Func(self.toon2.pose, 'jump', 20),
+        LerpPosHprInterval(self.CarProp, duration=0, pos=Point3(-60.8714, -134.531, 4), hpr=(180, 0, 0), blendType='noBlend'),
+        Wait(2),
+        Func(self.battlesong.play),
+        Func(self.toon2.pose, 'book', 40), Func(self.toon2.pose, 'book', 40),
+        LerpPosHprInterval(self.toon2, duration=0, pos=Point3(-60, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-60.8714, -129.531, 4), hpr=(185, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "Too easy, lol.", CFSpeech | CFTimeout), SoundInterval(self.catMedSpeech),
+        Wait(2.5),
+        Func(self.nametagJ2.setChat, "Time to go to the next area.", CFSpeech | CFTimeout), SoundInterval(self.catMedSpeech),
+        Wait(2.5),
+        Func(self.nametagJ2.clearChat),
+        Func(base.transitions.irisOut, 0),
+        Func(self.battlesong.stop),
+        LerpPosHprInterval(self.TableProp, duration=0, pos=Point3(-12, -20, -12), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp2, duration=0, pos=Point3(-12, -20, -12), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp3, duration=0, pos=Point3(-12, -20, -12), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp4, duration=0, pos=Point3(-12, -20, -12), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.toon, duration=0, pos=Point3(-12, -20, -12), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.map, duration=0, pos=Point3(0, 0, 0), hpr=(3, 0, 0)), Func(self.map.reparentTo, self.toon2.rightHand), Func(self.map.hide), Func(self.toon2.pose, 'shrug', 20),
+        LerpPosHprInterval(self.toon2, duration=0, pos=Point3(-12, -20, -12), hpr=(180, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.toon3, duration=0, pos=Point3(0, -15, 0.5), hpr=(180, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp5, duration=0, pos=Point3(0, 29, 0), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp6, duration=0, pos=Point3(0, -29, 0), hpr=(180, 0, 0), blendType='noBlend'),
+        Func(self.toon3.pose, 'bored', 50), Func(self.toon3.pose, 'bored', 50),
+        Func(self.toon3.hideAngryMuzzle),
+        Func(self.toon3.showSmileMuzzle),
+        Func(self.toon3.angryEyes),
+        Func(self.toon3.blinkEyes),
+        Wait(3),
+        Func(self.sonicpreparesong.play),
+        Func(base.transitions.irisIn, 1.5),
+        Func(self.changeModels2),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(0, -19, 4), hpr=(0, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ3.setChat, "Ha. I distracted the Sunlight dude.", CFSpeech | CFTimeout), SoundInterval(self.dogMedSpeech), Wait(0.5), SoundInterval(self.dogMedSpeech),
+        Wait(2),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(3, -22, 4), hpr=(20, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ3.setChat, "Does he not realize my true colors?", CFSpeech | CFTimeout), SoundInterval(self.dogQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ3.setChat, "Pathetic, I thought he'd care.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(-3, -22, 4), hpr=(-5, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ3.setChat, "Guess my theory was wrong.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        Func(self.toon3.hideSmileMuzzle),
+        Func(self.toon3.normalEyes),
+        Func(self.toon3.blinkEyes),
+        Func(self.nametagJ3.setChat, "Oh well, I love proving people wrong. It's so much fun.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech), Wait(0.2), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        Func(self.nametagJ3.setChat, "Especially if I get to mess with Master Cool Cat.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        Func(self.nametagJ3.clearChat),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(0, -24, 4), hpr=(0, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.button, duration=0, pos=Point3(0, 0, 0), hpr=(3, 0, 0)), Func(self.button.reparentTo, self.toon3.leftHand), Func(self.button.show), Func(self.toon3.play, 'pushbutton', fromFrame=0, toFrame=70),
+        Wait(2),
+        LerpPosHprInterval(self.button, duration=0, pos=Point3(0, 0, 0), hpr=(3, 0, 0)), Func(self.button.reparentTo, self.toon3.leftHand), Func(self.button.show), Func(self.toon3.pose, 'pushbutton', 70),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(3, -22, 4), hpr=(30, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ3.setChat, "Get ready Master Cool Cat.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        LerpPosHprInterval(camera, duration=0.5, pos=Point3(0, -26, 4), hpr=(0, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ3.setChat, "Redsonic will get you soon.", CFSpeech | CFTimeout), SoundInterval(self.dogLongSpeech),
+        Wait(3),
+        Func(self.nametagJ3.clearChat),
+        Func(base.transitions.irisOut, 0), 
+        Func(self.button.hide),
+        Func(self.sonicpreparesong.stop),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(5.05647, 24.8354, 13), hpr=(0, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.toon3, duration=0, pos=Point3(0, -15, -20.5), hpr=(180, 0, 0), blendType='noBlend'),
+        Func(self.FactoryModels),
+        Func(self.factorysong.play),
+        Func(base.transitions.irisIn, 1.5),
+        LerpPosHprInterval(camera, duration=4, pos=Point3(20, 44.3581, 6), hpr=(180, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(20, 33.8089, 6), hpr=(180, 0, 0), blendType='easeInOut'),
+        Wait(2),
+        LerpPosHprInterval(self.toon2, duration=0, pos=Point3(20, 11, 4), hpr=(0, 0, 0), blendType='noBlend'),
+        Func(self.toon2.loop, 'jump'), Func(self.toon2.loop, 'jump'),
+        Wait(1.5),
+        Func(self.toon2.loop, 'neutral'), Func(self.toon2.loop, 'neutral'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(20, 21, 6), hpr=(180, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "Ok. I'm here. Now what?", CFSpeech | CFTimeout), SoundInterval(self.catQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ2.setChat, "The map lead me to here for some reason...", CFSpeech | CFTimeout), SoundInterval(self.catEmotionalSpeech),
+        Wait(3),
+        LerpPosHprInterval(camera, duration=0.5, pos=Point3(15, 18, 6), hpr=(-140, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "But I'm not understanding why.", CFSpeech | CFTimeout), SoundInterval(self.catQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ2.clearChat),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(21, 40, 8), hpr=(0, 0, 0), blendType='easeInOut'),
+        Wait(3.5),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(15, 18, 6), hpr=(-140, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "Nevermind.", CFSpeech | CFTimeout), SoundInterval(self.catShortSpeech),
+        Wait(2),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(15, 22, 6), hpr=(-160, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "Let's just explore.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
+        Wait(3),
         Func(self.nametagJ2.clearChat))))))))))))))
 
         GoodTrack.start()
@@ -602,3 +727,11 @@ class AnimationRedSonic():
     def CogHQModels(self):
         self.placeVariable.removeNode()
         self.HQVariable.reparentTo(render)
+
+    def changeModels2(self):
+        self.HQVariable.removeNode()
+        self.sonicplaceVariable.reparentTo(render)
+
+    def FactoryModels(self):
+        self.sonicplaceVariable.removeNode()
+        self.factoryVariable.reparentTo(render)

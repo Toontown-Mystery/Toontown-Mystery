@@ -8,7 +8,7 @@ from toontown.coghq import LaserGameBase
 class LaserGameAvoid(LaserGameBase.LaserGameBase):
     def __init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid):
         LaserGameBase.LaserGameBase.__init__(self, funcSuccess, funcFail, funcSendGrid, funcSetGrid)
-        self.setGridSize(10, 10)
+        self.setGridSize(15, 15)
         self.blankGrid()
         self.cycleName = simbase.air.trueUniqueName('AvoidGame')
 
@@ -75,7 +75,7 @@ class LaserGameAvoid(LaserGameBase.LaserGameBase):
 
 
         if not self.finshed:
-            taskMgr.doMethodLater(1.0, self._LaserGameAvoid__cycle, self.cycleName)
+            taskMgr.doMethodLater(5.0, self._LaserGameAvoid__cycle, self.cycleName)
             self.funcSendGrid()
 
         return Task.done

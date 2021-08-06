@@ -123,7 +123,21 @@ GlobalEntities = {1000: {'type': 'levelMgr',
          'parentEntId': 10002,
          'pos': Point3(0.0, 0.0, 0.0),
          'hpr': Vec3(0.0, 0.0, 0.0),
-         'scale': 1}}
+         'scale': 1},
+ 10005: {'type': 'nodepath',
+         'name': 'cogs',
+         'comment': '',
+         'parentEntId': 0,
+         'pos': Point3(-19.439209, -15.786, 0.0249786),
+         'hpr': Point3(180.0, 0.0, 0.0),
+         'scale': Vec3(1.0, 1.0, 1.0)},
+ 10006: {'type': 'nodepath',
+         'name': 'cogs',
+         'comment': '',
+         'parentEntId': 0,
+         'pos': Point3(-19.439209, 15.786, 0.0249786),
+         'hpr': Point3(0.0, 0.0, 0.0),
+         'scale': Vec3(1.0, 1.0, 1.0)}}
 Scenario0 = {}
 levelSpec = {'globalEntities': GlobalEntities,
  'scenarios': [Scenario0]}

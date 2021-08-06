@@ -142,9 +142,9 @@ class Goon(Avatar.Avatar):
             colorList = GoonGlobals.SG_COLORS
         else:
             return
-        if self.strength >= 20:
+        if self.strength >= 50:
             self.hat.setColorScale(colorList[0])
-        elif self.strength >= 15:
+        elif self.strength >= 75:
             self.hat.setColorScale(colorList[1])
         else:
             self.hat.clearColorScale()
