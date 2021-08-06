@@ -1,4 +1,4 @@
-Toontown Online Resources
+Toontown Mystery Resources
 ========================
 
-Game resources (models, audio, textures, etc.) for Toontown Online.
+Game resources (models, audio, textures, etc.) for Toontown Mystery.
