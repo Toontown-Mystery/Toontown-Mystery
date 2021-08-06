@@ -172,7 +172,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.geom.reparentTo(render)
         self.elevatorMusic = base.loader.loadMusic('phase_12/audio/bgm/King_elevator.ogg')
         self.promotionMusic = base.loadMusic('phase_12/audio/bgm/CEO_intro.ogg')
-        self.betweenPhaseMusic = base.loadMusic('phase_7/audio/bgm/encntr_suit_winning_indoor.ogg')
+        self.betweenPhaseMusic = base.loadMusic('phase_14/audio/bgm/Boss_Prepare.ogg')
         self.battleOneMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_1.ogg')
         self.phaseTwoMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_2.ogg')
         self.battleThreeMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_3.ogg')
@@ -589,8 +589,8 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         loseSuitCamAngle = (0, 19, 6, -180, -5, 0)
         track = Sequence(
             Func(camera.reparentTo, self),
-            Func(camera.setPos, Point3(0, -45, 5)),
-            Func(camera.setHpr, Point3(0, 14, 0)),
+            Func(camera.setPos, Point3(0, -40, 8)),
+            Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech1, CFSpeech),
             Wait(3),
 			Func(self.clearChat),
@@ -606,15 +606,17 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             self.toonNormalEyes(self.involvedToons),
             Wait(2),
             Func(camera.reparentTo, self),
-            Func(camera.setPos, Point3(0, -45, 5)),
-            Func(camera.setHpr, Point3(0, 14, 0)),
+            Func(camera.setPos, Point3(0, -40, 8)),
+            Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech4, CFSpeech),
             Wait(3),
 			Func(self.clearChat),
+            LerpPosHprInterval(camera, duration=0.8, pos=Point3(0, -38, 8), hpr=(0, 10, 0), blendType='easeInOut'),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech5, CFSpeech),
             Wait(3),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech6, CFSpeech),
+            LerpPosHprInterval(camera, duration=4, pos=Point3(0, -75, 5), hpr=(0, 10, 0), blendType='easeInOut'),
             Wait(4),
             Func(self.clearChat))
         return track
