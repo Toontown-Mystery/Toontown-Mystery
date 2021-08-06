@@ -398,6 +398,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.battleOneMusic = base.loadMusic('phase_11/audio/bgm/CJ_round_1.ogg')
         self.battleTwoMusic = base.loadMusic('phase_9/audio/bgm/encntr_suit_winning.ogg')
         self.battleThreeMusic = base.loadMusic('phase_11/audio/bgm/CJ_scale_round.ogg')
+        self.victoryMusic = base.loadMusic('phase_11/audio/bgm/CLO_win.ogg')
         floor = self.geom.find('**/MidVaultFloor1')
         if floor.isEmpty():
             floor = self.geom.find('**/CR3_Floor')
@@ -1056,7 +1057,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq.start()
         self.storeInterval(seq, intervalName)
         self.bossHealthBar.deinitialize()
-        base.playMusic(self.battleThreeMusic, looping=1, volume=0.9, time=self.battleThreeMusicTime)
+        base.playMusic(self.victoryMusic, looping=1, volume=0.9, time=self.battleThreeMusicTime)
 
     def __continueVictory(self):
         self.notify.debug('----- __continueVictory')
@@ -1121,7 +1122,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         ival.delayDeletes = delayDeletes
         ival.start()
         self.storeInterval(ival, intervalName)
-        base.playMusic(self.battleThreeMusic, looping=1, volume=0.9, time=self.battleThreeMusicTime)
+        base.playMusic(self.victoryMusic, looping=1, volume=0.9, time=self.battleThreeMusicTime)
 
     def __doneReward(self):
         self.notify.debug('----- __doneReward')

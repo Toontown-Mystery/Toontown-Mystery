@@ -232,6 +232,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.cutsceneMusic = base.loadMusic('phase_10/audio/bgm/CB_boss_flee.ogg')
         self.intermissionMusic = base.loadMusic('phase_10/audio/bgm/CB_boss_crane.ogg')
         self.battleThreeMusic = base.loadMusic('phase_10/audio/bgm/encntr_boss_bg.ogg')
+        self.victoryMusic = base.loadMusic('phase_10/audio/bgm/CFO_win.ogg')
 
     def unloadEnvironment(self):
         DistributedBossCog.DistributedBossCog.unloadEnvironment(self)
@@ -1221,7 +1222,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.storeInterval(seq, intervalName)
         self.bossHealthBar.deinitialize()
         if self.oldState != 'BattleThree':
-            base.playMusic(self.battleThreeMusic, looping=1, volume=0.9)
+            base.playMusic(self.victoryMusic, looping=1, volume=0.9)
 
     def __continueVictory(self):
         self.doneBarrier('Victory')
@@ -1258,7 +1259,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         ival.start()
         self.storeInterval(ival, intervalName)
         if self.oldState != 'Victory':
-            base.playMusic(self.battleThreeMusic, looping=1, volume=0.9)
+            base.playMusic(self.victoryMusic, looping=1, volume=0.9)
 
     def __doneReward(self):
         self.doneBarrier('Reward')

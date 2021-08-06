@@ -177,6 +177,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.phaseTwoMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_2.ogg')
         self.battleThreeMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_3.ogg')
         self.phaseFourMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_4.ogg')
+        self.victoryMusic = base.loadMusic('phase_12/audio/bgm/CEO_victory.ogg')
         self.pickupFoodSfx = loader.loadSfx('phase_6/audio/sfx/SZ_MM_gliss.ogg')
         self.explodeSfx = loader.loadSfx('phase_4/audio/sfx/firework_distance_02.ogg')
 
@@ -592,13 +593,13 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(camera.setPos, Point3(0, -40, 12)),
             Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech1, CFSpeech),
-            Wait(3),
+            Wait(4),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech2, CFSpeech),
-            Wait(3),
+            Wait(4),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech3, CFSpeech),
-            Wait(3),
+            Wait(4),
 			Func(self.clearChat),
             Func(camera.setPosHpr, base.localAvatar, *loseSuitCamAngle),
             Wait(3),
@@ -609,11 +610,11 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(camera.setPos, Point3(0, -40, 12)),
             Func(camera.setHpr, Point3(0, 10, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech4, CFSpeech),
-            Wait(3),
+            Wait(4),
 			Func(self.clearChat),
             LerpPosHprInterval(camera, duration=0.8, pos=Point3(0, -35, 17), hpr=(0, 10, 0), blendType='easeInOut'),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech5, CFSpeech),
-            Wait(3),
+            Wait(4),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech6, CFSpeech),
             LerpPosHprInterval(camera, duration=5, pos=Point3(0, -100, 5), hpr=(0, 10, 0), blendType='easeInOut'),
@@ -696,12 +697,13 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(camera.setHpr, Point3(0, 14, 0)),
             Func(self.setChatAbsolute, TTL.BossbotPhase4Speech1, CFSpeech),
             Func(self.banquetDoor.setH, 0),
-            Wait(3.0),
+            Wait(5.0),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase4Speech2, CFSpeech),
+            LerpPosHprInterval(camera, duration=0.5, pos=Point3(-5, -45, 15), hpr=(30, 0, 0), blendType='easeInOut'),
             Func(self.bossClub.setScale, 0.01),
             Func(self.bossClub.reparentTo, self.rightHandJoint),
-            LerpScaleInterval(self.bossClub, 3, Point3(1, 1, 1)),
+            LerpScaleInterval(self.bossClub, 5, Point3(1, 1, 1)),
             Func(self.clearChat))
         return track
 
@@ -873,7 +875,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         ival.delayDeletes = delayDeletes
         ival.start()
         self.storeInterval(ival, intervalName)
-        base.playMusic(self.betweenPhaseMusic, looping=1, volume=0.9)
+        base.playMusic(self.victoryMusic, looping=1, volume=0.9)
 
     def __doneReward(self):
         self.notify.debug('----- __doneReward')

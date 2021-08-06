@@ -1017,7 +1017,7 @@ TOT_REWARD_END_OFFSET_AMOUNT = 0
 
 LawbotBossMaxDamage = 15000
 LawbotBossWinningTilt = 40
-LawbotBossInitialDamage = 2000
+LawbotBossInitialDamage = 5000
 LawbotBossBattleOnePosHpr = (-2.798,
  -60,
  0,
@@ -1476,7 +1476,7 @@ LawbotBossJuryBoxStartPos = (94, -8, 5)
 LawbotBossJuryBoxRelativeEndPos = (30, 0, 12.645)
 LawbotBossJuryBoxMoveTime = 50
 LawbotBossJurorsForBalancedScale = 12
-LawbotBossDamagePerJuror = 500
+LawbotBossDamagePerJuror = 200
 LawbotBossCogJurorFlightTime = 70
 LawbotBossCogJurorDistance = 105
 LawbotBossBaseJurorNpcId = 2001
