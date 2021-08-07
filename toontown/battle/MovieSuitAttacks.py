@@ -2589,7 +2589,7 @@ def doTremor(attack):
     damageAnims = [['slip-forward'], ['slip-forward', 0.01]]
     dodgeAnims = [['jump'], ['jump', 0.01]]
     toonTracks = getToonTracks(attack, damageDelay=1.1, splicedDamageAnims=damageAnims, dodgeDelay=0.7, splicedDodgeAnims=dodgeAnims, showMissedExtraTime=2.8, showDamageExtraTime=1.1)
-    soundTrack = getSoundTrack('SA_tremor.ogg', delay=0.9, node=suit)
+    soundTrack = getSoundTrack('SA_drop_tremor.ogg', delay=0.9, node=suit)
     return Parallel(suitTrack, soundTrack, toonTracks)
 
 def doHangUp(attack):
@@ -2832,7 +2832,7 @@ def doPoisonSpray(attack):
     dodgeAnims.append(['jump', 0, 0.91])
     toonTracks = getToonTracks(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, splicedDodgeAnims=dodgeAnims, showDamageExtraTime=2.7)
     if hitAtleastOneToon == 1:
-        soundTrack = getSoundTrack('SA_watercooler_spray_only.ogg', delay=4.4, node=suit)
+        soundTrack = getSoundTrack('SA_acid.ogg', delay=3.8, node=suit)
         return Parallel(suitTrack, sprayTrack, soundTrack, liftTracks, toonTracks, toonRiseTracks)
     else:
         return Parallel(suitTrack, sprayTrack, liftTracks, toonTracks, toonRiseTracks)
@@ -3473,7 +3473,7 @@ def doBite(attack):
       0.7,
       0.2], ['duck', 0.01, 1.6]]
     toonTrack = getToonTrack(attack, damageDelay=3.2, splicedDamageAnims=damageAnims, dodgeDelay=2.9, splicedDodgeAnims=dodgeAnims, showDamageExtraTime=2.4)
-    soundTrack = getSoundTrack('SA_chomp.ogg', delay=2.9, node=suit)
+    soundTrack = getSoundTrack('SA_bite.ogg', delay=2.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 
 
@@ -3589,7 +3589,7 @@ def doEvictionNotice(attack):
     missPoint.setX(missPoint.getX() - 1.1)
     propTrack.append(getPropThrowTrack(attack, paper, [hitPoint], [missPoint], parent=battle))
     toonTrack = getToonTrack(attack, 3.4, ['conked'], 2.8, ['jump'])
-    soundTrack = getSoundTrack('SA_paper.ogg', delay=0.9, node=suit)
+    soundTrack = getSoundTrack('SA_paper_throw.ogg', delay=0.1, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 	
 def doNotThrowPiano(attack):
@@ -3994,7 +3994,7 @@ def doRestrainingOrder(attack):
       0.3,
       0.2], ['struggle', 0.01, 0.2]]
     toonTrack = getToonTrack(attack, damageDelay=3.4, splicedDamageAnims=damageAnims, dodgeDelay=2.8, dodgeAnimNames=['sidestep'])
-    soundTrack = getSoundTrack('SA_paper.ogg', delay=2.9, node=suit)
+    soundTrack = getSoundTrack('SA_paper_throw.ogg', delay=2.9, node=suit)
     if dmg > 0:
         restraintCloud = BattleParticles.createParticleEffect(file='restrainingOrderCloud')
         restraintCloud.setPos(hitPoint.getX(), hitPoint.getY() + 0.5, hitPoint.getZ())
