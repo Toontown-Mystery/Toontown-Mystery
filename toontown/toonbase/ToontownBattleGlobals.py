@@ -642,13 +642,13 @@ AvLureBonusAccuracy = (90,
  90,
  90)
 AvTrackAccStrings = TTLocalizer.BattleGlobalAvTrackAccStrings
-AvPropDamage = ((((6, 8), (Levels[0][0], Levels[0][1])),
-  ((12, 15), (Levels[0][1], Levels[0][2])),
-  ((20, 25), (Levels[0][2], Levels[0][3])),
-  ((35, 40), (Levels[0][3], Levels[0][4])),
-  ((40, 50), (Levels[0][4], Levels[0][5])),
-  ((60, 100), (Levels[0][5], Levels[0][6])),
-  ((150, 150), (Levels[0][6], MaxSkill))),
+AvPropDamage = ((((8, 9), (Levels[0][0], Levels[0][1])),
+  ((11, 17), (Levels[0][1], Levels[0][2])),
+  ((21, 28), (Levels[0][2], Levels[0][3])),
+  ((40, 55), (Levels[0][3], Levels[0][4])),
+  ((65, 80), (Levels[0][4], Levels[0][5])),
+  ((90, 140), (Levels[0][5], Levels[0][6])),
+  ((180, 180), (Levels[0][6], MaxSkill))),
  (((20, 30), (Levels[1][0], Levels[1][1])),
   ((40, 55), (Levels[1][1], Levels[1][2])),
   ((65, 100), (Levels[1][2], Levels[1][3])),
@@ -690,7 +690,7 @@ AvPropDamage = ((((6, 8), (Levels[0][0], Levels[0][1])),
   ((45, 100), (Levels[6][3], Levels[6][4])),
   ((60, 170), (Levels[6][4], Levels[6][5])),
   ((85, 300), (Levels[6][5], Levels[6][6])),
-  ((360, 360), (Levels[6][6], MaxSkill))))
+  ((375, 375), (Levels[6][6], MaxSkill))))
 ATK_SINGLE_TARGET = 0
 ATK_GROUP_TARGET = 1
 AvPropTargetCat = ((ATK_SINGLE_TARGET,
