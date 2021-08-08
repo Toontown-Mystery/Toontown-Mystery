@@ -5,6 +5,7 @@ from libotp import NametagGroup, CFSpeech
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, LerpHprInterval, Parallel, LerpPosInterval, Track, ActorInterval, ParallelEndTogether, LerpFunctionInterval, LerpScaleInterval, LerpPosHprInterval, SoundInterval
 from direct.task import Task
 from direct.fsm import FSM
+from direct.interval.IntervalGlobal import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed.ClockDelta import globalClockDelta
 from direct.showbase import PythonUtil
@@ -279,7 +280,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
          loseSuitCamPos[2],
          loseSuitCamHpr[0],
          loseSuitCamHpr[1],
-         loseSuitCamHpr[2])), self.toonNormalEyes(self.involvedToons), Wait(2), Func(rToon.clearChat), Func(camera.setPosHpr, closeUpRTCamPos, closeUpRTCamHpr), Func(rToon.setChatAbsolute, TTL.BossbotRTFightWaiter, CFSpeech), Wait(0.7), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack1, CFSpeech), Wait(2.5), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack2, CFSpeech), Wait(2.5), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack3, CFSpeech), Wait(2.5), Func(rToon.clearChat), LerpHprInterval(camera, 2, Point3(-15, 5, 0)), Sequence(Func(rToon.suit.loop, 'walk'), rToon.hprInterval(0.5, VBase3(270, 0, 0)), rToon.posInterval(1, rToonEndPos), Func(rToon.suit.loop, 'neutral')), Wait(3), Func(rToon.clearChat), Func(self.__hideResistanceToon))
+         loseSuitCamHpr[2])), self.toonNormalEyes(self.involvedToons), Wait(2), Func(rToon.clearChat), Func(camera.setPosHpr, closeUpRTCamPos, closeUpRTCamHpr), Func(rToon.setChatAbsolute, TTL.BossbotRTFightWaiter, CFSpeech), Wait(0.7), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack1, CFSpeech), Wait(2.5), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack2, CFSpeech), Wait(2.5), Func(rToon.clearChat), Func(rToon.setChatAbsolute, TTL.BossbotRTFightAttack3, CFSpeech), Wait(2.5), Func(rToon.clearChat), LerpHprInterval(camera, 2, Point3(-15, 5, 0)), Sequence(Func(rToon.suit.loop, 'walk'), rToon.hprInterval(0.5, VBase3(270, 0, 0)), rToon.posInterval(1, rToonEndPos), Func(rToon.suit.loop, 'neutral')), Wait(3), Func(rToon.clearChat), LerpColorScaleInterval(render, 3, Vec4(0.7, 0.5, 0.2, 1)), Func(self.__hideResistanceToon))
         return track
 
     def enterFrolic(self):
@@ -618,8 +619,10 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech6, CFSpeech),
             LerpPosHprInterval(camera, duration=5, pos=Point3(0, -100, 5), hpr=(0, 10, 0), blendType='easeInOut'),
-            Wait(10),
-            Func(self.clearChat))
+            LerpColorScaleInterval(render, 3, Vec4(1, 0, 0, 1)),
+            Wait(5),
+            Func(self.clearChat),
+            Wait(5))
         return track
 
     def enterBattleThree(self):
@@ -700,7 +703,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Wait(5.0),
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase4Speech2, CFSpeech),
-            LerpPosHprInterval(camera, duration=0.5, pos=Point3(-5, -45, 15), hpr=(30, 0, 0), blendType='easeInOut'),
+            LerpPosHprInterval(camera, duration=0.5, pos=Point3(-5, -51, 15), hpr=(30, 0, 0), blendType='easeInOut'),
             Func(self.bossClub.setScale, 0.01),
             Func(self.bossClub.reparentTo, self.rightHandJoint),
             LerpScaleInterval(self.bossClub, 5, Point3(1, 1, 1)),
@@ -840,6 +843,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.setChatAbsolute, TTL.BossbotRewardSpeech2, CFSpeech),
             Wait(2),
             Func(self.clearChat),
+            LerpColorScaleInterval(render, 3, Vec4(0, 0, 0, 1)),
             Parallel(
                 Sequence(
                     Wait(0.5),

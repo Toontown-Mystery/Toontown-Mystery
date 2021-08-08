@@ -200,6 +200,28 @@ class AnimationRedSonic():
         nametagNode4 = self.nametagJ4.getNametag3d().upcastToPandaNode()
         self.nametagS4 = self.Rose.attachNewNode(nametagNode4)
         self.nametagS4.setPos(0, 0, 9.5)
+
+        self.suit = Suit.Suit()
+        self.suit.dna = SuitDNA.SuitDNA()
+        self.suit.dna.newSuit('m')
+        self.suit.setDNA(self.suit.dna)
+        self.suit.setPos(20, 106, -20)
+        self.suit.setHpr(180, 0, 0)
+        self.suit.loop('neutral')
+        self.suit.reparentTo(render)
+        self.suit = self.suit
+        
+        self.nametagJ5 = None
+        self.nametagS5 = None
+        self.nametagJ5 = NametagGroup()
+        self.nametagJ5.setAvatar(self.suit)
+        self.nametagJ5.setFont(ToontownGlobals.getToonFont())
+        self.nametagJ5.setName('')
+        self.nametagJ5.manage(base.marginManager)
+        self.nametagJ5.getNametag3d().setBillboardOffset(4)
+        nametagNode5 = self.nametagJ5.getNametag3d().upcastToPandaNode()
+        self.nametagS5 = self.suit.attachNewNode(nametagNode5)
+        self.nametagS5.setPos(0, 0, 7.5)
         
         camera.setPos(0, -25, 5)
         camera.setHpr(0, 0, 0)
@@ -616,13 +638,14 @@ class AnimationRedSonic():
         Func(self.nametagJ2.clearChat),
         LerpPosHprInterval(camera, duration=0, pos=Point3(-48, -135, 4), hpr=(120, 0, 0), blendType='easeInOut'),
         Func(self.toon2.loop, 'walk'), Func(self.toon2.loop, 'walk'),
-        LerpPosHprInterval(self.toon2, duration=1, pos=Point3(-59, -135, 0.5), hpr=(90, 0, 0), blendType='noBlend'),
-        LerpPosHprInterval(camera, duration=0, pos=Point3(-57, -135, 4), hpr=(70, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.toon2, duration=1, pos=Point3(-62, -133, 0.5), hpr=(180, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-57, -134, 4), hpr=(180, 0, 0), blendType='easeInOut'),
         LerpPosHprInterval(self.book, duration=0, pos=Point3(3, 0, 0), hpr=(3, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.show), Func(self.toon2.pose, 'jump', 20),
         LerpPosHprInterval(self.book, duration=0, pos=Point3(0, 0, 0), hpr=(0, 0, 0)), Func(self.book.reparentTo, self.toon2.rightHand), Func(self.book.hide), Func(self.toon2.pose, 'jump', 20),
         Wait(2),
+        LerpPosHprInterval(self.CarProp, duration=0, pos=Point3(-60, -135, -50), hpr=(90, 0, 0), blendType='noBlend'),
         LerpPosHprInterval(self.map, duration=0, pos=Point3(0, 0, 0), hpr=(3, 0, 0)), Func(self.map.reparentTo, self.toon2.rightHand), Func(self.map.show), Func(self.toon2.pose, 'jump', 20),
-        LerpPosHprInterval(self.CarProp, duration=0, pos=Point3(-60.8714, -134.531, 4), hpr=(180, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.CarProp, duration=0, pos=Point3(-60.8714, -134.531, -50), hpr=(180, 0, 0), blendType='noBlend'),
         Wait(2),
         Func(self.battlesong.play),
         Func(self.toon2.pose, 'book', 40), Func(self.toon2.pose, 'book', 40),
@@ -687,6 +710,10 @@ class AnimationRedSonic():
         Func(base.transitions.irisOut, 0), 
         Func(self.button.hide),
         Func(self.sonicpreparesong.stop),
+        LerpPosHprInterval(self.TableProp, duration=0, pos=Point3(-12, -20, -18), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp2, duration=0, pos=Point3(-12, -20, -18), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp3, duration=0, pos=Point3(-12, -20, -18), hpr=(0, 0, 0), blendType='noBlend'),
+        LerpPosHprInterval(self.TableProp4, duration=0, pos=Point3(-12, -20, -18), hpr=(0, 0, 0), blendType='noBlend'),
         LerpPosHprInterval(camera, duration=0, pos=Point3(5.05647, 24.8354, 13), hpr=(0, 0, 0), blendType='easeInOut'),
         LerpPosHprInterval(self.toon3, duration=0, pos=Point3(0, -15, -20.5), hpr=(180, 0, 0), blendType='noBlend'),
         Func(self.FactoryModels),
@@ -716,7 +743,24 @@ class AnimationRedSonic():
         LerpPosHprInterval(camera, duration=1, pos=Point3(15, 22, 6), hpr=(-160, 0, 0), blendType='easeInOut'),
         Func(self.nametagJ2.setChat, "Let's just explore.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
         Wait(3),
-        Func(self.nametagJ2.clearChat))))))))))))))
+        Func(self.nametagJ2.clearChat),
+        LerpPosHprInterval(self.toon2, duration=7, pos=Point3(20, 73, 4), hpr=(0, 0, 0), blendType='noBlend'),
+        Func(self.toon2.loop, 'run'), Func(self.toon2.loop, 'run'),
+        Wait(1),
+        Func(self.toon2.loop, 'neutral'), Func(self.toon2.loop, 'neutral'),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(14, 85, 7), hpr=(210, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ2.setChat, "Ok. Now what?", CFSpeech | CFTimeout), SoundInterval(self.catQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ2.setChat, "I was told that there was a challenge here.", CFSpeech | CFTimeout), SoundInterval(self.catLongSpeech),
+        Wait(3),
+        Func(self.nametagJ2.clearChat),
+        LerpPosHprInterval(camera, duration=1, pos=Point3(20, 94, 9), hpr=(0, 0, 0), blendType='easeInOut'),
+        LerpPosHprInterval(self.suit, duration=2, pos=Point3(20, 106, 4), hpr=(180, 0, 0), blendType='noBlend'),
+        Func(self.nametagJ5.setChat, "Aye, I'm Spongebob!", CFSpeech | CFTimeout), SoundInterval(self.cogGruntSpeech),
+        Wait(3),
+        Func(self.nametagJ5.setChat, "Do you wanna have some fun?", CFSpeech | CFTimeout), SoundInterval(self.cogQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ5.clearChat))))))))))))))
 
         GoodTrack.start()
         
