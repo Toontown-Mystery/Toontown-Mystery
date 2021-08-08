@@ -619,7 +619,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech6, CFSpeech),
             LerpPosHprInterval(camera, duration=5, pos=Point3(0, -100, 5), hpr=(0, 10, 0), blendType='easeInOut'),
-            LerpColorScaleInterval(render, 3, (1, 0, 0, 0)),
+            LerpColorScaleInterval(render, 3, (1, 0.5, 0, 0)),
             Wait(5),
             Func(self.clearChat),
             Wait(5))
@@ -843,7 +843,6 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.setChatAbsolute, TTL.BossbotRewardSpeech2, CFSpeech),
             Wait(2),
             Func(self.clearChat),
-            LerpColorScaleInterval(render, 3, (0, 0, 0, 1)),
             Parallel(
                 Sequence(
                     Wait(0.5),
