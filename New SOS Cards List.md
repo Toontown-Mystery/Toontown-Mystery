@@ -1,9 +1,9 @@
 # Sassy: 
-Toonup 100 laff.
-# Cindy Sprinkles: 
 Toonup 150 laff.
-# Marma Marmie: 
+# Timinator: 
 Toonup 300 laff.
+# Gabe the Happy Dog: 
+Toonup 600 laff.
 # FOG DOG: 
 Sound 150 Damage.
 # Violet:

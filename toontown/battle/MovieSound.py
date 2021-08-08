@@ -95,7 +95,7 @@ def __getSuitTrack(sound, lastSoundThatHit, delay, hitCount, targets, totalDamag
                 suitTrack.append(showDamage)
                 suitTrack.append(updateHealthBar)
             if hitCount == 1:
-                suitTrack.append(Parallel(ActorInterval(suit, 'soak'), MovieUtil.createSuitStunInterval(suit, 0.5, 1.8)))
+                suitTrack.append(Parallel(ActorInterval(suit, 'flail'), MovieUtil.createSuitStunInterval(suit, 0.5, 1.8)))
             else:
                 suitTrack.append(ActorInterval(suit, 'pie-small-react'))
             if kbbonus == 0:
