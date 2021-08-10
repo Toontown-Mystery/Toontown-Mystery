@@ -2430,7 +2430,7 @@ class TrackBonus(MagicWord):
             if gagAccess[track]:
                 trackBonusLevel[track] = trackLength
             else:
-                return "You don\'t have that track!"
+                return "You don't have that track!"
         else:
             return "Invalid track!"
 
