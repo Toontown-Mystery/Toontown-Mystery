@@ -390,7 +390,7 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
             nameTag = suit.find('**/joint_nameTag')
         trapTrack = Sequence(Wait(2.4), LerpScaleInterval(trapProp, 0.8, Point3(0.01, 0.01, 0.01)))
         moveTrack = Sequence(Wait(0.9), LerpPosInterval(suit, 0.9, sinkPos1, other=battle), LerpPosInterval(suit, 0.4, sinkPos2, other=battle), Func(suit.setPos, battle, dropPos), Func(suit.wrtReparentTo, hidden), Wait(1.1), Func(suit.wrtReparentTo, battle), LerpPosInterval(suit, 0.3, landPos, other=battle))
-        animTrack = Sequence(ActorInterval(suit, 'flail'), ActorInterval(suit, 'flail', startTime=1.1), Wait(0.7), ActorInterval(suit, 'slip-forward', duration=5.0))
+        animTrack = Sequence(ActorInterval(suit, 'flail'), ActorInterval(suit, 'flail', startTime=1.1), Wait(0.7), ActorInterval(suit, 'slip-forward', duration=4.0))
         damageTrack = Sequence(Wait(3.5), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
         soundTrack = Sequence(Wait(0.7), SoundInterval(globalBattleSoundCache.getSound('TL_quicksand.ogg'), node=suit), Wait(0.1), SoundInterval(globalBattleSoundCache.getSound('Toon_bodyfall_synergy.ogg'), node=suit))
         result.append(Parallel(trapTrack, moveTrack, animTrack, damageTrack, soundTrack))
@@ -402,7 +402,7 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
         dropPos.setZ(dropPos.getZ() + 15)
         trapTrack = Sequence(Wait(2.4), LerpScaleInterval(trapProp, 0.8, Point3(0.01, 0.01, 0.01)))
         moveTrack = Sequence(Wait(2.2), LerpPosInterval(suit, 0.4, sinkPos, other=battle), Func(suit.setPos, battle, dropPos), Func(suit.wrtReparentTo, hidden), Wait(1.6), Func(suit.wrtReparentTo, battle), LerpPosInterval(suit, 0.3, landPos, other=battle))
-        animTrack = Sequence(getSplicedLerpAnimsTrack(suit, 'flail', 0.7, 0.25), Func(trapProp.setColor, Vec4(0, 0, 0, 1)), ActorInterval(suit, 'flail', startTime=0.7, endTime=0), ActorInterval(suit, 'neutral', duration=0.5), ActorInterval(suit, 'flail', startTime=1.1), Wait(1.1), ActorInterval(suit, 'slip-forward', duration=5.0))
+        animTrack = Sequence(getSplicedLerpAnimsTrack(suit, 'flail', 0.7, 0.25), Func(trapProp.setColor, Vec4(0, 0, 0, 1)), ActorInterval(suit, 'flail', startTime=0.7, endTime=0), ActorInterval(suit, 'neutral', duration=0.5), ActorInterval(suit, 'flail', startTime=1.1), Wait(1.1), ActorInterval(suit, 'slip-forward', duration=4.0))
         damageTrack = Sequence(Wait(3.5), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
         soundTrack = Sequence(Wait(0.8), SoundInterval(globalBattleSoundCache.getSound('TL_trap_door.ogg'), node=suit), Wait(0.8), SoundInterval(globalBattleSoundCache.getSound('Toon_bodyfall_synergy.ogg'), node=suit))
         result.append(Parallel(trapTrack, moveTrack, animTrack, damageTrack, soundTrack))
@@ -419,9 +419,9 @@ def __createSuitDamageTrack(battle, suit, hp, lure, trapProp):
         suitTrack.append(ActorInterval(suit, 'lured', duration=0.4))
         suitTrack.append(ActorInterval(suit, 'flail', startTime=0.6, endTime=0.7))
         if base.localAvatar in battle.activeToons:
-            suitTrack.append(Parallel(base.camera.posHprInterval(0.4, Point3(oldCamera[0], oldCamera[1], oldCamera[2]), Point3(0, 30, 0), blendType='easeInOut'), Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0.2, 0.2, 0.2, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9, duration=0.4, endTime=1.3), LerpPosInterval(suit, 0.3, flyPos)))
+            suitTrack.append(Parallel(base.camera.posHprInterval(0.4, Point3(oldCamera[0], oldCamera[1], oldCamera[2]), Point3(0, 30, 0), blendType='easeInOut'), Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0, 0, 1, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9, duration=0.4, endTime=1.3), LerpPosInterval(suit, 0.3, flyPos)))
         else:
-            suitTrack.append(Parallel(Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0.2, 0.2, 0.2, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9), LerpPosInterval(suit, 0.3, flyPos)))
+            suitTrack.append(Parallel(Func(battle.movie.needRestoreColor), Func(suit.setColorScale, Vec4(0, 0, 1, 1)), Func(trapProp.reparentTo, hidden), ActorInterval(suit, 'flail', startTime=0.9), LerpPosInterval(suit, 0.3, flyPos)))
         if suit.maxHP <= 42:
             suitTrack.append(midairSuitExplodeTrack(suit, battle))
             damageTrack = Sequence(Wait(2.4), Func(suit.showHpText, -hp, openEnded=0), Func(suit.updateHealthBar, hp))
