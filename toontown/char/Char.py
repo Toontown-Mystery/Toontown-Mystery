@@ -132,6 +132,7 @@ class Char(Avatar.Avatar):
             self.nametag3d.setBin('fixed', 0)
             if self._name == 'chip' or self._name == 'dale' or self._name == 'police_chip' or self._name == 'jailbird_dale':
                 self.find('**/drop-shadow').setScale(0.33)
+            self.setBlend(frameBlend=True)
 
     def setLODs(self):
         self.setLODNode()

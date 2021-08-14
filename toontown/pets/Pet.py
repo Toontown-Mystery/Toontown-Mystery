@@ -115,6 +115,7 @@ class Pet(Avatar.Avatar):
             self.initializeDropShadow()
             self.initializeNametag3d()
             self.dropShadow.setScale(0.75)
+            self.setBlend(frameBlend=True)
 
     def generatePet(self):
         self.loadModel('phase_4/models/char/TT_pets-mod')

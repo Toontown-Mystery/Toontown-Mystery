@@ -107,7 +107,7 @@ class TownBattleSOSPetInfoPanel(StateData.StateData):
         self.frame.hide()
         return
 
-    def __handleTrickMenuEvent(self, textId):
+    def __handleTrickMenuEvent(self, textId, displayType):
         if textId in PetTricks.ScId2trickId:
             trickId = PetTricks.ScId2trickId[textId]
             doneStatus = {'mode': 'OK',
