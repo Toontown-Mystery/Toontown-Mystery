@@ -343,7 +343,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             if self.want4ManPractice and (self.bossDamage > 20 and self.bossDamage < 50):
                goon.b_setupGoon(velocity=self.progressRandomValue(3, 7), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 15), strength=int(self.progressRandomValue(5, 25)), scale=0.61)
             else:
-               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(4, 8), strength=int(self.progressRandomValue(30, 101)), scale=self.progressRandomValue(1.0, 2.0, noRandom=True))
+               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(4, 8), strength=int(self.progressRandomValue(30, 101)), scale=self.progressRandomValue(0.8, 1.8, noRandom=True))
         goon.request(side)
         return
 
@@ -366,7 +366,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def doNextGoon(self, task):
         if self.attackCode != ToontownGlobals.BossCogDizzy:
             self.makeGoon()
-        delayTime = self.progressValue(4, 0)
+        delayTime = self.progressValue(4.5, 1.5)
         self.waitForNextGoon(delayTime)
 
     def waitForNextHelmet(self):
