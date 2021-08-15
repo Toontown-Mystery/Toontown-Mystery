@@ -11,6 +11,7 @@ from direct.task import Task
 from direct.distributed.ClockDelta import *
 import BuildGeometry
 from toontown.golf import GolfGlobals
+from panda3d.ode import *
 import random, time
 
 def scalp(vec, scal):
