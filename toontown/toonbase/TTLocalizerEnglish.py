@@ -2235,11 +2235,11 @@ MovieHealLaughterMisses = ('What.',
  'Why.',
  ':(',
  'BRUH.')
-MovieHealLaughterHits1 = ('Ha Ha Ha',
- 'Hee Hee',
- 'Tee Hee',
- 'Ha Ha')
-MovieHealLaughterHits2 = ('BWAH HAH HAH!', 'HO HO HO!', 'HA HA HA!')
+MovieHealLaughterHits1 = ('Yay, yay, yay!',
+ 'Yay me healed now!',
+ 'Thank you!',
+ 'I appreciate your heals.')
+MovieHealLaughterHits2 = ('I LOVE IT!', "BOO YEAH I'M SO HEALED UP!", 'GET ME SOME OF THAT HEALS!')
 MovieSOSCallHelp = '%s HELP!'
 MovieSOSWhisperHelp = '%s needs help in battle!'
 MovieSOSObserverHelp = 'HELP!'
@@ -2256,7 +2256,7 @@ MovieNPCSOSThrow = 'Throw'
 MovieNPCSOSSquirt = 'Squirt'
 MovieNPCSOSDrop = 'Drop'
 MovieNPCSOSAll = 'All'
-MoviePetSOSTrickFail = 'Sigh'
+MoviePetSOSTrickFail = 'Bruh. -_-'
 MoviePetSOSTrickSucceedBoy = 'Good boy!'
 MoviePetSOSTrickSucceedGirl = 'Good girl!'
 MovieSuitCancelled = 'CANCELLED\nCANCELLED\nCANCELLED'
