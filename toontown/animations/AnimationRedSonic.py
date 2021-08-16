@@ -324,6 +324,7 @@ class AnimationRedSonic(DistributedObject):
         self.alarmAlertSfx = base.loader.loadSfx('phase_14/audio/sfx/AA_sound_aoogah.ogg')
         self.HoldUpSfx = base.loader.loadSfx('phase_14/audio/sfx/record_scratch.ogg')
         self.ExplosionSfx = base.loader.loadSfx('phase_3.5/audio/sfx/ENC_cogfall_apart.ogg')
+        self.FallBoomSfx = base.loader.loadSfx('phase_9/audio/sfx/CHQ_SOS_cage_land.ogg')
 
         self.accept('2', self.goToSceneTwo)
         self.accept('3', self.goToSceneThree)
@@ -1169,7 +1170,22 @@ class AnimationRedSonic(DistributedObject):
         LerpPosHprInterval(camera, duration=0, pos=Point3(2.5, 50, 17), hpr=(0, 0, 0), blendType='easeInOut'),
         Func(self.nametagJ6.setChat, "Mhm. Yes, Mimi!", CFSpeech | CFTimeout), SoundInterval(self.angelGruntSpeech),
         Wait(3),
-        Func(self.nametagJ6.clearChat))
+        Func(self.nametagJ6.clearChat),
+        LerpPosHprInterval(camera, duration=4, pos=Point3(-25, 0, 17), hpr=(-40, 0, 0), blendType='easeInOut'), Parallel(Func(self.suit2.loop, 'walk'), Parallel(LerpPosHprInterval(self.suit2, duration=4, pos=Point3(0, 30, 10), hpr=(180, 0, 0), blendType='noBlend'), Parallel(Func(self.suit3.loop, 'walk'), LerpPosHprInterval(self.suit3, duration=4, pos=Point3(-15, 30, 10), hpr=(180, 0, 0), blendType='noBlend')))), 
+        Func(self.suit2.loop, 'neutral'), Func(self.suit2.loop, 'neutral'),
+        Func(self.suit3.loop, 'neutral'), Func(self.suit3.loop, 'neutral'),
+        Func(self.battlesong2.stop), Parallel(SoundInterval(self.HoldUpSfx), Parallel(LerpPosHprInterval(camera, duration=0.2, pos=Point3(-10, 0, 25), hpr=(0, -20, 0), blendType='easeInOut'))),
+        Wait(2),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(-17, 15, 17), hpr=(0, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ7.setChat, "How did we not fall?", CFSpeech | CFTimeout), SoundInterval(self.mimiQuestionSpeech),
+        Wait(3),
+        Func(self.nametagJ7.clearChat),
+        LerpPosHprInterval(camera, duration=0, pos=Point3(4, 15, 17), hpr=(0, 0, 0), blendType='easeInOut'),
+        Func(self.nametagJ6.setChat, "Um... Idk.", CFSpeech | CFTimeout), SoundInterval(self.angelStatementSpeech),
+        Wait(3),
+        Func(self.nametagJ6.clearChat),
+        LerpPosHprInterval(camera, duration=0.5, pos=Point3(-10, 0, 35), hpr=(0, -50, 0), blendType='easeInOut'), Parallel(Func(self.suit2.pose, 'flatten', 23), Parallel(LerpPosHprInterval(self.suit2, duration=1, pos=Point3(0, 30, 0.5), hpr=(180, 0, 0), blendType='noBlend'), Parallel(Func(self.suit3.pose, 'flatten', 23), LerpPosHprInterval(self.suit3, duration=1, pos=Point3(-15, 30, 0.5), hpr=(180, 0, 0), blendType='noBlend')))),
+        SoundInterval(self.FallBoomSfx))
 
         self.sceneEightTrack.start()
         

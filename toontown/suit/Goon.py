@@ -22,7 +22,7 @@ class Goon(Avatar.Avatar):
             self.ignore('nametagAmbientLightChanged')
             self.hFov = 70
             self.attackRadius = 15
-            self.strength = 15
+            self.strength = 50
             self.velocity = 4
             self.scale = 1.0
             if dnaName is not None:
@@ -133,7 +133,7 @@ class Goon(Avatar.Avatar):
         p = self.radar.getRelativePoint(beam, Point3(0, -6, -1.8))
         self.radar.setSz(-3.5 / p[2])
         self.radar.flattenMedium()
-        self.radar.setColor(1, 1, 1, 0.2)
+        self.radar.setColor(0, 0, 0, 0.2)
 
     def colorHat(self):
         if self.type == 'pg':
