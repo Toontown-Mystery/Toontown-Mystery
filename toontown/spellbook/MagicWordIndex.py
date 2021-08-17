@@ -1681,39 +1681,27 @@ class SkipCFO(MagicWord):
                     boss = do
                     break
         if not boss:
-            return "HEY DON'T YOU DARE PRESS THAT!!!!"
+            return "You aren't in a CFO!"
 
         battle = battle.lower()
 
         if battle == 'two':
-            if boss.state in ('PrepareBattleThree', 'BattleThree', 'PrepareBattleTwo', 'BattleTwo'):
-                return "You can not return to previous rounds!"
-            else:
-                boss.exitIntroduction()
-                boss.b_setState('PrepareBattleTwo')
-                return "Bruh how dare you skip that's cheating!"
-
-        if battle == 'three':
             if boss.state in ('PrepareBattleThree', 'BattleThree'):
                 return "You can not return to previous rounds!"
             else:
                 boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Bruh how dare you skip that's cheating!"
+                return "Skipping to last round..."
 
         if battle == 'next':
             if boss.state in ('PrepareBattleOne', 'BattleOne'):
                 boss.exitIntroduction()
-                boss.b_setState('PrepareBattleTwo')
-                return "Bruh how dare you skip that's cheating!"
-            elif boss.state in ('PrepareBattleTwo', 'BattleTwo'):
-                boss.exitIntroduction()
                 boss.b_setState('PrepareBattleThree')
-                return "Bruh how dare you skip that's cheating!"
+                return "Skipping current round..."
             elif boss.state in ('PrepareBattleThree', 'BattleThree'):
                 boss.exitIntroduction()
                 boss.b_setState('Victory')
-                return "Bruh how dare you skip that's cheating!"
+                return "Skipping final round..."
 
 
 class HitCFO(MagicWord):
