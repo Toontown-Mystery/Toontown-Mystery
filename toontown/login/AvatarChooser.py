@@ -1,7 +1,6 @@
 from panda3d.core import *
 from toontown.toonbase import ToontownGlobals
 import AvatarChoice
-import AnimationSelector
 from direct.fsm import StateData
 from direct.fsm import ClassicFSM, State
 from direct.fsm import State
@@ -53,7 +52,8 @@ class AvatarChooser(StateData.StateData):
         base.disableMouse()
         self.title.reparentTo(aspect2d)
         self.quitButton.show()
-        self.animationButton.show()
+        if base.cr.loginInterface.supportsRelogin():
+            self.logoutButton.show()
         self.shine.reparentTo(aspect2d)
         self.shadow.reparentTo(aspect2d)
         self.pickAToonBG.setBin('background', 1)
@@ -65,19 +65,6 @@ class AvatarChooser(StateData.StateData):
             self.accept(panel.doneEvent, self.__handlePanelDone)
             if panel.position == choice and panel.mode == AvatarChoice.AvatarChoice.MODE_CHOOSE:
                 self.__handlePanelDone('chose', panelChoice=choice)
-                
-
-    def enterAnimation(self):
-        self.notify.info('AvatarChooser.exit')
-        if not self.displayOptions:
-            self.displayOptions = DisplayOptions.DisplayOptions()
-        self.notify.info('calling self.displayOptions.restrictToEmbedded(False)')
-        if base.appRunner:
-            self.displayOptions.loadFromSettings()
-            self.displayOptions.restrictToEmbedded(False)
-        if self.isLoaded == 0:
-            self.load()
-        base.disableMouse()  
 
     def exit(self):
         if self.isLoaded == 0:
@@ -88,7 +75,7 @@ class AvatarChooser(StateData.StateData):
         self.ignoreAll()
         self.title.reparentTo(hidden)
         self.quitButton.hide()
-        self.animationButton.hide()
+        self.logoutButton.hide()
         self.shine.reparentTo(hidden)
         self.shadow.reparentTo(hidden)
         self.pickAToonBG.reparentTo(hidden)
@@ -117,11 +104,9 @@ class AvatarChooser(StateData.StateData):
         self.pickAToonBG.setScale(1, 1, 1)
         self.title = OnscreenText(TTLocalizer.AvatarChooserPickAToon, scale=TTLocalizer.ACtitle, parent=hidden, font=ToontownGlobals.getSignFont(), fg=(1, 0.9, 0.1, 1), pos=(0.0, 0.82))
         quitHover = gui.find('**/QuitBtn_RLVR')
-        #QuitButton
         self.quitButton = DirectButton(image=(quitHover, quitHover, quitHover), relief=None, text=TTLocalizer.AvatarChooserQuit, text_font=ToontownGlobals.getSignFont(), text_fg=(0.977, 0.816, 0.133, 1), text_pos=TTLocalizer.ACquitButtonPos, text_scale=TTLocalizer.ACquitButton, image_scale=1, image1_scale=1.05, image2_scale=1.05, scale=1.05, parent=base.a2dBottomRight, pos=(-0.253333, 0, 0.093), command=self.__handleQuit)
-        #animationButton
-        self.animationButton = DirectButton(image=(quitHover, quitHover, quitHover), relief=None, text='Animations', text_font=ToontownGlobals.getSignFont(), text_fg=(0.977, 0.816, 0.133, 1), text_pos=TTLocalizer.AnimationsButtonPos, text_scale=0.06, image_scale=1, image1_scale=1.05, image2_scale=1.05, scale=1.05, parent=base.a2dBottomCenter, pos=(-0.253333, 0, 0.093), command=self.openAnimations)
-        self.animationButton.hide()
+        self.logoutButton = DirectButton(relief=None, image=(quitHover, quitHover, quitHover), text=TTLocalizer.OptionsPageLogout, text_font=ToontownGlobals.getSignFont(), text_fg=(0.977, 0.816, 0.133, 1), text_scale=TTLocalizer.AClogoutButton, text_pos=(0, -0.035), parent=base.a2dBottomLeft, pos=(0.163333, 0, 0.086), image_scale=1.15, image1_scale=1.15, image2_scale=1.18, scale=0.5, command=self.__handleLogoutWithoutConfirm)
+        self.logoutButton.hide()
         gui.removeNode()
         gui2.removeNode()
         newGui.removeNode()
@@ -239,7 +224,8 @@ class AvatarChooser(StateData.StateData):
         del self.title
         self.quitButton.destroy()
         del self.quitButton
-        self.animationButton.destroy()
+        self.logoutButton.destroy()
+        del self.logoutButton
         self.shine.destroy()
         del self.shine
         self.shadow.destroy()
@@ -320,18 +306,3 @@ class AvatarChooser(StateData.StateData):
         else:
             self.shine['scale'] = (1.33, 1, 1)
             self.shadow['scale'] = (1.33, 1, 1)
-    def enterSelector(self):
-        self.notify.info('AvatarChooser.exit')
-        if not self.displayOptions:
-            self.displayOptions = DisplayOptions.DisplayOptions()
-        self.notify.info('calling self.displayOptions.restrictToEmbedded(False)')
-        if base.appRunner:
-            self.displayOptions.loadFromSettings()
-            self.displayOptions.restrictToEmbedded(False)
-        if self.isLoaded == 0:
-            self.load()
-        base.disableMouse()  
-
-    def openAnimations(self):
-        self.exit()
-        AnimationSelector.AnimationSelector(self.enterSelector).create()
