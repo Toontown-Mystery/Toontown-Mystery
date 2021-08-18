@@ -188,15 +188,6 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         return
 
     def doNextAttack(self, task):
-        gears = self.__doAreaAttack()
-        Jump = self.__doJumpAttack()
-        attackList = [gears, Jump]
-        random.choice(attackList)
-        if self.heldObject == None and not self.waitingForHelmet:
-            self.waitForNextHelmet()
-        return
-
-    def __doAreaAttack(self):
         if random.random() <= 0.2:
             self.b_setAttackCode(ToontownGlobals.BossCogRecoverDizzyAttack)
             taskMgr.doMethodLater(7.36, self.__reviveGoons, self.uniqueName('reviveGoons'))
@@ -204,15 +195,11 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             self.__doDirectedAttack()
             if self.heldObject == None and not self.waitingForHelmet:
                 self.waitForNextHelmet()
-                
-    def __doJumpAttack(self):
-        if random.random() <= 0.2:
-            self.b_setAttackCode(ToontownGlobals.BossCogAreaAttack)
-            taskMgr.doMethodLater(7.36, self.__reviveGoons, self.uniqueName('reviveGoons'))
-        else:
-            self.__doDirectedAttack()
-            if self.heldObject == None and not self.waitingForHelmet:
-                self.waitForNextHelmet()
+    
+    def __reviveGoons(self, task):
+        for goon in self.goons:
+            if goon.state == 'Stunned':
+                goon.request('Recovery')
     
     def __reviveGoons(self, task):
         for goon in self.goons:
@@ -229,7 +216,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 toonId = self.toonsToAttack.pop(0)
 
             self.toonsToAttack.append(toonId)
-            self.b_setAttackCode(ToontownGlobals.BossCogRecoverDizzyAttack, toonId)
+            self.b_setAttackCode(ToontownGlobals.BossCogAreaAttack, toonId)
 
     def reprieveToon(self, avId):
         if avId in self.toonsToAttack:

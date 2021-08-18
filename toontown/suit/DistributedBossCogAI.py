@@ -670,20 +670,21 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         self.d_setAttackCode(attackCode, avId)
         self.setAttackCode(attackCode, avId)
 
-    def setAttackCode(self, attackCode, avId=0):
+    def setAttackCode(self, attackCode, avId = 0):
         self.attackCode = attackCode
         self.attackAvId = avId
         if attackCode == ToontownGlobals.BossCogDizzy or attackCode == ToontownGlobals.BossCogDizzyNow:
-            delayTime = self.progressValue(12, 4)
+            delayTime = self.progressValue(12.5, 4)
             self.hitCount = 0
+        elif attackCode == ToontownGlobals.BossCogSlowDirectedAttack:
+            delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
+            delayTime += self.progressValue(3.9, 1.2)
         else:
-            if attackCode == ToontownGlobals.BossCogSlowDirectedAttack:
-                delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
-                delayTime += self.progressValue(2, 0)
-            else:
-                delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
-                if delayTime == None:
-                    return
+            delayTime = ToontownGlobals.BossCogAttackTimes.get(attackCode)
+            if delayTime == None:
+                return
+        if self.dept == 'm' and attackCode == ToontownGlobals.BossCogAreaAttack:
+            delayTime += 5.0
         self.waitForNextAttack(delayTime)
         return
 
