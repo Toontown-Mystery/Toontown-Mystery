@@ -374,7 +374,7 @@ class SetMaxBeans(MagicWord):
         maxBeans = args[0]
 
         if not 0 <= maxBeans <= ToontownGlobals.MaxJarMoney:
-            return "Can't set {}'s jellybean jar size to {}! Specify a value between 0 and 9999.".format(toon.getName(),
+            return "Can't set {}'s jellybean jar size to {}! Specify a value between 0 and 50000.".format(toon.getName(),
                                                                                                          maxBeans)
 
         toon.b_setMaxMoney(maxBeans)
@@ -2382,7 +2382,7 @@ class SetExp(MagicWord):
         if track not in tracks + maxed:
             return "Invalid gag track specified!"
 
-        if not 0 <= amt <= 10000:
+        if not 0 <= amt <= 20000:
             return "Can't set {0}'s jellybean count to {1}! Specify a value between 0 and 20,000.".format(
                 toon.getName(), amt)
 

@@ -529,6 +529,8 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.suit.setChatAbsolute, 'You will not get away with this...', CFSpeech),
             Wait(2.5),
             Func(self.suit.clearChat),
+            Func(rToon.sadEyes),
+            Func(rToon.blinkEyes),
             Func(rToon.setHpr, 270, 0, 0),
             base.camera.posHprInterval(1.5, Point3(110, -340.558, 4), Point3(90, 0, 0), blendType='easeInOut'),
             Func(rToon.setChatAbsolute, "What do you want...?", CFSpeech),
@@ -604,6 +606,8 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                         Wait(3),
                         Func(self.clearChat),
                         Func(rToon.setHpr, 180, 0, 0),
+                        Func(rToon.sadEyes),
+                        Func(rToon.closeEyes),
                         base.camera.posHprInterval(1.5, Point3(100, -332.612, 5), Point3(136.3, 0, 0), blendType='easeInOut'),
                         Func(rToon.setChatAbsolute, "I wish Master Cool Cat was here... sniff... </3", CFSpeech),
                         Wait(3),
@@ -621,6 +625,8 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                         Func(self.setChatAbsolute, "Cogs like us have a goal, and that is making y'all go sad.", CFSpeech),
                         Wait(3),
                         Func(self.clearChat),
+                        Func(rToon.sadEyes),
+                        Func(rToon.blinkEyes),
                         base.camera.posHprInterval(1.5, Point3(78, -340.612, 5), Point3(270, 0, 0), blendType='easeInOut'),
                         Func(rToon.setChatAbsolute, "... Here we go again...", CFSpeech|CFTimeout),
                         Wait(3),
@@ -697,6 +703,8 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(goon.setPosHpr, 104, -316, 0, 165, 0, 0),
             Func(rToon.loop, 'leverNeutral'),
             Func(base.camera.wrtReparentTo, self.geom),
+            Func(rToon.normalEyes),
+            Func(rToon.blinkEyes),
             base.camera.posHprInterval(1, Point3(105, -326, 5), Point3(136.3, 0, 0), blendType='easeInOut'),
             Func(rToon.setChatAbsolute, "Horray, I did it!", CFSpeech),
             Wait(2.5),
@@ -876,6 +884,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (9.5, SoundInterval(boomSfx)),
             (9.5, Sequence(
                 self.posInterval(0.4, Point3(0, -250, 0)),
+                LerpColorScaleInterval(render, 5, Vec4(1.0, 1.0, 1.0, 1.0)),
                 Func(self.stash))))
         return bossTrack
 
