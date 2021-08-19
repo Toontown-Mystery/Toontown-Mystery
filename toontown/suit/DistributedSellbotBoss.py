@@ -265,6 +265,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         camera.setPosHpr(0, 25, 30, 0, 0, 0)
         localAvatar.setCameraFov(ToontownGlobals.CogHQCameraFov)
         dooberTrack = Parallel()
+        render.setColorScale(1, 1, 1, 1)
         if self.doobers:
             self.__doobersToPromotionPosition(self.doobers[:4], self.battleANode)
             self.__doobersToPromotionPosition(self.doobers[4:], self.battleBNode)
@@ -1096,13 +1097,12 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             track.start()
 
     def __epilogueChatDone(self, elapsed):
-        LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)),
         self.cagedToon.setChatAbsolute(TTLocalizer.CagedToonGoodbye, CFSpeech)
         self.ignore('nextChatPage')
         self.ignore('doneChatPage')
         intervalName = 'EpilogueMovieToonAnim'
         self.clearInterval(intervalName)
-        track = Parallel(Sequence(ActorInterval(self.cagedToon, 'wave'), Func(self.cagedToon.loop, 'neutral')), Sequence(Wait(0.5), Func(self.localToonToSafeZone)))
+        track = Parallel(LerpColorScaleInterval(render, 2.5, Vec4(1, 1, 1, 1), blendType='easeInOut'), Sequence(ActorInterval(self.cagedToon, 'wave'), Func(self.cagedToon.loop, 'neutral')), Sequence(Wait(0.5), Func(self.localToonToSafeZone)))
         self.storeInterval(track, intervalName)
         track.start()
 
