@@ -1096,6 +1096,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             track.start()
 
     def __epilogueChatDone(self, elapsed):
+        LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)),
         self.cagedToon.setChatAbsolute(TTLocalizer.CagedToonGoodbye, CFSpeech)
         self.ignore('nextChatPage')
         self.ignore('doneChatPage')
