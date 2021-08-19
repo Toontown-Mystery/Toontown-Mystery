@@ -1,32 +1,32 @@
-# Sassy: 
-Toonup 150 laff.
-# Timinator: 
-Toonup 300 laff.
 # Gabe the Happy Dog: 
-Toonup 600 laff.
-# FOG DOG: 
-Sound 150 Damage.
+Toonup 540 laff.
+# Timinator: 
+Toonup 400 laff.
+# Sassy: 
+Toonup 180 laff.
 # Violet:
-Sound 250 Damage.
-# Cool Cat: 
-Drop 850 Damage.
-# Boris: 
-Drop 1000 Damage.
+Sound 345 Damage.
+# FOG DOG: 
+Sound 260 Damage.
 # Squeaky: 
-Drop 800 Damage.
+Sound 115 Damage.
+# Boris: 
+Drop 1125 Damage.
+# Cool Cat: 
+Drop 840 Damage.
 # Cuddles: 
-Drop 500 Damage.
+Drop 375 Damage.
 # Caillou: 
-Trap 1500 Damage.
+Trap 850 Damage.
 # Vanessa: 
-Trap 2000 Damage.
-# Bun Bun: 
-Trap 1000 Damage.
+Trap 1915 Damage.
+# Richie Verdi: 
+Trap 2550 Damage.
 # Strawberry: 
-Lure 8 Rounds.
+Lure 2 Rounds.
 # Classic Noah: 
-Lure 10 Rounds.
+Lure 4 Rounds.
 # Queen Berry Cat: 
-Lure 10 Rounds.
+Lure 3 Rounds.
 # Marka:
 Restock All Gags.
