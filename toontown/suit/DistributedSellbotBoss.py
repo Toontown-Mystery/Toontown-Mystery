@@ -368,7 +368,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 self.loseCogSuits(self.toonsA, self.battleANode, (0, 18, 5, -180, 0, 0)),
                 Wait(2),
                 self.loseCogSuits(self.toonsB, self.battleBNode, (0, 18, 5, -180, 0, 0)),
-                LerpColorScaleInterval(render, 3, Vec4(0.50, 0.50, 1.0, 1)))),
+                LerpColorScaleInterval(render, 3, Vec4(0.5, 0.5, 1.0, 1.0)))),
             (57, Sequence(
                 self.toonNormalEyes(self.involvedToons),
                 Func(camera.setPosHpr, -23.4, -145.6, 44.0, -10.0, -12.5, 0),

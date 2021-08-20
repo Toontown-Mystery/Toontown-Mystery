@@ -467,7 +467,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                                     Func(self.clearChat),
                                     Func(self.setChatAbsolute, TTL.AttackSupporters, CFSpeech),
                                     base.camera.posHprInterval(0.5, Point3(75.3, -230, 21), VBase3(-92.9, 0, 0)), 
-                                    LerpColorScaleInterval(render, 2, Vec4(1.0, 0.0, 0.5, 1.0)),
+                                    LerpColorScaleInterval(render, 2, Vec4(1.0, 0.2, 0.5, 1.0)),
                                     Func(self.clearChat),
                                     Wait(2))
         return track
@@ -640,7 +640,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                         Func(self.clearChat),
                         Func(self.setChatAbsolute, 'Leave no Toons here! Get them, get them all!',  CFSpeech),
                         base.camera.posHprInterval(1.5, Point3(86, -315, 20), Point3(-90, 5, 0), blendType='easeInOut'),
-                        LerpColorScaleInterval(render, 2, Vec4(0.5, 1.0, 0.0, 1.0)),
+                        LerpColorScaleInterval(render, 2, Vec4(0.5, 1.0, 0.5, 1.0)),
                         Wait(3),
                         Func(self.clearChat),
                         Func(base.camera.wrtReparentTo, self.geom),

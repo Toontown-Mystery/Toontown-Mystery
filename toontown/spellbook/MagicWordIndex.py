@@ -1724,6 +1724,66 @@ class HitCFO(MagicWord):
 
         boss.magicWordHit(dmg, invoker.doId)
 
+class HitVP(MagicWord):
+    desc = "Hits the VP."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("damage", int, False, 0)]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dmg = args[0]
+        from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedSellbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a VP!"
+
+        boss.magicWordHit(dmg, invoker.doId)
+
+class HitCJ(MagicWord):
+    desc = "Hits the CJ."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("damage", int, False, 0)]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dmg = args[0]
+        from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedLawbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CJ!"
+
+        boss.magicWordHit(dmg, invoker.doId)
+
+class HitCEO(MagicWord):
+    desc = "Hits the CEO."
+    execLocation = MagicWordConfig.EXEC_LOC_SERVER
+    arguments = [("damage", int, False, 0)]
+    accessLevel = "MODERATOR"
+
+    def handleWord(self, invoker, avId, toon, *args):
+        dmg = args[0]
+        from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
+        boss = None
+        for do in simbase.air.doId2do.values():
+            if isinstance(do, DistributedBossbotBossAI):
+                if invoker.doId in do.involvedToons:
+                    boss = do
+                    break
+        if not boss:
+            return "You aren't in a CEO!"
+
+        boss.magicWordHit(dmg, invoker.doId)
+
 
 class DisableGoons(MagicWord):
     desc = "Stuns all of the goons in an area."

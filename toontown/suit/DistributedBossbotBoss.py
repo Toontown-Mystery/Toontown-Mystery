@@ -173,7 +173,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.geom.reparentTo(render)
         self.elevatorMusic = base.loader.loadMusic('phase_12/audio/bgm/King_elevator.ogg')
         self.promotionMusic = base.loadMusic('phase_12/audio/bgm/CEO_intro.ogg')
-        self.betweenPhaseMusic = base.loadMusic('phase_14/audio/bgm/Boss_Prepare.ogg')
+        self.betweenPhaseMusic = base.loadMusic('phase_12/audio/bgm/Boss_Prepare.ogg')
         self.battleOneMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_1.ogg')
         self.phaseTwoMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_2.ogg')
         self.battleThreeMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_3.ogg')
@@ -619,7 +619,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 			Func(self.clearChat),
             Func(self.setChatAbsolute, TTL.BossbotPhase3Speech6, CFSpeech),
             LerpPosHprInterval(camera, duration=5, pos=Point3(0, -100, 5), hpr=(0, 10, 0), blendType='easeInOut'),
-            LerpColorScaleInterval(render, 3, (1, 0, 0, 1)),
+            LerpColorScaleInterval(render, 3, (1.0, 0.5, 0.5, 1.0)),
             Wait(5),
             Func(self.clearChat),
             Wait(5))
@@ -854,6 +854,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                     Func(self.demotedCeo.unstash)),
                 Sequence(dustCloud.track)),
             Wait(2.0),
+            LerpColorScaleInterval(render, 3, (1.0, 1.0, 1.0, 1.0)),
             Func(dustCloud.destroy))
         return bossTrack
 
