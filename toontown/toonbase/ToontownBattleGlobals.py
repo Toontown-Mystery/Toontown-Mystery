@@ -40,11 +40,11 @@ UBER_GAG_LEVEL_INDEX = 6
 NUM_GAG_TRACKS = 7
 AvLureRounds = (2,
  2,
- 2,
- 2,
- 3,
- 3,
- 4)
+ 4,
+ 4,
+ 6,
+ 6,
+ 10)
 PropTypeToTrackBonus = {AnimPropTypes.Hydrant: SQUIRT_TRACK,
  AnimPropTypes.Mailbox: THROW_TRACK,
  AnimPropTypes.Trashcan: HEAL_TRACK}
@@ -107,7 +107,7 @@ UnpaidMaxSkills = [Levels[0][1] - 1,
  Levels[4][4] - 1,
  Levels[5][4] - 1,
  Levels[6][1] - 1]
-ExperienceCap = 3500
+ExperienceCap = 2500
 
 def gagIsPaidOnly(track, level):
     return Levels[track][level] > UnpaidMaxSkills[track]
@@ -751,7 +751,7 @@ def getAvPropDamage(attackTrack, attackLevel, exp, organicBonus = False, propBon
 
 
 def getDamageBonus(normal):
-    bonus = int(normal * 2.00)
+    bonus = int(normal * 1.50)
     if bonus < 1 and normal > 0:
         bonus = 1
     return bonus
