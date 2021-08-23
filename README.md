@@ -50,3 +50,4 @@ Credits:
 * Prof Control for helping with Cog stuff, and whatever else he did.
 * Queen Berry Cat for a few songs.
 * Gabe for some stuff as well, mostly with Cogs.
+* KeedtheGryphon for some drawings.
