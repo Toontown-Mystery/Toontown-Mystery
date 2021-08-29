@@ -62,7 +62,7 @@ Goofy = 'Goofy'
 SuperGoofy = 'SuperGoofy'
 Pluto = 'Pluto'
 WesternPluto = 'WesternPluto'
-Flippy = 'Gabe the Happy Dog'
+Flippy = 'Thunderzapper'
 Chip = 'Chip'
 Dale = 'Dale'
 JailbirdDale = 'JailbirdDale'
@@ -6927,7 +6927,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  1113: 'Lisa Luff',
  1114: 'Charlie Chum',
  1115: 'Sheila Squid, Atty',
- 1116: 'Cool Cat',
+ 1116: 'Master Cool Cat',
  1117: 'Captain Yucks',
  1118: 'Choppy McDougal',
  1121: 'Linda Landlubber',
@@ -7164,7 +7164,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  4137: 'Tony Deff',
  4138: 'Cliff Cleff',
  4139: 'Harmony Swell',
- 4140: 'Squeaky',
+ 4140: 'Joey900',
  4141: 'Fisherman Jed',
  4201: 'Tina',
  4202: 'Barry',
