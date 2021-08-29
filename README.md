@@ -35,7 +35,7 @@ All commands can be located in your shticker book
 # Source Code
 This source code is based on a March 2019 fork of Toontown Offline v1.0.0.0. It has been stripped of all Toontown Offline exclusive features, save one. The brand new Magic Words system made for Toontown Offline has been left alone, and upgraded to the most recent build. This feature will allow users to easily navigate around Toontown without any hassle.
 
-Credits:
+Toontown Source Code Credits:
 * [The Toontown Offline Team](https://ttoffline.com)
 * [Astron](https://github.com/Astron/Astron)
 * [Panda3D](https://github.com/panda3d/panda3d) (More specifically, the modified Astron Panda3D which can be found [here](https://github.com/Astron/panda3d))
@@ -43,11 +43,13 @@ Credits:
 * [libotp-movement](https://github.com/jwcotejr/libotp-movement)
 * [libotp-nametags](https://github.com/loblao/libotp-nametags)
 * Reverse-engineered Toontown Online client/server source code is property of The Walt Disney Company.
-* Toontown School house ultimate source
-* Thunderzapper for SetCogIndex and SetDNA command and more.
-* Joey900 for the extreme help of a few things. Including animations and stuff.
-* Toontown Musician for this music. https://www.youtube.com/watch?v=ik36ZBaRznw
-* Prof Control for helping with Cog stuff, and whatever else he did.
-* Queen Berry Cat for a few songs.
-* Gabe for some stuff as well, mostly with Cogs.
-* KeedtheGryphon for some drawings.
+* 
+Toontown Mystery Credits:
+* Sketched: Cog Health bar and more stuff.
+* Thunderzapper: SetCogIndex and SetDNA command and more.
+* Joey900: the extreme help of a few things.
+* Toontown Musician: [this music]. (https://www.youtube.com/watch?v=ik36ZBaRznw)
+* Prof Control: helping with Cog stuff, and whatever else he did.
+* Queen Berry Cat: a few song suggestions.
+* Gabe: some stuff as well, mostly with Cogs.
+* KeedtheGryphon: for some drawings.
