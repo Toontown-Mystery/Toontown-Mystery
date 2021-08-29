@@ -49,7 +49,7 @@ Toontown Mystery Credits:
 * Sketched: Cog Health bar and more stuff.
 * Thunderzapper: SetCogIndex and SetDNA command and more.
 * Joey900: the extreme help of a few things.
-* Toontown Musician: [this music]. (https://www.youtube.com/watch?v=ik36ZBaRznw)
+* Toontown Musician: [this music](https://www.youtube.com/watch?v=ik36ZBaRznw)
 * Prof Control: helping with Cog stuff, and whatever else he did.
 * Queen Berry Cat: a few song suggestions.
 * Gabe: some stuff as well, mostly with Cogs.
