@@ -14,7 +14,7 @@ print ('Scanning for garbage files...')
 
 
 def delete(filepath):
-    print ("Removing '{0}'...").format(filepath)
+    print(("Removing '{0}'...").format(filepath))
     os.unlink(filepath)
 
 

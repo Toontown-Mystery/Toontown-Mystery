@@ -1,9 +1,9 @@
 from panda3d.core import *
-import ShtikerPage
+from . import ShtikerPage
 from toontown.toontowngui import TTDialog
 from direct.gui.DirectGui import *
 from toontown.toonbase import TTLocalizer
-import DisplaySettingsDialog
+from . import DisplaySettingsDialog
 from direct.task import Task
 from otp.speedchat import SpeedChat
 from otp.speedchat import SCColorScheme
@@ -11,7 +11,7 @@ from otp.speedchat import SCStaticTextTerminal
 from direct.showbase import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
-import KeybindRemapDialog
+from . import KeybindRemapDialog
 speedChatStyles = ((2000,
   (200 / 255.0, 60 / 255.0, 229 / 255.0),
   (200 / 255.0, 135 / 255.0, 255 / 255.0),
@@ -168,7 +168,7 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.optionsTab2['state'] = DGG.DISABLED
             self.optionsTabPage2.enter()
         else:
-            raise StandardError, 'OptionsPage::setMode - Invalid Mode %s' % mode
+            raise Exception('OptionsPage::setMode - Invalid Mode %s' % mode)
 
 
 class OptionsTabPage(DirectFrame):

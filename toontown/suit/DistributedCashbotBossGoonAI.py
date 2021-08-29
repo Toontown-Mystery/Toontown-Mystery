@@ -2,13 +2,13 @@ from panda3d.core import *
 from direct.task.TaskManagerGlobal import *
 from direct.distributed.ClockDelta import *
 from direct.interval.IntervalGlobal import *
-import GoonGlobals
+from . import GoonGlobals
 from direct.task.Task import Task
 from toontown.toonbase import ToontownGlobals
 from otp.otpbase import OTPGlobals
 from toontown.coghq import DistributedCashbotBossObjectAI
 from direct.showbase import PythonUtil
-import DistributedGoonAI
+from . import DistributedGoonAI
 import math
 import random
 
@@ -125,7 +125,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         self.tubeNode.setIntoCollideMask(self.onMask)
         entries = {}
         self.cQueue.sortEntries()
-        for i in xrange(self.cQueue.getNumEntries() - 1, -1, -1):
+        for i in range(self.cQueue.getNumEntries() - 1, -1, -1):
             entry = self.cQueue.getEntry(i)
             dist = Vec3(entry.getSurfacePoint(self)).length()
             if dist < 1.2:
@@ -135,7 +135,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         netScore = 0
         scoreTable = []
         if self.boss.wantMovementModifications:
-            for i in xrange(len(self.limitedDirectionTable)):
+            for i in range(len(self.limitedDirectionTable)):
                 heading, weight = self.limitedDirectionTable[i]
                 seg = self.feelers[i]
                 dist = entries.get(seg, self.feelerLength)
@@ -143,7 +143,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
                 netScore += score
                 scoreTable.append(score)
         else:
-            for i in xrange(len(self.directionTable)):
+            for i in range(len(self.directionTable)):
                 heading, weight = self.directionTable[i]
                 seg = self.feelers[i]
                 dist = entries.get(seg, self.feelerLength)
@@ -156,7 +156,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
             return None
         s = random.uniform(0, netScore)
         if self.boss.wantMovementModifications:
-            for i in xrange(len(self.limitedDirectionTable)):
+            for i in range(len(self.limitedDirectionTable)):
                 s -= scoreTable[i]
                 if s <= 0:
                     heading, weight = self.limitedDirectionTable[i]
@@ -164,7 +164,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
                     dist = entries.get(seg, self.feelerLength)
                     return (heading, dist)
         else:
-            for i in xrange(len(self.directionTable)):
+            for i in range(len(self.directionTable)):
                 s -= scoreTable[i]
                 if s <= 0:
                     heading, weight = self.directionTable[i]
@@ -238,7 +238,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         if self.state == 'Dropped' or self.state == 'Grabbed':
             if not self.boss.heldObject:
                 damage = int(impact * 25 * self.scale)
-                print("Goon Size: %s" % self.scale)
+                print(("Goon Size: %s" % self.scale))
                 self.boss.recordHit(max(damage, 2))
                 if damage >= 15:
                     avatar.d_setSystemMessage(0, str(impact))

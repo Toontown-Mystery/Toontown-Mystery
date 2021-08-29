@@ -12,8 +12,8 @@ from toontown.coghq import DistributedCashbotBossTreasureAI
 from toontown.battle import BattleExperienceAI
 from toontown.chat import ResistanceChat
 from direct.fsm import FSM
-import DistributedBossCogAI
-import SuitDNA
+from . import DistributedBossCogAI
+from . import SuitDNA
 import random
 import math
 
@@ -139,14 +139,14 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def __makeBattleThreeObjects(self):
         if self.cranes == None:
             self.cranes = []
-            for index in xrange(len(ToontownGlobals.CashbotBossCranePosHprs)):
+            for index in range(len(ToontownGlobals.CashbotBossCranePosHprs)):
                 crane = DistributedCashbotBossCraneAI.DistributedCashbotBossCraneAI(self.air, self, index)
                 crane.generateWithRequired(self.zoneId)
                 self.cranes.append(crane)
 
         if self.safes == None:
             self.safes = []
-            for index in xrange(len(ToontownGlobals.CashbotBossSafePosHprs)):
+            for index in range(len(ToontownGlobals.CashbotBossSafePosHprs)):
                 safe = DistributedCashbotBossSafeAI.DistributedCashbotBossSafeAI(self.air, self, index)
                 safe.generateWithRequired(self.zoneId)
                 self.safes.append(safe)
@@ -292,11 +292,11 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             self.recycledTreasures.append(treasure)
 
     def deleteAllTreasures(self):
-        for treasure in self.treasures.values():
+        for treasure in list(self.treasures.values()):
             treasure.requestDelete()
 
         self.treasures = {}
-        for treasure in self.grabbingTreasures.values():
+        for treasure in list(self.grabbingTreasures.values()):
             taskMgr.remove(treasure.uniqueName('recycleTreasure'))
             treasure.requestDelete()
 
@@ -454,7 +454,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 
                 #Whisper out the time from the start of CFO
                 self.stunTime = globalClock.getFrameTime()
-                for doId, do in simbase.air.doId2do.items():
+                for doId, do in list(simbase.air.doId2do.items()):
                     if str(doId)[0] != str(simbase.air.districtId)[0]:
                         do.d_setSystemMessage(0, "CFO Stunned From Start: {0:.3f}s".format(self.stunTime - self.battleThreeTimeStarted))
                         self.b_setAttackCode(ToontownGlobals.BossCogDizzy)
@@ -591,7 +591,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def enterVictory(self):
         #Whisper out the time from the start of CFO until end of CFO
         self.craneTime = globalClock.getFrameTime()
-        for doId, do in simbase.air.doId2do.items():
+        for doId, do in list(simbase.air.doId2do.items()):
             if str(doId)[0] != str(simbase.air.districtId)[0]:
                 do.d_setSystemMessage(0, "Crane Round Ended In {0:.5f}s".format(self.craneTime - self.battleThreeTimeStarted))
         self.resetBattles()

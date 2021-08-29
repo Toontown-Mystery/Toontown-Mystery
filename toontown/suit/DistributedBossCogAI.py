@@ -234,8 +234,8 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
 
     def formatLaffLevels(self):
         try:
-            return map(lambda id: simbase.air.doId2do.get(id).getMaxHp(), self.involvedToons)
-        except Exception, e:
+            return [simbase.air.doId2do.get(id).getMaxHp() for id in self.involvedToons]
+        except Exception as e:
             self.notify.warning(e)
             return []
 
@@ -248,8 +248,8 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
                 else:
                     return 0
 
-            return map(hasSuit, self.involvedToons)
-        except Exception, e:
+            return list(map(hasSuit, self.involvedToons))
+        except Exception as e:
             self.notify.warning(e)
             return []
 
@@ -575,7 +575,7 @@ class DistributedBossCogAI(DistributedAvatarAI.DistributedAvatarAI):
         return suits
 
     def generateSuits(self, battleNumber):
-        raise StandardError, 'generateSuits unimplemented'
+        raise Exception('generateSuits unimplemented')
 
     def handleRoundDone(self, battle, suits, activeSuits, toonIds, totalHp, deadSuits):
         totalMaxHp = 0

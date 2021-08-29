@@ -8,9 +8,17 @@ You don't know what to expect.
 ALL THE NEW TOONTOWN MYSTERY!
 Play to find out! :D
 
+# Panda3d
+Toontown Mystery Uses a custom version of Panda3D, So if you download Panda3D elsewhere, it wont work. Please go download it at the link for your operating system below in order to run the game.
+
+* [Panda3D SDK for Windows (Python 3.9, x86_64)](https://cdn.discordapp.com/attachments/858167665183817728/875769916748353547/Panda3D-1.11.0-py3.9-x64.exe)
+
+
 
 # Installation
-* Clone or [Download](https://github.com/Toontown-Mystery/Toontown-Mystery/archive/refs/heads/master.zip) the repository
+* Clone or [Download](https://github.com/Toontown-Mystery/Toontown-Mystery/archive/refs/heads/python3.zip) the repository
+
+* Download the Panda3D And Run the installer.
 
 * Extract the game file, however you wanna do that.
 
@@ -54,3 +62,4 @@ Toontown Mystery Credits:
 * Queen Berry Cat: a few song suggestions.
 * Gabe: some stuff as well, mostly with Cogs.
 * KeedtheGryphon: for some drawings.
+* ComradeNapCali: Getting Toontown School House On Python 3

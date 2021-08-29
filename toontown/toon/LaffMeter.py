@@ -55,7 +55,7 @@ class LaffMeter(DirectFrame):
             elif hType == 'pig':
                 headModel = gui.find('**/pighead')
             else:
-                raise StandardError('unknown toon species: ', hType)
+                raise Exception('unknown toon species: ', hType)
             self.color = self.style.getHeadColor()
             self.container['image'] = headModel
             self.container['image_color'] = self.color
@@ -115,7 +115,7 @@ class LaffMeter(DirectFrame):
 
     def adjustTeeth(self):
         if self.isToon:
-            for i in xrange(len(self.teeth)):
+            for i in range(len(self.teeth)):
                 if self.hp > self.maxHp * self.fractions[i]:
                     self.teeth[i].show()
                 else:

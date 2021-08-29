@@ -1,3 +1,0 @@
-[distutils.commands]
-build_apps = direct.dist.commands:build_apps
-bdist_apps = direct.dist.commands:bdist_apps
