@@ -2,7 +2,7 @@ from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM
-from . import DistributedEntity
+import DistributedEntity
 
 class DistributedInteractiveEntity(DistributedEntity.DistributedEntity):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedInteractiveEntity')

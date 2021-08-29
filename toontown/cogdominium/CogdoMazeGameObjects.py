@@ -5,9 +5,9 @@ from direct.interval.IntervalGlobal import Func, Sequence, Parallel
 from direct.showbase.DirectObject import DirectObject
 from direct.task.Task import Task
 from toontown.toonbase import ToontownGlobals
-from . import CogdoMazeGameGlobals as Globals
-from .CogdoGameExit import CogdoGameExit
-from . import CogdoUtil
+import CogdoMazeGameGlobals as Globals
+from CogdoGameExit import CogdoGameExit
+import CogdoUtil
 import math
 import random
 

@@ -2,7 +2,7 @@ from direct.showbase.DirectObject import DirectObject
 from toontown.toonbase.ToontownGlobals import *
 from direct.directnotify import DirectNotifyGlobal
 from panda3d.core import *
-from . import VineGameGlobals
+import VineGameGlobals
 from direct.interval.SoundInterval import SoundInterval
 
 class VineBat(NodePath, DirectObject):

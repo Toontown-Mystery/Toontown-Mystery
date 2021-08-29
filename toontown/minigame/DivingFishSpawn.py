@@ -4,7 +4,7 @@ from direct.directnotify import DirectNotifyGlobal
 from direct.interval.IntervalGlobal import *
 from direct.actor import Actor
 import random
-from . import DivingGameGlobals
+import DivingGameGlobals
 
 class DivingFishSpawn(DirectObject):
     RADIUS = 0.7
@@ -103,7 +103,7 @@ class DivingFishSpawn(DirectObject):
 
     def destroy(self):
         self.ignoreAll()
-        for fish in list(self.fishArray.values()):
+        for fish in self.fishArray.values():
             fish.moveLerp.pause()
             fish.specialLerp.finish()
             if hasattr(fish, 'sound'):

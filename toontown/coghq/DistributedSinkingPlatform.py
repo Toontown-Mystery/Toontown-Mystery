@@ -4,9 +4,9 @@ from direct.interval.IntervalGlobal import *
 from direct.fsm import ClassicFSM, State
 from direct.fsm import State
 from otp.level import BasicEntities
-from . import MovingPlatform
+import MovingPlatform
 from direct.distributed import DistributedObject
-from . import SinkingPlatformGlobals
+import SinkingPlatformGlobals
 from direct.directnotify import DirectNotifyGlobal
 
 class DistributedSinkingPlatform(BasicEntities.DistributedNodePathEntity):

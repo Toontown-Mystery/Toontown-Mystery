@@ -3,7 +3,7 @@ from direct.interval.IntervalGlobal import *
 from direct.fsm import ClassicFSM, State
 from direct.fsm import State
 from direct.directnotify import DirectNotifyGlobal
-from . import DistributedSuitBase
+import DistributedSuitBase
 from toontown.toonbase import ToontownGlobals
 from toontown.battle import MovieUtil
 
@@ -271,7 +271,7 @@ class DistributedLawbotBossSuit(DistributedSuitBase.DistributedSuitBase):
         return model
 
     def cleanupIntervals(self):
-        for interval in list(self.activeIntervals.values()):
+        for interval in self.activeIntervals.values():
             interval.finish()
 
         self.activeIntervals = {}

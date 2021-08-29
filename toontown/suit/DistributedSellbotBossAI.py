@@ -3,10 +3,10 @@ from toontown.battle import DistributedBattleWaitersAI
 from toontown.battle import DistributedBattleCogsAI
 from otp.ai.AIBaseGlobal import *
 from direct.distributed.ClockDelta import *
-from . import DistributedBossCogAI
+import DistributedBossCogAI
 from direct.directnotify import DirectNotifyGlobal
 from otp.avatar import DistributedAvatarAI
-from . import DistributedSuitAI
+import DistributedSuitAI
 from toontown.battle import BattleExperienceAI
 from direct.fsm import FSM
 from toontown.toonbase import ToontownGlobals
@@ -58,7 +58,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def __setCagedToonNpcId(self):
 
         def npcFriendsMaxStars(stars):
-            return [ id for id in list(NPCToons.npcFriends.keys()) if NPCToons.getNPCTrackLevelHpRarity(id)[3] <= stars ]
+            return [ id for id in NPCToons.npcFriends.keys() if NPCToons.getNPCTrackLevelHpRarity(id)[3] <= stars ]
 
         if self.numRentalDiguises >= 4:
             self.cagedToonNpcId = random.choice(NPCToons.npcFriendsMinMaxStars(3, 3))
@@ -382,7 +382,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def enterNearVictory(self):
         #Whisper out the time from the start of VP until end of VP
         self.pieTime = globalClock.getFrameTime()
-        for doId, do in list(simbase.air.doId2do.items()):
+        for doId, do in simbase.air.doId2do.items():
             if str(doId)[0] != str(simbase.air.districtId)[0]:
                 do.d_setSystemMessage(0, "Crane Round Ended In {0:.5f}s".format(self.pieTime - self.battleThreeStart))
         self.resetBattles()
@@ -439,7 +439,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 
     def __makeDoobers(self):
         self.__resetDoobers()
-        for i in range(8):
+        for i in xrange(8):
             suit = DistributedSuitAI.DistributedSuitAI(self.air, None)
             level = random.randrange(len(SuitDNA.suitsPerLevel))
             suit.dna = SuitDNA.SuitDNA()
@@ -472,7 +472,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 
     def createEasyModeBarrels(self):
         self.barrels = []
-        for entId, entDef in SellbotBossGlobals.BarrelDefs.items():
+        for entId, entDef in SellbotBossGlobals.BarrelDefs.iteritems():
             barrelType = entDef['type']
             barrel = barrelType(self.air, entId)
             SellbotBossGlobals.setBarrelAttr(barrel, entId)

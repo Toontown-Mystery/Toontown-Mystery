@@ -1,7 +1,7 @@
 from direct.directnotify import DirectNotifyGlobal
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
-from . import FishGlobals
+import FishGlobals
 
 class DirectRegion(NodePath):
     notify = DirectNotifyGlobal.directNotify.newCategory('DirectRegion')
@@ -38,9 +38,9 @@ class DirectRegion(NodePath):
             self.cCamNode.setScene(self.cRender)
             self.fishSwimCam = self.fishSwimCamera.attachNewNode(self.cCamNode)
             cm = CardMaker('displayRegionCard')
-            cm.setFrame(*self.bounds)
+            apply(cm.setFrame, self.bounds)
             self.card = card = self.attachNewNode(cm.generate())
-            card.setColor(*self.color)
+            apply(card.setColor, self.color)
             newBounds = card.getTightBounds()
             ll = render2d.getRelativePoint(card, newBounds[0])
             ur = render2d.getRelativePoint(card, newBounds[1])
@@ -48,7 +48,7 @@ class DirectRegion(NodePath):
              ur.getX(),
              ll.getZ(),
              ur.getZ()]
-            newBounds = [max(0.0, min(1.0, (x + 1.0) / 2.0)) for x in newBounds]
+            newBounds = map(lambda x: max(0.0, min(1.0, (x + 1.0) / 2.0)), newBounds)
             self.cDr = base.win.makeDisplayRegion(*newBounds)
             self.cDr.setSort(10)
             self.cDr.setClearColor(card.getColor())
@@ -108,8 +108,8 @@ class FishPhoto(NodePath):
         actor.setDepthWrite(1)
         if not hasattr(self, 'fishDisplayRegion'):
             self.fishDisplayRegion = DirectRegion(parent=self)
-            self.fishDisplayRegion.setBounds(*self.swimBounds)
-            self.fishDisplayRegion.setColor(*self.swimColor)
+            apply(self.fishDisplayRegion.setBounds, self.swimBounds)
+            apply(self.fishDisplayRegion.setColor, self.swimColor)
         frame = self.fishDisplayRegion.load()
         pitch = frame.attachNewNode('pitch')
         rotate = pitch.attachNewNode('rotate')

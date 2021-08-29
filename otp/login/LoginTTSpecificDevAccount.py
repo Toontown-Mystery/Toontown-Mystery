@@ -1,9 +1,9 @@
 from panda3d.core import *
 from direct.distributed.MsgTypes import *
 from direct.directnotify import DirectNotifyGlobal
-from . import LoginTTAccount
+import LoginTTAccount
 from direct.distributed.PyDatagram import PyDatagram
-from .TTAccount import TTAccountException
+from TTAccount import TTAccountException
 
 class LoginTTSpecificDevAccount(LoginTTAccount.LoginTTAccount):
     notify = DirectNotifyGlobal.directNotify.newCategory('LoginTTSpecificDevAccount')

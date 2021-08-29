@@ -1,5 +1,5 @@
 from direct.showbase.PythonUtil import bound as clamp
-from . import CogdoMazeGameGlobals as Globals
+import CogdoMazeGameGlobals as Globals
 import math
 import random
 

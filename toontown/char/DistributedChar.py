@@ -1,5 +1,5 @@
 from otp.avatar import DistributedAvatar
-from . import Char
+import Char
 
 class DistributedChar(DistributedAvatar.DistributedAvatar, Char.Char):
 

@@ -1,4 +1,4 @@
-from . import DateObject
+import DateObject
 
 class TTDateObject(DateObject.DateObject):
 

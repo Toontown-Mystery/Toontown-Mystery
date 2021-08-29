@@ -3,8 +3,8 @@ from panda3d.core import TextNode
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownIntervals
 from toontown.toonbase import TTLocalizer
-from . import CogdoUtil
-from . import CogdoGameConsts
+import CogdoUtil
+import CogdoGameConsts
 MEMOICON_SCALE = 0.2
 
 class CogdoMemoGui(DirectFrame):

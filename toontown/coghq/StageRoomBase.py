@@ -18,7 +18,7 @@ class StageRoomBase:
     if __dev__:
 
         def getEntityTypeReg(self):
-            from . import FactoryEntityTypes
+            import FactoryEntityTypes
             from otp.level import EntityTypeRegistry
             typeReg = EntityTypeRegistry.EntityTypeRegistry(FactoryEntityTypes)
             return typeReg

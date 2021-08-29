@@ -1,9 +1,9 @@
 from panda3d.core import *
-from . import ToonHood
+import ToonHood
 from toontown.safezone import OZSafeZoneLoader
 from toontown.toonbase.ToontownGlobals import *
 from toontown.racing import DistributedVehicle
-from . import SkyUtil
+import SkyUtil
 
 class OZHood(ToonHood.ToonHood):
 

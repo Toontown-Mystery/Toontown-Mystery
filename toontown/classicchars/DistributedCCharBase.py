@@ -13,8 +13,8 @@ from toontown.toonbase import ToontownGlobals
 from toontown.toonbase.TTLocalizer import Donald, DonaldDock, WesternPluto, Pluto
 from otp.otpbase import OTPLocalizer
 from toontown.effects import DustCloud
-from . import CCharChatter
-from . import CCharPaths
+import CCharChatter
+import CCharPaths
 import string
 import copy
 import random

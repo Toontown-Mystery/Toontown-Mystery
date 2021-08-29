@@ -11,7 +11,7 @@ from direct.gui import DirectGui
 from toontown.hood import ZoneUtil
 from toontown.toonbase import TTLocalizer
 from toontown.toontowngui import TTDialog
-from . import CogDisguiseGlobals
+import CogDisguiseGlobals
 
 class DistributedMintElevatorExt(DistributedElevatorExt.DistributedElevatorExt):
 

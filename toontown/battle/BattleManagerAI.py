@@ -1,4 +1,4 @@
-from . import DistributedBattleAI
+import DistributedBattleAI
 from direct.directnotify import DirectNotifyGlobal
 
 class BattleManagerAI:

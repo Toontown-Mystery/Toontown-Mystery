@@ -3,12 +3,12 @@ from direct.tkwidgets.AppShell import *
 from direct.showbase.TkGlobal import *
 from direct.tkwidgets.Tree import *
 from direct.tkwidgets import Slider, Floater
-from tkinter.simpledialog import askstring
-from tkinter.messagebox import showwarning, askyesno
-from tkinter import *
+from tkSimpleDialog import askstring
+from tkMessageBox import showwarning, askyesno
+from Tkinter import *
 from direct.showbase.PythonUtil import Functor, list2dict
 from direct.gui.DirectGui import DGG
-import tkinter.filedialog
+import tkFileDialog
 from direct.showbase import DirectObject
 import math
 import operator
@@ -89,11 +89,11 @@ class InGameEditor(AppShell):
         menuBar.addmenuitem('Entity', 'separator')
         permanentTypes = self.level.entTypeReg.getPermanentTypeNames()
         entTypes = list(self.level.entTypes)
-        list(map(entTypes.remove, permanentTypes))
+        map(entTypes.remove, permanentTypes)
         entTypes.sort()
         numEntities = len(entTypes)
         cascadeMenu = ''
-        for index in range(numEntities):
+        for index in xrange(numEntities):
             type = entTypes[index]
             if index % 10 == 0:
                 lastIndex = min(index + 9, numEntities - 1)
@@ -359,7 +359,7 @@ class InGameEditor(AppShell):
             attribDesc = typeDesc.getAttribDescDict()[attribName]
             attributeValue = attribDesc.getDefaultValue()
         valueDict = params.get('valueDict', {})
-        for key, value in list(valueDict.items()):
+        for key, value in valueDict.items():
             if value == attributeValue:
                 attributeValue = key
                 break
@@ -375,10 +375,10 @@ class InGameEditor(AppShell):
         label = Label(frame, text=attribName, width=15, anchor=W, justify=LEFT)
         label.pack(side=LEFT, expand=0)
         for choice in params.get('choiceSet', []):
-            if type(choice) is bytes:
+            if type(choice) is types.StringType:
                 choiceStr = choice
             else:
-                choiceStr = repr(choice)
+                choiceStr = `choice`
             if choiceStr not in valueDict:
                 valueDict[choiceStr] = choice
             choiceButton = Radiobutton(frame, text=choiceStr, value=choiceStr, variable=radioVar, command=radioCommand)
@@ -388,7 +388,7 @@ class InGameEditor(AppShell):
         self.attribWidgets.append(frame)
 
         def setRadioVar(attributeValue):
-            for key, value in list(valueDict.items()):
+            for key, value in valueDict.items():
                 if value == attributeValue:
                     attributeValue = key
                     break
@@ -414,22 +414,22 @@ class InGameEditor(AppShell):
 
             def cbCommand(var, trueValue = trueValue):
                 vd = self.cbDict[attribName]
-                print(vd)
+                print vd
                 if var.get():
-                    print('got it', trueValue, vd)
+                    print 'got it', trueValue, vd
                     vd[trueValue] = 1
                 else:
-                    print('not it', trueValue, vd)
+                    print 'not it', trueValue, vd
                     if trueValue in vd:
                         del vd[trueValue]
-                value = list(vd.keys())
-                print('SENDING', value)
+                value = vd.keys()
+                print 'SENDING', value
                 self.level.setAttribEdit(entId, attribName, value)
 
-            if type(choice) is bytes:
+            if type(choice) is types.StringType:
                 labelStr = choice
             else:
-                labelStr = repr(choice)
+                labelStr = `choice`
             func = Functor(cbCommand, cbVar)
             choiceButton = Checkbutton(frame, text=labelStr, variable=cbVar, command=lambda : func())
             choiceButton.pack(side=LEFT, expand=0)
@@ -439,8 +439,8 @@ class InGameEditor(AppShell):
         self.attribWidgets.append(frame)
 
         def setCheckbuttonVar(attributeValueList):
-            print('COMING BACK', attributeValueList)
-            for attributeValue, cb in list(checkbuttonDict.items()):
+            print 'COMING BACK', attributeValueList
+            for attributeValue, cb in checkbuttonDict.items():
                 if attributeValue in attributeValueList:
                     cb.set(1)
                 else:
@@ -546,7 +546,7 @@ class InGameEditor(AppShell):
                 initialDir = Filename.expandFrom('$TTMODELS/built/').toOsSpecific()
             else:
                 initialDir = Filename.expandFrom('$TTMODELS/built/%s' % text.get()[1:-1]).toOsSpecific()
-            print(text, text.get()[1:-1], initialDir)
+            print text, text.get()[1:-1], initialDir
             rawFilename = askopenfilename(defaultextension='*', initialdir=initialDir, filetypes=(('Bam Files', '*.bam'),
              ('Egg Files', '*.egg'),
              ('Maya Binaries', '*.mb'),
@@ -554,7 +554,7 @@ class InGameEditor(AppShell):
             if rawFilename != '':
                 filename = Filename.fromOsSpecific(rawFilename)
                 filename.findOnSearchpath(getModelPath().getValue())
-                text.set("'%s'" % repr(filename))
+                text.set("'%s'" % `filename`)
                 handleReturn(None)
             return
 
@@ -661,10 +661,10 @@ class InGameEditor(AppShell):
                 idDict[eType] = self.level.entType2ids.get(eType, [])
 
         else:
-            for eType in list(self.level.entType2ids.keys()):
+            for eType in self.level.entType2ids.keys():
                 idDict[eType] = self.level.entType2ids.get(eType, [])
 
-        typeKeys = list(idDict.keys())
+        typeKeys = idDict.keys()
         typeKeys.sort()
 
         def getChildEntIds(entity):
@@ -791,7 +791,7 @@ class InGameEditor(AppShell):
         self.ignore('DIRECT_manipulateObjectCleanup')
         self.ignore('DIRECT_undo')
         self.ignore('DIRECT_redo')
-        print('InGameEditor.onDestroy()')
+        print 'InGameEditor.onDestroy()'
         if self.visZonesEditor:
             self.visZonesEditor.destroy()
         self.explorer._node.destroy()
@@ -802,7 +802,7 @@ class InGameEditor(AppShell):
         messenger.send(self.requestSaveEvent)
 
     def handleSaveAs(self):
-        filename = tkinter.filedialog.asksaveasfilename(parent=self.parent, defaultextension='.py', filetypes=[('Python Source Files', '.py'), ('All Files', '*')])
+        filename = tkFileDialog.asksaveasfilename(parent=self.parent, defaultextension='.py', filetypes=[('Python Source Files', '.py'), ('All Files', '*')])
         if len(filename) > 0:
             messenger.send(self.saveAsEvent, [filename])
 

@@ -1,6 +1,6 @@
-from . import GardenGlobals
+import GardenGlobals
 from direct.directnotify import DirectNotifyGlobal
-from . import FlowerBase
+import FlowerBase
 
 class FlowerBasket:
     notify = DirectNotifyGlobal.directNotify.newCategory('FlowerBasket')
@@ -50,7 +50,7 @@ class FlowerBasket:
         import random
         numFish = random.randint(1, 20)
         self.flowerList = []
-        for i in range(numFish):
+        for i in xrange(numFish):
             species, variety = GardenGlobals.getRandomFlower()
             self.addFlower(species, variety)
 

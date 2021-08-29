@@ -4,8 +4,8 @@ from direct.gui.DirectGui import *
 from panda3d.core import *
 from toontown.toonbase import TTLocalizer
 from direct.interval.IntervalGlobal import *
-from . import GardenGlobals
-from . import FlowerPhoto
+import GardenGlobals
+import FlowerPhoto
 
 class FlowerPanel(DirectFrame):
     notify = DirectNotifyGlobal.directNotify.newCategory('FlowerPanel')
@@ -78,8 +78,8 @@ class FlowerPanel(DirectFrame):
 
     def show(self, code = GardenGlobals.FlowerItem):
         messenger.send('wakeup')
-        self.photo.setSwimBounds(*self.swimBounds)
-        self.photo.setSwimColor(*self.swimColor)
+        apply(self.photo.setSwimBounds, self.swimBounds)
+        apply(self.photo.setSwimColor, self.swimColor)
         if code == GardenGlobals.FlowerItem:
             self.extraLabel.hide()
         elif code == GardenGlobals.FlowerItemNewEntry:

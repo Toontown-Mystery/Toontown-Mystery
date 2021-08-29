@@ -11,7 +11,7 @@ class TTCodeRedemptionMgr(DistributedObject):
     def announceGenerate(self):
         DistributedObject.announceGenerate(self)
         base.codeRedemptionMgr = self
-        self._contextGen = SerialMaskedGen(4294967295)
+        self._contextGen = SerialMaskedGen(4294967295L)
         self._context2callback = {}
 
     def delete(self):
@@ -24,7 +24,7 @@ class TTCodeRedemptionMgr(DistributedObject):
         return
 
     def redeemCode(self, code, callback):
-        context = next(self._contextGen)
+        context = self._contextGen.next()
         self._context2callback[context] = callback
         self.notify.debug('redeemCode(%s, %s)' % (context, code))
         self.sendUpdate('redeemCode', [context, code])

@@ -1,5 +1,5 @@
-from . import FishBase
-from . import FishGlobals
+import FishBase
+import FishGlobals
 
 class FishTank:
 
@@ -57,7 +57,7 @@ class FishTank:
         import random
         numFish = random.randint(1, 20)
         self.fishList = []
-        for i in range(numFish):
+        for i in xrange(numFish):
             genus, species = FishGlobals.getRandomFish()
             weight = FishGlobals.getRandomWeight(genus, species)
             fish = FishBase.FishBase(genus, species, weight)

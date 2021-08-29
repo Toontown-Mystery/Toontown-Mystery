@@ -1,11 +1,11 @@
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from direct.distributed.ClockDelta import *
-from . import MovingPlatform
+import MovingPlatform
 from toontown.toonbase import ToontownGlobals
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import ClassicFSM
-from . import DistributedSwitch
+import DistributedSwitch
 from toontown.toonbase import TTLocalizer
 
 class DistributedTrigger(DistributedSwitch.DistributedSwitch):

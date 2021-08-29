@@ -1,6 +1,6 @@
 from panda3d.core import *
-from . import CatalogAtticItem
-from . import CatalogItem
+import CatalogAtticItem
+import CatalogItem
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 WVTModelName = 0

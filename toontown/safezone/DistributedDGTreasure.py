@@ -1,4 +1,4 @@
-from . import DistributedSZTreasure
+import DistributedSZTreasure
 
 class DistributedDGTreasure(DistributedSZTreasure.DistributedSZTreasure):
 

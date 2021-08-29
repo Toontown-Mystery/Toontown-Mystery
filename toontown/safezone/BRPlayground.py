@@ -1,5 +1,5 @@
 from panda3d.core import *
-from . import Playground
+import Playground
 from direct.task.Task import Task
 import random
 from toontown.hood import Place

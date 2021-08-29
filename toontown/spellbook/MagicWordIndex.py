@@ -29,7 +29,7 @@ from toontown.toonbase import ToontownBattleGlobals
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import TTLocalizer
 
-from . import MagicWordConfig
+import MagicWordConfig
 import time
 import random
 import json
@@ -85,7 +85,7 @@ class MagicWord:
         if self.__class__.__name__ != "MagicWord":  # If not the base class,
             self.aliases = self.aliases if self.aliases is not None else []  # if we use [] by default, it might get overwritten
             self.aliases.insert(0, self.__class__.__name__)  # add the class name to the alias list,
-            self.aliases = [x.lower() for x in self.aliases]  # make all the aliases lowercase,
+            self.aliases = map(lambda x: x.lower(), self.aliases)  # make all the aliases lowercase,
             self.arguments = self.arguments if self.arguments is not None else []
 
             if len(self.arguments) > 0:
@@ -305,20 +305,20 @@ class MaxToon(MagicWord):
 
         allFish = TTLocalizer.FishSpeciesNames
         fishLists = [[], [], []]
-        for genus in list(allFish.keys()):
-            for species in range(len(allFish[genus])):
+        for genus in allFish.keys():
+            for species in xrange(len(allFish[genus])):
                 fishLists[0].append(genus)
                 fishLists[1].append(species)
                 fishLists[2].append(FishGlobals.getRandomWeight(genus, species))
         toon.b_setFishCollection(*fishLists)
         toon.b_setFishingRod(FishGlobals.MaxRodId)
-        toon.b_setFishingTrophies(list(FishGlobals.TrophyDict.keys()))
+        toon.b_setFishingTrophies(FishGlobals.TrophyDict.keys())
 
         if not toon.hasKart() and simbase.wantKarts:
-            toon.b_setKartBodyType(list(KartDict.keys())[1])
+            toon.b_setKartBodyType(KartDict.keys()[1])
         toon.b_setTickets(RaceGlobals.MaxTickets)
         maxTrophies = RaceGlobals.NumTrophies + RaceGlobals.NumCups
-        toon.b_setKartingTrophies(list(range(1, maxTrophies + 1)))
+        toon.b_setKartingTrophies(range(1, maxTrophies + 1))
         toon.b_setTickets(99999)
 
         toon.b_setGolfHistory([600] * (GolfGlobals.MaxHistoryIndex * 2))
@@ -338,7 +338,7 @@ class UnlockEmotes(MagicWord):
         if len(emoteAccess) < len(OTPLocalizer.EmoteFuncDict):
             emoteAccess = [0] * len(OTPLocalizer.EmoteFuncDict)
 
-        for emoteId in list(OTPLocalizer.EmoteFuncDict.values()):
+        for emoteId in OTPLocalizer.EmoteFuncDict.values():
             if emoteId > 24 or emoteId in [17, 18, 19]:
                 continue
             emoteAccess[emoteId] = 1
@@ -731,10 +731,10 @@ class SetTracks(MagicWord):
 
         tracks = [("toonup", 1), ("trap", 1), ("lure", 1), ("sound", 1), ("throw", 1), ("squirt", 1), ("drop", 1)]
         tracks = collections.OrderedDict(tracks)
-        if leftOutTrack in list(tracks.keys()):
+        if leftOutTrack in tracks.keys():
             tracks[leftOutTrack] = 0
 
-        toon.b_setTrackAccess(list(tracks.values()))
+        toon.b_setTrackAccess(tracks.values())
         if leftOutTrack:
             msg = "Set your gag tracks, %sless Toon!" % (leftOutTrack)
         else:
@@ -957,7 +957,7 @@ class RevealMap(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         mazeGame = None
         from toontown.cogdominium.DistCogdoMazeGame import DistCogdoMazeGame
-        for do in list(base.cr.doId2do.values()):
+        for do in base.cr.doId2do.values():
             if isinstance(do, DistCogdoMazeGame):
                 if invoker.doId in do.getToonIds():
                     mazeGame = do
@@ -978,7 +978,7 @@ class EndMaze(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         mazeGame = None
         from toontown.cogdominium.DistCogdoMazeGameAI import DistCogdoMazeGameAI
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistCogdoMazeGameAI):
                 if invoker.doId in do.getToonIds():
                     mazeGame = do
@@ -1335,7 +1335,7 @@ class SetInventory(MagicWord):
             targetTrack = -1 or track
             if not -1 <= targetTrack < len(ToontownBattleGlobals.Tracks):
                 return "Invalid target track index: {0}".format(targetTrack)
-            for track in range(0, len(ToontownBattleGlobals.Tracks)):
+            for track in xrange(0, len(ToontownBattleGlobals.Tracks)):
                 if (targetTrack == -1) or (track == targetTrack):
                     inventory.inventory[track][:maxLevelIndex + 1] = [0] * (maxLevelIndex + 1)
             toon.b_setInventory(inventory.makeNetString())
@@ -1368,7 +1368,7 @@ class SetInventory(MagicWord):
             maxLevelIndex = level or 6
             if not 0 <= maxLevelIndex < len(ToontownBattleGlobals.Levels[0]):
                 return "Invalid max level index: {0}".format(maxLevelIndex)
-            for _ in range(track):
+            for _ in xrange(track):
                 inventory.addItem(targetTrack, maxLevelIndex)
                 toon.b_setInventory(inventory.makeNetString())
             return "Restored {0} Gags to: {1}, {2}".format(track, targetTrack, maxLevelIndex)
@@ -1675,7 +1675,7 @@ class SkipCFO(MagicWord):
 
         from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedCashbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1714,7 +1714,7 @@ class HitCFO(MagicWord):
         dmg = args[0]
         from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedCashbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1734,7 +1734,7 @@ class HitVP(MagicWord):
         dmg = args[0]
         from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedSellbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1754,7 +1754,7 @@ class HitCJ(MagicWord):
         dmg = args[0]
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1774,7 +1774,7 @@ class HitCEO(MagicWord):
         dmg = args[0]
         from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedBossbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1806,7 +1806,7 @@ class SkipCJ(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1855,7 +1855,7 @@ class Stun(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         boss = None
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1879,7 +1879,7 @@ class rsc(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1902,7 +1902,7 @@ class cannons(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1924,7 +1924,7 @@ class FillJury(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         boss = None
         from toontown.suit.DistributedLawbotBossAI import DistributedLawbotBossAI
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedLawbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1933,7 +1933,7 @@ class FillJury(MagicWord):
             return "You aren't in a CJ!"
         if not boss.state == 'BattleTwo':
             return "You aren't in the cannon round."
-        for i in range(len(boss.chairs)):
+        for i in xrange(len(boss.chairs)):
             boss.chairs[i].b_setToonJurorIndex(0)
             boss.chairs[i].requestToonJuror()
         return "Filled chairs."
@@ -1949,7 +1949,7 @@ class SkipVP(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedSellbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -1989,7 +1989,7 @@ class RestartPieRound(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedSellbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2041,7 +2041,7 @@ class setCraneSpawn(MagicWord):
         spawn = args[0]
         from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedCashbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2065,7 +2065,7 @@ class safeRush(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         from toontown.suit.DistributedCashbotBossAI import DistributedCashbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedCashbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2100,7 +2100,7 @@ class StunVP(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         from toontown.suit.DistributedSellbotBossAI import DistributedSellbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedSellbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2124,7 +2124,7 @@ class SkipCEO(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedBossbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2188,7 +2188,7 @@ class RestartSeltzerRound(MagicWord):
         battle = args[0]
         from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
         boss = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedBossbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2210,7 +2210,7 @@ class FeedDiners(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         boss = None
         from toontown.suit.DistributedBossbotBossAI import DistributedBossbotBossAI
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistributedBossbotBossAI):
                 if invoker.doId in do.involvedToons:
                     boss = do
@@ -2222,7 +2222,7 @@ class FeedDiners(MagicWord):
             return "You aren't in the waiter round!"
 
         for table in boss.tables:
-            for chairIndex in list(table.dinerInfo.keys()):
+            for chairIndex in table.dinerInfo.keys():
                 dinerStatus = table.getDinerStatus(chairIndex)
                 if dinerStatus in (table.HUNGRY, table.ANGRY):
                     table.foodServed(chairIndex)
@@ -2372,7 +2372,7 @@ class UnlockTricks(MagicWord):
     execLocation = MagicWordConfig.EXEC_LOC_SERVER
 
     def handleWord(self, invoker, avId, toon, *args):
-        invoker.b_setPetTrickPhrases(list(range(7)))
+        invoker.b_setPetTrickPhrases(range(7))
         return "Unlocked pet tricks!"
 
 
@@ -2384,8 +2384,8 @@ class RestockSummons(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         # Make sure we have every cog in our Cog Page.
         cogCount = []
-        for deptIndex in range(5):
-            for cogIndex in range(9):
+        for deptIndex in xrange(5):
+            for cogIndex in xrange(9):
                 cogCount.append(CogPageGlobals.COG_QUOTAS[1][cogIndex] if cogIndex != 9 else 0)
         invoker.b_setCogCount(cogCount)
         invoker.b_setCogStatus(([CogPageGlobals.COG_COMPLETE2] * 9 + [0]) * 5)
@@ -2527,9 +2527,9 @@ class SetCogSuit(MagicWord):
         # Make sure they gave a level that is in range.
         if typeIndex == 7:
             # The final suit can go up to Level 50.
-            levelRange = list(range(8, 51))  # Last digit is exclusive.
+            levelRange = range(8, 51)  # Last digit is exclusive.
         else:
-            levelRange = list(range((typeIndex + 1), (typeIndex + 6)))
+            levelRange = range((typeIndex + 1), (typeIndex + 6))
         if level not in levelRange:
             return "Invalid level specified for %s disguise %s." % (
                 corp.capitalize(), SuitBattleGlobals.SuitAttributes[type]['name'])
@@ -2659,7 +2659,7 @@ class Phrase(MagicWord):
         strings = OTPLocalizer.CustomSCStrings
         scId = int(phraseId) * 10
         id = None
-        if scId in iter(strings.keys()):
+        if scId in strings.iterkeys():
             id = scId
 
         if id:
@@ -2686,7 +2686,7 @@ class SetSos(MagicWord):
         if not 0 <= amt <= 100:
             return "The amount must be between 0 and 100!"
 
-        for npcId, npcName in list(TTLocalizer.NPCToonNames.items()):
+        for npcId, npcName in TTLocalizer.NPCToonNames.items():
             if name.lower() == npcName.lower():
                 if npcId not in NPCToons.npcFriends:
                     continue
@@ -2726,7 +2726,7 @@ class MaxGarden(MagicWord):
         invoker.b_setWateringCan(3)
         invoker.b_setShovelSkill(639)
         invoker.b_setWateringCanSkill(999)
-        invoker.b_setGardenTrophies(list(GardenGlobals.TrophyDict.keys()))
+        invoker.b_setGardenTrophies(GardenGlobals.TrophyDict.keys())
         # invoker.b_setFlowerCollection([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6, 7, 8, 9])
         # print invoker.flowerCollection.getNetLists()
 
@@ -2817,7 +2817,7 @@ class EndFlying(MagicWord):
     def handleWord(self, invoker, avId, toon, *args):
         from toontown.cogdominium.DistCogdoFlyingGameAI import DistCogdoFlyingGameAI
         flyingGame = None
-        for do in list(simbase.air.doId2do.values()):
+        for do in simbase.air.doId2do.values():
             if isinstance(do, DistCogdoFlyingGameAI):
                 if invoker.doId in do.getToonIds():
                     flyingGame = do
@@ -2905,25 +2905,25 @@ class PrintChildren(MagicWord):
             node = render2d
 
         if not mode:
-            print()
+            print
             node.getChildren()
         elif mode == 2:
             for child in node.getChildren():
                 for secondaryChild in child.getChildren():
-                    print()
+                    print
                     secondaryChild.getChildren()
         elif mode == 3:
             for child in node.getChildren():
                 for secondaryChild in child.getChildren():
                     for thirdChild in secondaryChild.getChildren():
-                        print()
+                        print
                         thirdChild.getChildren()
         elif mode == 4:
             for child in node.getChildren():
                 for secondaryChild in child.getChildren():
                     for thirdChild in secondaryChild.getChildren():
                         for fourthChild in thirdChild.getChildren():
-                            print()
+                            print
                             fourthChild.getChildren()
         elif mode == 5:
             for child in node.getChildren():
@@ -2931,16 +2931,16 @@ class PrintChildren(MagicWord):
                     for thirdChild in secondaryChild.getChildren():
                         for fourthChild in thirdChild.getChildren():
                             for fifthChild in fourthChild.getChildren():
-                                print()
+                                print
                                 fifthChild.getChildren()
         else:
             for child in node.getChildren():
-                print()
+                print
                 child.getChildren()
 
 
 # Instantiate all classes defined here to register them.
 # A bit hacky, but better than the old system
-for item in list(globals().values()):
-    if isinstance(item, type) and issubclass(item, MagicWord):
+for item in globals().values():
+    if isinstance(item, types.ClassType) and issubclass(item, MagicWord):
         i = item()

@@ -1,4 +1,4 @@
-from . import CogHood
+import CogHood
 from toontown.toonbase import ToontownGlobals
 from toontown.coghq import LawbotCogHQLoader
 

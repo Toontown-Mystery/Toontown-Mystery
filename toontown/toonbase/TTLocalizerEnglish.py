@@ -2,7 +2,7 @@ from toontown.toonbase.TTLocalizerEnglishProperty import *
 from toontown.catalog import CatalogAccessoryItemGlobals
 from otp.otpbase import OTPLocalizer as OL
 OL.SpeedChatStaticText = OL.SpeedChatStaticTextToontown.copy()
-for key in OL.SpeedChatStaticTextCommon.keys():
+for key in OL.SpeedChatStaticTextCommon.iterkeys():
     OL.SpeedChatStaticText[key] = OL.SpeedChatStaticTextCommon[key]
 
 commitmantst = 'kptmptest - removable'
@@ -5756,7 +5756,7 @@ AccessoryNamePrefix = {0: 'hat unisex ',
  11: 'shoes girl '}
 AwardManagerAccessoryNames = {}
 AccessoryTypeNames = {}
-for accessoryId in list(CatalogAccessoryItemGlobals.AccessoryTypes.keys()):
+for accessoryId in CatalogAccessoryItemGlobals.AccessoryTypes.keys():
     accessoryInfo = CatalogAccessoryItemGlobals.AccessoryTypes[accessoryId]
     if accessoryInfo[0] % 4 == 0:
         accessoryStyleDescription = HatStylesDescriptions
@@ -8972,7 +8972,7 @@ def getRecipeBeanText(beanTuple):
     if not beanTuple:
         return retval
     allTheSame = True
-    for index in range(len(beanTuple)):
+    for index in xrange(len(beanTuple)):
         if index + 1 < len(beanTuple):
             if not beanTuple[index] == beanTuple[index + 1]:
                 allTheSame = False
@@ -8986,7 +8986,7 @@ def getRecipeBeanText(beanTuple):
     else:
         retval += 'a'
         maxBeans = len(beanTuple)
-        for index in range(maxBeans):
+        for index in xrange(maxBeans):
             if index == maxBeans - 1:
                 retval += ' and %s jellybean' % BeanColorWords[beanTuple[index]]
             elif index == 0:

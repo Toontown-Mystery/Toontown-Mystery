@@ -2,9 +2,9 @@ import math
 
 from panda3d.core import *
 
-from . import NametagGlobals
-from .Nametag import Nametag
-from ._constants import *
+import NametagGlobals
+from Nametag import Nametag
+from _constants import *
 
 
 class Nametag3d(Nametag, PandaNode):

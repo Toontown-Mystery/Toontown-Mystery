@@ -1,18 +1,18 @@
 from libotp import *
 from direct.interval.IntervalGlobal import *
-from .BattleProps import *
-from .BattleSounds import *
-from .BattleBase import *
+from BattleProps import *
+from BattleSounds import *
+from BattleBase import *
 from direct.directnotify import DirectNotifyGlobal
-from . import MovieCamera
+import MovieCamera
 import random
-from . import MovieUtil
-from . import BattleParticles
-from . import HealJokes
+import MovieUtil
+import BattleParticles
+import HealJokes
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase.ToontownBattleGlobals import AvPropDamage
 from toontown.toon import NPCToons
-from . import MovieNPCSOS
+import MovieNPCSOS
 from toontown.effects import Splash
 from direct.task import Task
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieHeal')

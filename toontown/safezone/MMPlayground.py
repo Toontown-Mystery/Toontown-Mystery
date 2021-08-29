@@ -1,5 +1,5 @@
 from panda3d.core import *
-from . import Playground
+import Playground
 import random
 from direct.fsm import ClassicFSM, State
 from direct.actor import Actor

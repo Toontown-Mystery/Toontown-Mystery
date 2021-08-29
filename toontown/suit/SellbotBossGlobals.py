@@ -40,7 +40,7 @@ BarrelDefs = {8000: {'type': DistributedHealBarrelAI.DistributedHealBarrelAI,
         'rewardPerGrabMax': 0}}
 
 def setBarrelAttr(barrel, entId):
-    for defAttr, defValue in BarrelDefs[entId].items():
+    for defAttr, defValue in BarrelDefs[entId].iteritems():
         setattr(barrel, defAttr, defValue)
 
 

@@ -1,7 +1,7 @@
 from direct.showbase.DirectObject import DirectObject
 from panda3d.core import *
 
-from . import NametagGlobals
+import NametagGlobals
 
 
 class PopupMouseWatcherRegion(MouseWatcherRegion):

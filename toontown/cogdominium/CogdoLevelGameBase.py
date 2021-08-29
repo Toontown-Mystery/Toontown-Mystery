@@ -12,7 +12,7 @@ class CogdoLevelGameBase:
         def startHandleEdits(self):
             fcs = []
             Consts = self.getConsts()
-            for item in Consts.__dict__.values():
+            for item in Consts.__dict__.itervalues():
                 if isinstance(item, EntityStateVarSet):
                     for attribName in item._getAttributeNames():
                         handler = getattr(self, '_handle%sChanged' % attribName, None)
@@ -32,7 +32,7 @@ class CogdoLevelGameBase:
             return
 
         def getEntityTypeReg(self):
-            from . import CogdoEntityTypes
+            import CogdoEntityTypes
             from otp.level import EntityTypeRegistry
             typeReg = EntityTypeRegistry.EntityTypeRegistry(CogdoEntityTypes)
             return typeReg

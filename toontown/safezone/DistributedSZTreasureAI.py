@@ -1,4 +1,4 @@
-from . import DistributedTreasureAI
+import DistributedTreasureAI
 from toontown.toonbase import ToontownGlobals
 
 class DistributedSZTreasureAI(DistributedTreasureAI.DistributedTreasureAI):

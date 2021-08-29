@@ -1,17 +1,17 @@
 from direct.directnotify import DirectNotifyGlobal
 from direct.fsm import StateData
-from . import CogHQLoader
+import CogHQLoader
 from toontown.toonbase import ToontownGlobals
 from direct.gui import DirectGui
 from direct.task.Task import Task
 from toontown.toonbase import TTLocalizer
 from toontown.toon import Toon
 from direct.fsm import State
-from . import FactoryExterior
+import FactoryExterior
 import random
-from . import FactoryInterior
-from . import SellbotHQExterior
-from . import SellbotHQBossBattle
+import FactoryInterior
+import SellbotHQExterior
+import SellbotHQBossBattle
 from panda3d.core import DecalEffect
 aspectSF = 0.7227
 

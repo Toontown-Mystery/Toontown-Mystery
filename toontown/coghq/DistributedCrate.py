@@ -1,13 +1,13 @@
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from toontown.toonbase.ToontownGlobals import *
-from .CrateGlobals import *
+from CrateGlobals import *
 from direct.showbase.PythonUtil import fitSrcAngle2Dest
 from direct.distributed import DistributedObject
 from direct.directnotify import DirectNotifyGlobal
-from . import MovingPlatform
+import MovingPlatform
 from direct.task.Task import Task
-from . import DistributedCrushableEntity
+import DistributedCrushableEntity
 
 class DistributedCrate(DistributedCrushableEntity.DistributedCrushableEntity):
     notify = DirectNotifyGlobal.directNotify.newCategory('DistributedCrate')
@@ -186,7 +186,7 @@ class DistributedCrate(DistributedCrushableEntity.DistributedCrushableEntity):
             return Task.cont
 
     def getCrateSide(self, crateNormal):
-        for i in range(len(CrateNormals)):
+        for i in xrange(len(CrateNormals)):
             dotP = CrateNormals[i].dot(crateNormal)
             if dotP > 0.9:
                 self.crateSide = i

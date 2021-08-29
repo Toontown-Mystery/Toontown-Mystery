@@ -1,4 +1,4 @@
-from . import TTLocalizer
+import TTLocalizer
 from otp.otpbase.OTPGlobals import *
 from direct.showbase.PythonUtil import Enum, invertDict
 from panda3d.core import BitMask32, Vec4
@@ -299,7 +299,7 @@ factoryId2factoryType = {MockupFactoryId: FT_FullSuit,
  SellbotFactoryInt: FT_FullSuit,
  LawbotOfficeInt: FT_FullSuit}
 StreetNames = TTLocalizer.GlobalStreetNames
-StreetBranchZones = list(StreetNames.keys())
+StreetBranchZones = StreetNames.keys()
 Hoods = (DonaldsDock,
  ToontownCentral,
  TheBrrrgh,

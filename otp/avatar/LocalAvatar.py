@@ -4,11 +4,11 @@ from direct.gui.DirectGui import *
 from direct.showbase.PythonUtil import *
 from direct.interval.IntervalGlobal import *
 from direct.showbase.InputStateGlobal import inputState
-from . import Avatar
+import Avatar
 from direct.controls import ControlManager
-from . import DistributedAvatar
+import DistributedAvatar
 from direct.task import Task
-from . import PositionExaminer
+import PositionExaminer
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPRender
 import math
@@ -575,21 +575,21 @@ class LocalAvatar(DistributedAvatar.DistributedAvatar, DistributedSmoothNode.Dis
             self.nextCameraPos(1)
 
     def printCameraPositions(self):
-        print('[')
-        for i in range(len(self.cameraPositions)):
+        print '['
+        for i in xrange(len(self.cameraPositions)):
             self.printCameraPosition(i)
-            print(',')
+            print ','
 
-        print(']')
+        print ']'
 
     def printCameraPosition(self, index):
         cp = self.cameraPositions[index]
-        print('(Point3(%0.2f, %0.2f, %0.2f),' % (cp[0][0], cp[0][1], cp[0][2]))
-        print('Point3(%0.2f, %0.2f, %0.2f),' % (cp[1][0], cp[1][1], cp[1][2]))
-        print('Point3(%0.2f, %0.2f, %0.2f),' % (cp[2][0], cp[2][1], cp[2][2]))
-        print('Point3(%0.2f, %0.2f, %0.2f),' % (cp[3][0], cp[3][1], cp[3][2]))
-        print('%d,' % cp[4])
-        print(')', end=' ')
+        print '(Point3(%0.2f, %0.2f, %0.2f),' % (cp[0][0], cp[0][1], cp[0][2])
+        print 'Point3(%0.2f, %0.2f, %0.2f),' % (cp[1][0], cp[1][1], cp[1][2])
+        print 'Point3(%0.2f, %0.2f, %0.2f),' % (cp[2][0], cp[2][1], cp[2][2])
+        print 'Point3(%0.2f, %0.2f, %0.2f),' % (cp[3][0], cp[3][1], cp[3][2])
+        print '%d,' % cp[4]
+        print ')',
 
     def posCamera(self, lerp, time):
         if not lerp:
@@ -1144,7 +1144,7 @@ class LocalAvatar(DistributedAvatar.DistributedAvatar, DistributedSmoothNode.Dis
         node = base.camera.getParent()
         pos = base.cam.getPos(node)
         hpr = base.cam.getHpr(node)
-        print('cam pos = ', repr(pos), ', cam hpr = ', repr(hpr))
+        print 'cam pos = ', `pos`, ', cam hpr = ', `hpr`
 
     def d_broadcastPositionNow(self):
         self.d_clearSmoothing()
@@ -1215,7 +1215,7 @@ class LocalAvatar(DistributedAvatar.DistributedAvatar, DistributedSmoothNode.Dis
         DistributedSmoothNode.DistributedSmoothNode.d_setParent(self, parentToken)
 
     def handlePlayerFriendWhisper(self, playerId, charMessage):
-        print('handlePlayerFriendWhisper')
+        print 'handlePlayerFriendWhisper'
         self.displayWhisperPlayer(playerId, charMessage, WhisperPopup.WTNormal)
 
     def canChat(self):

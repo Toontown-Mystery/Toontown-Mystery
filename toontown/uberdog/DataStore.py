@@ -2,22 +2,22 @@ from direct.directnotify import DirectNotifyGlobal
 from panda3d.core import ConfigVariableBool
 from direct.task import Task
 from string import maketrans
-import pickle
+import cPickle
 import os
 import sys
-import dbm
+import anydbm
 import time
 
 class DataStore:
     QueryTypes = []
-    QueryTypes = dict(list(zip(QueryTypes, list(range(len(QueryTypes))))))
+    QueryTypes = dict(zip(QueryTypes, xrange(len(QueryTypes))))
 
     @classmethod
     def addQueryTypes(cls, typeStrings):
-        superTypes = list(zip(list(cls.QueryTypes.values()), list(cls.QueryTypes.keys())))
+        superTypes = zip(cls.QueryTypes.values(), cls.QueryTypes.keys())
         superTypes.sort()
         newTypes = [ item[1] for item in superTypes ] + typeStrings
-        newTypes = dict(list(zip(newTypes, list(range(1 + len(newTypes))))))
+        newTypes = dict(zip(newTypes, xrange(1 + len(newTypes))))
         return newTypes
 
     notify = DirectNotifyGlobal.directNotify.newCategory('DataStore')
@@ -32,7 +32,7 @@ class DataStore:
         self.className = self.__class__.__name__
         if self.wantAnyDbm:
             self.filepath += '-anydbm'
-            self.notify.debug('anydbm default module used: %s ' % dbm._defaultmod.__name__)
+            self.notify.debug('anydbm default module used: %s ' % anydbm._defaultmod.__name__)
         self.open()
         return
 
@@ -40,12 +40,12 @@ class DataStore:
         if self.wantAnyDbm:
             try:
                 if os.path.exists(self.filepath):
-                    self.data = dbm.open(self.filepath, 'w')
+                    self.data = anydbm.open(self.filepath, 'w')
                     self.notify.debug('Opening existing anydbm database at: %s.' % (self.filepath,))
                 else:
-                    self.data = dbm.open(self.filepath, 'c')
+                    self.data = anydbm.open(self.filepath, 'c')
                     self.notify.debug('Creating new anydbm database at: %s.' % (self.filepath,))
-            except dbm.error:
+            except anydbm.error:
                 self.notify.warning('Cannot open anydbm database at: %s.' % (self.filepath,))
 
         else:
@@ -63,7 +63,7 @@ class DataStore:
                     self.notify.debug('New pickle data file will be written to %s.' % (self.filepath,))
 
             if file:
-                data = pickle.load(file)
+                data = cPickle.load(file)
                 file.close()
                 self.data = data
             else:
@@ -81,7 +81,7 @@ class DataStore:
                     if os.path.exists(self.filepath):
                         os.rename(self.filepath, backuppath)
                     outfile = open(self.filepath, 'w')
-                    pickle.dump(self.data, outfile)
+                    cPickle.dump(self.data, outfile)
                     outfile.close()
                     if os.path.exists(backuppath):
                         os.remove(backuppath)
@@ -166,12 +166,12 @@ class DataStore:
 
     def query(self, query):
         if self.data is not None:
-            qData = pickle.loads(query)
+            qData = cPickle.loads(query)
             results = self.handleQuery(qData)
-            qResults = pickle.dumps(results)
+            qResults = cPickle.dumps(results)
         else:
             results = None
-            qResults = pickle.dumps(results)
+            qResults = cPickle.dumps(results)
         return qResults
 
     def handleQuery(self, query):

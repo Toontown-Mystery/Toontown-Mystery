@@ -1,4 +1,4 @@
-from . import Street
+import Street
 
 class DLStreet(Street.Street):
 

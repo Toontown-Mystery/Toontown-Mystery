@@ -1,4 +1,4 @@
-from . import ShtikerPage
+import ShtikerPage
 from toontown.toonbase import ToontownBattleGlobals
 from direct.gui.DirectGui import *
 from panda3d.core import *

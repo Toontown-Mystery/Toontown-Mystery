@@ -11,7 +11,7 @@ from direct.fsm import StateData
 from direct.fsm import ClassicFSM, State
 from direct.fsm import State
 from direct.task import Task
-from . import TownBattle
+import TownBattle
 from toontown.toon import Toon
 from toontown.toon.Toon import teleportDebug
 from toontown.battle import BattleParticles
@@ -211,9 +211,9 @@ class TownLoader(StateData.StateData):
         self.createAnimatedProps(self.nodeList)
         self.holidayPropTransforms = {}
         npl = self.geom.findAllMatches('**/=DNARoot=holiday_prop')
-        for i in range(npl.getNumPaths()):
+        for i in xrange(npl.getNumPaths()):
             np = npl.getPath(i)
-            np.setTag('transformIndex', repr(i))
+            np.setTag('transformIndex', `i`)
             self.holidayPropTransforms[i] = np.getNetTransform()
 
         self.notify.info('skipping self.geom.flattenMedium')
@@ -225,12 +225,12 @@ class TownLoader(StateData.StateData):
     def reparentLandmarkBlockNodes(self):
         bucket = self.landmarkBlocks = hidden.attachNewNode('landmarkBlocks')
         npc = self.geom.findAllMatches('**/sb*:*_landmark_*_DNARoot')
-        for i in range(npc.getNumPaths()):
+        for i in xrange(npc.getNumPaths()):
             nodePath = npc.getPath(i)
             nodePath.wrtReparentTo(bucket)
 
         npc = self.geom.findAllMatches('**/sb*:*animated_building*_DNARoot')
-        for i in range(npc.getNumPaths()):
+        for i in xrange(npc.getNumPaths()):
             nodePath = npc.getPath(i)
             nodePath.wrtReparentTo(bucket)
 
@@ -244,7 +244,7 @@ class TownLoader(StateData.StateData):
         a1 = Vec4(1, 1, 1, 1)
         a0 = Vec4(1, 1, 1, 0)
         numVisGroups = dnaStore.getNumDNAVisGroups()
-        for i in range(numVisGroups):
+        for i in xrange(numVisGroups):
             groupFullName = dnaStore.getDNAVisGroupName(i)
             groupName = base.cr.hoodMgr.extractGroupName(groupFullName)
             zoneId = int(groupName)
@@ -266,11 +266,11 @@ class TownLoader(StateData.StateData):
             self.fadeOutDict[groupNode] = Sequence(Func(groupNode.setTransparency, 1), LerpColorScaleInterval(groupNode, fadeDuration, a0, startColorScale=a1), Func(groupNode.clearColorScale), Func(groupNode.clearTransparency), Func(groupNode.stash), name='fadeZone-' + str(zoneId), autoPause=1)
             self.fadeInDict[groupNode] = Sequence(Func(groupNode.unstash), Func(groupNode.setTransparency, 1), LerpColorScaleInterval(groupNode, fadeDuration, a1, startColorScale=a0), Func(groupNode.clearColorScale), Func(groupNode.clearTransparency), name='fadeZone-' + str(zoneId), autoPause=1)
 
-        for i in range(numVisGroups):
+        for i in xrange(numVisGroups):
             groupFullName = dnaStore.getDNAVisGroupName(i)
             zoneId = int(base.cr.hoodMgr.extractGroupName(groupFullName))
             zoneId = ZoneUtil.getTrueZoneId(zoneId, self.zoneId)
-            for j in range(dnaStore.getNumVisiblesInDNAVisGroup(i)):
+            for j in xrange(dnaStore.getNumVisiblesInDNAVisGroup(i)):
                 visName = dnaStore.getVisibleName(i, j)
                 groupName = base.cr.hoodMgr.extractGroupName(visName)
                 nextZoneId = int(groupName)
@@ -288,7 +288,7 @@ class TownLoader(StateData.StateData):
             collNodePaths = i.findAllMatches('**/+CollisionNode')
             numCollNodePaths = collNodePaths.getNumPaths()
             visGroupName = i.node().getName()
-            for j in range(numCollNodePaths):
+            for j in xrange(numCollNodePaths):
                 collNodePath = collNodePaths.getPath(j)
                 bitMask = collNodePath.node().getIntoCollideMask()
                 if bitMask.getBit(1):
@@ -300,7 +300,7 @@ class TownLoader(StateData.StateData):
         for i in nodeList:
             animPropNodes = i.findAllMatches('**/animated_prop_*')
             numAnimPropNodes = animPropNodes.getNumPaths()
-            for j in range(numAnimPropNodes):
+            for j in xrange(numAnimPropNodes):
                 animPropNode = animPropNodes.getPath(j)
                 if animPropNode.getName().startswith('animated_prop_generic'):
                     className = 'GenericAnimatedProp'
@@ -319,7 +319,7 @@ class TownLoader(StateData.StateData):
 
             interactivePropNodes = i.findAllMatches('**/interactive_prop_*')
             numInteractivePropNodes = interactivePropNodes.getNumPaths()
-            for j in range(numInteractivePropNodes):
+            for j in xrange(numInteractivePropNodes):
                 interactivePropNode = interactivePropNodes.getPath(j)
                 className = 'InteractiveAnimatedProp'
                 if 'hydrant' in interactivePropNode.getName():
@@ -349,7 +349,7 @@ class TownLoader(StateData.StateData):
                     animatedBuildingNodes.removePath(np)
 
             numAnimatedBuildingNodes = animatedBuildingNodes.getNumPaths()
-            for j in range(numAnimatedBuildingNodes):
+            for j in xrange(numAnimatedBuildingNodes):
                 animatedBuildingNode = animatedBuildingNodes.getPath(j)
                 className = 'GenericAnimatedBuilding'
                 symbols = {}
@@ -364,7 +364,7 @@ class TownLoader(StateData.StateData):
         return
 
     def deleteAnimatedProps(self):
-        for zoneNode, animPropList in list(self.animPropDict.items()):
+        for zoneNode, animPropList in self.animPropDict.items():
             for animProp in animPropList:
                 animProp.delete()
 

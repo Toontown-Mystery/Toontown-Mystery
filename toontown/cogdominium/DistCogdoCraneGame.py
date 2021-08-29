@@ -103,7 +103,7 @@ class DistCogdoCraneGame(CogdoCraneGameBase, DistCogdoLevelGame):
                 self.notify.warning('Not a collision node: %s' % repr(cnp))
                 break
             newCollideMask = newCollideMask | cn.getIntoCollideMask()
-            for i in range(cn.getNumSolids()):
+            for i in xrange(cn.getNumSolids()):
                 solid = cn.getSolid(i)
                 if isinstance(solid, CollisionPolygon):
                     plane = Plane(solid.getPlane())
@@ -196,17 +196,17 @@ class DistCogdoCraneGame(CogdoCraneGameBase, DistCogdoLevelGame):
             self._gravityForceNode.addForce(self._gravityForce)
 
         def _handleEmptyFrictionCoefChanged(self, coef):
-            for crane in self.cranes.values():
+            for crane in self.cranes.itervalues():
                 crane._handleEmptyFrictionCoefChanged(coef)
 
         def _handleRopeLinkMassChanged(self, mass):
-            for crane in self.cranes.values():
+            for crane in self.cranes.itervalues():
                 crane._handleRopeLinkMassChanged(mass)
 
         def _handleMagnetMassChanged(self, mass):
-            for crane in self.cranes.values():
+            for crane in self.cranes.itervalues():
                 crane._handleMagnetMassChanged(mass)
 
         def _handleMoneyBagGrabHeightChanged(self, height):
-            for moneyBag in self.moneyBags.values():
+            for moneyBag in self.moneyBags.itervalues():
                 moneyBag._handleMoneyBagGrabHeightChanged(height)

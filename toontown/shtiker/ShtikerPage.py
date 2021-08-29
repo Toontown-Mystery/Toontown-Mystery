@@ -1,4 +1,4 @@
-from . import ShtikerBook
+import ShtikerBook
 from direct.fsm import StateData
 from direct.gui.DirectGui import *
 from panda3d.core import *

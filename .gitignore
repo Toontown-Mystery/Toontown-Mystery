@@ -5,7 +5,6 @@ pandac/
 *.dis
 *.log
 screenshots/
-panda3d/
 sign/
 whitelist/
 news/
@@ -21,5 +20,3 @@ desktop.ini
 # PyCharm IDE
 .idea
 venv
-# Visual Studio Code
-.vscode

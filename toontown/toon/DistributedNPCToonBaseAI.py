@@ -1,11 +1,11 @@
 from otp.ai.AIBaseGlobal import *
 from panda3d.core import *
-from . import DistributedToonAI
+import DistributedToonAI
 from direct.fsm import ClassicFSM
 from direct.fsm import State
 from direct.distributed import ClockDelta
 from toontown.toonbase import ToontownGlobals
-from . import NPCToons
+import NPCToons
 from direct.task import Task
 from toontown.quest import Quests
 

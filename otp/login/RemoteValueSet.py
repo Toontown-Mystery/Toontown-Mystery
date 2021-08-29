@@ -1,6 +1,6 @@
 from direct.directnotify import DirectNotifyGlobal
-from . import TTAccount
-from . import HTTPUtil
+import TTAccount
+import HTTPUtil
 
 class RemoteValueSet:
     notify = DirectNotifyGlobal.directNotify.newCategory('RemoteValueSet')
@@ -22,7 +22,7 @@ class RemoteValueSet:
                 continue
             try:
                 name, value = line.split('=', 1)
-            except ValueError as e:
+            except ValueError, e:
                 errMsg = 'unexpected response: %s' % response
                 self.notify.warning(errMsg)
                 onUnexpectedResponse(errMsg)

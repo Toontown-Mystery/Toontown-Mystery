@@ -117,7 +117,7 @@ class DummyLauncherBase:
          0,
          0])
         if percentComplete >= 100.0:
-            messenger.send('phaseComplete-' + repr((task.phase)))
+            messenger.send('phaseComplete-' + `(task.phase)`)
             return Task.done
         else:
             return Task.cont

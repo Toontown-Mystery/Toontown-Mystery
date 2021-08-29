@@ -1,5 +1,5 @@
 from panda3d.core import *
-from . import ShtikerPage
+import ShtikerPage
 from direct.gui.DirectGui import *
 from toontown.toon import NPCToons
 from toontown.hood import ZoneUtil

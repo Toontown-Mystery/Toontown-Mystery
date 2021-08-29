@@ -1,6 +1,6 @@
 from direct.actor import Actor
 from otp.avatar import Avatar
-from . import SuitDNA
+import SuitDNA
 from toontown.toonbase import ToontownGlobals
 from panda3d.core import *
 from toontown.battle import SuitBattleGlobals
@@ -239,7 +239,7 @@ def unloadSuits(level):
 
 
 def loadSuitModelsAndAnims(level, flag = 0):
-    for key in list(ModelDict.keys()):
+    for key in ModelDict.keys():
         model, phase = ModelDict[key]
         if base.config.GetBool('want-new-cogs', 0):
             headModel, headPhase = HeadModelDict[key]
@@ -286,7 +286,7 @@ def loadSuitAnims(suit, flag = 1):
             animList = ()
 
     else:
-        print('Invalid suit name: ', suit)
+        print 'Invalid suit name: ', suit
         return -1
     for anim in animList:
         phase = 'phase_' + str(anim[2])
@@ -872,21 +872,21 @@ class Suit(Avatar.Avatar):
         if dna.name in SuitGlobals.suitProperties:
             self.scale = SuitGlobals.suitProperties[dna.name][SuitGlobals.SCALE_INDEX]
                
-            print('b4 skelbody')
+            print 'b4 skelbody'
             self.generateSkelBody()
-            print('after skelbody')
+            print 'after skelbody'
 
             self.setHeight(SuitGlobals.suitProperties[dna.name][SuitGlobals.HEIGHT_INDEX])
 
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
-        print('b4 geomnode')
+        print 'b4 geomnode'
         self.generateHealthBar()
-        print('genHealth')
+        print 'genHealth'
         self.generateCorporateMedallion()
-        print('genCorp')
+        print 'genCorp'
         self.generateCorporateTie()
-        print('genTie')
+        print 'genTie'
         self.setBlend(frameBlend=True)
         
     def generateSkelBody(self):
@@ -897,7 +897,7 @@ class Suit(Avatar.Avatar):
         self.loadModel(Preloaded[filepath], copy = True)
         self.loadAnims(animDict)
         parts = self.findAllMatches('**/pPlane*')
-        for partNum in range(0, parts.getNumPaths()):
+        for partNum in xrange(0, parts.getNumPaths()):
             bb = parts.getPath(partNum)
             bb.setTwoSided(1)
         self.setBlend(frameBlend=True)
@@ -1339,7 +1339,7 @@ class Suit(Avatar.Avatar):
         self.generateCorporateTie()
         self.setHeight(self.height)
         parts = self.findAllMatches('**/pPlane*')
-        for partNum in range(0, parts.getNumPaths()):
+        for partNum in xrange(0, parts.getNumPaths()):
             bb = parts.getPath(partNum)
             bb.setTwoSided(1)
 

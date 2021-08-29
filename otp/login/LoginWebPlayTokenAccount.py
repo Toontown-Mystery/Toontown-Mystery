@@ -1,6 +1,6 @@
 from panda3d.core import *
 from direct.directnotify import DirectNotifyGlobal
-from . import LoginTTAccount
+import LoginTTAccount
 
 class LoginWebPlayTokenAccount(LoginTTAccount.LoginTTAccount):
     notify = DirectNotifyGlobal.directNotify.newCategory('LoginWebPlayTokenAccount')

@@ -1,4 +1,4 @@
-from . import ZoneEntityBase
+import ZoneEntityBase
 
 class ZoneEntityAI(ZoneEntityBase.ZoneEntityBase):
 

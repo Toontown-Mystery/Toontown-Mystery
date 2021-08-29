@@ -1,4 +1,4 @@
-from . import Street
+import Street
 
 class BRStreet(Street.Street):
 

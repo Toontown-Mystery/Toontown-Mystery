@@ -130,7 +130,7 @@ class ToonInterior(Place.Place):
         elif ds == 'incomplete':
             self.fsm.request('DFAReject')
         else:
-            self.notify.error('Unknown done status for DownloadForceAcknowledge: ' + repr(doneStatus))
+            self.notify.error('Unknown done status for DownloadForceAcknowledge: ' + `doneStatus`)
 
     def enterNPCFA(self, requestStatus):
         self.acceptOnce(self.npcfaDoneEvent, self.enterNPCFACallback, [requestStatus])
@@ -151,7 +151,7 @@ class ToonInterior(Place.Place):
         elif doneStatus['mode'] == 'incomplete':
             self.fsm.request('NPCFAReject')
         else:
-            self.notify.error('Unknown done status for NPCForceAcknowledge: ' + repr(doneStatus))
+            self.notify.error('Unknown done status for NPCForceAcknowledge: ' + `doneStatus`)
 
     def enterNPCFAReject(self):
         self.fsm.request('walk')
@@ -178,7 +178,7 @@ class ToonInterior(Place.Place):
         elif doneStatus['mode'] == 'incomplete':
             self.fsm.request('HFAReject')
         else:
-            self.notify.error('Unknown done status for HealthForceAcknowledge: ' + repr(doneStatus))
+            self.notify.error('Unknown done status for HealthForceAcknowledge: ' + `doneStatus`)
 
     def enterHFAReject(self):
         self.fsm.request('walk')

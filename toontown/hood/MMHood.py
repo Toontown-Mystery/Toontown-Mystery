@@ -1,5 +1,5 @@
 from panda3d.core import *
-from . import ToonHood
+import ToonHood
 from toontown.town import MMTownLoader
 from toontown.safezone import MMSafeZoneLoader
 from toontown.toonbase.ToontownGlobals import *

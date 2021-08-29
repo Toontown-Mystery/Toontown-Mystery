@@ -1,14 +1,14 @@
 from panda3d.core import *
 from libotp import *
 from direct.interval.IntervalGlobal import *
-from .BattleBase import *
+from BattleBase import *
 from direct.actor import Actor
 from toontown.distributed import DelayDelete
 from direct.directnotify import DirectNotifyGlobal
-from . import DistributedBattleBase
-from . import MovieUtil
+import DistributedBattleBase
+import MovieUtil
 from toontown.suit import Suit
-from . import SuitBattleGlobals
+import SuitBattleGlobals
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toonbase import ToontownGlobals
 from direct.fsm import State

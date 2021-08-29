@@ -1,4 +1,4 @@
-from . import TTStreet
+import TTStreet
 
 class TutorialStreet(TTStreet.TTStreet):
 
