@@ -9,6 +9,7 @@ import BattleProps
 from toontown.toonbase import TTLocalizer
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieUtil')
 SUIT_LOSE_DURATION = 8.5
+VIRTUAL_DURATION = 2.5
 SUIT_LURE_DISTANCE = 2.6
 SUIT_LURE_DOLLAR_DISTANCE = 5.1
 SUIT_EXTRA_REACH_DISTANCE = 0.9
@@ -337,6 +338,17 @@ def createSuitDeathTrack(suit, toon, battle, npcs = []):
         toonMTrack.append(Sequence(Wait(1.0), ActorInterval(mtoon, 'duck'), ActorInterval(mtoon, 'duck', startTime=1.8), Func(mtoon.loop, 'neutral')))
 
     return Parallel(suitTrack, deathSoundTrack, gears1Track, gears2MTrack, toonMTrack)
+
+def createVirtualDeathTrack(suit, toon, battle):
+    suitTrack = Sequence()
+    suitPos, suitHpr = battle.getActorPosHpr(suit)
+    suitTrack = Sequence()
+    suitPos, suitHpr = battle.getActorPosHpr(suit)
+    virtualdefeat = base.loadSfx('phase_11/audio/sfx/LB_laser_beam_on_2.ogg')
+    suitTrack.append(LerpScaleInterval(suit, 0.4, Point3(0.01, 0.01, 0.01), startScale=1)) 
+    suitTrack.append(SoundInterval(virtualdefeat))    
+    suitTrack.append(Func(suit.loop, 'neutral'))
+    return Parallel(suitTrack)
 
 
 def createSuitDodgeMultitrack(tDodge, suit, leftSuits, rightSuits):

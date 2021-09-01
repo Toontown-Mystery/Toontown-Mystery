@@ -126,6 +126,8 @@ def __createFishingPoleMultiTrack(lure, dollar, dollarName, dollarType):
                 suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
             if revived != 0:
                 suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle))
+            elif suit.isVirtual and died != 0:
+                suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
             if died != 0:
                 suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
             tracks.append(suitTrack)
@@ -195,6 +197,8 @@ def __createMagnetMultiTrack(lure, magnet, pos, hpr, scale, isSmallMagnet = 1, n
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
                 if revived != 0:
                     suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle, npcs))
+                elif suit.isVirtual and died != 0:
+                    suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
                 elif died != 0:
                     suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle, npcs))
                 tracks.append(suitTrack)
@@ -261,6 +265,8 @@ def __createHypnoGogglesMultiTrack(lure, npcs = []):
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
                 if revived != 0:
                     suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle, npcs))
+                elif suit.isVirtual and died != 0:
+                    suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
                 elif died != 0:
                     suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle, npcs))
                 tracks.append(suitTrack)
@@ -677,6 +683,8 @@ def __createSlideshowMultiTrack(lure, npcs = []):
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))
                 if revived != 0:
                     suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle, npcs))
+                elif suit.isVirtual and died != 0:
+                    suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
                 elif died != 0:
                     suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle, npcs))
                 tracks.append(suitTrack)

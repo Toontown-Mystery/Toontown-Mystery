@@ -414,6 +414,8 @@ def __createSuitTrack(drop, delay, level, alreadyDodged, alreadyTeased, target, 
             bonusTrack = Sequence(Wait(delay + tObjectAppears + 0.75), Func(suit.showHpText, -hpbonus, 1, openEnded=0))
         if revived != 0:
             suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle, npcs))
+        elif suit.isVirtual and died != 0:
+            suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
         elif died != 0:
             suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle, npcs))
         else:
