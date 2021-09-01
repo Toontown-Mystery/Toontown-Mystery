@@ -46,7 +46,6 @@ Toontown Source Code Credits:
 
 
 Toontown Mystery Credits:
-* Sketched: Cog Health bar and more stuff.
 * Thunderzapper: SetCogIndex and SetDNA command and more.
 * Joey900: the extreme help of a few things.
 * Prof Control: helping with Cog stuff, and whatever else he did.
