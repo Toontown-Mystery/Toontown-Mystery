@@ -229,7 +229,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.promotionMusic = base.loadMusic('phase_10/audio/bgm/CFO_intro.ogg')
         self.battleOneMusic = base.loadMusic('phase_10/audio/bgm/cfo_round_1.ogg')
         self.battleTwoMusic = base.loadMusic('phase_10/audio/bgm/cfo_round_2.ogg')
-        self.cutsceneMusic = base.loadMusic('phase_10/audio/bgm/CB_boss_flee.ogg')
+        self.cutsceneMusic = base.loadMusic('phase_10/audio/bgm/CB_boss_flee_2.ogg')
         self.intermissionMusic = base.loadMusic('phase_10/audio/bgm/CB_boss_crane.ogg')
         self.battleThreeMusic = base.loadMusic('phase_10/audio/bgm/encntr_boss_bg.ogg')
         self.victoryMusic = base.loadMusic('phase_10/audio/bgm/CFO_win.ogg')

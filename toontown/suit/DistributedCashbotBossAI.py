@@ -72,12 +72,12 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def generateSuits(self, battleNumber):
         if self.nerfed:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(15, 1)
+                return self.invokeSuitPlanner(15, 0)
             else:
                 return self.invokeSuitPlanner(16, 0)
         else:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(11, 1)
+                return self.invokeSuitPlanner(11, 0)
             else:
                 return self.invokeSuitPlanner(12, 0)
         activeSuits = cogs['activeSuits'] + skelecogs['activeSuits']
@@ -252,13 +252,13 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         fpos = self.scene.getRelativePoint(self, Point3(v[0] + dx, v[1] + dy, 0))
         if goon.strength <= 40:
             style = ToontownGlobals.ToontownCentral
-            healAmount = 20
+            healAmount = 25
         elif goon.strength <= 60:
             style = random.choice([ToontownGlobals.DonaldsDock, ToontownGlobals.DaisyGardens, ToontownGlobals.MinniesMelodyland])
-            healAmount = 12
+            healAmount = 20
         else:
             style = random.choice([ToontownGlobals.TheBrrrgh, ToontownGlobals.DonaldsDreamland])
-            healAmount = 6
+            healAmount = 15
         if self.recycledTreasures:
             treasure = self.recycledTreasures.pop(0)
             treasure.d_setGrab(0)
@@ -348,14 +348,14 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             goon.generateWithRequired(self.zoneId)
             self.goons.append(goon)
         if self.getBattleThreeTime() > 1.0:
-            goon.STUN_TIME = 4
-            goon.b_setupGoon(velocity=6, hFov=90, attackRadius=10, strength=250, scale=2.2)
+            goon.STUN_TIME = 8
+            goon.b_setupGoon(velocity=4, hFov=90, attackRadius=10, strength=200, scale=2.2)
         else:
-            goon.STUN_TIME = self.progressValue(15, 6)
+            goon.STUN_TIME = self.progressValue(15, 10)
             if self.want4ManPractice and (self.bossDamage > 20 and self.bossDamage < 50):
                goon.b_setupGoon(velocity=self.progressRandomValue(3, 7), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 15), strength=int(self.progressRandomValue(5, 25)), scale=0.61)
             else:
-               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(4, 8), strength=int(self.progressRandomValue(30, 101)), scale=self.progressRandomValue(0.8, 1.8, noRandom=True))
+               goon.b_setupGoon(velocity=self.progressRandomValue(1, 3), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(3, 7), strength=int(self.progressRandomValue(35, 101)), scale=self.progressRandomValue(0.8, 1.8, noRandom=True))
         goon.request(side)
         return
 

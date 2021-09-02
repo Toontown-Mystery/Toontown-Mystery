@@ -52,7 +52,7 @@ class DistributedCashbotBossGoonAI(DistributedGoonAI.DistributedGoonAI, Distribu
         self.tubeNodePath = self.attachNewNode(self.tubeNode)
         self.feelers = []
         cn = CollisionNode('feelerNode')
-        self.feelerLength = self.legLength * 1.5
+        self.feelerLength = self.legLength * 2.5
         feelerStart = 1
         #if self.boss.wantMovementModifications:
         #    for heading, weight in self.limitedDirectionTable:
