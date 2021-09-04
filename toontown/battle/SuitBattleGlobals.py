@@ -642,23 +642,23 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
                 (('PowerTrip',
                     (60,62,65,68,70,72,74,76,78,80,82,84,86),
                     (95,95,95,95,95,95,95,95,95,95,95,95,95),
-                    (20,20,20,20,20,20,20,20,20,20,20,20,20)),
-                ('RazzleDazzle',
+                    (0,20,20,20,20,20,20,20,20,20,20,20,20)),
+                ('AmandasDoughnuts',
                     (74,78,82,86,90,92,94,96,98,100,103,106,109),
                     (95,95,95,95,95,95,95,95,95,95,95,95,95),
-                    (20,20,20,20,20,20,20,20,20,20,20,20,20)),
+                    (100,20,20,20,20,20,20,20,20,20,20,20,20)),
                 ('PoundKey',
                     (48,52,56,60,64,68,72,76,80,84,88,92,96),
                     (95,95,95,95,95,95,95,95,95,95,95,95,95),
-                    (20,20,20,20,20,20,20,20,20,20,20,20,20)),
+                    (0,20,20,20,20,20,20,20,20,20,20,20,20)),
                 ('Schmooze',
                     (59,67,74,80,85,90,95,100,105,109,112,115,118),
                     (95,95,95,95,95,95,95,95,95,95,95,95,95),
-                    (20,20,20,20,20,20,20,20,20,20,20,20,20)),
+                    (0,20,20,20,20,20,20,20,20,20,20,20,20)),
                 ('ThrowMoney',
                     (78,79,80,81,82,83,84,86,88,90,92,95,98),
                     (95,95,95,95,95,95,95,95,95,95,95,95,95),
-                    (20,20,20,20,20,20,20,20,20,20,20,20,20)))},
+                    (0,20,20,20,20,20,20,20,20,20,20,20,20)))},
  'ka': {'name': 'Karen',
         'singularname': 'a Karen',
 		'pluralname': 'Karens',
@@ -1422,6 +1422,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'EvictionNotice': ('throw-paper', ATK_TGT_SINGLE),
  'NotThrowPiano': ('throw-object', ATK_TGT_SINGLE),
  'ThrowMoney': ('throw-paper', ATK_TGT_SINGLE),
+ 'AmandasDoughnuts': ('throw-paper', ATK_TGT_SINGLE),
  'BombCake': ('throw-object', ATK_TGT_SINGLE),
  'Bomb': ('throw-object', ATK_TGT_SINGLE),
  'EvilEye': ('glower', ATK_TGT_SINGLE),
@@ -1503,6 +1504,7 @@ DOUBLE_TALK = SuitAttacks.keys().index('DoubleTalk')
 EVICTION_NOTICE = SuitAttacks.keys().index('EvictionNotice')
 NOT_THROW_PIANO = SuitAttacks.keys().index('NotThrowPiano')
 THROW_MONEY = SuitAttacks.keys().index('ThrowMoney')
+AMANDAS_DOUGHNUTS = SuitAttacks.keys().index('AmandasDoughnuts')
 BOMB_CAKE = SuitAttacks.keys().index('BombCake')
 BOMB = SuitAttacks.keys().index('Bomb')
 EVIL_EYE = SuitAttacks.keys().index('EvilEye')

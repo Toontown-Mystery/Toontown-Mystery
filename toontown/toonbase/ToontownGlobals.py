@@ -634,7 +634,7 @@ BossCogDamageLevels = {BossCogElectricFence: 5,
  BossCogRecoverDizzyAttack: 75,
  BossCogDirectedAttack: 50,
  BossCogStrafeAttack: 100,
- BossCogGoonZap: 5,
+ BossCogGoonZap: 15,
  BossCogSlowDirectedAttack: 40,
  BossCogGavelStomp: 150,
  BossCogGavelHandle: 20,
@@ -946,7 +946,7 @@ CashbotBossToMagnetTime = 0.2
 CashbotBossFromMagnetTime = 1
 CashbotBossSafeKnockImpact = 0.5
 CashbotBossSafeNewImpact = 0.0
-CashbotBossGoonImpact = 0.1
+CashbotBossGoonImpact = 0.5
 CashbotBossKnockoutDamage = 30
 TTWakeWaterHeight = -4.79
 DDWakeWaterHeight = 1.669

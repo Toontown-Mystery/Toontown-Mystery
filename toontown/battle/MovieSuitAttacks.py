@@ -152,6 +152,8 @@ def doSuitAttack(attack):
         suitTrack = doNotThrowPiano(attack)
     elif name == THROW_MONEY:
         suitTrack = doThrowMoney(attack)
+    elif name == AMANDAS_DOUGHNUTS:
+        suitTrack = doAmandasDoughnuts(attack)
     elif name == BOMB_CAKE:
         suitTrack = doBombCake(attack)
     elif name == BOMB:
@@ -3642,7 +3644,7 @@ def doThrowMoney(attack):
     toon = target['toon']
     bill = globalPropPool.getProp('1dollar')
     suitTrack = getSuitTrack(attack)
-    posPoints = [Point3(-0.01, -0.05, 0.15), VBase3(10.584, -11.945, 18.316)]
+    posPoints = [Point3(-0.01, -0.35, 0.15), VBase3(10.584, -11.945, 18.316)]
     propTrack = Sequence(getPropAppearTrack(bill, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
     propTrack.append(Wait(1.73))
     hitPoint = __toonFacePoint(toon, parent=battle)
@@ -3652,6 +3654,55 @@ def doThrowMoney(attack):
     propTrack.append(getPropThrowTrack(attack, bill, [hitPoint], [missPoint], parent=battle))
     toonTrack = getToonTrack(attack, 3.4, ['cringe'], 2.8, ['duck'])
     soundTrack = getSoundTrack('SA_pick_pocket.ogg', delay=2.6, node=suit)
+    return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
+
+def doAmandasDoughnuts(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    doughnut = globalPropPool.getProp('doughnut')
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.01, -0.85, 0.15), VBase3(10.584, -11.945, 18.316)]
+    propTrack = Sequence(getPropAppearTrack(doughnut, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
+    propTrack.append(Wait(1.73))
+    hitPoint = __toonFacePoint(toon, parent=battle)
+    hitPoint.setX(hitPoint.getX() - 1.4)
+    missPoint = __toonGroundPoint(attack, toon, 0.7, parent=battle)
+    missPoint.setX(missPoint.getX() - 1.1)
+    propTrack.append(getPropThrowTrack(attack, doughnut, [hitPoint], [missPoint], parent=battle))
+    damageAnims = [['spit',
+      0.01,
+      2.95,
+      1.47],
+     ['spit',
+      0.01,
+      4.42,
+      0.07],
+     ['spit',
+      0.08,
+      4.49,
+      -0.07],
+     ['spit',
+      0.08,
+      4.42,
+      0.07],
+     ['spit',
+      0.08,
+      4.49,
+      -0.07],
+     ['spit',
+      0.08,
+      4.42,
+      0.07],
+     ['spit',
+      0.08,
+      4.49,
+      -0.07],
+     ['spit', 0.01, 4.42]]
+    dodgeAnims = [['jump', 0.01, 0.01]]
+    toonTrack = getToonTrack(attack, damageDelay=3.2, splicedDamageAnims=damageAnims, dodgeDelay=2.75, splicedDodgeAnims=dodgeAnims, showDamageExtraTime=1.4)
+    soundTrack = getSoundTrack('SA_doughnuts.ogg', delay=0.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 	
 def doBombCake(attack):
