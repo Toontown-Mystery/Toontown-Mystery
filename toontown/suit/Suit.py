@@ -413,6 +413,8 @@ class Suit(Avatar.Avatar):
         self.isHat = False
         self.isHud = False
         self.isHolly = False
+        self.isSimon = False
+        self.isSimon2 = False
         self.setFont(ToontownGlobals.getSuitFont())
         self.setPlayerType(NametagGroup.CCSuit)
         self.setPickable(1)
@@ -525,6 +527,8 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.headTexture = 'spin-doctor.jpg'
             self.generateHead('telemarketer')
+            self.generateSimonStuff()
+            self.generateSimon2Stuff()
             self.setHeight(7.45)
         elif dna.name == 'cr':
             self.scale = 6.75 / aSize
@@ -1427,4 +1431,20 @@ class Suit(Avatar.Avatar):
         self.Vault.setScale(0.5, 0.5, 0.5)
         self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
         self.Vault.setZ(0.5)
+        self.isHud = True
+
+    def generateSimonStuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_hat_witch')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.5, 0.5, 0.5)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setZ(1.1)
+        self.isHud = True
+
+    def generateSimon2Stuff(self):
+        self.Vault = loader.loadModel('phase_4/models/accessories/tt_m_chr_avt_acc_msk_dorkGlasses')
+        self.Vault.reparentTo(self.find('**/joint_head'))
+        self.Vault.setScale(0.5, 0.5, 0.5)
+        self.Vault.setPosHpr(0, 0, 0.70, 180, -20, 0)
+        self.Vault.setZ(0.9)
         self.isHud = True
