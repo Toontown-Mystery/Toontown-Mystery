@@ -534,8 +534,7 @@ class Suit(Avatar.Avatar):
             self.scale = 6.75 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
-            self.headTexture = 'halloween_mingler.jpg'
-            self.generateHead('twoface')
+            self.generateHead('Sphere.001', 'phase_4/models/char/space.bam')
             self.setHeight(8.23)
         elif dna.name == 'tbc':
             self.scale = 7.0 / aSize
@@ -1099,12 +1098,18 @@ class Suit(Avatar.Avatar):
                 headPart.setZ(0.7)
                 headPart.setScale(1.57)
             elif headType == 'Sphere.001':
-                headPart.setH(270)
+                headPart.setH(180)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.7)
                 headPart.setScale(1.1)
             elif headType == 'Sphere':
+                headPart.setH(180)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(0.2)
+                headPart.setScale(0.87)
+            elif headType == 'Sphere.001':
                 headPart.setH(180)
                 headPart.setX(0)
                 headPart.setY(0)
