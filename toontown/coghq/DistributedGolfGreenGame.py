@@ -551,7 +551,8 @@ class DistributedGolfGreenGame(BattleBlocker.BattleBlocker):
             sprite.delete()
 
         self.sprites = []
-        self.spriteNode.hide()
+        if not self.spriteNode.isEmpty():
+            self.spriteNode.hide()
         self.controlSprite = None
         self.running = 0
         self.timerLabel.hide()
