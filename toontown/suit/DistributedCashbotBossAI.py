@@ -252,13 +252,13 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         fpos = self.scene.getRelativePoint(self, Point3(v[0] + dx, v[1] + dy, 0))
         if goon.strength <= 40:
             style = ToontownGlobals.ToontownCentral
-            healAmount = 25
+            healAmount = 40
         elif goon.strength <= 60:
             style = random.choice([ToontownGlobals.DonaldsDock, ToontownGlobals.DaisyGardens, ToontownGlobals.MinniesMelodyland])
-            healAmount = 20
+            healAmount = 30
         else:
             style = random.choice([ToontownGlobals.TheBrrrgh, ToontownGlobals.DonaldsDreamland])
-            healAmount = 15
+            healAmount = 20
         if self.recycledTreasures:
             treasure = self.recycledTreasures.pop(0)
             treasure.d_setGrab(0)
@@ -349,13 +349,13 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             self.goons.append(goon)
         if self.getBattleThreeTime() > 1.0:
             goon.STUN_TIME = 8
-            goon.b_setupGoon(velocity=6, hFov=90, attackRadius=10, strength=200, scale=2.2)
+            goon.b_setupGoon(velocity=5, hFov=90, attackRadius=20, strength=200, scale=1.9)
         else:
             goon.STUN_TIME = self.progressValue(15, 10)
             if self.want4ManPractice and (self.bossDamage > 20 and self.bossDamage < 50):
                goon.b_setupGoon(velocity=self.progressRandomValue(3, 7), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 15), strength=int(self.progressRandomValue(5, 25)), scale=0.61)
             else:
-               goon.b_setupGoon(velocity=self.progressRandomValue(3, 5), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(6, 13), strength=int(self.progressRandomValue(35, 126)), scale=self.progressRandomValue(1.0, 1.8, noRandom=True))
+               goon.b_setupGoon(velocity=self.progressRandomValue(2, 4), hFov=self.progressRandomValue(70, 80), attackRadius=self.progressRandomValue(10, 18), strength=int(self.progressRandomValue(35, 126)), scale=self.progressRandomValue(0.8, 1.6, noRandom=True))
         goon.request(side)
         return
 
@@ -378,7 +378,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
     def doNextGoon(self, task):
         if self.attackCode != ToontownGlobals.BossCogDizzy:
             self.makeGoon()
-        delayTime = self.progressValue(6.5, 3)
+        delayTime = self.progressValue(6.5, 4)
         self.waitForNextGoon(delayTime)
 
     def waitForNextHelmet(self):
@@ -386,7 +386,7 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         if currState == 'BattleThree':
             taskName = self.uniqueName('NextHelmet')
             taskMgr.remove(taskName)
-            delayTime = self.progressValue(30, 10)
+            delayTime = self.progressValue(60, 30)
             taskMgr.doMethodLater(delayTime, self.__donHelmet, taskName)
             self.waitingForHelmet = 1
 

@@ -33,10 +33,10 @@ class DistributedCashbotBossSafeAI(DistributedCashbotBossObjectAI.DistributedCas
             return
         if self.boss.heldObject == None:
             if self.boss.attackCode == ToontownGlobals.BossCogDizzy:
-                damage = int(impact * 50)
-                if damage > 50 and damage < 50:
+                damage = int(impact * 100)
+                if damage > 100 and damage < 100:
                     damage = 49
-                self.boss.recordHit(max(damage, 50))
+                self.boss.recordHit(max(damage, 100))
             elif self.boss.acceptHelmetFrom(avId):
                 self.demand('Grabbed', self.boss.doId, self.boss.doId)
                 self.boss.heldObject = self
