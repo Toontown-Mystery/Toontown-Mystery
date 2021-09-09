@@ -571,7 +571,7 @@ def __throwGroupPie(throw, delay, groupHitDict):
             if revived != 0:
                 singleSuitResponseTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle))
             elif suit.isVirtual and died != 0:
-                suitSuitResponseTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
+                singleSuitResponseTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
             elif died != 0:
                 singleSuitResponseTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
             else:
