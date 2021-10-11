@@ -1807,9 +1807,9 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                        Func(geyser.reparentTo, render),
                        Parallel(LerpPosInterval(geyser, 0.1, geyserToPos, startPos = geyserPosStart), 
                        SoundInterval(dropSfx),
+                       LerpColorScaleInterval(render, 3, Vec4(1.0, 1.0, 1.0, 1.0)),
                        Func(self.stash)),
                        Func(geyser.detachNode))))),
-                       LerpColorScaleInterval(render, 3, Vec4(1.0, 1.0, 1.0, 1.0)),
             (20, Sequence(self.door3.posInterval(1, doorStartPos))))
         retTrack = Parallel(bossTrack, ActorInterval(self, 'Ff_speech', loop=1))
         return bossTrack
