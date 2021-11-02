@@ -11,11 +11,8 @@ class StreetSign(DistributedObject.DistributedObject):
     RedownloadTaskName = 'RedownloadStreetSign'
     StreetSignFileName = config.GetString('street-sign-filename', 'texture.jpg')
     StreetSignBaseDir = config.GetString('street-sign-base-dir', 'sign')
-<<<<<<< Updated upstream
     StreetSignUrl = base.config.GetString('street-sign-url', 'http://cdn.toontown.disney.go.com/toontown/en/street-signs/img/')
-=======
-    StreetSignUrl = base.config.GetString('street-sign-url', 'https://github.com/open-toontown/toontown-online-2013-decompiled/blob/master/toontown/hood/StreetSign.py')
->>>>>>> Stashed changes
+
     notify = DirectNotifyGlobal.directNotify.newCategory('StreetSign')
 
     def __init__(self):
