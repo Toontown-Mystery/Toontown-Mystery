@@ -252,6 +252,8 @@ def __throwPie(throw, delay, hitCount, showCannon = 1):
     toonTrack.append(Wait(delay))
     toonTrack.append(toonFace)
     toonTrack.append(ActorInterval(toon, 'pushbutton'))
+    if toon == base.localAvatar:
+        toonTrack.append(Func(base.talkAssistant.sendOpenTalk, TTLocalizer.FireTalkMessage))
     toonTrack.append(ActorInterval(toon, 'wave', duration=2.0))
     toonTrack.append(ActorInterval(toon, 'duck'))
     toonTrack.append(Func(toon.loop, 'neutral'))

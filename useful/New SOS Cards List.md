@@ -6,7 +6,7 @@ Toonup 400 laff.
 Toonup 180 laff.
 # Violet:
 Sound 345 Damage.
-# FOG DOG: 
+# Junko Enoshima: 
 Sound 260 Damage.
 # Joey900: 
 Sound 200 Damage.
@@ -14,7 +14,7 @@ Sound 200 Damage.
 Drop 1125 Damage.
 # Cool Cat: 
 Drop 840 Damage.
-# Cuddles: 
+# Celeste: 
 Drop 375 Damage.
 # Caillou: 
 Trap 850 Damage.

@@ -3916,6 +3916,7 @@ LauncherPhaseNames = {0: 'Initialization',
  11: Lawbot + ' HQ',
  12: Bossbot + ' HQ',
  13: 'Parties'}
+FireTalkMessage = "I'm blowing you up to the Moon!"
 LauncherProgress = '%(name)s (%(current)s of %(total)s)'
 LauncherStartingMessage = "Starting Toontown Online... "
 LauncherDownloadFile = 'Downloading update for ' + LauncherProgress + '...'
@@ -4916,7 +4917,7 @@ BattleGlobalLureAccLow2 = '70%'
 BattleGlobalLureAccMedium = '75%'
 BattleGlobalLureAccHigh = '80%'
 BattleGlobalLureTrackBonus = ' (+15%)'
-AttackMissed = 'MISSED'
+AttackMissed = 'THAT WAS JUST PLASTIC!!'
 NPCCallButtonLabel = 'CALL'
 LoaderLabel = 'Loading...'
 HeadingToHood = 'Heading %(to)s %(hood)s...'
@@ -6913,7 +6914,8 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  2307: lHQOfficerF,
  2308: 'Strawberry',
  2309: 'Big Bruce',
- 2311: 'Cuddles',
+ 2310: 'Junko Enoshima',
+ 2311: 'Celeste',
  2312: 'Dr. Sensitive',
  2313: 'Lucy Shirtspot',
  2314: 'Ned Slinger',
