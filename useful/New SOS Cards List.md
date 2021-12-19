@@ -5,23 +5,23 @@ Toonup 400 laff.
 # Sassy: 
 Toonup 180 laff.
 # Violet:
-Sound 345 Damage.
+Sound 425 Damage.
 # Junko Enoshima: 
-Sound 260 Damage.
+Sound 345 Damage.
 # Joey900: 
-Sound 200 Damage.
+Sound 500 Damage.
 # Thunderzapper: 
-Drop 1125 Damage.
+Drop 1250 Damage.
 # Cool Cat: 
-Drop 840 Damage.
+Drop 1000 Damage.
 # Celeste: 
-Drop 375 Damage.
+Drop 700 Damage.
 # Caillou: 
-Trap 850 Damage.
+Trap 1500 Damage.
 # Vanessa: 
-Trap 1915 Damage.
+Trap 2000 Damage.
 # Richie Verdi: 
-Trap 2550 Damage.
+Trap 2500 Damage.
 # Strawberry: 
 Lure 4 Rounds.
 # Classic Noah: 
