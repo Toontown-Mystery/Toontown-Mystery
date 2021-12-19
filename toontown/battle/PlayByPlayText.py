@@ -13,7 +13,7 @@ class PlayByPlayText(OnscreenText.OnscreenText):
     notify = DirectNotifyGlobal.directNotify.newCategory('PlayByPlayText')
 
     def __init__(self):
-        OnscreenText.OnscreenText.__init__(self, mayChange=1, pos=(0.0, 0.75), scale=TTLocalizer.PBPTonscreenText, fg=(1, 0, 0, 1), font=getSignFont(), wordwrap=13)
+        OnscreenText.OnscreenText.__init__(self, mayChange=1, pos=(0.0, 0.75), scale=TTLocalizer.PBPTonscreenText, fg=(0, 0, 1, 1), font=getSignFont(), wordwrap=13)
 
     def getShowInterval(self, text, duration):
         return Sequence(Func(self.hide), Wait(duration * 0.3), Func(self.setText, text), Func(self.show), Wait(duration * 0.7), Func(self.hide))
