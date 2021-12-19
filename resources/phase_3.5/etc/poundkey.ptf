@@ -29,7 +29,7 @@ p0.renderer.setUserAlpha(1.00)
 # Sprite parameters
 p0.renderer.setIgnoreScale(1)
 p0.renderer.setTextureFromNode("phase_3.5/models/props/suit-particles", "**/poundsign")
-p0.renderer.setColor(Vec4(1.00, 1.00, 1.00, 1.00))
+p0.renderer.setColor(Vec4(0, 0.50, 0.50, 1.00))
 p0.renderer.setXScaleFlag(1)
 p0.renderer.setYScaleFlag(1)
 p0.renderer.setAnimAngleFlag(0)

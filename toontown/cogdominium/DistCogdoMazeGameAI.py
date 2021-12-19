@@ -7,7 +7,7 @@ from DistCogdoGameAI import DistCogdoGameAI
 import CogdoMazeGameGlobals as Globals
 cogdoMazeTimeScoreRatio = 0.5
 cogdoMazePerfectTime = 90
-cogdoMazeMaxTime = 210
+cogdoMazeMaxTime = 900
 cogdoMazePickupScoreRatio = 0.7
 
 class DistCogdoMazeGameAI(DistCogdoGameAI, DistCogdoMazeGameBase):

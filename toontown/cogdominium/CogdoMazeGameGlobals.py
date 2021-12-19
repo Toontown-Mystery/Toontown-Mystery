@@ -7,7 +7,7 @@ GameActions = PythonUtil.Enum(('EnterDoor',
  'TimeAlert'))
 SecondsUntilTimeout = 4.0 * 60.0
 SecondsUntilGameEnds = 60.0
-SecondsForTimeAlert = 60.0
+SecondsForTimeAlert = 30.0
 MaxPlayers = 4
 IntroDurationSeconds = 24.0
 FinishDurationSeconds = 5.0
@@ -69,7 +69,7 @@ MazeBarriers = ([(7, 34),
   (34, 8),
   (34, 9),
   (34, 10)])
-ToonRunSpeed = 11.2
+ToonRunSpeed = 25
 CameraAngle = 60
 CameraRemoteToonRadius = 6
 CameraMinDistance = 40
@@ -83,24 +83,24 @@ SuitWalkSameDirectionProb = 1
 SuitWalkTurnAroundProb = 100
 SuitTypes = PythonUtil.Enum(('Boss', 'FastMinion', 'SlowMinion'))
 SuitData = {}
-SuitData[SuitTypes.Boss] = {'dnaName': 'ms',
+SuitData[SuitTypes.Boss] = {'dnaName': 'gh',
  'cellWalkPeriod': 192,
- 'toonDamage': 3.0,
+ 'toonDamage': 25.0,
  'scale': 2.5,
- 'hp': 2,
- 'memos': 0}
-SuitData[SuitTypes.FastMinion] = {'dnaName': 'nd',
+ 'hp': 5,
+ 'memos': 10}
+SuitData[SuitTypes.FastMinion] = {'dnaName': 'ka',
  'cellWalkPeriod': 64,
- 'toonDamage': 1.0,
- 'scale': 1.3,
- 'hp': 1,
- 'memos': 3}
-SuitData[SuitTypes.SlowMinion] = {'dnaName': 'cc',
+ 'toonDamage': 15.0,
+ 'scale': 2,
+ 'hp': 4,
+ 'memos': 4}
+SuitData[SuitTypes.SlowMinion] = {'dnaName': 'mh',
  'cellWalkPeriod': 160,
- 'toonDamage': 2.0,
- 'scale': 1.33,
- 'hp': 1,
- 'memos': 2}
+ 'toonDamage': 10.0,
+ 'scale': 2,
+ 'hp': 3,
+ 'memos': 3}
 NumSuits = (4, 5, 5)
 BossSpinTime = 1.0
 BossSpinCount = 2
@@ -124,7 +124,7 @@ QuakeSfxFalloff = 0.01
 QuakeSfxMax = 2.0
 QuakeSfxEnabled = True
 DropFrequency = 3
-DropDamage = 0
+DropDamage = 30
 DropTime = 1.0
 ShadowTime = 2.0
 DropHeight = 70
@@ -136,8 +136,8 @@ DropChance = 0.25
 GagChance = 0.5
 GagSitTime = 15.0
 BalloonDelay = 1.2
-ThrowDistance = 18
-ThrowDuration = 0.5
+ThrowDistance = 50
+ThrowDuration = 0.2
 ThrowStartFrame = 61
 ThrowEndFrame = 64
 ThrowPlayRate = 1.5
@@ -172,7 +172,7 @@ WaterCoolerShowEventName = 'CogdoMazeWaterCooler_Show'
 WaterCoolerHideEventName = 'CogdoMazeWaterCooler_Hide'
 AudioCutoff = 75.0
 MusicFiles = {'normal': 'phase_9/audio/bgm/CHQ_FACT_bg.ogg',
- 'timeRunningOut': 'phase_7/audio/bgm/encntr_suit_winning_indoor.ogg'}
+ 'timeRunningOut': 'phase_9/audio/bgm/CHQ_FACT_bg_rush.ogg'}
 SfxFiles = {'toonHitByDrop': 'phase_5/audio/sfx/tt_s_ara_cmg_toonHit.ogg',
  'toonHit': 'phase_4/audio/sfx/MG_cannon_hit_dirt.ogg',
  'getMemo': 'phase_4/audio/sfx/MG_maze_pickup.ogg',

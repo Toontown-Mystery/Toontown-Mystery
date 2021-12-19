@@ -28,8 +28,8 @@ p0.renderer.setAlphaMode(BaseParticleRenderer.PRALPHAUSER)
 p0.renderer.setUserAlpha(1.00)
 
 # Sparkle parameters
-p0.renderer.setCenterColor(Vec4(1.0, 0, 0, 0.9))
-p0.renderer.setEdgeColor(Vec4(0.8, 0.8, 0.8, 0.4))
+p0.renderer.setCenterColor(Vec4(1.0, 0, 0, 1.0))
+p0.renderer.setEdgeColor(Vec4(1.0, 0, 0, 1.0))
 p0.renderer.setBirthRadius(0.1000)
 p0.renderer.setDeathRadius(15.0000)
 p0.renderer.setLifeScale(SparkleParticleRenderer.SPNOSCALE)
