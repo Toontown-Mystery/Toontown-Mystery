@@ -3712,7 +3712,7 @@ def doBombCake(attack):
     toon = target['toon']
     cake = globalPropPool.getProp('birthday-cake')
     suitTrack = getSuitTrack(attack)
-    posPoints = [Point3(-0.04, 0.15, -1.38), VBase3(180.00, -45.00, -45.00)]
+    posPoints = [Point3(-0.04, -0.15, -0.38), VBase3(180.00, 180.00, 0.00)]
     propTrack = Sequence(getPropAppearTrack(cake, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
     propTrack.append(Wait(1.73))
     hitPoint = __toonFacePoint(toon, parent=battle)
@@ -3731,7 +3731,7 @@ def doBomb(attack):
     toon = target['toon']
     tnt = globalPropPool.getProp('tnt')
     suitTrack = getSuitTrack(attack)
-    posPoints = [Point3(-0.04, 0.15, -1.38), VBase3(10.584, -11.945, 18.316)]
+    posPoints = [Point3(-0.04, -0.15, -0.78), VBase3(10.584, -11.945, 18.316)]
     propTrack = Sequence(getPropAppearTrack(tnt, suit.getRightHand(), posPoints, 0.8, MovieUtil.PNT3_ONE, scaleUpTime=0.5))
     propTrack.append(Wait(1.73))
     hitPoint = __toonFacePoint(toon, parent=battle)
