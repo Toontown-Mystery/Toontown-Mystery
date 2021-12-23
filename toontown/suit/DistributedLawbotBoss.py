@@ -1601,7 +1601,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                 Func(self.clearChat),
                 self.loseCogSuits(self.toonsA + self.toonsB, render, (-2.798, -70, 10, 180, 0, 0)))),
             (300, Sequence(
-                self.toonNormalEyes(self.involvedToons), LerpColorScaleInterval(render, 3, Vec4(0.75, 0.75, 0.0, 1.0)),
+                self.toonNormalEyes(self.involvedToons), LerpColorScaleInterval(render, 3, Vec4(0.3, 0.3, 0.3, 1.0)),
                 Func(self.loop, 'Ff_neutral'),
                 Func(self.setChatAbsolute, attackToons, CFSpeech))))
         track.append(dialogTrack)
