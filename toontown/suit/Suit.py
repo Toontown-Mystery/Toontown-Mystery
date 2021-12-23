@@ -1098,7 +1098,7 @@ class Suit(Avatar.Avatar):
                 headPart.setZ(0.7)
                 headPart.setScale(1.57)
             elif headType == 'Sphere.001':
-                headPart.setH(180)
+                headPart.setH(270)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.7)
@@ -1110,7 +1110,7 @@ class Suit(Avatar.Avatar):
                 headPart.setZ(0.2)
                 headPart.setScale(0.87)
             elif headType == 'Sphere.001':
-                headPart.setH(180)
+                headPart.setH(270)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.2)

@@ -1405,7 +1405,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (20, Sequence(Func(self.loop, 'Ff_speech'), Func(base.camera.reparentTo, render), Func(base.camera.setPosHpr, -2.4, -110.6, 19.5, 0, 0, 0))),
             (24, Func(self.setChatAbsolute, "And we're going to debate on why throw is good and why zap is bad.", CFSpeech)),
             (26, Func(self.clearChat)),
-            (26, Func(self.setChatAbsolute, "Furball, you go first.", CFSpeech)),
+            (26, Func(self.setChatAbsolute, "Aoi, you go first.", CFSpeech)),
             (30, Func(self.clearChat)),
             (30, Sequence(Func(base.camera.reparentTo, self.witnessToon), Func(base.camera.setPosHpr, 0, 8, 2, 180, 10, 0))),
             (30, Sequence(Func(self.witnessToon.setChatAbsolute, "Thank you, kind sir.", CFSpeech))),
@@ -1828,7 +1828,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         if self.witnessToon:
             return
         npc = NPCToons.createLocalNPC(998)
-        npc.setName('Furball')
+        npc.setName('Aoi')
         npc.setPickable(0)
         npc.setPlayerType(NametagGroup.CCNonPlayer)
         npc.animFSM.request('Sit')

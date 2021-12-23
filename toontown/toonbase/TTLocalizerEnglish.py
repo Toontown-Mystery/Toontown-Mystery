@@ -6815,7 +6815,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  784: 'Timinator',
  788: 'Redsonic',
  888: 'Gabe The Happy Dog',
- 998: 'Furball',
+ 998: 'Aoi',
  999: 'Toon Tailor',
  1000: lToonHQ,
  20001: Flippy,
@@ -8773,7 +8773,7 @@ WinterCarolingMsg = 'You have already been caroling here!'
 LawbotBossTempIntro0 = "Ooooh, what's going on here?"
 LawbotBossTempIntro1 = 'Bruh, there is someone here.'
 LawbotWitnessToon1 = 'Hi, do you miss me?'
-LawbotWitnessToon2 = "It's me, Furball!"
+LawbotWitnessToon2 = "It's me, Aoi!"
 LawbotWitnessToon3 = "And I'm gonna help the Toons. :)"
 LawbotBossTempShut1 = "NO SHUT."
 LawbotBossTempShut2 = "STOP DISTRACTING MY SPEECH!"
@@ -8801,7 +8801,7 @@ LawbotBossTaunts = ['%s, you get away from there!',
  "Now let's see, where were we?",
  'Ugh!']
 LawbotBossAreaAttackTaunt = "Stop throwing evidence!"
-WitnessToonName = 'Furball'
+WitnessToonName = 'Aoi'
 WitnessToonPrepareBattleTwo = "This is not what I planned, smh.\x07So, here's what you do, use the cannons to shoot yourself on a chair.\x07When your Toon is on your chair, you gain an evidence thing.\x07The more Toons you get on chairs, the more your evidence weighs.\x07We need %d to get a balanced scale.\x07Now get out there, and shoot!"
 WitnessToonNoJuror = "Hm, I don't like this..."
 WitnessToonOneJuror = "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1."
