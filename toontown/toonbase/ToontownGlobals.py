@@ -1741,12 +1741,12 @@ BossbotBossDifficultySettings = [(14,
   30,
   30,
   0)]
-BossbotRollSpeedMax = 45
-BossbotRollSpeedMin = 15
-BossbotTurnSpeedMax = 120
-BossbotTurnSpeedMin = 40
-BossbotTreadSpeedMax = 21
-BossbotTreadSpeedMin = 10
+BossbotRollSpeedMax = 125
+BossbotRollSpeedMin = 10
+BossbotTurnSpeedMax = 2
+BossbotTurnSpeedMin = 2
+BossbotTreadSpeedMax = 125
+BossbotTreadSpeedMin = 20
 CalendarFilterShowAll = 0
 CalendarFilterShowOnlyHolidays = 1
 CalendarFilterShowOnlyParties = 2

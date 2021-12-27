@@ -593,7 +593,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 
     def givePinkSlipReward(self, toon):
         self.notify.debug('TODO give pink slip to %s' % toon)
-        toon.addPinkSlips(self.battleDifficulty + 3)
+        toon.addPinkSlips(self.battleDifficulty + 17)
 
     def getThreat(self, toonId):
         if toonId in self.threatDict:
