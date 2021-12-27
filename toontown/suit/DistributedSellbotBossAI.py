@@ -407,7 +407,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
                 if configMax == 8:
                     maxNumCalls = 1
                 else:
-                    maxNumCalls = 3
+                    maxNumCalls = 10
                 if not toon.attemptAddNPCFriend(self.cagedToonNpcId, numCalls=maxNumCalls):
                     self.notify.info('%s.unable to add NPCFriend %s to %s.' % (self.doId, self.cagedToonNpcId, toonId))
                 if self.__shouldPromoteToon(toon):

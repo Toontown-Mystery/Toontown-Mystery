@@ -173,11 +173,14 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.geom.reparentTo(render)
         self.elevatorMusic = base.loader.loadMusic('phase_12/audio/bgm/King_elevator.ogg')
         self.promotionMusic = base.loadMusic('phase_12/audio/bgm/CEO_intro.ogg')
-        self.betweenPhaseMusic = base.loadMusic('phase_12/audio/bgm/Boss_Prepare.ogg')
+        self.betweenPhaseMusic = base.loadMusic('phase_12/audio/bgm/CEO_revealed.ogg')
         self.battleOneMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_1.ogg')
         self.phaseTwoMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_2.ogg')
+        self.revealedPhaseMusic = base.loadMusic('phase_12/audio/bgm/Boss_Prepare.ogg')
         self.battleThreeMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_3.ogg')
+        self.phaseFourPrepareMusic = base.loadMusic('phase_12/audio/bgm/BossBot_CEO_v2.ogg')
         self.phaseFourMusic = base.loadMusic('phase_12/audio/bgm/CEO_round_4.ogg')
+        self.phaseFourEndingMusic = base.loadMusic('phase_12/audio/bgm/encntr_club_3_boss.ogg')
         self.victoryMusic = base.loadMusic('phase_12/audio/bgm/CEO_victory.ogg')
         self.pickupFoodSfx = loader.loadSfx('phase_6/audio/sfx/SZ_MM_gliss.ogg')
         self.explodeSfx = loader.loadSfx('phase_4/audio/sfx/firework_distance_02.ogg')
@@ -570,7 +573,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq = Sequence(self.makePrepareBattleThreeMovie(), Func(self.__onToBattleThree), name=intervalName)
         seq.start()
         self.storeInterval(seq, intervalName)
-        base.playMusic(self.betweenPhaseMusic, looping=1, volume=0.9)
+        base.playMusic(self.revealedPhaseMusic, looping=1, volume=0.9)
 
     def calcNotDeadList(self):
         if not self.notDeadList:
@@ -582,7 +585,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 
     def exitPrepareBattleThree(self):
         self.clearInterval('PrepareBattleThreeMovie')
-        self.betweenPhaseMusic.stop()
+        self.revealedPhaseMusic.stop()
 
     def __onToBattleThree(self, elapsedTime = 0):
         self.doneBarrier('PrepareBattleThree')
@@ -663,11 +666,11 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq = Sequence(self.makePrepareBattleFourMovie(), Func(self.__onToBattleFour), name=intervalName)
         seq.start()
         self.storeInterval(seq, intervalName)
-        base.playMusic(self.phaseFourMusic, looping=1, volume=0.9)
+        base.playMusic(self.phaseFourPrepareMusic, looping=1, volume=0.9)
 
     def exitPrepareBattleFour(self):
         self.clearInterval('PrepareBattleFourMovie')
-        self.phaseFourMusic.stop()
+        self.phaseFourPrepareMusic.stop()
 
     def makePrepareBattleFourMovie(self):
         rToon = self.resistanceToon
@@ -779,7 +782,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq.start()
         self.bossHealthBar.deinitialize()
         self.storeInterval(seq, intervalName)
-        base.playMusic(self.phaseFourMusic, looping=1, volume=0.9)
+        base.playMusic(self.phaseFourEndingMusic, looping=1, volume=0.9)
 
     def __continueVictory(self):
         self.notify.debug('----- __continueVictory')
@@ -791,7 +794,7 @@ class DistributedBossbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.stopAnimate()
         self.unstash()
         localAvatar.setCameraFov(ToontownGlobals.CogHQCameraFov)
-        self.phaseFourMusic.stop()
+        self.phaseFourEndingMusic.stop()
 
     def makeVictoryMovie(self):
         self.show()
