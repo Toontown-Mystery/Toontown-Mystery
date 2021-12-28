@@ -294,7 +294,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         self.ignoreBarrier(self.barrier)
 
     def enterPrepareBattleTwo(self):
-        self.barrier = self.beginBarrier('PrepareBattleTwo', self.involvedToons, 30, self.__donePrepareBattleTwo)
+        self.barrier = self.beginBarrier('PrepareBattleTwo', self.involvedToons, 100, self.__donePrepareBattleTwo)
         self.makeBattleTwoBattles()
 
     def __donePrepareBattleTwo(self, avIds):
