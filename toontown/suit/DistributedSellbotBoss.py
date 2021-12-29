@@ -415,6 +415,9 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         return Sequence(bossTrack, Func(self.getGeomNode().setH, 0), name=self.uniqueName('BattleTwo'))
 
     def makePrepareBattleTwoMovie(self, delayDeletes):
+        track = Parallel()
+        camera.reparentTo(render)
+        camera.setPosHpr(-3, -35, 3, -90, 0, 0)
         startPos = Point3(ToontownGlobals.SellbotBossBattleOnePosHpr[0], ToontownGlobals.SellbotBossBattleOnePosHpr[1], ToontownGlobals.SellbotBossBattleOnePosHpr[2])
         battlePos = Point3(ToontownGlobals.SellbotBossBattleTwoPosHpr[0], ToontownGlobals.SellbotBossBattleTwoPosHpr[1], ToontownGlobals.SellbotBossBattleTwoPosHpr[2])
         startHpr = Point3(ToontownGlobals.SellbotBossBattleOnePosHpr[3], ToontownGlobals.SellbotBossBattleOnePosHpr[4], ToontownGlobals.SellbotBossBattleOnePosHpr[5])
@@ -432,16 +435,47 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         track, hpr = self.rollBossToPoint(battlePos, battleHpr, battlePos, finalHpr, 0)
         bossTrack.append(track)
         track = Sequence(
-            base.camera.posHprInterval(3, Point3(0, 90, 64), Point3(0, 0, 0), blendType='easeInOut'), 
-            Func(self.cagedToon.setChatAbsolute, "Ugh...", CFSpeech),
-            Wait(2),
+            base.camera.posHprInterval(3, Point3(0, 60, 65.5), Point3(0, 5, 0), blendType='easeInOut'), 
+            Func(self.cagedToon.setChatAbsolute, "Oh no... this is not good...", CFSpeech),
+            Wait(3.5),
             Func(self.cagedToon.clearChat),
-            base.camera.posHprInterval(1.5, Point3(0, 100, 64), Point3(0, 0, 0), blendType='easeInOut'), 
-            Func(self.cagedToon.setChatAbsolute, "I can't believe this...", CFSpeech),
-            Wait(2),
+            base.camera.posHprInterval(1, Point3(0, 68, 65.5), Point3(0, 5, 0), blendType='easeInOut'), 
+            Func(self.cagedToon.setChatAbsolute, "He's making another format of Cogs...", CFSpeech),
+            Wait(3.5),
             Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.setChatAbsolute, "Use your best defenses and offensives and take out those Cogs!", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.loop, 'sit'),
+            Func(self.cagedToon.setChatAbsolute, "Don't worry, I'll grab some popcorn and eat while y'all do all the work.", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.setChatAbsolute, "Also, keep in mind that this is the dangerous round.", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat), 
+            Func(self.cagedToon.setChatAbsolute, "Just remember though, you're going to fail!", CFSpeech),
+            base.camera.posHprInterval(0.5, Point3(-5, 65, 66), Point3(-30, 5, 0), blendType='easeInOut'),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            base.camera.posHprInterval(2, Point3(-33, 60, 35), Point3(-90, 10, 0), blendType='easeInOut'),
+            Func(self.play, 'Ff_lookRt'), 
+            Func(self.setChatAbsolute, "Ha, you fool.", CFSpeech),
+            Wait(3.5),
+            Func(self.clearChat),
+            Func(self.loop, 'Ff_speech'),
+            Func(self.setChatAbsolute, "I'm surprised that your fellow Toons are trying to save you when you're being so negative about them.", CFSpeech),
+            Wait(5),
+            Func(self.clearChat),
+            Func(self.setChatAbsolute, "Not to worry though, my Fashionbots have the power to show you the true meaning of Fashion.", CFSpeech),
+            Wait(5),
+            Func(self.clearChat),
+            Func(self.loop, 'Ff_neutral'),
+            Func(self.cagedToon.loop, 'neutral'),
+            Func(self.setChatAbsolute, "Get them!", CFSpeech), Parallel(base.camera.posHprInterval(0.5, Point3(-27, 56, 40), Point3(-90, 0, 0), blendType='easeInOut'), Parallel(LerpColorScaleInterval(render, 1.5, Vec4(0.5, 0, 1.0, 1.0)))), 
+            Wait(3),
+            Func(self.clearChat),
             Wait(4))
-        return track
+        return Sequence(track, name=self.uniqueName('SellbotBoss.makePrepareBattleTwoMovie'))
 
     def cagedToonMovieFunction(self, instruct, cageIndex):
         self.notify.debug('cagedToonMovieFunction()')
@@ -832,7 +866,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         seq.delayDeletes = delayDeletes
         seq.start()
         self.storeInterval(seq, intervalName)
-        base.playMusic(self.cutsceneMusic, looping=1, volume=0.9)
+        base.playMusic(self.cutsceneMusic, looping=1, volume=0.7)
 
     def exitPrepareBattleTwo(self):
         intervalName = 'PrepareBattleTwoMovie'
