@@ -490,30 +490,30 @@ class Suit(Avatar.Avatar):
         self.isImmune = 0
         self.setBlend(frameBlend=True)
         if dna.name == 'f':
-            self.scale = 4.0 / cSize
+            self.scale = 2.0 / cSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('gladhander')
-            self.setHeight(4.88)
+            self.setHeight(2.48)
         elif dna.name == 'p':
-            self.scale = 3.35 / bSize
+            self.scale = 2.45 / bSize
             self.handColor = SuitDNA.corpPolyColor
             self.generateBody()
             self.generateHead('pencilpusher')
-            self.setHeight(5.0)
+            self.setHeight(3.0)
         elif dna.name == 'ym':
-            self.scale = 4.125 / aSize
+            self.scale = 3.1 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('backstabber')
-            self.setHeight(5.28)
+            self.setHeight(3.98)
         elif dna.name == 'mm':
-            self.scale = 4.5 / bSize
+            self.scale = 3.8 / bSize
             self.handColor = VBase4(1.0, 0, 0.2, 0.5)
             self.generateBody()
             self.headTexture = 'cat.jpg'
             self.generateHead('movershaker')
-            self.setHeight(5.25)
+            self.setHeight(4.55)
         elif dna.name == 'ds':
             self.scale = 4.5 / aSize
             self.handColor = VBase4(0.8, 0.7, 0.7, 1.0)
@@ -522,20 +522,20 @@ class Suit(Avatar.Avatar):
             self.generateHudStuff()
             self.setHeight(6.08)
         elif dna.name == 'hh':
-            self.scale = 6.5 / bSize
+            self.scale = 5.5 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'spin-doctor.jpg'
             self.generateHead('telemarketer')
             self.generateSimonStuff()
             self.generateSimon2Stuff()
-            self.setHeight(7.45)
+            self.setHeight(6.55)
         elif dna.name == 'cr':
-            self.scale = 6.75 / aSize
+            self.scale = 6.45 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/space.bam')
-            self.setHeight(8.23)
+            self.setHeight(8)
         elif dna.name == 'tbc':
             self.scale = 7.0 / aSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
@@ -577,52 +577,52 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':
-            self.scale = 4.0 / cSize
+            self.scale = 2.0 / cSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.headTexture = 'bottom-feeder.jpg'
             self.generateHead('flunky')
-            self.setHeight(4.81)
+            self.setHeight(2.48)
         elif dna.name == 'b':
-            self.scale = 4.375 / bSize
+            self.scale = 2.5 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'halloween_blood-sucker.jpg'
             self.generateHead('movershaker')
-            self.setHeight(6.17)
+            self.setHeight(3.17)
         elif dna.name == 'dt':
-            self.scale = 4.25 / aSize
+            self.scale = 3.0 / aSize
             self.handColor = VBase4(1.0, 0.2, 0.4, 0.3)
             self.generateBody()
             self.headTexture = 'double-talker.jpg'
             self.generateHead('yesman')
-            self.setHeight(5.63)
+            self.setHeight(3.83)
         elif dna.name == 'ac':
-            self.scale = 1.25 / cSize
+            self.scale = 0.75 / cSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.generateHead('micromanager')
-            self.setHeight(1.89)
+            self.setHeight(1.09)
         elif dna.name == 'bs':
-            self.scale = 4.5 / bSize
+            self.scale = 3.8 / bSize
             self.handColor = VBase4(0, 1.0, 0.2, 1.0)
             self.generateBody()
             self.generateHead('beancounter')
-            self.setHeight(6.71)
+            self.setHeight(4.91)
         elif dna.name == 'sd':
-            self.scale = 5.65 / aSize
+            self.scale = 4.5 / aSize
             self.handColor = VBase4(1.0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'software_simian.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(7.9)
+            self.setHeight(5.89)
         elif dna.name == 'le':
-            self.scale = 7.125 / aSize
+            self.scale = 5.5 / aSize
             self.handColor = VBase4(1, 1, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/sun.bam')
             self.generateHollyStuff()
-            self.setHeight(8.27)
+            self.setHeight(6.75)
         elif dna.name == 'bw':
             self.scale = 7.0 / aSize
             self.handColor = SuitDNA.legalPolyColor
@@ -665,51 +665,51 @@ class Suit(Avatar.Avatar):
             self.setColor(0.25, 0, 1, 1)
             self.setHeight(8.0)
         elif dna.name == 'sc':
-            self.scale = 3.6 / cSize
+            self.scale = 1.25 / cSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'conartist.jpg'
             self.generateHead('coldcaller')
-            self.setHeight(4.77)
+            self.setHeight(1.85)
         elif dna.name == 'pp':
-            self.scale = 3.55 / bSize
+            self.scale = 1.75 / bSize
             self.handColor = VBase4(1.0, 0.6, 0.5, 1.0)
             self.generateBody()
             self.generateHead('loanshark')
-            self.setHeight(5.26)
+            self.setHeight(2.46)
         elif dna.name == 'tw':
-            self.scale = 4.5 / aSize
+            self.scale = 2.85 / aSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'janet_lady.jpg'
             self.generateHead('yesman')
-            self.setHeight(5.41)
+            self.setHeight(3.68)
         elif dna.name == 'bc':
-            self.scale = 4.4 / bSize
+            self.scale = 3.5 / bSize
             self.handColor = VBase4(1, 0.6, 0, 1.0)
             self.generateBody()
             self.generateHead('movershaker')
-            self.setHeight(5.95)
+            self.setHeight(4.75)
         elif dna.name == 'nc':
-            self.scale = 5.25 / aSize
+            self.scale = 4.25 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('numbercruncher')
-            self.setHeight(7.22)
+            self.setHeight(5.8)
         elif dna.name == 'mb':
-            self.scale = 5.3 / aSize
+            self.scale = 4.75 / aSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'law-keeper.jpg'
             self.generateHead('twoface')
-            self.setHeight(6.97)
+            self.setHeight(5.97)
         elif dna.name == 'ls':
-            self.scale = 6.5 / bSize
+            self.scale = 5.5 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'wizard-shaker.jpg'
             self.generateHead('movershaker')
-            self.setHeight(8.58)
+            self.setHeight(6.88)
         elif dna.name == 'rb':
             self.scale = 7.0 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
@@ -752,46 +752,46 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
             self.setColor(0.5, 1, 0, 1)
         elif dna.name == 'cc':
-            self.scale = 3.5 / cSize
+            self.scale = 1.9 / cSize
             self.handColor = VBase4(0.5, 0.4, 0.3, 0.1)
             self.headColor = VBase4(0.25, 0.35, 1.0, 1.0)
             self.generateBody()
             self.generateHead('coldcaller')
-            self.setHeight(4.63)
+            self.setHeight(2.33)
         elif dna.name == 'tm':
-            self.scale = 3.75 / bSize
+            self.scale = 2.5 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('telemarketer')
-            self.setHeight(5.24)
+            self.setHeight(3.24)
         elif dna.name == 'nd':
-            self.scale = 4.35 / aSize
+            self.scale = 2.85 / aSize
             self.handColor = VBase4(0.55, 0.65, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'mingler.jpg'
             self.generateHead('twoface')
-            self.setHeight(5.98)
+            self.setHeight(4.0)
         elif dna.name == 'gh':
-            self.scale = 4.75 / bSize
+            self.scale = 3.75 / bSize
             self.handColor = VBase4(0.4, 0.1, 0, 0.3)
             self.generateBody()
             self.headTexture = 'installation-wizard.jpg'
             self.generateHead('movershaker')
-            self.setHeight(6.4)
+            self.setHeight(4.65)
         elif dna.name == 'ms':
-            self.scale = 4.75 / aSize
+            self.scale = 4.25 / aSize
             self.handColor = VBase4(0, 0, 0, 0)
             self.generateBody()
             self.headTexture = 'halloween_name-dropper.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(6.7)
+            self.setHeight(5.55)
         elif dna.name == 'tf':
-            self.scale = 5.25 / aSize
+            self.scale = 5.0 / aSize
             self.handColor = VBase4(0, 0.1, 0, 0.1)
             self.generateBody()
             self.headTexture = 'middleman.jpg'
             self.generateHead('twoface')
-            self.setHeight(6.95)
+            self.setHeight(6.35)
         elif dna.name == 'm':
             self.scale = 5.75 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
