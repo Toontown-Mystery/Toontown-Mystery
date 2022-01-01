@@ -159,7 +159,7 @@ class TownBattle(StateData.StateData):
         del self.timer
         del self.toons
 
-    def enter(self, event, parentFSMState, bldg = 0, creditMultiplier = 2, tutorialFlag = 0):
+    def enter(self, event, parentFSMState, bldg = 0, creditMultiplier = 1, tutorialFlag = 0):
         self.parentFSMState = parentFSMState
         self.parentFSMState.addChild(self.fsm)
         if not self.isLoaded:
