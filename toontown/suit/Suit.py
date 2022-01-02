@@ -8,6 +8,7 @@ from direct.task.Task import Task
 from toontown.battle import BattleProps
 from toontown.toonbase import TTLocalizer
 from libotp import *
+import SuitHealthBar
 from direct.showbase import AppRunnerGlobal
 import string
 import os
@@ -423,8 +424,7 @@ class Suit(Avatar.Avatar):
         self.shadowJoint = None
         self.nametagJoint = None
         self.headParts = []
-        self.healthBar = None
-        self.healthCondition = 0
+        self.healthBar = SuitHealthBar.SuitHealthBar()
         self.isDisguised = 0
         self.isWaiter = 0
         self.isRental = 0
@@ -452,7 +452,7 @@ class Suit(Avatar.Avatar):
                 part.removeNode()
 
             self.headParts = []
-            self.removeHealthBar()
+            self.healthBar.delete()
             Avatar.Avatar.delete(self)
 
         return
@@ -1161,87 +1161,30 @@ class Suit(Avatar.Avatar):
         self.corpMedallion.setColor(self.medallionColors[dept])
         icons.removeNode()
 
+    def getTypeText(self):
+        if self.virtual:
+            return TTLocalizer.CogPanelVirtual
+        elif self.isWaiter:
+            return TTLocalizer.CogPanelWaiter
+        elif self.skeleRevives:
+            return TTLocalizer.CogPanelRevives % (self.skeleRevives + 1)
+        elif self.isSkelecog:
+            return TTLocalizer.CogPanelSkeleton
+        return ''
+
     def generateHealthBar(self):
-        self.removeHealthBar()
-        model = loader.loadModel('phase_3.5/models/gui/matching_game_gui')
-        button = model.find('**/minnieCircle')
-        button.setScale(3.0)
-        button.setH(180.0)
-        button.setColor(self.healthColors[0])
-        if base.config.GetBool('want-new-cogs', 0):
-            chestNull = self.find('**/def_joint_attachMeter')
-            if chestNull.isEmpty():
-                chestNull = self.find('**/joint_attachMeter')
-        else:
-            chestNull = self.find('**/joint_attachMeter')
-        button.reparentTo(chestNull)
-        if self.isImmune == 1:
-            button.setColor(self.healthColors[5])
-        self.healthBar = button
-        glow = BattleProps.globalPropPool.getProp('glow')
-        glow.reparentTo(self.healthBar)
-        glow.setScale(0.28)
-        glow.setPos(-0.005, 0.01, 0.015)
-        glow.setColor(self.healthGlowColors[0])
-        if self.isImmune == 1:
-            glow.setColor(self.healthGlowColors[5])
-        button.flattenLight()
-        self.healthBarGlow = glow
-        self.healthBar.hide()
-        self.healthCondition = 0
+        self.healthBar.generate()
+        self.healthBar.geom.reparentTo(self.find('**/joint_attachMeter'))
+        self.healthBar.geom.setScale(3.0)
 
     def resetHealthBarForSkele(self):
-        self.healthBar.setPos(0.0, 0.1, 0.0)
+        self.healthBar.geom.setPos(0.0, 0.1, 0.0)
 
     def updateHealthBar(self, hp, forceUpdate = 0):
         if hp > self.currHP:
             hp = self.currHP
         self.currHP -= hp
-        health = float(self.currHP) / float(self.maxHP)
-        if self.isImmune != 1:
-            if health > 0.95:
-                condition = 0
-            elif health > 0.9:
-                condition = 1
-            elif health > 0.8:
-                condition = 2
-            elif health > 0.7:
-                condition = 3
-            elif health > 0.6:
-                condition = 4
-            elif health > 0.5:
-                condition = 5
-            elif health > 0.3:
-                condition = 6
-            elif health > 0.15:
-                condition = 7
-            elif health > 0.10:
-                condition = 8
-            elif health > 0.5:
-                condition = 9
-            elif health > 0.0:
-                condition = 10
-            else:
-                condition = 11
-        elif self.isImmune == 1:
-            condition = 6
-        if self.healthCondition != condition or forceUpdate:
-            if condition == 10:
-                blinkTask = Task.loop(Task(self.__blinkRed), Task.pause(0.75), Task(self.__blinkGray), Task.pause(0.1))
-                taskMgr.add(blinkTask, self.uniqueName('blink-task'))
-            elif condition == 11:
-                if self.healthCondition == 10:
-                    taskMgr.remove(self.uniqueName('blink-task'))
-                blinkTask = Task.loop(Task(self.__blinkRed), Task.pause(0.25), Task(self.__blinkGray), Task.pause(0.1))
-                taskMgr.add(blinkTask, self.uniqueName('blink-task'))
-            else:
-                if not self.isImmune:
-                    self.healthBar.setColor(self.healthColors[condition], 1)
-                    self.healthBarGlow.setColor(self.healthGlowColors[condition], 1)
-                else:
-                    self.healthBar.setColor(self.healthColors[10], 1)
-                    self.healthBarGlow.setColor(self.healthGlowColors[10], 1)
-            self.healthCondition = condition
+        self.healthBar.update(float(self.currHP) / float(self.maxHP))
 
     def __blinkRed(self, task):
         self.healthBar.setColor(self.healthColors[9], 1)

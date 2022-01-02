@@ -10,14 +10,16 @@ import TownBattleSOSPanel
 import TownBattleSOSPetSearchPanel
 import TownBattleSOSPetInfoPanel
 import TownBattleToonPanel
+import TownBattleCogPanel
 from toontown.toontowngui import TTDialog
 from direct.directnotify import DirectNotifyGlobal
 from toontown.battle import BattleBase
 from toontown.toonbase import ToontownTimer
 from direct.showbase import PythonUtil
 from toontown.toonbase import TTLocalizer
+from toontown.toonbase import ToontownGlobals
 from toontown.pets import PetConstants
-from direct.gui.DirectGui import DGG
+from direct.gui.DirectGui import *
 from toontown.battle import FireCogPanel
 
 class TownBattle(StateData.StateData):
@@ -126,10 +128,12 @@ class TownBattle(StateData.StateData):
          None,
          None,
          None]
-        self.toonPanels = (TownBattleToonPanel.TownBattleToonPanel(0),
-         TownBattleToonPanel.TownBattleToonPanel(1),
-         TownBattleToonPanel.TownBattleToonPanel(2),
-         TownBattleToonPanel.TownBattleToonPanel(3))
+        self.suitGui = loader.loadModel('phase_3.5/models/gui/suit_detail_panel')
+        self.toonPanels = [TownBattleToonPanel.TownBattleToonPanel(0),
+        TownBattleToonPanel.TownBattleToonPanel(1),
+        TownBattleToonPanel.TownBattleToonPanel(2),
+        TownBattleToonPanel.TownBattleToonPanel(3)]
+        self.cogPanels = [TownBattleCogPanel.TownBattleCogPanel(self) for i in xrange(4)]
         self.timer = ToontownTimer.ToontownTimer()
         self.timer.reparentTo(base.a2dTopRight)
         self.timer.setPos(-0.151, 0, -0.158)
@@ -151,11 +155,14 @@ class TownBattle(StateData.StateData):
         del self.FireCogPanel
         del self.SOSPetSearchPanel
         del self.SOSPetInfoPanel
-        for toonPanel in self.toonPanels:
-            toonPanel.cleanup()
+        for panel in self.toonPanels + self.cogPanels:
+            panel.cleanup()
 
         del self.toonPanels
+        del self.cogPanels
         self.timer.destroy()
+        self.suitGui.removeNode()
+        del self.suitGui
         del self.timer
         del self.toons
 
@@ -220,6 +227,22 @@ class TownBattle(StateData.StateData):
         self.time = time
         self.timer.setTime(time)
         return None
+
+    def __enterCogPanels(self, num):
+        for cogPanel in self.cogPanels:
+            cogPanel.hide()
+            cogPanel.updateHealthBar()
+            cogPanel.setPos(0, 0, 0.70)
+
+        self.positionPanels(num, self.cogPanels)
+
+    def positionPanels(self, num, panels):
+        pos = self.evenPos if num % 2 == 0 else self.oddPos
+
+        for i, panel in enumerate(panels):
+            if num > i:
+                panel.setX(pos[i if num >= 3 else i + 1])
+                panel.show()
 
     def __enterPanels(self, num, localNum):
         self.notify.debug('enterPanels() num: %d localNum: %d' % (num, localNum))
@@ -307,8 +330,8 @@ class TownBattle(StateData.StateData):
 
     def enterOff(self):
         if self.isLoaded:
-            for toonPanel in self.toonPanels:
-                toonPanel.hide()
+            for panel in self.toonPanels + self.cogPanels:
+                panel.hide()
 
         self.toonAttacks = [(-1, 0, 0),
          (-1, 0, 0),
@@ -322,6 +345,7 @@ class TownBattle(StateData.StateData):
     def exitOff(self):
         if self.isLoaded:
             self.__enterPanels(self.numToons, self.localNum)
+            self.__enterCogPanels(self.numCogs)
         self.timer.show()
         self.track = -1
         self.level = -1
@@ -457,6 +481,12 @@ class TownBattle(StateData.StateData):
         self.numToons = len(toons)
         self.localNum = toons.index(base.localAvatar)
         currStateName = self.fsm.getCurrentState().getName()
+
+        self.__enterCogPanels(self.numCogs)
+
+        for i in xrange(len(cogs)):
+            self.cogPanels[i].setSuit(cogs[i])
+            
         if resetActivateMode:
             self.__enterPanels(self.numToons, self.localNum)
             for i in xrange(len(toons)):

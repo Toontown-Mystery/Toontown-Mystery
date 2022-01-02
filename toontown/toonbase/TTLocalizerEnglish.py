@@ -5339,6 +5339,11 @@ AnimalToSpecies = {'dog': 'Dog',
  'monkey': 'Monkey',
  'bear': 'Bear',
  'pig': 'Pig'}
+CogPanelLevel = 'Level %s'
+CogPanelSkeleton = 'Guardian'
+CogPanelVirtual = 'Laser'
+CogPanelRevives = 'v%s.0'
+CogPanelWaiter = 'Waiter'
 NameTooLong = 'That name is too long. Please try again.'
 ToonAlreadyExists = 'You already have a toon named %s!'
 NameAlreadyInUse = 'That name is already used!'

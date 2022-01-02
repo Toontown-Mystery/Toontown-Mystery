@@ -612,14 +612,22 @@ def createIncomingTrainInterval(battle, suit, hp, lure, trapProp):
 
 
 def __createSlideshowMultiTrack(lure, npcs = []):
-    toon = lure['toon']
+    if 'npc' in lure:
+        toon = lure['npc']
+    else:
+        toon = lure['toon']
     battle = lure['battle']
     sidestep = lure['sidestep']
-    origHpr = toon.getHpr(battle)
+    origHpr = Vec3(0, 0, 0)
     slideshowDelay = 2.5
     hands = toon.getLeftHands()
+    toon = lure['toon']
     endPos = toon.getPos(battle)
     endPos.setY(endPos.getY() + 4)
+    if 'npc' in lure:
+        toon = lure['npc']
+    else:
+        toon = lure['toon']
     button = globalPropPool.getProp('button')
     button2 = MovieUtil.copyProp(button)
     buttons = [button, button2]
@@ -636,7 +644,14 @@ def __createSlideshowMultiTrack(lure, npcs = []):
     propTrack.append(Func(slideShowProp.show))
     propTrack.append(Func(slideShowProp.setScale, Point3(0.1, 0.1, 0.1)))
     propTrack.append(Func(slideShowProp.reparentTo, battle))
+    if 'npc' in lure:
+        toon = lure['toon']
+        endPos = toon.getPos(battle)
+        endPos.setY(endPos.getY() + 6.9)
+        endPos.setX(endPos.getX() + 0.9)
     propTrack.append(Func(slideShowProp.setPos, endPos))
+    if 'npc' in lure:
+        toon = lure['npc']
     propTrack.append(LerpScaleInterval(slideShowProp, 1.2, Point3(1.0, 1.0, 1.0)))
     shrinkDuration = 0.4
     totalDuration = 7.1
@@ -648,7 +663,6 @@ def __createSlideshowMultiTrack(lure, npcs = []):
     propTrack.append(Func(MovieUtil.removeProp, slideShowProp))
     tracks = Parallel(propTrack, toonTrack)
     targets = lure['target']
-    hasAppendedImmune = 0
     for target in targets:
         suit = target['suit']
         trapProp = suit.battleTrapProp
@@ -667,17 +681,10 @@ def __createSlideshowMultiTrack(lure, npcs = []):
                 suitTrack.append(Func(suit.loop, 'neutral'))
                 suitTrack.append(Wait(suitDelay))
                 LureRoundsTrack = Func(suit.showHpText, AvLureRounds[6], openEnded=0, attackTrack=LURE_TRACK)
-                if hasAppendedImmune == 0:
-                    for immuneSuit in battle.activeSuits:
-                        if immuneSuit.getImmuneStatus() == 1:
-                            ImmuneLureText = Func(immuneSuit.showHpText, number=-1)
-                            suitTrack.append(ImmuneLureText)
-                            hasAppendedImmune = 1
-                            print('hasAppendedImmune: %s' % hasAppendedImmune)
                 suitTrack.append(LureRoundsTrack)
                 suitTrack.append(ActorInterval(suit, 'hypnotized', duration=3.1))
                 suitTrack.append(Func(suit.setPos, battle, reachPos))
-                suitTrack.append(Func(suit.loop, 'lured'))
+                suitTrack.append(Func(suit.loop, 'neutral'))
                 suitTrack.append(Func(battle.lureSuit, suit))
                 if hp > 0:
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))

@@ -200,7 +200,7 @@ def removeReviveSuit(suit, deathSuit):
     if not deathSuit.isEmpty():
         deathSuit.detachNode()
         suit.cleanupLoseActor()
-    suit.healthBar.show()
+    suit.healthBar.geom.show()
     suit.resetHealthBarForSkele()
 
 
