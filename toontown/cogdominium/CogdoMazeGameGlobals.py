@@ -87,19 +87,19 @@ SuitData[SuitTypes.Boss] = {'dnaName': 'gh',
  'cellWalkPeriod': 192,
  'toonDamage': 25.0,
  'scale': 2.5,
- 'hp': 5,
+ 'hp': 4,
  'memos': 10}
 SuitData[SuitTypes.FastMinion] = {'dnaName': 'ka',
  'cellWalkPeriod': 64,
  'toonDamage': 15.0,
  'scale': 2,
- 'hp': 4,
+ 'hp': 3,
  'memos': 4}
 SuitData[SuitTypes.SlowMinion] = {'dnaName': 'mh',
  'cellWalkPeriod': 160,
  'toonDamage': 10.0,
  'scale': 2,
- 'hp': 3,
+ 'hp': 2,
  'memos': 3}
 NumSuits = (4, 5, 5)
 BossSpinTime = 1.0
