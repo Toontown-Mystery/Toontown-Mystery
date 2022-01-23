@@ -12,6 +12,7 @@ PipeFrontParent = 10024
 PipeRightParent = 10032
 PipeBackParent = 10033
 OilParent = 10034
+OilParent2 = 10035
 ControlParent = 10037
 ControlParent1 = 10038
 ControlParent2 = 10039
@@ -23,6 +24,7 @@ SigRoomParent = 20058
 WestSiloParent = 20094
 WestSiloBattleCellParent = 10047
 EastSiloParent = 20096
+EastSiloParent = 20097
 EastSiloBattleCellParent = 10068
 LobbyCell0 = 0
 LobbyCell = 1
@@ -36,15 +38,16 @@ PipeFrontCell = 8
 PipeRightCell = 9
 PipeBackCell = 10
 OilCell = 11
-ControlCell = 12
-ControlCell1 = 13
-ControlCell2 = 14
-ControlCell3 = 15
-DuctCell = 16
-CenterSiloCell = 17
-SigRoomCell = 18
-WestSiloCell = 19
-EastSiloCell = 20
+OilCell2 = 12
+ControlCell = 13
+ControlCell1 = 14
+ControlCell2 = 15
+ControlCell3 = 16
+DuctCell = 17
+CenterSiloCell = 18
+SigRoomCell = 19
+WestSiloCell = 20
+EastSiloCell = 21
 BattleCells =  {LobbyCell0: {'parentEntId': LobbyParent0,
               'pos': Point3(0, 0, 0)},
 LobbyCell: {'parentEntId': LobbyParent,
@@ -60,6 +63,8 @@ LobbyCell: {'parentEntId': LobbyParent,
  BoilerCell2: {'parentEntId': BoilerParent2,
               'pos': Point3(0, 0, 0)},
  OilCell: {'parentEntId': OilParent,
+           'pos': Point3(0, 0, 0)},
+ OilCell2: {'parentEntId': OilParent2,
            'pos': Point3(0, 0, 0)},
  ControlCell: {'parentEntId': ControlParent,
                'pos': Point3(0, 0, 0)},
@@ -375,6 +380,42 @@ CogData = [{'parentEntId': LobbyParent0,
   'behavior': 'walk',
   'path': None,
   'skeleton': 1},
+ {'parentEntId': OilParent2,
+  'boss': 0,
+  'level': random.choice([10, 11]),
+  'battleCell': OilCell2,
+  'pos': Point3(-2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': OilParent2,
+  'boss': 0,
+  'level': random.choice([10, 11]),
+  'battleCell': OilCell2,
+  'pos': Point3(2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': OilParent2,
+  'boss': 0,
+  'level': random.choice([10, 11]),
+  'battleCell': OilCell2,
+  'pos': Point3(6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': OilParent2,
+  'boss': 0,
+  'level': random.choice([10, 11]),
+  'battleCell': OilCell2,
+  'pos': Point3(-6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
  {'parentEntId': ControlParent,
   'boss': 0,
   'level': 13,
