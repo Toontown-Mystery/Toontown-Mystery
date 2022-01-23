@@ -4,7 +4,8 @@ LobbyParent0 = 10010
 LobbyParent = 10011
 LobbyParent2 = 10012
 FrontLobbyParent = 10013
-BoilerParent = 10030
+BoilerParent = 10029
+BoilerParent2 = 10030
 PipeLeftParent = 10023
 PipeRightParent = 10032
 OilParent = 10034
@@ -25,18 +26,19 @@ LobbyCell = 1
 FrontLobbyCell = 2
 LobbyCell2 = 3
 BoilerCell = 4
-PipeLeftCell = 5
-PipeRightCell = 6
-OilCell = 7
-ControlCell = 8
-ControlCell1 = 9
-ControlCell2 = 10
-ControlCell3 = 11
-DuctCell = 12
-CenterSiloCell = 13
-SigRoomCell = 14
-WestSiloCell = 15
-EastSiloCell = 16
+BoilerCell2 = 5
+PipeLeftCell = 6
+PipeRightCell = 7
+OilCell = 8
+ControlCell = 9
+ControlCell1 = 10
+ControlCell2 = 11
+ControlCell3 = 12
+DuctCell = 13
+CenterSiloCell = 14
+SigRoomCell = 15
+WestSiloCell = 16
+EastSiloCell = 17
 BattleCells =  {LobbyCell0: {'parentEntId': LobbyParent0,
               'pos': Point3(0, 0, 0)},
 LobbyCell: {'parentEntId': LobbyParent,
@@ -46,6 +48,8 @@ LobbyCell: {'parentEntId': LobbyParent,
  FrontLobbyCell: {'parentEntId': FrontLobbyParent,
               'pos': Point3(0, 0, 0)},
  BoilerCell: {'parentEntId': BoilerParent,
+              'pos': Point3(0, 0, 0)},
+ BoilerCell2: {'parentEntId': BoilerParent2,
               'pos': Point3(0, 0, 0)},
  OilCell: {'parentEntId': OilParent,
            'pos': Point3(0, 0, 0)},
@@ -217,7 +221,7 @@ CogData = [{'parentEntId': LobbyParent0,
   'skeleton': 1},
  {'parentEntId': BoilerParent,
   'boss': 0,
-  'level': random.choice([10, 11, 12, 13, 14]),
+  'level': random.choice([10, 11]),
   'battleCell': BoilerCell,
   'pos': Point3(2, 0, 0),
   'h': 180,
@@ -226,7 +230,7 @@ CogData = [{'parentEntId': LobbyParent0,
   'skeleton': 0},
  {'parentEntId': BoilerParent,
   'boss': 0,
-  'level': random.choice([10, 11, 12, 13, 14]),
+  'level': random.choice([10, 11]),
   'battleCell': BoilerCell,
   'pos': Point3(-2, 0, 0),
   'h': 180,
@@ -235,7 +239,7 @@ CogData = [{'parentEntId': LobbyParent0,
   'skeleton': 0},
  {'parentEntId': BoilerParent,
   'boss': 0,
-  'level': random.choice([10, 11, 12, 13, 14]),
+  'level': random.choice([10, 11]),
   'battleCell': BoilerCell,
   'pos': Point3(-6, 0, 0),
   'h': 180,
@@ -244,8 +248,44 @@ CogData = [{'parentEntId': LobbyParent0,
   'skeleton': 0},
  {'parentEntId': BoilerParent,
   'boss': 0,
-  'level': random.choice([10, 11, 12, 13, 14]),
+  'level': random.choice([10, 11]),
   'battleCell': BoilerCell,
+  'pos': Point3(6, 0, 0),
+  'h': 180,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': BoilerParent2,
+  'boss': 0,
+  'level': random.choice([10, 11, 12, 13, 14]),
+  'battleCell': BoilerCell2,
+  'pos': Point3(2, 0, 0),
+  'h': 180,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': BoilerParent2,
+  'boss': 0,
+  'level': random.choice([10, 11, 12, 13, 14]),
+  'battleCell': BoilerCell2,
+  'pos': Point3(-2, 0, 0),
+  'h': 180,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': BoilerParent2,
+  'boss': 0,
+  'level': random.choice([10, 11, 12, 13, 14]),
+  'battleCell': BoilerCell2,
+  'pos': Point3(-6, 0, 0),
+  'h': 180,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 0},
+ {'parentEntId': BoilerParent2,
+  'boss': 0,
+  'level': random.choice([10, 11, 12, 13, 14]),
+  'battleCell': BoilerCell2,
   'pos': Point3(6, 0, 0),
   'h': 180,
   'behavior': 'walk',
