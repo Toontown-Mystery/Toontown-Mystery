@@ -5,7 +5,7 @@ GameActions = PythonUtil.Enum(('EnterDoor',
  'OpenDoor',
  'Countdown',
  'TimeAlert'))
-SecondsUntilTimeout = 4.0 * 60.0
+SecondsUntilTimeout = 5.0 * 100.0
 SecondsUntilGameEnds = 60.0
 SecondsForTimeAlert = 30.0
 MaxPlayers = 4
@@ -69,7 +69,7 @@ MazeBarriers = ([(7, 34),
   (34, 8),
   (34, 9),
   (34, 10)])
-ToonRunSpeed = 25
+ToonRunSpeed = 30
 CameraAngle = 60
 CameraRemoteToonRadius = 6
 CameraMinDistance = 40
@@ -86,53 +86,53 @@ SuitData = {}
 SuitData[SuitTypes.Boss] = {'dnaName': 'gh',
  'cellWalkPeriod': 192,
  'toonDamage': 25.0,
- 'scale': 2.5,
- 'hp': 4,
+ 'scale': 3.5,
+ 'hp': 5,
  'memos': 10}
 SuitData[SuitTypes.FastMinion] = {'dnaName': 'ka',
  'cellWalkPeriod': 64,
  'toonDamage': 15.0,
- 'scale': 2,
- 'hp': 3,
- 'memos': 4}
+ 'scale': 1.5,
+ 'hp': 4,
+ 'memos': 5}
 SuitData[SuitTypes.SlowMinion] = {'dnaName': 'mh',
  'cellWalkPeriod': 160,
  'toonDamage': 10.0,
- 'scale': 2,
- 'hp': 2,
+ 'scale': 1.5,
+ 'hp': 3,
  'memos': 3}
-NumSuits = (4, 5, 5)
+NumSuits = (8, 20, 15)
 BossSpinTime = 1.0
 BossSpinCount = 2
 BlinkFrequency = 1.0
 BlinkSpeed = 0.5
-BlinkColor = VBase4(1.0, 0.4, 0.4, 1.0)
+BlinkColor = VBase4(1.0, 0.0, 0.0, 1.0)
 SuitsModifier = (0, 6, 9)
-DamageModifier = 9.0
+DamageModifier = 5.0
 DropShakeEnabled = True
 BossShakeEnabled = True
 DropShakeStrength = 4.0
-DropMaxDistance = 20.0
+DropMaxDistance = 95.0
 BossShakeStrength = 1.2
-BossMaxDistance = 25.0
+BossMaxDistance = 100.0
 BossShakeTime = 0.53
 BossStompSfxCutoff = 70.0
 BossCogStompAnimationPlayrateFactor = 0.75
 CameraShakeFalloff = 2.2
-CameraShakeMax = 5.0
+CameraShakeMax = 15.0
 QuakeSfxFalloff = 0.01
-QuakeSfxMax = 2.0
+QuakeSfxMax = 10.0
 QuakeSfxEnabled = True
-DropFrequency = 3
-DropDamage = 30
-DropTime = 1.0
-ShadowTime = 2.0
-DropHeight = 70
-DropFadeTime = 1.0
+DropFrequency = 100
+DropDamage = 25
+DropTime = 0.2
+ShadowTime = 0.1
+DropHeight = 100
+DropFadeTime = 5.0
 DropCollisionRadius = 1.0
 DropCollisionName = 'DropCollision'
 DroppedCollisionRadius = 2.0
-DropChance = 0.25
+DropChance = 1.00
 GagChance = 0.5
 GagSitTime = 15.0
 BalloonDelay = 1.2
@@ -141,28 +141,28 @@ ThrowDuration = 0.2
 ThrowStartFrame = 61
 ThrowEndFrame = 64
 ThrowPlayRate = 1.5
-GagPickupScale = 2.0
+GagPickupScale = 4.0
 GagPickupCollisionRadius = 1.0
 GagPickupCollisionName = 'PickUpCollision'
 GagColors = ((1.0,
-  0.27,
-  0.27,
+  0.0,
+  0.0,
   1.0),
  (1.0,
-  0.66,
-  0.15,
+  0.0,
+  0.5,
   1.0),
- (0.31,
+ (0.0,
   1.0,
-  0.29,
+  0.0,
   1.0),
- (0.31,
-  0.62,
+ (0.0,
+  0.0,
   1.0,
   1.0),
- (0.91,
-  0.32,
-  1.0,
+ (1.0,
+  0.0,
+  0.0,
   1.0))
 GagCollisionName = 'Gag_Collision'
 WaterCoolerTriggerRadius = 2.5
@@ -218,8 +218,8 @@ CoolerArrowColor = (1,
  1)
 CoolerArrowZ = 10
 CoolerArrowBounce = 2
-CoolerArrowSpeed = 2
-BossGuiScale = 0.8
+CoolerArrowSpeed = 20
+BossGuiScale = 0.4
 BossGuiPos = (0, 0, -0.83)
 BossGuiTitleLabelScale = 0.055
 BossCodeFrameWidth = 0.13
