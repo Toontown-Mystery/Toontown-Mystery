@@ -69,7 +69,7 @@ MazeBarriers = ([(7, 34),
   (34, 8),
   (34, 9),
   (34, 10)])
-ToonRunSpeed = 30
+ToonRunSpeed = 15
 CameraAngle = 60
 CameraRemoteToonRadius = 6
 CameraMinDistance = 40
@@ -88,13 +88,13 @@ SuitData[SuitTypes.Boss] = {'dnaName': 'gh',
  'toonDamage': 25.0,
  'scale': 3.5,
  'hp': 5,
- 'memos': 10}
+ 'memos': 5}
 SuitData[SuitTypes.FastMinion] = {'dnaName': 'ka',
  'cellWalkPeriod': 64,
  'toonDamage': 15.0,
  'scale': 1.5,
  'hp': 4,
- 'memos': 5}
+ 'memos': 4}
 SuitData[SuitTypes.SlowMinion] = {'dnaName': 'mh',
  'cellWalkPeriod': 160,
  'toonDamage': 10.0,
