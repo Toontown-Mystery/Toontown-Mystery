@@ -123,7 +123,7 @@ CameraShakeMax = 15.0
 QuakeSfxFalloff = 0.01
 QuakeSfxMax = 10.0
 QuakeSfxEnabled = True
-DropFrequency = 100
+DropFrequency = 1.0
 DropDamage = 25
 DropTime = 0.2
 ShadowTime = 0.1
@@ -190,7 +190,7 @@ SfxFiles = {'toonHitByDrop': 'phase_5/audio/sfx/tt_s_ara_cmg_toonHit.ogg',
  'cogDialogue': 'phase_3.5/audio/dial/COG_VO_statement.ogg',
  'toonDialogue': 'phase_3.5/audio/dial/AV_dog_long.ogg'}
 MessageLabelPos = (0.0, 0.0, -0.4)
-MemoGuiPos = (-0.85, 0, -0.9)
+MemoGuiPos = (-0.85, 0.4, -0.9)
 MemoGuiTextScale = 0.1
 MemoGuiTextColor = (0.95,
  0.95,
@@ -219,12 +219,12 @@ CoolerArrowColor = (1,
 CoolerArrowZ = 10
 CoolerArrowBounce = 2
 CoolerArrowSpeed = 20
-BossGuiScale = 0.4
+BossGuiScale = 0.8
 BossGuiPos = (0, 0, -0.83)
-BossGuiTitleLabelScale = 0.055
-BossCodeFrameWidth = 0.13
-BossCodeFrameGap = 0.005
-BossCodeFrameLabelScale = 0.12
+BossGuiTitleLabelScale = 0.085
+BossCodeFrameWidth = 0.45
+BossCodeFrameGap = 0.025
+BossCodeFrameLabelScale = 0.50
 BossCodeFrameLabelNormalColor = (0,
  0,
  0,
