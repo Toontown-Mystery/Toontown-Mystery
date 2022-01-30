@@ -238,6 +238,7 @@ SCMenuResistance = 'UNITE!'
 SCMenuPets = 'PETS'
 SCMenuPetTricks = 'TRICKS'
 SCMenuCog = 'COG SPEAK'
+SCMenuTrend = 'TRENDS'
 SCMenuHello = 'HELLO'
 SCMenuBye = 'GOODBYE'
 SCMenuHappy = 'HAPPY'
@@ -1498,6 +1499,12 @@ SpeedChatStaticTextToontown = {100: 'Hi!',
  10005: 'Be a honey! Vote Bear!',
  10006: 'Think big! Vote Pig!',
  10007: "Vote Goat - and that's all she wrote!",
+ 10008: "YOU'RE GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED GROUNDED!",
+ 10009: "DON'T TRUST A CRIMINAL BECAUSE YOU'RE A CRIMINAL SUPPORTER IF YOU DARE SUPPORT THAT CRIMINAL YOU'RE GETTING CANCELED FOREVER YOU PILE OF TRASH AND YOU'RE GOING TO GET A HUGE HATEBASE AND I DON'T CARE HOW MUCH YOU SUFFER YOU'RE GETTING THAT HATEBASE AND THAT'S THAT ALSO HAVE FUN LOSING ALL YOUR FANS BECAUSE YOU'RE A CRIMINAL SUPPORTER.",
+ 10010: "HOW DARE YOU MAKE CAILLOU GETS GROUNDED YOU SHOULD KNOW HE'S A GOOD BOY NOW CANCEL YOUR OWN YOUTUBE CHANNEL RIGHT NOW OR ELSE WE'RE GETTING OUR FANBOYS AND GIRLS TO ATTACK YOUR CHANNEL HAVE FUN GETTING FALSELY REPORTED AND TERMINATED!",
+ 10011: "Sooo... the whole relationship started going downhill when Amanda started to have a crush on a guy who I don't wanna name cause I respect his privacy, She kept a lot of things secret from everyone. She often fantasized about being with her crush while still in a relationship with me. At first, I didn't mind her having a crush on someone since everyone has their crush on one person they like and it's completely normal. But what was NOT normal... was when Amanda started going super crazy about her crush in a VERY UNHEALTHY WAY, and she never had consent of anyone. She often moaned in his name while me and some other friends of mine were in a VC. Whenever me and my bestie try to do jokes or say something, Amanda would COMPLETELY interrupt us. it got so bad that my friends had to do an intervention on her. It SEEMED to work for a while before going back to paying FULL attention to her crush, acting like we were 'controlling' her. I'll never forget that night where I was on a call with Ezra (one of my friends in my group) and he had told me about the act Amanda pulled behind my back. I remember that feeling of deep shock. My jaw had dropped to the floor, my face went from normal to white and pale with a look of shock on my face. I also felt my heart break into a million pieces. I bursted into TEARS after finding out about what Amanda had done behind my back! 'How could she betray me like this???' was all that was in my head at that moment while sobbing tears at 1 in the morning. I cried and told my other 2 friends about what I had found out. They were shocked after finding out what Amanda had done. The news spread like WILDFIRE and within minutes, everyone knew and were disgusted after finding out what Amanda had done the night before my birthday. After she was caught cheating, she tried to play the victim card and all the other cards. She even put the blame on not only me, but my friends too. Here is all the proof that she did this...",
+ 10012: "HEY GUYS WE HAVE GOANIMATE WRAPPER STOLEN CODE MAKE SURE YOU DOWNLOAD IT TO GET GOOD CONTENT BUT MAKE SURE YOU ONLY SEND TO DISCORD AND NOT YOUTUBE OR ELSE VYOND WILL TAKE IT DOWN AND PATCH IT SO DON'T SEND LINK TO THE PUBLIC.",
+ 10013: "OK IF YOU'RE GONNA BE MEAN TO ME I'M GONNA BRB AGAIN! HIT THE BOSS!!!",
  20000: SuitBrushOffs[None][0],
  20001: SuitBrushOffs[None][1],
  20002: SuitBrushOffs[None][2],
