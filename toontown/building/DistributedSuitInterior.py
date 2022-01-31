@@ -45,6 +45,14 @@ class DistributedSuitInterior(DistributedObject.DistributedObject):
          56,
          -52,
          10]
+        self.Mint_SuitPositions = [Point3(6, -40, 0),
+         Point3(-2, -40, 0),
+         Point3(2, -40, 0),
+         Point3(6, -40, 0)]
+        self.Mint_SuitHs = [180,
+         180,
+         180,
+         180]
         self.BossOffice_SuitPositions = [Point3(0, 15, 0),
          Point3(10, 20, 0),
          Point3(-10, 6, 0),
@@ -252,6 +260,10 @@ class DistributedSuitInterior(DistributedObject.DistributedObject):
         if self.floorModel:
             self.floorModel.removeNode()
         if self.currentFloor == 0:
+            self.floorModel = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_cbr_barrelRoom')
+            SuitHs = self.Mint_SuitHs
+            SuitPositions = self.Mint_SuitPositions
+        elif self.currentFloor == self.numFloors - 2:
             self.floorModel = loader.loadModel('phase_7/models/modules/suit_interior')
             SuitHs = self.BottomFloor_SuitHs
             SuitPositions = self.BottomFloor_SuitPositions

@@ -1178,7 +1178,7 @@ SpeedChatStaticTextToontown = {100: 'Hi!',
  1555: 'You should choose a different Cog.',
  1556: 'Go for the weakest Cog first.',
  1557: 'Go for the strongest Cog first.',
- 1558: "Don't use Sound on lured Cogs."
+ 1558: "Don't use Sound on lured Cogs.",
  1559: "Don't use Drop on lured Cogs.",
  1600: 'I have enough gags.',
  1601: 'I need more jellybeans.',
