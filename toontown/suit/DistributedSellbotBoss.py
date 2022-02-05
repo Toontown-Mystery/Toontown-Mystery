@@ -471,7 +471,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Func(self.clearChat),
             Func(self.loop, 'Ff_neutral'),
             Func(self.cagedToon.loop, 'neutral'),
-            Func(self.setChatAbsolute, "Get them!", CFSpeech), Parallel(base.camera.posHprInterval(0.5, Point3(-27, 56, 40), Point3(-90, 0, 0), blendType='easeInOut'), Parallel(LerpColorScaleInterval(render, 1.5, Vec4(0.5, 0, 1.0, 1.0)))), 
+            Func(self.setChatAbsolute, "Get them!", CFSpeech), Parallel(base.camera.posHprInterval(0.5, Point3(-27, 56, 40), Point3(-90, 0, 0), blendType='easeInOut'), Parallel(LerpColorScaleInterval(render, 1.5, Vec4(0.5, 0.25, 1.0, 1.0)))), 
             Wait(3),
             Func(self.clearChat),
             Wait(4))

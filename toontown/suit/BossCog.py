@@ -26,6 +26,8 @@ AnimList = ('Ff_speech', 'ltTurn2Wave', 'wave', 'Ff_lookRt', 'turn2Fb', 'Ff_neut
 
 class BossCog(Avatar.Avatar):
     notify = DirectNotifyGlobal.directNotify.newCategory('BossCog')
+    healthColors = Suit.Suit.healthColors
+    healthGlowColors = Suit.Suit.healthGlowColors
 
     def __init__(self):
         Avatar.Avatar.__init__(self)
@@ -47,14 +49,15 @@ class BossCog(Avatar.Avatar):
         self.queuedAnimIvals = []
         self.treadsLeftPos = 0
         self.treadsRightPos = 0
-        self.healthBar = SuitHealthBar.SuitHealthBar()
+        self.healthBar = None
+        self.healthCondition = 0
         self.animDoneEvent = 'BossCogAnimDone'
         self.animIvalName = 'BossCogAnimIval'
         return
 
     def delete(self):
         Avatar.Avatar.delete(self)
-        self.HealthBar.delete()
+        self.removeHealthBar()
         self.setDizzy(0)
         self.stopAnimate()
         if self.doorA:
@@ -174,11 +177,7 @@ class BossCog(Avatar.Avatar):
             self.collNode.setCollideMask(self.collNode.getIntoCollideMask() | ToontownGlobals.PieBitmask)
 
     def generateHealthBar(self):
-        self.healthBar.generate()
-        self.healthBar.geom.reparentTo(self.find('**/joint_lifeMeter'))
-        self.healthBar.geom.setScale(6.0)
-        self.healthBar.geom.setHpr(0, -20, 0)
-        self.healthBar.geom.show()
+        self.removeHealthBar()
         chestNull = self.find('**/joint_lifeMeter')
         if chestNull.isEmpty():
             return
@@ -199,9 +198,9 @@ class BossCog(Avatar.Avatar):
         self.healthCondition = 0
 
     def updateHealthBar(self):
-        if not self.healthBar:
+        if self.healthBar == None:
             return
-        self.healthBar.update(1.0 - float(self.bossDamage) / float(self.bossMaxDamage))
+        health = 1.0 - float(self.bossDamage) / float(self.bossMaxDamage)
         if health > 0.95:
             condition = 0
         elif health > 0.9:

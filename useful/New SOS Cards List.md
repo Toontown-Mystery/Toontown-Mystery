@@ -12,7 +12,7 @@ Sound 345 Damage.
 Sound 500 Damage.
 # Thunderzapper: 
 Drop 1250 Damage.
-# Cool Cat: 
+# Master Cool Cat: 
 Drop 1000 Damage.
 # Celeste: 
 Drop 700 Damage.
