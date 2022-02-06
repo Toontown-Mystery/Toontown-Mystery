@@ -1118,8 +1118,6 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
 
     def enterBattleTwo(self):
         self.cleanupIntervals()
-        mult = ToontownBattleGlobals.getBossBattleCreditMultiplier(3)
-        localAvatar.inventory.setBattleCreditMultiplier(mult)
         self.door2.stash()
         self.door3.stash()
         self.reparentTo(render)
