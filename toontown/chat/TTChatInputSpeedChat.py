@@ -26,7 +26,8 @@ scStructure = [
     10012,
     10013,
     10014,
-    10015],
+    10015,
+    10016],
 
 [OTPLocalizer.SCMenuHello,
   {100: 0},
