@@ -5573,6 +5573,19 @@ RentalTypeName = 'Rental Item'
 GardenStarterTypeName = 'Gardening Kit'
 NametagTypeName = 'Name tag'
 AccessoryTypeName = 'Accessory'
+JumpBossTaunts = {
+ 's': 
+ ['Witness the power of my Jump!',
+  'Did you practice your jumping lessons?',
+  'Prepare to jump!',
+  "I'm coming right at you!"],
+ 'l': 
+ [""],
+ 'm': 
+ ["Goons, wake up and get those Toons!",
+  "This isn't my only attack, you know.",
+  'I have had it!',
+  "Goons? Do you hear me? WAKE UP."]}
 CatalogItemTypeNames = {0: 'INVALID_ITEM',
  1: FurnitureTypeName,
  2: ChatTypeName,
