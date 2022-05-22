@@ -615,7 +615,7 @@ BossCogOvertimeAttack = 20
 BossCogAttackTimes = {BossCogElectricFence: 0,
  BossCogSwatLeft: 5.5,
  BossCogSwatRight: 5.5,
- BossCogAreaAttack: 2.75,
+ BossCogAreaAttack: 3.81,
  BossCogFrontAttack: 2.65,
  BossCogRecoverDizzyAttack: 5.1,
  BossCogDirectedAttack: 4.84,

@@ -584,7 +584,7 @@ class BossCog(Avatar.Avatar):
                 self.doAnimate(None, raised=1, happy=0, queueNeutral=0)
             else:
                 self.doAnimate(None, raised=1, happy=1, queueNeutral=1)
-            ival = Parallel(ActorInterval(self, 'Fb_jump'), Sequence(Func(self.setChatAbsolute, random.choice(TTLocalizer.JumpBossTaunts[self.dna.dept]), CFSpeech | CFTimeout), SoundInterval(self.swishSfx, duration=1.1, node=self), SoundInterval(self.boomSfx, duration=1.9)), Sequence(Wait(1.21), Func(self.announceAreaAttack),Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1)))
+            ival = Parallel(ActorInterval(self, 'Fb_jump'), Sequence(Func(self.setChatAbsolute, random.choice(TTLocalizer.JumpBossTaunts[self.dna.dept]), CFSpeech | CFTimeout), SoundInterval(self.swishSfx, duration=1.1, node=self), SoundInterval(self.boomSfx, duration=1.9)), Sequence(Wait(1.4), Func(self.clearChat), Func(self.announceAreaAttack),Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1), Func(self.announceAreaAttack), Wait(.1)))
             if self.twoFaced:
                 self.happy = 0
             else:

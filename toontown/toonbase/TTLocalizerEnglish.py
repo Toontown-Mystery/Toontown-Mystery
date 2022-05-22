@@ -5575,8 +5575,8 @@ NametagTypeName = 'Name tag'
 AccessoryTypeName = 'Accessory'
 JumpBossTaunts = {
  's': 
- ['Witness the power of my Jump!',
-  'Did you practice your jumping lessons?',
+ ['Witness the power of my jump!',
+  "Did you practice your jumping skills?",
   'Prepare to jump!',
   "I'm coming right at you!"],
  'l': 
@@ -5585,7 +5585,7 @@ JumpBossTaunts = {
  ["Goons, wake up and get those Toons!",
   "This isn't my only attack, you know.",
   'I have had it!',
-  "Goons? Do you hear me? WAKE UP."]}
+  "WAKE UP."]}
 CatalogItemTypeNames = {0: 'INVALID_ITEM',
  1: FurnitureTypeName,
  2: ChatTypeName,

@@ -453,18 +453,18 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
                 else:
                     if self.isImmune != 1:
                         if bonus == 1:
-                            r = 1.0
-                            g = 1.0
-                            b = 0
+                            r = 0.9
+                            g = 0.0
+                            b = 1.0
                             a = 1
                         elif bonus == 2:
-                            r = 1.0
-                            g = 0.5
-                            b = 0
+                            r = 0.5
+                            g = 0.0
+                            b = 0.9
                             a = 1
                         elif number < 0:
-                            r = 0.9
-                            g = 0
+                            r = 0.0
+                            g = 1.0
                             b = 0
                             a = 1
                             if self.interactivePropTrackBonus > -1 and self.interactivePropTrackBonus == attackTrack:
