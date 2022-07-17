@@ -682,6 +682,12 @@ SellbotBossBattleTwoPosHpr = (0,
  -90,
  0,
  0)
+SellbotBossBattleThreePosHpr = (120,
+ -315,
+ 0,
+ 180,
+ 0,
+ 0)
 SellbotBossBattleThreeHpr = (180, 0, 0)
 SellbotBossBottomPos = (0, -110, -6.5)
 SellbotBossDeathPos = (0, -175, -6.5)

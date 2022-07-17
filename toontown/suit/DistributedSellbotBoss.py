@@ -490,6 +490,134 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         elif instruct == 4:
             self.cagedToon.clearChat()
 
+    def makePrepareBattleThreeMovie(self, delayDeletes):
+        track = Parallel()
+        camera.reparentTo(render)
+        camera.setPosHpr(-3, -35, 3, -90, 0, 0)
+        startPos = Point3(ToontownGlobals.SellbotBossBattleOnePosHpr[0], ToontownGlobals.SellbotBossBattleOnePosHpr[1], ToontownGlobals.SellbotBossBattleOnePosHpr[2])
+        battlePos = Point3(ToontownGlobals.SellbotBossBattleThreePosHpr[0], ToontownGlobals.SellbotBossBattleThreePosHpr[1], ToontownGlobals.SellbotBossBattleThreePosHpr[2])
+        startHpr = Point3(ToontownGlobals.SellbotBossBattleOnePosHpr[3], ToontownGlobals.SellbotBossBattleOnePosHpr[4], ToontownGlobals.SellbotBossBattleOnePosHpr[5])
+        battleHpr = VBase3(ToontownGlobals.SellbotBossBattleThreePosHpr[3], ToontownGlobals.SellbotBossBattleThreePosHpr[4], ToontownGlobals.SellbotBossBattleThreePosHpr[5])
+        finalHpr = VBase3(105, 0, 0)
+        bossTrack = Sequence()
+        bossTrack.append(Func(self.reparentTo, render))
+        bossTrack.append(Func(self.getGeomNode().setH, 180))
+        bossTrack.append(Func(self.pelvis.setHpr, self.pelvisForwardHpr))
+        bossTrack.append(Func(self.loop, 'Ff_neutral'))
+        track, hpr = self.rollBossToPoint(startPos, startHpr, startPos, battleHpr, 0)
+        bossTrack.append(track)
+        track, hpr = self.rollBossToPoint(startPos, None, battlePos, None, 0)
+        bossTrack.append(track)
+        track, hpr = self.rollBossToPoint(battlePos, battleHpr, battlePos, finalHpr, 0)
+        bossTrack.append(track)
+        GetUp = base.loader.loadSfx('phase_9/audio/sfx/CHQ_VP_raise_up.ogg')
+        Jump = base.loader.loadSfx('phase_9/audio/sfx/CHQ_VP_big_jump_stomp.ogg')
+        Talk = base.loader.loadSfx('phase_9/audio/sfx/Talk_1.ogg')
+        Talk1 = base.loader.loadSfx('phase_9/audio/sfx/Talk_2.ogg')
+        Talk2 = base.loader.loadSfx('phase_9/audio/sfx/Talk_3.ogg')
+        Trapped = base.loader.loadSfx('phase_11/audio/sfx/LB_sparks_1.ogg')
+        track = Sequence(
+            Func(self.loop, 'Ff_downHit'),
+            base.camera.posHprInterval(0.5, Point3(0, 85, 40.5), Point3(180, 5, 0), blendType='easeInOut'),
+            Parallel(Func(self.setChatAbsolute, "ENOUGH!", CFSpeech), SoundInterval(GetUp)),
+            Wait(3),
+            Func(self.clearChat),
+            Func(self.play, 'Ff_lookRt'),
+            Parallel(base.camera.posHprInterval(1, Point3(-40, 60, 35.5), Point3(-90, 15, 0), blendType='easeInOut'),
+            Func(self.setChatAbsolute, "I have had enough of your childish games.....", CFSpeech)),
+            Wait(3),
+            Func(self.clearChat),
+            Func(self.loop, 'Ff_speech'),
+            Func(self.setChatAbsolute, "You Toons think you're so clever to beat me.", CFSpeech),
+            Wait(3),
+            Func(self.clearChat),
+            Parallel(base.camera.posHprInterval(0.3, Point3(-50, 60, 40), Point3(-90, 0, 0), blendType='easeInOut'),
+            Func(self.setChatAbsolute, "But I won't allow it!", CFSpeech)),
+            Wait(3),
+            Func(self.clearChat),
+            base.camera.posHprInterval(0, Point3(0, 85, 40.5), Point3(180, 5, 0), blendType='easeInOut'), 
+            Func(self.setChatAbsolute, "Your foolishness... ends.... NOW!", CFSpeech),
+            Wait(3),
+            Func(self.clearChat),
+            Func(self.play, 'Fb_jump'),
+            base.camera.posHprInterval(0, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'), SoundInterval(Jump),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 19.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 19.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 19.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 19.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 19.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            base.camera.posHprInterval(0.1, Point3(-45, 60, 20.5), Point3(-90, 25, 0), blendType='easeInOut'),
+            Wait(2),
+            Func(self.loop, 'Ff_neutral'),
+            base.camera.posHprInterval(0, Point3(0, 66, 27.5), Point3(0, 5, 0), blendType='easeInOut'),
+            Func(self.cagedToon.sadEyes),
+            Func(self.cagedToon.blinkEyes), 
+            Func(self.cagedToon.setChatAbsolute, "This is bad, really bad...", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.setChatAbsolute, "If the VP collapses this place, we're all going to go sad...", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.closeEyes), 
+            Func(self.cagedToon.setChatAbsolute, "If only there was a way we could beat this guy...", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            SoundInterval(Talk), 
+            Func(self.cagedToon.sadEyes),
+            Func(self.cagedToon.blinkEyes), 
+            Func(self.cagedToon.setChatAbsolute, "?", CFSpeech),
+            Wait(1.5),
+            Func(self.cagedToon.clearChat), 
+            SoundInterval(Talk1),
+            LerpHprInterval(self.cagedToon, duration=0, hpr=(90, 0, 0), blendType='easeInOut'),
+            Func(self.cagedToon.setChatAbsolute, "Cakes?", CFSpeech),
+            Wait(2.5),
+            Func(self.cagedToon.clearChat),
+            SoundInterval(Talk2), 
+            Func(self.cagedToon.play, 'jump'),
+            Func(self.cagedToon.normalEyes),
+            Func(self.cagedToon.blinkEyes), 
+            Func(self.cagedToon.setChatAbsolute, "Yay!", CFSpeech),
+            Wait(2.5),
+            Func(self.cagedToon.clearChat),
+            LerpHprInterval(self.cagedToon, duration=0, hpr=(180, 0, 0), blendType='easeInOut'),
+            Func(self.cagedToon.loop, 'neutral'),
+            Func(self.cagedToon.setChatAbsolute, "Change of plans, this is how we're going to take on the boss.", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.setChatAbsolute, "So my recorder told me that I had Bomb Cakes in here,", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Func(self.cagedToon.setChatAbsolute, "Jump on my cage to receive infinite supplies of them.", CFSpeech),
+            Wait(3.5),
+            Func(self.cagedToon.clearChat),
+            Parallel(base.camera.posHprInterval(0.5, Point3(0, 68, 27.5), Point3(0, 5, 0), blendType='easeInOut'),
+            Func(self.cagedToon.setChatAbsolute, "Alright, now get out there, and show him who's bos-", CFSpeech)),
+            Wait(1.5),
+            Func(self.cagedToon.clearChat),
+            Parallel(base.camera.posHprInterval(1, Point3(-40, 60, 35.5), Point3(-90, 15, 0), blendType='easeInOut'),
+            Func(self.setChatAbsolute, "You hold it!", CFSpeech)),
+            Wait(3),
+            Func(self.clearChat),
+            Func(self.setChatAbsolute, "I have one more trick up my sleeve before we fight.", CFSpeech),
+            Wait(3),
+            Func(self.clearChat),
+            Func(self.setChatAbsolute, "The battle may begin, but in...", CFSpeech),
+            Wait(3),
+            Func(self.clearChat),
+            Parallel(base.camera.posHprInterval(1, Point3(-37, 57, 38.5), Point3(-90, 10, 0), blendType='easeInOut'),
+            Func(self.setChatAbsolute, "THE DARK!", CFSpeech)),
+            Wait(1.5),
+            LerpColorScaleInterval(render, 0, Vec4(0.1, 0.1, 0.1, 1.0)),
+            SoundInterval(Trapped),
+            Func(self.clearChat),
+            Wait(5))
+        return Sequence(track, name=self.uniqueName('SellbotBoss.makePrepareBattleThreeMovie'))
+
     def makeEndOfBattleMovie(self, hasLocalToon):
         name = self.uniqueName('CageDrop')
         seq = Sequence(name=name)
@@ -642,6 +770,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.battleOneMusic = base.loadMusic('phase_9/audio/bgm/VP_round_one.ogg')
         self.cutsceneMusic = base.loadMusic('phase_9/audio/bgm/VP_cutscene.ogg')
         self.battleTwoMusic = base.loadMusic('phase_9/audio/bgm/VP_round_2.ogg')
+        self.finalBattleMusic = base.loadMusic('phase_9/audio/bgm/VP_Final_Battle.ogg')
         self.battleThreeMusic = base.loadMusic('phase_9/audio/bgm/VP_Pie_Round.ogg')
         self.geom.reparentTo(render)
 
@@ -908,33 +1037,28 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
     def enterPrepareBattleThree(self):
         self.cleanupIntervals()
         self.controlToons()
-        self.clearChat()
-        self.cagedToon.clearChat()
+        intervalName = 'PrepareBattleThreeMovie'
+        delayDeletes = []
+        seq = Sequence(self.makePrepareBattleThreeMovie(delayDeletes), Func(self.__beginBattleThree), name=intervalName)
+        seq.delayDeletes = delayDeletes
+        seq.start()
         self.reparentTo(render)
         self.rampA.request('retract')
         self.rampB.request('retract')
         self.rampC.request('extend')
-        self.setCageIndex(4)
-        camera.reparentTo(render)
-        camera.setPosHpr(self.cage, 0, -17, 3.3, 0, 0, 0)
-        (localAvatar.setCameraFov(ToontownGlobals.CogHQCameraFov),)
-        self.hide()
-        self.acceptOnce('doneChatPage', self.__onToBattleThree)
-        self.cagedToon.setLocalPageChat(TTLocalizer.CagedToonPrepareBattleThree, 1)
-        base.playMusic(self.betweenBattleMusic, looping=1, volume=0.9)
+        self.storeInterval(seq, intervalName)
+        base.playMusic(self.finalBattleMusic, looping=1, volume=0.6)
 
-    def __onToBattleThree(self, elapsed):
+    def __beginBattleThree(self):
+        intervalName = 'PrepareBattleThreeMovie'
+        self.clearInterval(intervalName)
         self.doneBarrier('PrepareBattleThree')
-        taskMgr.doMethodLater(1, self.__showWaitingMessage, self.uniqueName('WaitingMessage'))
 
     def exitPrepareBattleThree(self):
-        self.show()
-        taskMgr.remove(self.uniqueName('WaitingMessage'))
-        self.ignore('doneChatPage')
-        intervalName = 'PrepareBattleThree'
+        intervalName = 'PrepareBattleThreeMovie'
         self.clearInterval(intervalName)
-        self.__clearOnscreenMessage()
-        self.betweenBattleMusic.stop()
+        self.doneBarrier('PrepareBattleThree')
+        self.finalBattleMusic.stop()
 
     def enterBattleThree(self):
         DistributedBossCog.DistributedBossCog.enterBattleThree(self)
@@ -955,7 +1079,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
         self.accept('outOfPies', self.__outOfPies)
         self.accept('begin-pie', self.__foundPieButton)
         localAvatar.setCameraFov(ToontownGlobals.BossBattleCameraFov)
-        taskMgr.doMethodLater(30, self.__howToGetPies, self.uniqueName('PieAdvice'))
+        taskMgr.doMethodLater(5, self.__howToGetPies, self.uniqueName('PieAdvice'))
         self.stickBossToFloor()
         self.bossDamageMovie = self.__makeBossDamageMovie()
         bossDoneEventName = self.uniqueName('DestroyedBoss')
