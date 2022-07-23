@@ -86,7 +86,7 @@ SuitData = {}
 SuitData[SuitTypes.Boss] = {'dnaName': 'mka',
  'cellWalkPeriod': 192,
  'toonDamage': 25.0,
- 'scale': 3.5,
+ 'scale': 1.1,
  'hp': 5,
  'memos': 5}
 SuitData[SuitTypes.FastMinion] = {'dnaName': 'fm',
