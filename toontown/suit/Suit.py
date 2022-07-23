@@ -139,7 +139,7 @@ mh = (('magic1', 'magic1', 5),
  ('phone', 'phone', 5),
  ('finger-wag', 'fingerwag', 5))
 ka = (('magic2', 'magic2', 5), ('glower', 'glower', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
-mka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 6))
+mka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('effort', 'effort', 5))
 fd = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
 fm = (('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
