@@ -83,13 +83,13 @@ SuitWalkSameDirectionProb = 1
 SuitWalkTurnAroundProb = 100
 SuitTypes = PythonUtil.Enum(('Boss', 'FastMinion', 'SlowMinion'))
 SuitData = {}
-SuitData[SuitTypes.Boss] = {'dnaName': 'gh',
+SuitData[SuitTypes.Boss] = {'dnaName': 'mka',
  'cellWalkPeriod': 192,
  'toonDamage': 25.0,
  'scale': 3.5,
  'hp': 5,
  'memos': 5}
-SuitData[SuitTypes.FastMinion] = {'dnaName': 'ka',
+SuitData[SuitTypes.FastMinion] = {'dnaName': 'fm',
  'cellWalkPeriod': 64,
  'toonDamage': 15.0,
  'scale': 1.5,

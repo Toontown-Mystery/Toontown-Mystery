@@ -139,7 +139,7 @@ mh = (('magic1', 'magic1', 5),
  ('phone', 'phone', 5),
  ('finger-wag', 'fingerwag', 5))
 ka = (('magic2', 'magic2', 5), ('glower', 'glower', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
-bbs = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 6))
+mka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 6))
 fd = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
 fm = (('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
@@ -814,13 +814,13 @@ class Suit(Avatar.Avatar):
             self.generateHead('twoface')
             self.generateHatStuff()
             self.setHeight(7.61)
-        elif dna.name == 'bbs':
-            self.scale = 7.37 / aSize
-            self.handColor = VBase4(1.0, 1.0, 1.0, 1.0)
-            self.headColor = VBase4(0, 0, 0, 0)
+        elif dna.name == 'mka':
+            self.scale = 7.37 / bSize
+            self.handColor = VBase4(0, 0, 0, 1.0)
+            self.headColor = VBase4(0.5, 0.5, 0.5, 1)
             self.generateBody()
-            self.headTexture = 'stardeath.jpg'
-            self.generateHead('Sphere', 'phase_4/models/char/star.bam')
+            self.headTexture = 'monokuma.jpg'
+            self.generateHead('movershaker')
             self.setHeight(9.03)
         elif dna.name == 'fd':
             self.scale = 8.0 / aSize
@@ -835,12 +835,10 @@ class Suit(Avatar.Avatar):
         elif dna.name == 'fm':
             self.scale = 6.0 / aSize
             self.handColor = VBase4(0.5, 0, 1, 1.0)
-            self.setPickable(0)
             self.generateBody()
+            self.headTexture = 'junko.jpg'
             self.generateHead('yesman')
-            self.makeSkeleton()
             self.setHeight(7.2)
-            self.setTransparency(1)
             self.setColor(0.5, 0, 1, 1)
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
