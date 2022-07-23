@@ -97,7 +97,6 @@ class CogdoMazeSuit(MazeSuit, FSM, CogdoMazeSplattable):
             if not deathSuit.isEmpty():
                 deathSuit.detachNode()
                 suit.cleanupLoseActor()
-                self.setBlend(frameBlend=True)
 
         self.deathSuit.reparentTo(self.suit.getParent())
         self.deathSuit.setScale(self.suit.getScale())
