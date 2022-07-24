@@ -86,19 +86,19 @@ SuitData = {}
 SuitData[SuitTypes.Boss] = {'dnaName': 'mka',
  'cellWalkPeriod': 192,
  'toonDamage': 25.0,
- 'scale': 1.5,
+ 'scale': 2.0,
  'hp': 5,
  'memos': 5}
 SuitData[SuitTypes.FastMinion] = {'dnaName': 'fm',
  'cellWalkPeriod': 64,
  'toonDamage': 15.0,
- 'scale': 1,
+ 'scale': 1.5,
  'hp': 3,
  'memos': 4}
 SuitData[SuitTypes.SlowMinion] = {'dnaName': 'gh',
  'cellWalkPeriod': 160,
  'toonDamage': 10.0,
- 'scale': 0.8,
+ 'scale': 1.2,
  'hp': 2,
  'memos': 3}
 NumSuits = (8, 8, 8)
