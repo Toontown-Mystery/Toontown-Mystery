@@ -6,7 +6,7 @@ GameActions = PythonUtil.Enum(('EnterDoor',
  'Countdown',
  'TimeAlert'))
 SecondsUntilTimeout = 5.0 * 100.0
-SecondsUntilGameEnds = 60.0
+SecondsUntilGameEnds = 30.0
 SecondsForTimeAlert = 30.0
 MaxPlayers = 4
 IntroDurationSeconds = 24.0
