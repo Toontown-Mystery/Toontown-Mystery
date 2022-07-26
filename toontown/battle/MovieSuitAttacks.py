@@ -3318,7 +3318,7 @@ def doCrunch(attack):
      0.22])
     damageAnims.append(['slip-forward', 0.01, 0.6])
     toonTrack = getToonTrack(attack, damageDelay=4.7, splicedDamageAnims=damageAnims, dodgeDelay=3.6, dodgeAnimNames=['sidestep'])
-    soundTrack = getSoundTrack('AA_drop_bigweight.ogg', delay=4.7, node=suit)
+    soundTrack = getSoundTrack('SA_crunch.ogg', delay=4.7, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, numberSpillTrack1, numberSpillTrack2, numberTracks, numberSprayTracks)
 
 
