@@ -4909,7 +4909,7 @@ BattleGlobalAvTrackAccStrings = ('95%',
  '100%',
  '80%',
  '95%',
- '60%',
+ '90%',
  '95%',
  '80%')
 BattleGlobalLureAccLow = '65%'
