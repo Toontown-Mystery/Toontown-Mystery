@@ -16,7 +16,20 @@ class PlayByPlayText(OnscreenText.OnscreenText):
         OnscreenText.OnscreenText.__init__(self, mayChange=1, pos=(0.0, 0.75), scale=TTLocalizer.PBPTonscreenText, fg=(0, 0, 1, 1), font=getSignFont(), wordwrap=13)
 
     def getShowInterval(self, text, duration):
-        return Sequence(Func(self.hide), LerpScaleInterval(self, duration=0, scale=(1, 1, 1)), LerpColorScaleInterval(self, duration=0, colorScale=(0, 0, 1, 1)), Func(self.setText, text), Func(self.show), Parallel(self.scaleInterval(0.3, (1.8, 1.8, 1.8)), self.posInterval(0.3, (0, 0, -0.084))), Parallel(self.scaleInterval(0.3, (1.1, 1.1, 1.1)), self.posInterval(0.3, (0, 0, 0))), Wait(1.5), Parallel(self.scaleInterval(0.3, (0.0, 0.0, 0.0)), self.posInterval(0.3, (0, 0, 0))), LerpColorScaleInterval(self, duration=1.0, colorScale=(0, 0, 1, 0)), Func(self.hide))
+        return Sequence(Func(self.hide), 
+        LerpScaleInterval(self, duration=0, scale=(1, 1, 1)), 
+        LerpColorScaleInterval(self, duration=0, colorScale=(0, 0, 1, 1)), 
+        self.posInterval(0, (0, 0, 0)), Func(self.setText, text), 
+        Func(self.show), 
+        Parallel(self.scaleInterval(0.3, (1.8, 1.8, 1.8)), 
+        self.posInterval(0.3, (0, 0, -0.595))), 
+        Parallel(self.scaleInterval(0.3, (1.1, 1.1, 1.1)), 
+        LerpColorScaleInterval(self, duration=0.1, colorScale=(0.9, 0, 0.6, 1)),
+        self.posInterval(0.3, (0, 0, -0.035))), 
+        Wait(1.5), 
+        Parallel(self.scaleInterval(0.3, (0.0, 0.0, 0.0)), 
+        self.posInterval(0.3, (0, 0, -0.5)), 
+        LerpColorScaleInterval(self, duration=0.3, colorScale=(0, 0, 1, 0))), Func(self.hide))
 
     def getToonsDiedInterval(self, textList, duration):
         track = Sequence(Func(self.hide), Wait(duration * 0.3))
