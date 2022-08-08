@@ -1079,6 +1079,7 @@ class Suit(Avatar.Avatar):
                 headPart.setScale(0.87)
             elif headType == 'safe':
                 headPart.setH(180)
+                headPart.setR(-15)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0)
