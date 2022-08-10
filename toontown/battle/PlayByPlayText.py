@@ -17,7 +17,7 @@ class PlayByPlayText(OnscreenText.OnscreenText):
 
     def getShowInterval(self, text, duration):
         return Sequence(Func(self.hide), 
-        LerpScaleInterval(self, duration=0, scale=(1, 1, 1)), 
+        LerpScaleInterval(self, duration=0, scale=(0.65, 0.65, 0.65)), 
         LerpColorScaleInterval(self, duration=0, colorScale=(0, 0, 1, 1)), 
         self.posInterval(0, (0, 0, 0)), Func(self.setText, text), 
         Func(self.show), 
