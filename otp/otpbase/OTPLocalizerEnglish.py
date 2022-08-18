@@ -239,6 +239,7 @@ SCMenuPets = 'PETS'
 SCMenuPetTricks = 'TRICKS'
 SCMenuCog = 'COG SPEAK'
 SCMenuTrend = 'TRENDS'
+SCMenuJoke = 'JOKES'
 SCMenuHello = 'HELLO'
 SCMenuBye = 'GOODBYE'
 SCMenuHappy = 'HAPPY'
@@ -1508,6 +1509,33 @@ SpeedChatStaticTextToontown = {100: 'Hi!',
  10014: "The reason on why Happy Birthdays are bad is because you should realize that if you do that, you're basically wishing for them to die. Happy Birthdays mean that you grow one year older, meaning you're one year closer to death, therefore if you wish anybody a happy birthday, then it's like celebrating your death, which is very heartless. Unhappy Birthdays however are not heartless because it means you will never die and stay the same age forever, so if anybody wishes you a happy birthday, then they're being heartless.",
  10015: "Once upon a time not so long ago Once upon a time not so long ago He's down on his luck, it's tough, so tough Gina works the diner all day working for her man She brings home her pay, for love, for love She says, we've got to hold on to what we've got It doesn't make a difference if we make it or not We've got each other and that's a lot for love We'll give it a shot Woah, we're half way there Woah, livin' on a prayer Take my hand, we'll make it I swear Woah, livin' on a prayer Tommy's got his six-string in hock Now he's holding in what he used to make it talk So tough, it's tough Gina dreams of running away When she cries in the night, Tommy whispers Baby, it's okay, someday We've got to hold on to what we've got It doesn't make a difference if we make it or not We've got each other and that's a lot for love We'll give it a shot Woah, we're half way there Woah, livin' on a prayer Take my hand, we'll make it I swear Woah, livin' on a prayer Livin' on a prayer Oh, we've got to hold on, ready or not You live for the fight when it's all that you've got Woah, we're half way there Woah, livin' on a prayer Take my hand, we'll make it I swear Woah, livin' on a prayer Woah, we're half way there Woah, livin' on a prayer Take my hand, we'll make it I swear Woah, livin' on a prayer Woah, we're half way there Woah, livin' on a prayer Take my hand, we'll make it I swear Woah, livin' on a prayer",
  10016: "The reason why D&D is bad is because it's a huge waste of time. I could have spent my time getting a life instead of sitting around for 4 hours listen to someone ramble off a bunch of gibberish that we can't even know because the DM won't tell us anything about the enemies or the cheats. Toontown is way better because we get all the information from sources, verses in D&D you don't and basically the DM cheats you. You roll a bunch of dice to determine stupid numbers for your skills or abilities, why do we need a stupid model to show numbers? Literally that's like saying you can just use a calculator and it will show the numbers on there. I could have spent my time doing chores, playing Toontown, getting my work done, making a video on how the TTR boiler works, but instead I wasted my time playing this crappy game.",
+ 10017: ">:)",
+ 10018: "? :(",
+ 10019: "Me sleep.",
+ 10020: "Me doing nothing. :3",
+ 10021: "Me do.",
+ 10022: "No doing that.",
+ 10023: "!",
+ 10024: "</3",
+ 10025: ":)",
+ 10026: "Ok then.",
+ 10027: "That's it.",
+ 10028: ">:(",
+ 10029: "THAT'S THE LAST STRAW.",
+ 10030: "Me slide.",
+ 10031: "Push?",
+ 10032: "Move everywhere?",
+ 10033: "Jump?",
+ 10034: "Circle?",
+ 10035: "Stare at wall?",
+ 10036: "Me don't love you. :)",
+ 10037: "*Cries*",
+ 10038: "Cry about it. :)",
+ 10039: "*Leaves a puddle* T_T :( </3",
+ 10040: "No me sowwy.",
+ 10041: "You sowwy?",
+ 10042: "Me forgive.",
+ 10043: "<3",
  20000: SuitBrushOffs[None][0],
  20001: SuitBrushOffs[None][1],
  20002: SuitBrushOffs[None][2],
