@@ -490,90 +490,90 @@ class Suit(Avatar.Avatar):
         self.isImmune = 0
         self.setBlend(frameBlend=True)
         if dna.name == 'f':
-            self.scale = 2.0 / cSize
+            self.scale = 5.6 / cSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('gladhander')
-            self.setHeight(2.48)
+            self.setHeight(6.58)
         elif dna.name == 'p':
-            self.scale = 2.45 / bSize
+            self.scale = 5.85 / bSize
             self.handColor = SuitDNA.corpPolyColor
             self.generateBody()
             self.generateHead('pencilpusher')
-            self.setHeight(3.0)
+            self.setHeight(6.78)
         elif dna.name == 'ym':
-            self.scale = 3.1 / aSize
+            self.scale = 6.2 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('backstabber')
-            self.setHeight(3.98)
+            self.setHeight(7.33)
         elif dna.name == 'mm':
-            self.scale = 3.8 / bSize
+            self.scale = 6.6 / bSize
             self.handColor = VBase4(1.0, 0, 0.2, 0.5)
             self.generateBody()
             self.headTexture = 'cat.jpg'
             self.generateHead('movershaker')
-            self.setHeight(4.55)
+            self.setHeight(7.8)
         elif dna.name == 'ds':
-            self.scale = 4.5 / aSize
+            self.scale = 7.0 / aSize
             self.handColor = VBase4(0.8, 0.7, 0.7, 1.0)
             self.generateBody()
             self.generateHead('headhunter')
             self.generateHudStuff()
-            self.setHeight(6.08)
+            self.setHeight(8.08)
         elif dna.name == 'hh':
-            self.scale = 5.5 / bSize
+            self.scale = 7.5 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'spin-doctor.jpg'
             self.generateHead('telemarketer')
             self.generateSimonStuff()
             self.generateSimon2Stuff()
-            self.setHeight(6.55)
+            self.setHeight(8.75)
         elif dna.name == 'cr':
-            self.scale = 6.45 / aSize
+            self.scale = 7.8 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/space.bam')
-            self.setHeight(8)
+            self.setHeight(9)
         elif dna.name == 'tbc':
-            self.scale = 7.0 / aSize
+            self.scale = 8.0 / aSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.generateHead('bigcheese')
             self.setHeight(9.34)
         elif dna.name == 'trb':
-            self.scale = 6.05 / aSize
+            self.scale = 8.5 / aSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'rain.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(7.53)
+            self.setHeight(9.7)
         elif dna.name == 'dot':
-            self.scale = 6.75 / cSize
+            self.scale = 7.0 / cSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.headColor = VBase4(0.0, 1.0, 0.0, 1.0)
             self.generateBody()
             self.generateHead('Icosphere', 'phase_3.5/models/char/tomato.bam')
             self.setHeight(9.23)
         elif dna.name == 'kb':
-            self.scale = 8.5 / aSize
+            self.scale = 9.5 / aSize
             self.handColor = SuitDNA.corpPolyColor
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(9.5)
+            self.setHeight(10.8)
             self.setTransparency(1)
             self.setColor(0, 0.5, 1, 1)
         elif dna.name == 'ts':
-            self.scale = 7.2 / aSize
+            self.scale = 10.1 / aSize
             self.handColor = VBase4(1, 0.5, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(8.4)
+            self.setHeight(11.1)
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':

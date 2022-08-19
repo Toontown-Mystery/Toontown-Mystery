@@ -127,7 +127,7 @@ class DistributedBossbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
         if battleNumber == 1:
             battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
         else:
-            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
+            battle = DistributedBattleWaitersAI.DistributedBattleWaitersAI(self.air, self, roundCallback, finishCallback, battleSide)
         self.setBattlePos(battle, bossCogPosHpr, battlePosHpr)
         battle.suitsKilled = self.suitsKilled
         battle.battleCalc.toonSkillPtsGained = self.toonSkillPtsGained
