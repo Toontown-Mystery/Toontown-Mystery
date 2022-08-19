@@ -612,7 +612,7 @@ class DistributedSellbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Parallel(base.camera.posHprInterval(1, Point3(-37, 57, 38.5), Point3(-90, 10, 0), blendType='easeInOut'),
             Func(self.setChatAbsolute, "THE DARK!", CFSpeech)),
             Wait(1.5),
-            LerpColorScaleInterval(render, 0, Vec4(0.1, 0.1, 0.1, 1.0)),
+            LerpColorScaleInterval(render, 0, Vec4(0.3, 0.3, 0.3, 1.0)),
             SoundInterval(Trapped),
             Func(self.clearChat),
             Wait(5))
