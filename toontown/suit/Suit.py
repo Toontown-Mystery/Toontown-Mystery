@@ -557,95 +557,95 @@ class Suit(Avatar.Avatar):
             self.generateHead('Icosphere', 'phase_3.5/models/char/tomato.bam')
             self.setHeight(9.23)
         elif dna.name == 'kb':
-            self.scale = 9.5 / aSize
+            self.scale = 8.8 / aSize
             self.handColor = SuitDNA.corpPolyColor
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(10.8)
+            self.setHeight(10)
             self.setTransparency(1)
             self.setColor(0, 0.5, 1, 1)
         elif dna.name == 'ts':
-            self.scale = 10.1 / aSize
+            self.scale = 9.2 / aSize
             self.handColor = VBase4(1, 0.5, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(11.1)
+            self.setHeight(10.6)
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':
-            self.scale = 2.0 / cSize
+            self.scale = 3.5 / cSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.headTexture = 'bottom-feeder.jpg'
             self.generateHead('flunky')
-            self.setHeight(2.48)
+            self.setHeight(4.48)
         elif dna.name == 'b':
-            self.scale = 2.5 / bSize
+            self.scale = 3.8 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'halloween_blood-sucker.jpg'
             self.generateHead('movershaker')
-            self.setHeight(3.17)
+            self.setHeight(4.77)
         elif dna.name == 'dt':
-            self.scale = 3.0 / aSize
+            self.scale = 4.0 / aSize
             self.handColor = VBase4(1.0, 0.2, 0.4, 0.3)
             self.generateBody()
             self.headTexture = 'double-talker.jpg'
             self.generateHead('yesman')
-            self.setHeight(3.83)
+            self.setHeight(5.03)
         elif dna.name == 'ac':
-            self.scale = 0.75 / cSize
+            self.scale = 4.35 / cSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.generateHead('micromanager')
-            self.setHeight(1.09)
+            self.setHeight(5.29)
         elif dna.name == 'bs':
-            self.scale = 3.8 / bSize
+            self.scale = 4.8 / bSize
             self.handColor = VBase4(0, 1.0, 0.2, 1.0)
             self.generateBody()
             self.generateHead('beancounter')
-            self.setHeight(4.91)
+            self.setHeight(5.6)
         elif dna.name == 'sd':
-            self.scale = 4.5 / aSize
+            self.scale = 5.2 / aSize
             self.handColor = VBase4(1.0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'software_simian.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(5.89)
+            self.setHeight(6.3)
         elif dna.name == 'le':
-            self.scale = 5.5 / aSize
+            self.scale = 5.8 / aSize
             self.handColor = VBase4(1, 1, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/sun.bam')
             self.generateHollyStuff()
             self.setHeight(6.75)
         elif dna.name == 'bw':
-            self.scale = 7.0 / aSize
+            self.scale = 6.5 / aSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.headTexture = 'diamond.jpg'
             self.generateHead('yesman')
-            self.setHeight(8.69)
+            self.setHeight(7.7)
         elif dna.name == 'brv':
-            self.scale = 5.75 / bSize
+            self.scale = 7.0 / bSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'bravester.jpg'
             self.generateHead('movershaker')
-            self.setHeight(6.93)
+            self.setHeight(8.2)
         elif dna.name == 'sb':
-            self.scale = 6.35 / bSize
+            self.scale = 7.5 / bSize
             self.handColor = VBase4(1.0, 1.0, 1.0, 1.0)
             self.headColor = VBase4(0.0, 0.0, 0.0, 1.0)
             self.generateBody()
             self.generateHead('safe', 'phase_5/models/props/safe.bam')
-            self.setHeight(8.13)
+            self.setHeight(8.8)
         elif dna.name == 'cm':
-            self.scale = 7.5 / aSize
+            self.scale = 8.0 / aSize
             self.handColor = SuitDNA.legalPolyColor
             self.setPickable(0)
             self.generateBody()
@@ -653,9 +653,9 @@ class Suit(Avatar.Avatar):
             self.makeSkeleton()
             self.setTransparency(1)
             self.setColor(0, 1, 1, 1)
-            self.setHeight(8.5)
+            self.setHeight(9.2)
         elif dna.name == 'ggm':
-            self.scale = 6.7 / bSize
+            self.scale = 8.5 / bSize
             self.handColor = VBase4(0.25, 0, 1, 1.0)
             self.setPickable(0)
             self.generateBody()
@@ -663,92 +663,92 @@ class Suit(Avatar.Avatar):
             self.makeSkeleton()
             self.setTransparency(1)
             self.setColor(0.25, 0, 1, 1)
-            self.setHeight(8.0)
+            self.setHeight(10.0)
         elif dna.name == 'sc':
-            self.scale = 1.25 / cSize
+            self.scale = 3.5 / cSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'conartist.jpg'
             self.generateHead('coldcaller')
-            self.setHeight(1.85)
+            self.setHeight(4.35)
         elif dna.name == 'pp':
-            self.scale = 1.75 / bSize
+            self.scale = 4.0 / bSize
             self.handColor = VBase4(1.0, 0.6, 0.5, 1.0)
             self.generateBody()
             self.generateHead('loanshark')
-            self.setHeight(2.46)
+            self.setHeight(4.75)
         elif dna.name == 'tw':
-            self.scale = 2.85 / aSize
+            self.scale = 4.5 / aSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'janet_lady.jpg'
             self.generateHead('yesman')
-            self.setHeight(3.68)
+            self.setHeight(5.4)
         elif dna.name == 'bc':
-            self.scale = 3.5 / bSize
+            self.scale = 5.0 / bSize
             self.handColor = VBase4(1, 0.6, 0, 1.0)
             self.generateBody()
             self.generateHead('movershaker')
-            self.setHeight(4.75)
+            self.setHeight(6.12)
         elif dna.name == 'nc':
-            self.scale = 4.25 / aSize
+            self.scale = 5.5 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('numbercruncher')
-            self.setHeight(5.8)
+            self.setHeight(6.69)
         elif dna.name == 'mb':
-            self.scale = 4.75 / aSize
+            self.scale = 6.0 / aSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'law-keeper.jpg'
             self.generateHead('twoface')
-            self.setHeight(5.97)
+            self.setHeight(7.1)
         elif dna.name == 'ls':
-            self.scale = 5.5 / bSize
+            self.scale = 6.5 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'wizard-shaker.jpg'
             self.generateHead('movershaker')
-            self.setHeight(6.88)
+            self.setHeight(7.65)
         elif dna.name == 'rb':
             self.scale = 7.0 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'careman.jpg'
             self.generateHead('yesman')
-            self.setHeight(8.95)
+            self.setHeight(8.15)
         elif dna.name == 'gm':
-            self.scale = 5.5 / aSize
+            self.scale = 7.5 / aSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'guilt.jpg'
             self.generateHead('Cone', 'phase_4/models/char/customCog.bam')
-            self.setHeight(7.2)
+            self.setHeight(8.6)
         elif dna.name == 'ad':
-            self.scale = 5.89 / bSize
+            self.scale = 8.0 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'alfred.jpg'
             self.generateHead('Cylinder', 'phase_4/models/char/alfred.bam')
-            self.setHeight(7.29)
+            self.setHeight(9.3)
         elif dna.name == 'dm':
-            self.scale = 6.5 / bSize
+            self.scale = 8.5 / bSize
             self.handColor = SuitDNA.moneyPolyColor
             self.setPickable(0)
             self.generateBody()
             self.generateHead('movershaker')
             self.makeSkeleton()
-            self.setHeight(7.5)
+            self.setHeight(9.9)
             self.setTransparency(1)
             self.setColor(0, 1, 0.5, 1)
         elif dna.name == 'tcc':
-            self.scale = 5.8 / bSize
+            self.scale = 8.5 / bSize
             self.handColor = VBase4(0.5, 1, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('movershaker')
             self.makeSkeleton()
-            self.setHeight(7.1)
+            self.setHeight(9.9)
             self.setTransparency(1)
             self.setColor(0.5, 1, 0, 1)
         elif dna.name == 'cc':
