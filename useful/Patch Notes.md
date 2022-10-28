@@ -14,3 +14,4 @@ Monokuma wanted more despair around, so he caused a chaos field office room.
 Fashion Factories have been introduced to new music.
 Foghorn has a new SFX.
 Skelecogs have new sound effects, the old ones were not as good.
+Changed gag UI and some street textures.
