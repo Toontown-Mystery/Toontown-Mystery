@@ -19,3 +19,4 @@ Changed gag UI and some street textures.
 Toontown Mystery: Update 3.1
 Fixed conveyorbelt speed from 40 to 15, hopefully it's slow enough now, but still a bit fast.
 Modified Carebot facilities music to sound a bit more dramatic.
+Added new cog sound effects.
