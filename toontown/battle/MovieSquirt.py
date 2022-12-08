@@ -210,13 +210,13 @@ def __getSuitTrack(suit, tContact, tDodge, hp, hpbonus, kbbonus, anim, died, lef
             bonusTrack.append(Wait(0.75))
             bonusTrack.append(Func(suit.showHpText, -hpbonus, 1, openEnded=0, attackTrack=SQUIRT_TRACK))
         if revived != 0:
-            singleSuitResponseTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle))
+            suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle))
         elif suit.isVirtual and died != 0:
-            singleSuitResponseTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
+            suitResponseTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
         elif died != 0:
-            singleSuitResponseTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
+            suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
         else:
-            singleSuitResponseTrack.append(Func(suit.loop, 'neutral'))
+            suitTrack.append(Func(suit.loop, 'neutral'))
         return Parallel(suitTrack, bonusTrack)
     else:
         return MovieUtil.createSuitDodgeMultitrack(tDodge, suit, leftSuits, rightSuits)
