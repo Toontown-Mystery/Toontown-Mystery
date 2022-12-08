@@ -23,3 +23,5 @@ Added new cog sound effects.
 
 Toontown Mystery: Update 3.1.1
 Added new SFXs to Cog Deaths, and Skelecog Question and Exclaim.
+Fixed a crash on squirt.
+Toned down mint music.
