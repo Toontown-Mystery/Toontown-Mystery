@@ -4735,16 +4735,16 @@ BattleGlobalAvPropStringsPlural = (('Feathers',
   'Oceanliners'))
 BattleGlobalAvTrackAccStrings = ('95%',
  '100%',
- '80%',
  '95%',
- '90%',
  '95%',
- '80%')
-BattleGlobalLureAccLow = '65%'
-BattleGlobalLureAccLow2 = '70%'
-BattleGlobalLureAccMedium = '75%'
-BattleGlobalLureAccHigh = '80%'
-BattleGlobalLureTrackBonus = ' (+15%)'
+ '95%',
+ '95%',
+ '95%')
+BattleGlobalLureAccLow = '95%'
+BattleGlobalLureAccLow2 = '90%'
+BattleGlobalLureAccMedium = '95%'
+BattleGlobalLureAccHigh = '95%'
+BattleGlobalLureTrackBonus = ' (+0%)'
 AttackMissed = 'THAT WAS JUST PLASTIC!!'
 NPCCallButtonLabel = 'CALL'
 LoaderLabel = 'Loading...'

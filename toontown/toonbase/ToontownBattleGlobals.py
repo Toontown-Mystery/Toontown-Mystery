@@ -38,12 +38,12 @@ MAX_UNPAID_LEVEL_INDEX = 4
 LAST_REGULAR_GAG_LEVEL = 5
 UBER_GAG_LEVEL_INDEX = 6
 NUM_GAG_TRACKS = 7
-AvLureRounds = (2,
+AvLureRounds = (4,
  3,
- 4,
  5,
- 6,
+ 4,
  8,
+ 6,
  10)
 PropTypeToTrackBonus = {AnimPropTypes.Hydrant: SQUIRT_TRACK,
  AnimPropTypes.Mailbox: THROW_TRACK,
@@ -599,13 +599,6 @@ AvPropAccuracy = ((95,
   0,
   0,
   0),
- (65,
-  65,
-  70,
-  70,
-  75,
-  75,
-  80),
  (95,
   95,
   95,
@@ -613,13 +606,6 @@ AvPropAccuracy = ((95,
   95,
   95,
   95),
- (60,
-  60,
-  60,
-  60,
-  60,
-  60,
-  60),
  (95,
   95,
   95,
@@ -627,35 +613,49 @@ AvPropAccuracy = ((95,
   95,
   95,
   95),
- (80,
-  80,
-  80,
-  80,
-  80,
-  80,
-  80))
-AvLureBonusAccuracy = (90,
- 90,
- 90,
- 90,
- 90,
- 90,
- 90)
+ (95,
+  95,
+  95,
+  95,
+  95,
+  95,
+  95),
+ (95,
+  95,
+  95,
+  95,
+  95,
+  95,
+  95),
+ (95,
+  95,
+  95,
+  95,
+  95,
+  95,
+  95))
+AvLureBonusAccuracy = (95,
+ 95,
+ 95,
+ 95,
+ 95,
+ 95,
+ 95)
 AvTrackAccStrings = TTLocalizer.BattleGlobalAvTrackAccStrings
-AvPropDamage = ((((15, 20), (Levels[0][0], Levels[0][1])),
-  ((11, 17), (Levels[0][1], Levels[0][2])),
-  ((35, 45), (Levels[0][2], Levels[0][3])),
-  ((40, 55), (Levels[0][3], Levels[0][4])),
-  ((115, 200), (Levels[0][4], Levels[0][5])),
-  ((90, 140), (Levels[0][5], Levels[0][6])),
-  ((250, 250), (Levels[0][6], MaxSkill))),
- (((70, 100), (Levels[1][0], Levels[1][1])),
-  ((130, 165), (Levels[1][1], Levels[1][2])),
-  ((180, 264), (Levels[1][2], Levels[1][3])),
-  ((270, 400), (Levels[1][3], Levels[1][4])),
-  ((450, 650), (Levels[1][4], Levels[1][5])),
-  ((900, 1450), (Levels[1][5], Levels[1][6])),
-  ((1200, 1200), (Levels[1][6], MaxSkill))),
+AvPropDamage = ((((95, 136), (Levels[0][0], Levels[0][1])),
+  ((150, 300), (Levels[0][1], Levels[0][2])),
+  ((215, 275), (Levels[0][2], Levels[0][3])),
+  ((450, 600), (Levels[0][3], Levels[0][4])),
+  ((295, 375), (Levels[0][4], Levels[0][5])),
+  ((750, 900), (Levels[0][5], Levels[0][6])),
+  ((1200, 1200), (Levels[0][6], MaxSkill))),
+ (((200, 270), (Levels[1][0], Levels[1][1])),
+  ((300, 540), (Levels[1][1], Levels[1][2])),
+  ((580, 835), (Levels[1][2], Levels[1][3])),
+  ((890, 1100), (Levels[1][3], Levels[1][4])),
+  ((1240, 1500), (Levels[1][4], Levels[1][5])),
+  ((1550, 1800), (Levels[1][5], Levels[1][6])),
+  ((2000, 2000), (Levels[1][6], MaxSkill))),
  (((0, 0), (0, 0)),
   ((0, 0), (0, 0)),
   ((0, 0), (0, 0)),
@@ -663,34 +663,34 @@ AvPropDamage = ((((15, 20), (Levels[0][0], Levels[0][1])),
   ((0, 0), (0, 0)),
   ((0, 0), (0, 0)),
   ((0, 0), (0, 0))),
- (((3, 6), (Levels[3][0], Levels[3][1])),
-  ((8, 11), (Levels[3][1], Levels[3][2])),
-  ((13, 16), (Levels[3][2], Levels[3][3])),
-  ((20, 24), (Levels[3][3], Levels[3][4])),
-  ((27, 40), (Levels[3][4], Levels[3][5])),
-  ((50, 80), (Levels[3][5], Levels[3][6])),
-  ((115, 115), (Levels[3][6], MaxSkill))),
- (((11, 15), (Levels[4][0], Levels[4][1])),
-  ((20, 28), (Levels[4][1], Levels[4][2])),
-  ((40, 55), (Levels[4][2], Levels[4][3])),
-  ((65, 90), (Levels[4][3], Levels[4][4])),
-  ((140, 180), (Levels[4][4], Levels[4][5])),
-  ((225, 340), (Levels[4][5], Levels[4][6])),
+ (((11, 14), (Levels[3][0], Levels[3][1])),
+  ((20, 25), (Levels[3][1], Levels[3][2])),
+  ((30, 40), (Levels[3][2], Levels[3][3])),
+  ((48, 60), (Levels[3][3], Levels[3][4])),
+  ((75, 90), (Levels[3][4], Levels[3][5])),
+  ((100, 150), (Levels[3][5], Levels[3][6])),
+  ((200, 200), (Levels[3][6], MaxSkill))),
+ (((18, 30), (Levels[4][0], Levels[4][1])),
+  ((40, 60), (Levels[4][1], Levels[4][2])),
+  ((70, 100), (Levels[4][2], Levels[4][3])),
+  ((110, 150), (Levels[4][3], Levels[4][4])),
+  ((180, 250), (Levels[4][4], Levels[4][5])),
+  ((280, 350), (Levels[4][5], Levels[4][6])),
   ((300, 300), (Levels[4][6], MaxSkill))),
- (((8, 10), (Levels[5][0], Levels[5][1])),
-  ((14, 18), (Levels[5][1], Levels[5][2])),
-  ((30, 40), (Levels[5][2], Levels[5][3])),
-  ((55, 70), (Levels[5][3], Levels[5][4])),
-  ((90, 140), (Levels[5][4], Levels[5][5])),
-  ((160, 240), (Levels[5][5], Levels[5][6])),
-  ((220, 220), (Levels[5][6], MaxSkill))),
- (((10, 25), (Levels[6][0], Levels[6][1])),
-  ((30, 45), (Levels[6][1], Levels[6][2])),
-  ((50, 65), (Levels[6][2], Levels[6][3])),
-  ((75, 100), (Levels[6][3], Levels[6][4])),
-  ((125, 200), (Levels[6][4], Levels[6][5])),
-  ((215, 400), (Levels[6][5], Levels[6][6])),
-  ((500, 500), (Levels[6][6], MaxSkill))))
+ (((10, 15), (Levels[5][0], Levels[5][1])),
+  ((25, 35), (Levels[5][1], Levels[5][2])),
+  ((45, 70), (Levels[5][2], Levels[5][3])),
+  ((85, 115), (Levels[5][3], Levels[5][4])),
+  ((130, 160), (Levels[5][4], Levels[5][5])),
+  ((180, 250), (Levels[5][5], Levels[5][6])),
+  ((200, 200), (Levels[5][6], MaxSkill))),
+ (((30, 50), (Levels[6][0], Levels[6][1])),
+  ((60, 85), (Levels[6][1], Levels[6][2])),
+  ((120, 160), (Levels[6][2], Levels[6][3])),
+  ((180, 250), (Levels[6][3], Levels[6][4])),
+  ((280, 350), (Levels[6][4], Levels[6][5])),
+  ((375, 500), (Levels[6][5], Levels[6][6])),
+  ((600, 600), (Levels[6][6], MaxSkill))))
 ATK_SINGLE_TARGET = 0
 ATK_GROUP_TARGET = 1
 AvPropTargetCat = ((ATK_SINGLE_TARGET,
@@ -751,7 +751,7 @@ def getAvPropDamage(attackTrack, attackLevel, exp, organicBonus = False, propBon
 
 
 def getDamageBonus(normal):
-    bonus = int(normal * 1.50)
+    bonus = int(normal * 0.35)
     if bonus < 1 and normal > 0:
         bonus = 1
     return bonus
@@ -762,11 +762,11 @@ def isGroup(track, level):
 
 
 def getCreditMultiplier(floorIndex):
-    return 1 + floorIndex * 1.5
+    return 1 + floorIndex * 2.5
 
 
 def getFactoryCreditMultiplier(factoryId):
-    return 2.5
+    return 7.0
 
 
 def getFactoryMeritMultiplier(factoryId):
@@ -774,9 +774,9 @@ def getFactoryMeritMultiplier(factoryId):
 
 
 def getMintCreditMultiplier(mintId):
-    return {CashbotMintIntA: 1.5,
-     CashbotMintIntB: 2.5,
-     CashbotMintIntC: 3.5}.get(mintId, 1.0)
+    return {CashbotMintIntA: 5.5,
+     CashbotMintIntB: 7.5,
+     CashbotMintIntC: 9.5}.get(mintId, 1.0)
 
 
 def getStageCreditMultiplier(floor):
@@ -784,9 +784,9 @@ def getStageCreditMultiplier(floor):
 
 
 def getCountryClubCreditMultiplier(countryClubId):
-    return {BossbotCountryClubIntA: 0.5,
-     BossbotCountryClubIntB: 0.5,
-     BossbotCountryClubIntC: 0.5}.get(countryClubId, 1.0)
+    return {BossbotCountryClubIntA: 8.0,
+     BossbotCountryClubIntB: 10.0,
+     BossbotCountryClubIntC: 12.0}.get(countryClubId, 1.0)
 
 
 def getBossBattleCreditMultiplier(battleNumber):

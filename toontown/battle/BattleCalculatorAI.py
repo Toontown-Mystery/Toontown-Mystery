@@ -12,7 +12,7 @@ class BattleCalculatorAI:
     AccuracyBonuses = [
      5, 20, 35, 50]
     DamageBonuses = [
-     0, 50, 75, 100]
+     0, 100, 100, 100]
     AttackExpPerTrack = [
      0, 10, 20, 30, 40, 50, 60]
     NumRoundsLured = AvLureRounds

@@ -32,3 +32,78 @@ Toontown Mystery: Update 3.1.2
 
 Made Trapdoor and Quicksand disappear quicker.
 Slightly more cogs have been added in 1-4 story buildings.
+Made overall damage bonus to 100%.
+All gag accuracy is 95% to ensure it hits. (hopefully)
+Buffed every gag so Toons ensure to get more damage output and get healed if possible.
+
+Toonup =
+
+Feather: 20 > 136
+Megaphone: 45 > 300
+Lipstick: 55 > 275
+Cane: 55 > 600
+Pixie: 200 > 375
+Juggling: 140 > 900
+High Dive: 250 > 1200
+
+Trap =
+
+Banana: 100 > 270
+Rake: 165 > 540
+Marbles: 264 > 835
+Quicksand: 400 > 1100
+Trapdoor: 650 > 1500
+TNT: 1450 > 1800
+Railroad: 1200 > 2000
+
+Lure = The amount of rounds depends on the level,and if it's group lured. Single lures last longer in rounds, but some group lures last for less rounds.
+
+Bill: 2 rounds > 4 rounds.
+Minimagnet: (untouched)
+5 dollar bill: 4 > 5 rounds.
+Magnet: 5 > 4 rounds.
+10 dollar bill: 6 > 8 rounds.
+Hypno: 8 > 6 rounds.
+Presentation: (untouched)
+
+Sound =
+
+Bikehorn: 6 > 14
+Whistle: 11 > 25
+Bugle: 16 > 40
+Aoogah: 24 > 60
+Trunk: 40 > 90
+Fog: 80 > 150
+Opera: 115 > 200
+
+Throw =
+
+Cupcake: 15 > 30
+Fruit Pie Slice: 28 > 60
+Cream Pie Slice: 55 > 100
+Fruit Pie: 90 > 150
+Cream Pie: 180 > 250
+Birthday Cake: 340 > 350
+Wedding Cake: (untouched)
+
+Squirt =
+
+Squirt Flower: 10 > 15
+Glass of Water: 18 > 35
+Squirtgun: 40 > 70
+Seltzer Bottle: 70 > 115
+Hose: 140 > 160
+Storm Cloud: 240 > 250
+Geyser: 240 > 200
+
+Drop =
+
+Flowerpot: 25 > 50
+Sandbag: 45 > 85
+Anvil: 65 > 160
+Big Weight: 100 > 250
+Safe: 200 > 350
+Piano: 400 > 500
+Toontanic: 500 > 600
+
+I've noticed that damage bonus has been a little too high... plus due to changing the gag stats, I've decided to decrease the damage bonus from 150% to 35%.
