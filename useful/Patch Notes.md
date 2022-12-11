@@ -31,3 +31,4 @@ Toned down mint music.
 Toontown Mystery: Update 3.1.2
 
 Made Trapdoor and Quicksand disappear quicker.
+Slightly more cogs have been added in 1-4 story buildings.
