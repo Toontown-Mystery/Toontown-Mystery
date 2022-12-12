@@ -107,3 +107,5 @@ Piano: 400 > 500
 Toontanic: 500 > 600
 
 I've noticed that damage bonus has been a little too high... plus due to changing the gag stats, I've decided to decrease the damage bonus from 150% to 35%.
+
+Updated Number Man's texture.
