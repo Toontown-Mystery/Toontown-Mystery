@@ -36,15 +36,15 @@ Made overall damage bonus to 100%.
 All gag accuracy is 95% to ensure it hits. (hopefully)
 Buffed every gag so Toons ensure to get more damage output and get healed if possible.
 
-Toonup =
+Toonup = Heal amount max is based on the max hp in the game in a percentage, so hopefully every level gets an equal percentage. (yes there will still be a single number, but like say the max hp is 500, and lipstick does 300, that's 60% max hp)
 
-Feather: 20 > 136
-Megaphone: 45 > 300
-Lipstick: 55 > 275
-Cane: 55 > 600
-Pixie: 200 > 375
-Juggling: 140 > 900
-High Dive: 250 > 1200
+Feather: 20 > 125 (25% to a toon with 500 hp)
+Megaphone: 45 > 300 (20% to all toons with 500 hp)
+Lipstick: 55 > 275 (55% to a toon with 500 hp)
+Cane: 55 > 600 (40% to all toons with 500 hp)
+Pixie: 200 > 375 (75% to a toon with 500 hp)
+Juggling: 140 > 900 (60% to all toons with 500 hp)
+High Dive: 250 > 1200 (80% to all toons with 500 hp)
 
 Trap =
 
@@ -109,3 +109,27 @@ Toontanic: 500 > 600
 I've noticed that damage bonus has been a little too high... plus due to changing the gag stats, I've decided to decrease the damage bonus from 150% to 35%.
 
 Updated Number Man's texture.
+
+Toontown Mystery: Update 3.2
+
+All gags minimum damage now equal to the maximum, so no more low damage hopefully.
+Toonup's amount you can carry has been slightly reduced.
+Doodles also now heal to a percentage of max hp as well.
+
+Jump = 100
+Beg = 125
+Play Dead = 150
+Rollover = 200
+Backflip = 250
+Dance = 300
+Speak = 350
+
+Facility bosses has replaced the cogs in their battles to have the max 3 cog tiers.
+Boss rounds with boss encounters have most of the cogs eliminated, but have double the HP.
+Cog Rounds max levels have been increased.
+Cog building bosses difficulty levels are now +2 per rank building.
+Slightly increased the amount of cogs in FashionBoss first round.
+Slightly decreased the amount of cogs in Doctor Elvis first round.
+Feeding round now only requires one cake for the cog to explode, and the timer for all Cogs to explode is now equal to 30 seconds. SO GET FEEDING.
+Feeding round is now 400 seconds.
+Swapped dialogue on Cocoa Lollipop's quote.
