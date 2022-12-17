@@ -28,7 +28,7 @@ Added new SFXs to Cog Deaths, and Skelecog Question and Exclaim.
 Fixed a crash on squirt.
 Toned down mint music.
 
-Toontown Mystery: Update 3.1.2
+Toontown Mystery: Update 3.2
 
 Made Trapdoor and Quicksand disappear quicker.
 Slightly more cogs have been added in 1-4 story buildings.
@@ -110,7 +110,7 @@ I've noticed that damage bonus has been a little too high... plus due to changin
 
 Updated Number Man's texture.
 
-Toontown Mystery: Update 3.2
+Toontown Mystery: Update 3.2.1
 
 All gags minimum damage now equal to the maximum, so no more low damage hopefully.
 Toonup's amount you can carry has been slightly reduced.
@@ -133,3 +133,10 @@ Slightly decreased the amount of cogs in Doctor Elvis first round.
 Feeding round now only requires one cake for the cog to explode, and the timer for all Cogs to explode is now equal to 30 seconds. SO GET FEEDING.
 Feeding round is now 400 seconds.
 Swapped dialogue on Cocoa Lollipop's quote.
+
+Toontown Mystery: Update 3.2.2
+
+Fixed a dialogue on Cocoa Lollipop's quote.
+Forgot to change King Blueberry's times on feeding round.
+Tweaked minimum levels in FashionBoss and Doctor Elvis.
+Reduced the amount of Cogs that appear in Round 2 of Doctor Elvis and FashionBoss, again.

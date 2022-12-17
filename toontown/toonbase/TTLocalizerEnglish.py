@@ -6657,7 +6657,7 @@ NPCToonNames = {20000: 'Lady Horse Vay',
  754: 'Caillou',
  755: 'Richie Verdi',
  756: 'Lady Horse Hay',
- 777: 'Queen Lillie',
+ 777: 'Cocoa Lollipop',
  784: 'Timinator',
  788: 'Redsonic',
  888: 'Gabe The Happy Dog',
@@ -9223,10 +9223,10 @@ BossbotBossPreTwo1 = "Hello, Cogs! I would like to order."
 BossbotBossPreTwo2 = 'Serve my waiters cakes, with no mayo please.'
 BossbotRTServeFood1 = "Oh boy, he wants a special order of cakes."
 BossbotRTServeFood2 = "I was going to say that Marco will make the cakes, but the cake joke is boooooooooooooooooooooooooring."
-BossbotRTServeFood3 = "So, I hired Aoi to make the cakes instead, a specialty of them, and they are, 'Bomb Cakes'."
+BossbotRTServeFood3 = "So, I hired Celeste to make tea instead, a specialty of them, and they are 'Royal Milk Tea' sodas."
 BossbotRTServeFood4 = "Since they're so explosive, each Cog will only take 1 cake and they'll explode."
 BossbotRTServeFood5 = "But keep in mind, if they get angry, then you will have to restart that Cog."
-BossbotRTServeFood6 = 'Rememb'
+BossbotRTServeFood6 = 'Alright, I said enough, now get out there AND GET FEEDING!'
 BossbotResistanceToonName = "Good Ol Giggles"
 BossbotPhase3Speech1 = "WHAT is that smell???"
 BossbotPhase3Speech2 = "Did you just feed my customers Royal Milk Tea!?"
