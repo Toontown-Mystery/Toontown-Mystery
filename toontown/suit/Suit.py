@@ -397,10 +397,10 @@ class Suit(Avatar.Avatar):
 	 Vec4(0, 0, 0, 1),
      Vec4(0.3, 0.3, 0.3, 1),
      ToontownGlobals.CogImmuneGlowColor)
-    medallionColors = {'c': Vec4(0.863, 0.776, 0.769, 1.0),
-     's': Vec4(0.843, 0.745, 0.745, 1.0),
-     'l': Vec4(0.749, 0.776, 0.824, 1.0),
-     'm': Vec4(0.749, 0.769, 0.749, 1.0)}
+    medallionColors = {'c': Vec4(0.5, 0.5, 0, 1.0),
+     's': Vec4(0, 0, 0, 1.0),
+     'l': Vec4(0.1, 0.1, 0.8, 1.0),
+     'm': Vec4(0, 0.85, 0.15, 1.0)}
 
     def __init__(self):
         try:

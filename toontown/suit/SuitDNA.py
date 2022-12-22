@@ -115,10 +115,10 @@ suitDeptFullnamesP = {'c': TTLocalizer.BossbotP,
  'l': TTLocalizer.LawbotP,
  'm': TTLocalizer.CashbotP,
  's': TTLocalizer.SellbotP}
-corpPolyColor = VBase4(0.95, 0.75, 0.75, 1.0)
-legalPolyColor = VBase4(0.75, 0.75, 0.95, 1.0)
-moneyPolyColor = VBase4(0.65, 0.95, 0.85, 1.0)
-salesPolyColor = VBase4(0.95, 0.75, 0.95, 1.0)
+corpPolyColor = VBase4(0.5, 0.5, 0, 1.0)
+legalPolyColor = VBase4(0.1, 0.1, 0.8, 1.0)
+moneyPolyColor = VBase4(0.85, 0.15, 0, 1.0)
+salesPolyColor = VBase4(0, 0, 0, 1.0)
 suitsPerLevel = [1,
  1,
  1,
