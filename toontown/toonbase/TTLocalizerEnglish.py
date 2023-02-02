@@ -75,7 +75,7 @@ lMinniesMelodyland = "Piano Lessons"
 lToontownCentral = 'Merry Go Round Land'
 lToonHQ = 'Toon HQ'
 lSellbotHQ = 'Fashionbot HQ'
-lGoofySpeedway = 'Racetrack Training'
+lGoofySpeedway = 'Speed Blastoffs'
 lOutdoorZone = "The Forest"
 lGolfZone = "The Get Good Golfing Area"
 lPartyHood = 'Party Grounds'
@@ -83,10 +83,10 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  1000: ('to the', 'in the', 'Dock'),
  1100: ('to', 'on', 'Pirates Shopping Road'),
  1200: ('to', 'on', 'Water Street'),
- 1300: ('to', 'on', 'Lightning Lane'),
+ 1300: ('to', 'on', 'Sailing Lane'),
  2000: ('to the', 'in the', 'Carnival'),
  2100: ('to', 'on', 'Tickets Shop Lane'),
- 2200: ('to', 'on', 'Propcorn Lane'),
+ 2200: ('to', 'on', 'Carnival Lane'),
  2300: ('to', 'on', 'Fun Lane'),
  3000: ('to the', 'in the', 'Coldground'),
  3100: ('to', 'on', 'Garbage Soda Coldness Street'),
