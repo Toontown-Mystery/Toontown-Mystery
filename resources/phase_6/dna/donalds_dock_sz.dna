@@ -436,102 +436,29 @@ group "donaldsDock" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
+      color [ 0.15 0.35 0.85 1 ]
       pos [ 0 0 -0.25 ]
       nhpr [ 0 0 1 ]
       scale [ 1.1 1 1.1 ]
       width [ 29.3591 ]
       height [ 29.3591 ]
       text [
-       letters [ "B" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "C" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.26 ]
-      scale [ 1.4 1 1.1 ]
-      width [ 39.6338 ]
-      height [ 39.6338 ]
-      text [
-       letters [ "B" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "V" ]
-      ]
-      text [
-       letters [ "A" ]
+       letters [ "I" ]
       ]
       text [
        letters [ "R" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.95 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 29.2886 ]
-      height [ 29.2886 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
@@ -540,16 +467,113 @@ group "donaldsDock" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "H" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.15 0.35 0.85 1 ]
+      pos [ 0 0 -1.26 ]
+      scale [ 1.4 1 1.1 ]
+      width [ 39.6338 ]
+      height [ 39.6338 ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "B" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
      baseline [
@@ -567,14 +591,23 @@ group "donaldsDock" [
     nhpr [ 90 0 0 ]
     sign [
      code [ "tunnel_sign_red" ]
-     scale [ 1.5 1 1.5 ]
+     scale [ 2.1 1.5 2.1 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
+      color [ 0.15 0.35 0.85 1 ]
       pos [ 0 0 -0.4 ]
       scale [ 1.5 1 1.1 ]
       width [ 42.2619 ]
       height [ 42.2619 ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
       text [
        letters [ "L" ]
       ]
@@ -582,37 +615,14 @@ group "donaldsDock" [
        letters [ "I" ]
       ]
       text [
+       letters [ "N" ]
+      ]
+      text [
        letters [ "G" ]
       ]
       text [
-       letters [ "H" ]
+       letters [ " " ]
       ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "H" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.3 ]
-      scale [ 1.4 1 1.1 ]
-      width [ 46.0023 ]
-      height [ 46.0023 ]
       text [
        letters [ "L" ]
       ]
@@ -635,32 +645,28 @@ group "donaldsDock" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -2.01 ]
-      nhpr [ 0 0 1 ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
       scale [ 0.8 1 0.8 ]
-      width [ 47.5285 ]
-      height [ 47.5285 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
       text [
-       letters [ "D" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "O" ]
+       letters [ "I" ]
       ]
       text [
-       letters [ "N" ]
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
@@ -669,16 +675,37 @@ group "donaldsDock" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "B" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]
@@ -689,35 +716,29 @@ group "donaldsDock" [
     nhpr [ -90 0 0 ]
     sign [
      code [ "tunnel_sign_red" ]
-     scale [ 1.5 1 1.5 ]
+     scale [ 2 1.4 2 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
+      color [ 0.15 0.35 0.85 1 ]
       pos [ 0 0 -0.91 ]
       nhpr [ 0 0 1 ]
       scale [ 1.3 1 1.5 ]
       width [ 39.2357 ]
       height [ 39.2357 ]
       text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "E" ]
+       letters [ "W" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "W" ]
+       letters [ "T" ]
       ]
       text [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "D" ]
+       letters [ "R" ]
       ]
       text [
        letters [ " " ]
@@ -743,31 +764,28 @@ group "donaldsDock" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ -0.12 0 -1.9 ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
       scale [ 0.8 1 0.8 ]
-      width [ 38.8969 ]
-      height [ 38.8969 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
       text [
-       letters [ "D" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "O" ]
+       letters [ "I" ]
       ]
       text [
-       letters [ "N" ]
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
@@ -776,16 +794,37 @@ group "donaldsDock" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "B" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
      baseline [
@@ -929,31 +968,54 @@ group "donaldsDock" [
      code [ "DD_sign2" ]
      scale [ 2 1 1.4 ]
      baseline [
-      code [ "TT_Comedy" ]
-      color [ 0.439216 0.247059 0.184314 1 ]
-      scale [ 1.5 1 1.4 ]
+      code [ "mickey" ]
+      color [ 0 1 0.2 1 ]
+      scale [ 1.9 1.3 1.9 ]
       wiggle [ 3 ]
       stomp [ 0.0367716 ]
       text [
-       letters [ "C" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "h" ]
+       letters [ "H" ]
       ]
       text [
-       letters [ "i" ]
-      ]
-      text [
-       letters [ "p" ]
+       letters [ "E" ]
       ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "n" ]
+       letters [ "F" ]
       ]
       text [
-       letters [ "'" ]
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 1 0 0 1 ]
+      pos [ 0 0 -1.2 ]
+      scale [ 1.5 1 1.4 ]
+      wiggle [ 3 ]
+      stomp [ 0.0367716 ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "F" ]
       ]
       text [
        letters [ " " ]
@@ -962,60 +1024,13 @@ group "donaldsDock" [
        letters [ "D" ]
       ]
       text [
-       letters [ "a" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "l" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "e" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
-      text [
-       letters [ "s" ]
-      ]
-     ]
-     baseline [
-      code [ "TT_Comedy" ]
-      color [ 0.439216 0.247059 0.184314 1 ]
-      pos [ 0 0 -1.2 ]
-      scale [ 1.5 1 1.4 ]
-      wiggle [ 3 ]
-      stomp [ 0.0367716 ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "c" ]
-      ]
-      text [
-       letters [ "o" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "n" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "c" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "e" ]
-      ]
-      text [
-       letters [ "s" ]
+       letters [ "M" ]
       ]
      ]
     ]
