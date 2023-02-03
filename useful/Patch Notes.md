@@ -140,3 +140,20 @@ Fixed a dialogue on Cocoa Lollipop's quote.
 Forgot to change King Blueberry's times on feeding round.
 Tweaked minimum levels in FashionBoss and Doctor Elvis.
 Reduced the amount of Cogs that appear in Round 2 of Doctor Elvis and FashionBoss, again.
+
+Toontown Mystery: Update 3.2.3
+
+Added a new Gag Panel UI.
+Added a couple new street sign names...? Will mention soon. (work in progress)
+Slightly Changed the accuracy on Monokuma and Karen.
+Changed Lure rounds for single and group lures once again to hopefully avoid overpowedness of the lure.
+
+1 dollar bill - 4 > 3
+Minimagnet - 3 > 1
+5 dollar bill - 5 > 5
+Big Magnet - 4 > 2
+10 dollar bill - 8 > 7
+Hypno - 6 > 3
+Presentation - 10 > 4
+
+Some SOS cards have been buffed. Enjoy it. :)

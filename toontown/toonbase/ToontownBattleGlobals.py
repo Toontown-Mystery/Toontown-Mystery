@@ -38,13 +38,13 @@ MAX_UNPAID_LEVEL_INDEX = 4
 LAST_REGULAR_GAG_LEVEL = 5
 UBER_GAG_LEVEL_INDEX = 6
 NUM_GAG_TRACKS = 7
-AvLureRounds = (4,
- 3,
+AvLureRounds = (3,
+ 1,
  5,
- 4,
- 8,
- 6,
- 10)
+ 2,
+ 7,
+ 3,
+ 4)
 PropTypeToTrackBonus = {AnimPropTypes.Hydrant: SQUIRT_TRACK,
  AnimPropTypes.Mailbox: THROW_TRACK,
  AnimPropTypes.Trashcan: HEAL_TRACK}
