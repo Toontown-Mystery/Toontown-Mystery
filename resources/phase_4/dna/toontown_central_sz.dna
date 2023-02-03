@@ -43,7 +43,7 @@ group "toontownCentral" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 1 0.5 1 ]
+      color [ 0 1 0.25 1 ]
       pos [ 0 0 -0.84 ]
       nhpr [ 0 0 2 ]
       scale [ 1.5 1 1.5 ]
@@ -173,7 +173,7 @@ group "toontownCentral" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 1 0.5 1 ]
+      color [ 0 1 0.25 1 ]
       pos [ 0 0 -0.76 ]
       scale [ 1.5 1 1.5 ]
       width [ 33.3333 ]
@@ -380,7 +380,7 @@ group "toontownCentral" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 1 0.5 1 ]
+      color [ 0 1 0.25 1 ]
       pos [ 0 0 -0.33 ]
       scale [ 1.3 1 1 ]
       width [ 49.1087 ]
@@ -407,7 +407,7 @@ group "toontownCentral" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 1 0.5 1 ]
+      color [ 0 1 0.25 1 ]
       pos [ 0 0 -1.34 ]
       scale [ 1.3 1 1 ]
       text [

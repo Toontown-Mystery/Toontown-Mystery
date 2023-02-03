@@ -218,25 +218,77 @@ group "toontownCentral" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0 1 ]
+      color [ 0.9 0.4 0 1 ]
       pos [ 0 0 -1.16 ]
       scale [ 1.5 1 1.5 ]
       width [ 47.4001 ]
       height [ 47.4001 ]
       text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
+       letters [ "C" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+     ]
+     baseline [
+      pos [ 0 0 1.5 ]
+      scale [ 2.5 1 2.5 ]
+      graphic [
+       code [ "mickeySZ" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0 1 0.5 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 50 ]
+      height [ 50 ]
+      text [
+       letters [ "M" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
        letters [ "Y" ]
       ]
       text [
+       letters [ " " ]
+      ]
+      text [
        letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ " " ]
       ]
       text [
        letters [ "R" ]
@@ -253,68 +305,20 @@ group "toontownCentral" [
       text [
        letters [ "D" ]
       ]
-     ]
-     baseline [
-      pos [ 0 0 1.5 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "mickeySZ" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0 0.501961 0.25098 1 ]
-      pos [ 0 0 -2.03 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 39.6338 ]
-      height [ 39.6338 ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "W" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "C" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "R" ]
+       letters [ "L" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
      ]
     ]
@@ -13730,109 +13734,32 @@ group "toontownCentral" [
     nhpr [ -90 0 -0 ]
     sign [
      code [ "tunnel_sign_red" ]
-     pos [ 0 0 0.2 ]
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -0.36 ]
-      scale [ 1.5 1 1.1 ]
-      width [ 33.3333 ]
-      height [ 33.3333 ]
+      color [ 0.15 0.35 0.85 1 ]
+      pos [ 0 0 -0.25 ]
+      nhpr [ 0 0 1 ]
+      scale [ 1.1 1 1.1 ]
+      width [ 29.3591 ]
+      height [ 29.3591 ]
       text [
-       letters [ "B" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "C" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-     ]
-     baseline [
-      pos [ 0 0 1.68 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "donaldSZ" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.43 ]
-      scale [ 1.5 1 1.1 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "B" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "V" ]
-      ]
-      text [
-       letters [ "A" ]
+       letters [ "I" ]
       ]
       text [
        letters [ "R" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -2.05 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 36.3888 ]
-      height [ 36.3888 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
@@ -13841,16 +13768,113 @@ group "toontownCentral" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "H" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.15 0.35 0.85 1 ]
+      pos [ 0 0 -1.26 ]
+      scale [ 1.4 1 1.1 ]
+      width [ 39.6338 ]
+      height [ 39.6338 ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "B" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]
