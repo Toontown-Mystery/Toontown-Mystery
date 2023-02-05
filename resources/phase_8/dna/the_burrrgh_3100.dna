@@ -518,14 +518,23 @@ group "theBurrrgh" [
     nhpr [ -90 0 -0 ]
     sign [
      code [ "tunnel_sign_red" ]
-     scale [ 1.6 1 1.6 ]
+     scale [ 2.1 1.5 2.1 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -0.51 ]
+      color [ 0.15 0.35 0.85 1 ]
+      pos [ 0 0 -0.4 ]
       scale [ 1.5 1 1.1 ]
-      width [ 50 ]
-      height [ 50 ]
+      width [ 42.2619 ]
+      height [ 42.2619 ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
       text [
        letters [ "L" ]
       ]
@@ -533,32 +542,29 @@ group "theBurrrgh" [
        letters [ "I" ]
       ]
       text [
+       letters [ "N" ]
+      ]
+      text [
        letters [ "G" ]
       ]
       text [
-       letters [ "H" ]
+       letters [ " " ]
       ]
       text [
-       letters [ "T" ]
+       letters [ "L" ]
       ]
       text [
-       letters [ "H" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "S" ]
+       letters [ "N" ]
       ]
       text [
        letters [ "E" ]
       ]
      ]
      baseline [
-      pos [ 0 0 1.6 ]
+      pos [ 0 0 1.76 ]
       scale [ 2.5 1 2.5 ]
       graphic [
        code [ "donaldSZ" ]
@@ -566,50 +572,28 @@ group "theBurrrgh" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.4 ]
-      scale [ 1.5 1 1 ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
       text [
-       letters [ "L" ]
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "N" ]
+       letters [ "T" ]
       ]
       text [
        letters [ "E" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -2.05 ]
-      nhpr [ -0 0 1 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 31.25 ]
-      height [ 31.25 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
       ]
       text [
        letters [ "S" ]
@@ -618,16 +602,37 @@ group "theBurrrgh" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "B" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]

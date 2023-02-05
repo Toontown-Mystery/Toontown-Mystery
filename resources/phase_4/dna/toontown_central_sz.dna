@@ -175,7 +175,7 @@ group "toontownCentral" [
       code [ "mickey" ]
       color [ 0 1 0.25 1 ]
       pos [ 0 0 -0.76 ]
-      scale [ 1.5 1 1.5 ]
+      scale [ 1.2 1 1.2 ]
       width [ 33.3333 ]
       height [ 33.3333 ]
       text [

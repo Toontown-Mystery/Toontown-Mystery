@@ -370,29 +370,35 @@ group "minniesMelodyLand" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0.25098 1 ]
-      pos [ 0 0 -0.72 ]
-      nhpr [ -0 0 1 ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -0.84 ]
+      nhpr [ 0 0 2 ]
       scale [ 1.5 1 1.5 ]
-      width [ 32.495 ]
-      height [ 32.495 ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
       text [
        letters [ "L" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
       ]
       text [
        letters [ " " ]
@@ -412,58 +418,68 @@ group "minniesMelodyLand" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0.25098 1 ]
-      pos [ 0 0 -1.96 ]
+      color [ 0 1 0.5 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
       scale [ 0.8 1 0.8 ]
       width [ 50 ]
       height [ 50 ]
       text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "W" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ "C" ]
+       letters [ "M" ]
       ]
       text [
        letters [ "E" ]
       ]
       text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "R" ]
       ]
       text [
        letters [ "R" ]
       ]
       text [
-       letters [ "A" ]
+       letters [ "Y" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "U" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+      text [
+       letters [ " " ]
       ]
       text [
        letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
      ]
      baseline [

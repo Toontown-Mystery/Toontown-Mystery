@@ -7332,83 +7332,11 @@ group "donaldsDock" [
      scale [ 1.6 1 1.6 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0 1 ]
-      pos [ 0 0 -1.02 ]
+      color [ 0.45 0.25 0.1 1 ]
+      pos [ 0 0 -1.06 ]
       scale [ 1.5 1 1.5 ]
-      width [ 62.4688 ]
-      height [ 62.4688 ]
-      text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ "G" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-     ]
-     baseline [
-      pos [ 0 0 1.5 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "donaldSZ" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.92 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 34.4021 ]
-      height [ 34.4021 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
+      width [ 68.171 ]
+      height [ 68.171 ]
       text [
        letters [ "D" ]
       ]
@@ -7420,6 +7348,78 @@ group "donaldsDock" [
       ]
       text [
        letters [ "K" ]
+      ]
+     ]
+     baseline [
+      pos [ 0 0 1.56 ]
+      scale [ 2.5 1 2.5 ]
+      graphic [
+       code [ "donaldSZ" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "B" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]

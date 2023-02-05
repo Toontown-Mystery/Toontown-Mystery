@@ -11031,22 +11031,81 @@ group "daisysGarden" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0 1 ]
-      pos [ 0 0 -1.04 ]
-      scale [ 1.5 1 1.5 ]
-      width [ 50 ]
-      height [ 50 ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -0.76 ]
+      scale [ 1.2 1 1.2 ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
       text [
-       letters [ "S" ]
+       letters [ "T" ]
       ]
       text [
        letters [ "I" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "K" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "H" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ " " ]
       ]
       text [
        letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0 1 0.5 1 ]
+      pos [ -0.08 0 -1.98 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 44.0567 ]
+      height [ 44.0567 ]
+      text [
+       letters [ "M" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "R" ]
       ]
       text [
        letters [ "Y" ]
@@ -11055,78 +11114,43 @@ group "daisysGarden" [
        letters [ " " ]
       ]
       text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0 0.501961 0 1 ]
-      pos [ 0 0 -1.91 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 40.8764 ]
-      height [ 40.8764 ]
-      text [
-       letters [ "T" ]
+       letters [ "G" ]
       ]
       text [
        letters [ "O" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "W" ]
-      ]
-      text [
-       letters [ "N" ]
       ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "R" ]
       ]
       text [
-       letters [ "E" ]
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "U" ]
       ]
       text [
        letters [ "N" ]
       ]
       text [
-       letters [ "T" ]
+       letters [ "D" ]
       ]
       text [
-       letters [ "R" ]
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
      ]
      baseline [

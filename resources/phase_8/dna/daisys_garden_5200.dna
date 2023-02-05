@@ -10862,35 +10862,29 @@ group "daisysGarden" [
     nhpr [ -90 0 -0 ]
     sign [
      code [ "tunnel_sign_red" ]
-     pos [ 0 0 0.2 ]
-     scale [ 1.5 1 1.5 ]
+     scale [ 2 1.4 2 ]
      baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.15 ]
-      scale [ 1.2 1 1.5 ]
-      width [ 66.6667 ]
-      height [ 66.6667 ]
+      color [ 0.15 0.35 0.85 1 ]
+      pos [ 0 0 -0.91 ]
+      nhpr [ 0 0 1 ]
+      scale [ 1.3 1 1.5 ]
+      width [ 39.2357 ]
+      height [ 39.2357 ]
       text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "E" ]
+       letters [ "W" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "W" ]
+       letters [ "T" ]
       ]
       text [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "D" ]
+       letters [ "R" ]
       ]
       text [
        letters [ " " ]
@@ -10915,39 +10909,29 @@ group "daisysGarden" [
       ]
      ]
      baseline [
-      pos [ 0 0 1.5 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "donaldSZ" ]
-      ]
-     ]
-     baseline [
       code [ "mickey" ]
-      color [ 0.501961 0 0.25098 1 ]
-      pos [ 0 0 -1.96 ]
-      scale [ 0.7 1 0.7 ]
-      width [ 43.5654 ]
-      height [ 43.5654 ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.95 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
       text [
-       letters [ "D" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "O" ]
+       letters [ "I" ]
       ]
       text [
-       letters [ "N" ]
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
@@ -10956,16 +10940,37 @@ group "daisysGarden" [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "B" ]
       ]
       text [
        letters [ "O" ]
       ]
       text [
-       letters [ "C" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]
