@@ -537,7 +537,6 @@ group "donaldsDock" [
      ]
     ]
    ]
-  ]
   prop "prop_tt_m_ara_gen_tunnelAheadSign_DNARoot" [
    code [ "prop_tt_m_ara_gen_tunnelAheadSign" ]
    pos [ 5.06166 27.9831 -0.500006 ]
