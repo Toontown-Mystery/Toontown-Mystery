@@ -334,38 +334,35 @@ group "donaldsDock" [
     nhpr [ -90 0 -0 ]
     sign [
      code [ "tunnel_sign_green" ]
-     pos [ 0 0 0.9 ]
+     pos [ 0 0 -0.18 ]
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -1.06 ]
+      color [ 0.1 1 0.4 1 ]
+      pos [ 0 0 -0.95 ]
       scale [ 1.4 1 1.5 ]
-      width [ 55.0903 ]
-      height [ 55.0903 ]
+      width [ 40.563 ]
+      height [ 40.563 ]
       text [
-       letters [ "M" ]
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ " " ]
+       letters [ "S" ]
       ]
       text [
        letters [ "S" ]
       ]
       text [
-       letters [ "T" ]
+       letters [ " " ]
+      ]
+      text [
+       letters [ "A" ]
       ]
       text [
        letters [ "R" ]
@@ -374,10 +371,7 @@ group "donaldsDock" [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "A" ]
       ]
      ]
      baseline [
@@ -389,29 +383,11 @@ group "donaldsDock" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -1.87 ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -1.93 ]
       scale [ 0.8 1 0.8 ]
-      width [ 39.1757 ]
-      height [ 39.1757 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
       text [
        letters [ "G" ]
       ]
@@ -429,6 +405,24 @@ group "donaldsDock" [
       ]
       text [
        letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
       text [
        letters [ "S" ]

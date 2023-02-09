@@ -651,37 +651,31 @@ group "daisysGarden" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
+      color [ 0.1 1 0.4 1 ]
       pos [ 0 0 -0.95 ]
       scale [ 1.4 1 1.5 ]
       width [ 40.563 ]
       height [ 40.563 ]
       text [
-       letters [ "M" ]
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "R" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ " " ]
+       letters [ "S" ]
       ]
       text [
        letters [ "S" ]
       ]
       text [
-       letters [ "T" ]
+       letters [ " " ]
+      ]
+      text [
+       letters [ "A" ]
       ]
       text [
        letters [ "R" ]
@@ -690,37 +684,16 @@ group "daisysGarden" [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "A" ]
       ]
      ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
+      color [ 0 1 0.25 1 ]
       pos [ 0 0 -1.93 ]
       scale [ 0.8 1 0.8 ]
       width [ 33.3333 ]
       height [ 33.3333 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
       text [
        letters [ "G" ]
       ]
@@ -738,6 +711,24 @@ group "daisysGarden" [
       ]
       text [
        letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
       text [
        letters [ "S" ]
@@ -761,29 +752,35 @@ group "daisysGarden" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
+      color [ 0.1 1 0.4 1 ]
       pos [ 0 0 -1.01 ]
       nhpr [ 0 0 2 ]
       scale [ 1.5 1 1.5 ]
       width [ 35.8744 ]
       height [ 35.8744 ]
       text [
-       letters [ "E" ]
+       letters [ "F" ]
       ]
       text [
        letters [ "L" ]
       ]
       text [
-       letters [ "M" ]
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "W" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
       ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "A" ]
       ]
       text [
        letters [ "R" ]
@@ -792,37 +789,16 @@ group "daisysGarden" [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "A" ]
       ]
      ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -2.02 ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -1.93 ]
       scale [ 0.8 1 0.8 ]
-      width [ 52.5099 ]
-      height [ 52.5099 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
       text [
        letters [ "G" ]
       ]
@@ -840,6 +816,24 @@ group "daisysGarden" [
       ]
       text [
        letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
       text [
        letters [ "S" ]
@@ -1032,29 +1026,59 @@ group "daisysGarden" [
      scale [ 1.39066 1 1.61989 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
+      color [ 0.1 1 0.4 1 ]
       pos [ -0.17 0 -0.62297 ]
-      scale [ 1.87057 1 1.51598 ]
+      scale [ 1.1 0.95 1.1 ]
       width [ 34.4253 ]
       height [ 34.4253 ]
       flags [ "d" ]
       text [
-       letters [ "O" ]
+       letters [ "S" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "K" ]
+       letters [ "D" ]
       ]
       text [
-       letters [ " " ]
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "E" ]
       ]
       text [
        letters [ "S" ]
       ]
       text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
        letters [ "T" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "A" ]
       ]
       text [
        letters [ "R" ]
@@ -1063,38 +1087,16 @@ group "daisysGarden" [
        letters [ "E" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "T" ]
+       letters [ "A" ]
       ]
      ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -1.73655 ]
-      scale [ 0.95104 1 0.902303 ]
-      width [ 35.468 ]
-      height [ 35.468 ]
-      flags [ "d" ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -1.93 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
       text [
        letters [ "G" ]
       ]
@@ -1112,6 +1114,24 @@ group "daisysGarden" [
       ]
       text [
        letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
       text [
        letters [ "S" ]

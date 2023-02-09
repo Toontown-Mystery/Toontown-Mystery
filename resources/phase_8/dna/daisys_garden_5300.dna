@@ -626,71 +626,15 @@ group "daisysGarden" [
     nhpr [ 90 0 -0 ]
     sign [
      code [ "tunnel_sign_green" ]
-     pos [ 0 0 -2.48846 ]
-     scale [ 1.47523 1 1.57295 ]
+     pos [ 0 0 -2.25 ]
+     scale [ 1.6 1 1.6 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -0.732978 ]
-      scale [ 1.47877 1 1.57837 ]
-      width [ 43.0446 ]
-      height [ 43.0446 ]
-      text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ "G" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 1 1 0 1 ]
-      pos [ 0 0 -1.80592 ]
-      scale [ 0.970578 1 0.865055 ]
-      width [ 46.0126 ]
-      height [ 46.0126 ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
+      color [ 0 1 0 1 ]
+      pos [ 0 0 -0.94 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 40.9216 ]
+      height [ 40.9216 ]
       text [
        letters [ "G" ]
       ]
@@ -708,6 +652,50 @@ group "daisysGarden" [
       ]
       text [
        letters [ "N" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0 1 0.25 1 ]
+      pos [ 0 0 -1.93 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 33.3333 ]
+      height [ 33.3333 ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
       text [
        letters [ "S" ]
@@ -5983,21 +5971,36 @@ group "daisysGarden" [
     sign [
      baseline [
       code [ "suit" ]
-      color [ 0.733333 0.733333 0.733333 1 ]
+      color [ 0.85 0.4 0.65 1 ]
       pos [ 0 0 -0.40119 ]
       scale [ 2.50633 1 1.23588 ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
       text [
        letters [ "S" ]
       ]
       text [
-       letters [ "E" ]
+       letters [ "H" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "I" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "O" ]
       ]
+      text [
+       letters [ "N" ]
+      ]
+     ]
+     baseline [
+      code [ "suit" ]
+      color [ 0.8 0.5 0.75 1 ]
+      pos [ 0 0 -1.68829 ]
+      scale [ 2.33314 1 1.43206 ]
       text [
        letters [ "B" ]
       ]
@@ -6006,21 +6009,6 @@ group "daisysGarden" [
       ]
       text [
        letters [ "T" ]
-      ]
-     ]
-     baseline [
-      code [ "suit" ]
-      color [ 0.733333 0.733333 0.733333 1 ]
-      pos [ 0 0 -1.68829 ]
-      scale [ 2.33314 1 1.43206 ]
-      text [
-       letters [ "C" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "G" ]
       ]
       text [
        letters [ " " ]
