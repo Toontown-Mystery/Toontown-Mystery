@@ -54,10 +54,10 @@ QuestDictRewardIndex = 5
 QuestDictNextQuestIndex = 6
 QuestDictDialogIndex = 7
 VeryEasy = 100
-Easy = 75
-Medium = 50
-Hard = 25
-VeryHard = 20
+Easy = 90
+Medium = 75
+Hard = 60
+VeryHard = 40
 TT_TIER = 0
 DD_TIER = 4
 DG_TIER = 7
@@ -18677,16 +18677,16 @@ def getNextRewards(numChoices, tier, av):
     return finalRewardPool
 
 
-RewardDict = {100: (MaxHpReward, 1),
- 101: (MaxHpReward, 2),
- 102: (MaxHpReward, 3),
- 103: (MaxHpReward, 4),
- 104: (MaxHpReward, 5),
- 105: (MaxHpReward, 6),
- 106: (MaxHpReward, 7),
- 107: (MaxHpReward, 8),
- 108: (MaxHpReward, 9),
- 109: (MaxHpReward, 10),
+RewardDict = {100: (MaxHpReward, 2),
+ 101: (MaxHpReward, 4),
+ 102: (MaxHpReward, 6),
+ 103: (MaxHpReward, 9),
+ 104: (MaxHpReward, 10),
+ 105: (MaxHpReward, 12),
+ 106: (MaxHpReward, 14),
+ 107: (MaxHpReward, 16),
+ 108: (MaxHpReward, 18),
+ 109: (MaxHpReward, 20),
  200: (MaxGagCarryReward, 25, TTLocalizer.QuestsMediumPouch),
  201: (MaxGagCarryReward, 30, TTLocalizer.QuestsLargePouch),
  202: (MaxGagCarryReward, 35, TTLocalizer.QuestsSmallBag),

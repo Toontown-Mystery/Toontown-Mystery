@@ -12,7 +12,7 @@ class BattleCalculatorAI:
     AccuracyBonuses = [
      5, 20, 35, 50]
     DamageBonuses = [
-     0, 100, 100, 100]
+     0, 40, 60, 75]
     AttackExpPerTrack = [
      0, 10, 20, 30, 40, 50, 60]
     NumRoundsLured = AvLureRounds
@@ -838,7 +838,7 @@ class BattleCalculatorAI:
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.75
+                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.15
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:

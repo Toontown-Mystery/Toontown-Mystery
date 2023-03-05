@@ -156,4 +156,94 @@ Big Magnet - 4 > 2
 Hypno - 6 > 3
 Presentation - 10 > 4
 
-Some SOS cards have been buffed. Enjoy it. :)
+Some SOS cards have been buffed. Enjoy it. 
+
+Toontown Mystery: Update 3.2.5
+
+Updated Merry Go Round and Pirate's Boat Lagoon Playground textures as part of a recreation.
+Nerfed the max laff from the beginning to the finish. 500 > 240
+
+HOLD UP! Why are you changing the max laff? Well, that's because the cogs have gotten another revamp of balance thanks to their boss managers being too cruel to the Toons.
+
+Gag damage bonus has been nerfed from 100% to the updated numbers. 2 toons = 100 > 40 - 3 Toons = 100 > 60 - 4 Toons = 100 > 75.
+
+New experience levels have these as numbers. 0, 500, 1000, 2000, 4000, 8000, 16000.
+
+Gags once again have been balanced.
+
+Toonup has gotten nerfed again, making sure it matches certain percentages with laff.
+
+Feather = 125 > 60
+Megaphone = 300 > 150
+Lipstick = 275 > 144
+Bamboo Cane = 600 > 288
+Pixie Dust = 375 > 180
+Juggling Cubes = 900 > 432
+High Dive = 1200 > 648
+
+Trap has been nerfed, slightly...
+
+Banana Peel = 270 > 200
+Rake = 540 > 265
+Marbles = 835 > 348
+Quicksand = 1100 > 487
+Trapdoor = 1500 > 638
+TNT = 1800 > 800
+Train = 2000 > 1100
+
+Lure knockback has been decreased from 75% to 15%.
+
+Sound has been slightly nerfed by 50%.
+
+Bike Horn = 14 > 7
+Whistle = 25 > 13
+Bugle = 40 > 20
+Aoogah = 60 > 30
+Trunk = 90 > 45
+Fog = 150 > 75
+Opera = 200 > 100
+
+Since Throw and Squirt are typically the normal 2 damage gags, they both now do the same damage.
+
+Level 1 = 6 damage.
+Level 2 = 15 damage.
+Level 3 = 35 damage.
+Level 4 = 60 damage.
+Level 5 = 100 damage.
+Level 6 = 150 damage.
+Level 7 = 170 damage.
+
+Drop has gotten a nerf to sort of match the throw and squirt.
+
+Flower Pot = 50 > 10
+Sandbag = 85 > 20
+Anvil = 160 > 40
+Big Weight = 250 > 85
+Safe = 350 > 130
+Piano = 500 > 190
+Toontanic = 600 > 210
+
+Gag carry amounts also have been changed to where you can carry less gags in the pouch.
+
+Level 1s = 20
+Level 2s = 15
+Level 3s = 10
+Level 4s = 7
+Level 5s = 5
+Level 6s = 2
+Level 7s = 1
+
+Group lures have it's own separate carry amount to reflect the change to it.
+
+Level 2s = 20
+Level 4s = 15
+Level 6s = 5
+
+Unites have been given less HP due to the max hp limitations, but have been given 1 increased unite.
+
+300 > 40
+400 > 80
+500 > 140
+200
+
+And finally, happy to introduce... cogs also have gotten a rebalance too. Instead of cogs following a formula, they follow their own formula based off tier ranks.

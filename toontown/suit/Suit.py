@@ -88,10 +88,16 @@ tbc = (('magic2', 'magic2', 8),
  ('effort', 'effort', 6),
  ('magic3', 'magic3', 8),
  ('smile', 'smile', 5))
-trb = (('magic1', 'magic1', 5), ('glower', 'glower', 5), ('magic2', 'magic2', 5), ('throw-object', 'throw-object', 5))
+trb = (('stomp', 'stomp', 5), ('finger-wag', 'finger-wag', 5), ('magic2', 'magic2', 5), ('throw-object', 'throw-object', 5))
 dot = (('magic1', 'magic1', 5), ('glower', 'glower', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 3.5))
+cg = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
+bg = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5), ('roll-o-dex', 'roll-o-dex', 5))
+msr = (('quick-jump', 'jump', 6), ('throw-paper', 'throw-paper', 5), ('speak', 'speak', 5))
 kb = (('effort', 'effort', 6),
  ('speak', 'speak', 5),
+ ('magic3', 'magic3', 5),
+ ('glower', 'glower', 5),
+ ('smile', 'smile', 5),
  ('magic2', 'magic2', 5))
 ts = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('magic3', 'magic3', 5), ('effort', 'effort', 6))
 cc = (('speak', 'speak', 5),
@@ -140,8 +146,11 @@ mh = (('magic1', 'magic1', 5),
  ('finger-wag', 'fingerwag', 5))
 ka = (('magic2', 'magic2', 5), ('glower', 'glower', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
 mka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('effort', 'effort', 5))
+fas = (('effort', 'effort', 6), ('speak', 'speak', 5), ('magic2', 'magic2', 5), ('throw-paper', 'throw-paper', 5))
+mdr = (('throw-paper', 'throw-paper', 5), ('magic3', 'magic3', 5), ('magic1', 'magic1', 5))
+nar = (('pickpocket', 'pickpocket', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5))
 fd = (('magic1', 'magic1', 5), ('magic3', 'magic3', 5), ('glower', 'glower', 5), ('smile', 'smile', 5), ('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))
-fm = (('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5))
+fm = (('throw-paper', 'throw-paper', 5), ('magic3', 'magic3', 5), ('phone', 'phone', 5))
 sc = (('throw-paper', 'throw-paper', 3.5), ('watercooler', 'watercooler', 5), ('pickpocket', 'pickpocket', 5))
 pp = (('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('effort', 'effort', 5), ('finger-wag', 'finger-wag', 5))
 tw = (('speak', 'speak', 5),
@@ -156,8 +165,11 @@ ls = (('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('effort', 'effort
 rb = (('pickpocket', 'pickpocket', 5), ('finger-wag', 'fingerwag', 5), ('effort', 'effort', 6), ('speak', 'speak', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('pen-squirt', 'fountain-pen', 7), ('magic1', 'magic1', 5), ('rubber-stamp', 'rubber-stamp', 5))
 gm = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5))
 ad = (('throw-object', 'throw-object', 5), ('throw-paper', 'throw-paper', 5), ('pickpocket', 'pickpocket', 5))
+csh = (('pickpocket', 'pickpocket', 5), ('phone', 'phone', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5))
+bgr = (('pickpocket', 'pickpocket', 5), ('magic1', 'magic1', 5), ('magic1', 'magic1', 5), ('quick-jump', 'jump', 6))
+mes = (('stomp', 'stomp', 5), ('hold-pencil', 'hold-pencil', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5))
 dm = (('magic3', 'magic3', 5), ('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'finger-wag', 5))
-tcc = (('pickpocket', 'pickpocket', 5), ('phone', 'phone', 5))
+tcc = (('pickpocket', 'pickpocket', 5), ('magic1', 'magic1', 5), ('phone', 'phone', 5))
 bf = (('pickpocket', 'pickpocket', 5),
  ('rubber-stamp', 'rubber-stamp', 5),
  ('shredder', 'shredder', 3.5),
@@ -204,8 +216,11 @@ bw = (('magic1', 'magic1', 5),
  ('throw-paper', 'throw-paper', 5))
 brv = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('magic1', 'magic1', 5))
 sb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
+jdg = (('magic1', 'magic1', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('smile', 'smile', 5))
+jur = (('magic1', 'magic1', 5), ('magic2', 'magic2', 5), ('throw-paper', 'throw-paper', 5))
+tlr = (('magic1', 'magic1', 5), ('speak', 'speak', 5))
 cm = (('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('phone', 'phone', 5), ('throw-paper', 'throw-paper', 5), ('finger-wag', 'fingerwag', 5))
-ggm = (('throw-paper', 'throw-paper', 5),  ('hold-eraser', 'hold-eraser', 5), ('pen-squirt', 'pen-squirt', 5), ('pencil-sharpener', 'pencil-sharpener', 5), ('hold-pencil', 'hold-pencil', 5))
+ggm = (('throw-paper', 'throw-paper', 5),  ('hold-eraser', 'hold-eraser', 5), ('throw-object', 'throw-object', 5), ('magic1', 'magic1', 5), ('magic2', 'magic2', 5), ('pen-squirt', 'pen-squirt', 5), ('pencil-sharpener', 'pencil-sharpener', 5), ('hold-pencil', 'hold-pencil', 5))
 if not base.config.GetBool('want-new-cogs', 0):
     ModelDict = {'a': ('/models/char/suitA-', 4),
      'b': ('/models/char/suitB-', 4),
@@ -556,6 +571,36 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('Icosphere', 'phase_3.5/models/char/tomato.bam')
             self.setHeight(9.23)
+        elif dna.name == 'cg':
+            self.scale = 4.6 / bSize
+            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.8)
+            self.setTransparency(1)
+            self.setColor(1, 0.5, 0, 1)
+        elif dna.name == 'bg':
+            self.scale = 4.6 / bSize
+            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.8)
+            self.setTransparency(1)
+            self.setColor(1, 0.5, 0, 1)
+        elif dna.name == 'msr':
+            self.scale = 4.6 / bSize
+            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.8)
+            self.setTransparency(1)
+            self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'kb':
             self.scale = 8.8 / aSize
             self.handColor = SuitDNA.corpPolyColor
@@ -644,6 +689,36 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('safe', 'phase_5/models/props/safe.bam')
             self.setHeight(8.8)
+        elif dna.name == 'jdg':
+            self.scale = 5.7 / aSize
+            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(6.8)
+            self.setTransparency(1)
+            self.setColor(0.1, 0, 0.9, 1)
+        elif dna.name == 'jur':
+            self.scale = 5.1 / bSize
+            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(6.2)
+            self.setTransparency(1)
+            self.setColor(0.2, 0, 0.8, 1)
+        elif dna.name == 'tlr':
+            self.scale = 5.6 / aSize
+            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(6.7)
+            self.setTransparency(1)
+            self.setColor(0.3, 0, 0.6, 1)
         elif dna.name == 'cm':
             self.scale = 8.0 / aSize
             self.handColor = SuitDNA.legalPolyColor
@@ -731,6 +806,36 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'alfred.jpg'
             self.generateHead('Cylinder', 'phase_4/models/char/alfred.bam')
             self.setHeight(9.3)
+        elif dna.name == 'csh':
+            self.scale = 5.7 / aSize
+            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(6.8)
+            self.setTransparency(1)
+            self.setColor(0, 1, 0.6, 1)
+        elif dna.name == 'bgr':
+            self.scale = 4.4 / bSize
+            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.45)
+            self.setTransparency(1)
+            self.setColor(0, 1, 0.5, 1)
+        elif dna.name == 'mes':
+            self.scale = 4.1 / bSize
+            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.2)
+            self.setTransparency(1)
+            self.setColor(0, 1, 0.4, 1)
         elif dna.name == 'dm':
             self.scale = 8.5 / bSize
             self.handColor = SuitDNA.moneyPolyColor
@@ -822,6 +927,36 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'monokuma.jpg'
             self.generateHead('movershaker')
             self.setHeight(9.03)
+        elif dna.name == 'fas':
+            self.scale = 4.7 / aSize
+            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(5.8)
+            self.setTransparency(1)
+            self.setColor(1, 0.4, 1, 1)
+        elif dna.name == 'mdr':
+            self.scale = 4.7 / aSize
+            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('yesman')
+            self.makeSkeleton()
+            self.setHeight(5.8)
+            self.setTransparency(1)
+            self.setColor(1, 0.5, 1, 1)
+        elif dna.name == 'nar':
+            self.scale = 4.3 / bSize
+            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.setPickable(0)
+            self.generateBody()
+            self.generateHead('movershaker')
+            self.makeSkeleton()
+            self.setHeight(5.4)
+            self.setTransparency(1)
+            self.setColor(1, 0.75, 1, 1)
         elif dna.name == 'fd':
             self.scale = 8.0 / aSize
             self.handColor = SuitDNA.salesPolyColor
