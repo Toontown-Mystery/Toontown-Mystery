@@ -157,15 +157,6 @@ suitsPerLevel = [1,
  1,
  1,
  1,
- 1,
- 1,
- 1,
- 1,
- 1,
- 1,
- 1,
- 1,
- 1,
  1]
 suitsPerDept = 15
 goonTypes = ['pg', 'sg']
@@ -216,7 +207,7 @@ def getSuitType(name):
 
 def getRandomSuitType(level, rng = random):
     try:
-        returnval = random.randint(max(level - 15, 1), min(level, 10))
+        returnval = random.randint(max(level - 12, 1), min(level, 10))
     except:
         returnval = 15
 

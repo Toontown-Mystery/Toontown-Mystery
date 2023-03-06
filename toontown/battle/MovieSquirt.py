@@ -212,7 +212,7 @@ def __getSuitTrack(suit, tContact, tDodge, hp, hpbonus, kbbonus, anim, died, lef
         if revived != 0:
             suitTrack.append(MovieUtil.createSuitReviveTrack(suit, toon, battle))
         elif suit.isVirtual and died != 0:
-            suitResponseTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
+            suitTrack.append(MovieUtil.createVirtualDeathTrack(suit, toon, battle))
         elif died != 0:
             suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
         else:
