@@ -262,3 +262,9 @@ Doctor Elvis and Sunlight Elvis? TOO SIMILAR! AND BORING! Doctor Elvis has a new
 Apparently due to the new change, the bosses texture is now the colour of a coin and a green cash buck.
 
 Safes in the boss have also been changed to a brown texture to represent a cash bag.
+
+Toontown Mystery 3.2.7
+
+Edited the PlayByPlayText animation to make it more accurate and smooth.
+
+Nerfed SOS cards that were forgotten to get nerfed.
