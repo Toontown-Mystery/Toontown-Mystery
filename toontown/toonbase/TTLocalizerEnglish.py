@@ -115,11 +115,11 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  11100: ('to the', 'in the', 'Fashionbot HQ Designers Room'),
  11200: ('to the', 'in the', 'Fashionbot Store'),
  11500: ('to the', 'in the', 'Fashionbot Store'),
- 12000: ('to', 'in', 'Carebot HQ Hospital Room'),
- 12100: ('to the', 'in the', 'Carebot HQ Doctor Room'),
- 12500: ('to the', 'in the', 'Carebot Waiting Room'),
- 12600: ('to the', 'in the', 'Carebot Testing Room'),
- 12700: ('to the', 'in the', 'Carebot Emergency Room'),
+ 12000: ('to', 'in', 'Moneybot HQ Hospital Room'),
+ 12100: ('to the', 'in the', 'Moneybot HQ Doctor Room'),
+ 12500: ('to the', 'in the', 'Moneybot Waiting Room'),
+ 12600: ('to the', 'in the', 'Moneybot Testing Room'),
+ 12700: ('to the', 'in the', 'Moneybot Emergency Room'),
  13000: ('to', 'in', 'Courtbot HQ Courtyard'),
  13100: ('to the', 'in the', 'Judge Sentence Lobby'),
  13200: ('to the', 'in the', "Court Office Lobby"),
@@ -139,7 +139,7 @@ GoofySpeedway = ('to', 'in', lGoofySpeedway)
 DonaldsDreamland = ('to', 'in', lDonaldsDreamland)
 BossbotHQ = ('to', 'in', 'Royalbot HQ')
 SellbotHQ = ('to', 'in', 'Fashionbot HQ')
-CashbotHQ = ('to', 'in', 'Carebot HQ')
+CashbotHQ = ('to', 'in', 'Moneybot HQ')
 LawbotHQ = ('to', 'in', 'Courtbot HQ')
 Tutorial = ('to the', 'in the', 'Toon-torial')
 MyEstate = ('to', 'in', 'your house')
@@ -1909,7 +1909,7 @@ QuestDialogDict = {160: {GREETING: '',
          QUEST: "Ok. I don't understand, how are they reconstructing Cogs??\x07Wait. I know! The Fashionbot Factory!\x07You know, that place with that big ol' black looking Skelecog?\x07Yes, the Fashion Designer.\x07I need you to go out, and eliminate it.\x07See ya!"},
  13006: {GREETING: "Yay, you're back!",
          LEAVING: '',
-         QUEST: "Oh wait. One more thing.\x07Go fight a Carebot Waiting Room.\x07There has been some Carebots who have been scaring me as well.",
+         QUEST: "Oh wait. One more thing.\x07Go fight a Money Waiting Room.\x07There has been some Moneybots who have been scaring me as well.",
          COMPLETE: "Thank you for everything!\x07I got my phone, I grounded Caillou, I'm all set!\x07Listen, I'm sorry for being a hothead earlier.\x07I want to give you a prize.\x07Here is the biggest laff boost you'll probably ever see.\x07Thank you, and enjoy your reward!"}}
 ChatGarblerDog = ['woof', 'arf', 'rruff']
 ChatGarblerCat = ['meow', 'mew']
@@ -1924,23 +1924,23 @@ ChatGarblerPig = ['oink', 'oik', 'snort']
 ChatGarblerDefault = ['blah']
 Bossbot = 'Royalbot'
 Lawbot = 'Courtbot'
-Cashbot = 'Carebot'
+Cashbot = 'Moneybot'
 Sellbot = 'Fashionbot'
 BossbotS = 'a Royalbot'
 LawbotS = 'a Courtbot'
 CashbotS = 'a Fashionbot'
-SellbotS = 'a Carebot'
+SellbotS = 'a Moneybot'
 BossbotP = 'Royalbots'
 LawbotP = 'Courtbots'
-CashbotP = 'Carebots'
+CashbotP = 'Moneybots'
 SellbotP = 'Fashionbots'
 BossbotSkelS = 'a Royalbot Droid'
 LawbotSkelS = 'a Courtbot Droid'
-CashbotSkelS = 'a Carebot Droid'
+CashbotSkelS = 'a Moneybot Droid'
 SellbotSkelS = 'a Fashionbot Droid'
 BossbotSkelP = 'Royalbot Droids'
 LawbotSkelP = 'Courtbot Droids'
-CashbotSkelP = 'Carebot Droids'
+CashbotSkelP = 'Moneybot Droids'
 SellbotSkelP = 'Fashionbot Droids'
 SkeleRevivePostFix = ' v2.0'
 ImmunePostFix = ' Immune'
@@ -4890,7 +4890,7 @@ ForcedLeaveFactoryAckMsg = 'The ' + Foreman + ' was defeated before you could re
 ForcedLeaveMintAckMsg = 'The Mint Floor Supervisor was defeated before you could reach him. You did not recover any Cogbucks.'
 HeadingToFactoryTitle = 'Heading to %s...'
 ForemanConfrontedMsg = '%s is battling the ' + Foreman + '!'
-MintBossConfrontedMsg = '%s is battling the Doctor Money!'
+MintBossConfrontedMsg = '%s is battling the Collector Money!'
 StageBossConfrontedMsg = '%s is battling the Court Manager!'
 stageToonEnterElevator = '%s \nhas entered the elevator'
 ForcedLeaveStageAckMsg = 'The Law Clerk was defeated before you could reach him. You did not recover any Jury Notices.'
@@ -5282,7 +5282,7 @@ QuestScript150_3 = 'Once you have made a friend, come back here.'
 QuestScript150_4 = 'Some tasks are too difficult to do alone!'
 MissingKeySanityCheck = 'Ignore me'
 SellbotBossName = 'FashionBoss'
-CashbotBossName = 'Doctor Elvis'
+CashbotBossName = 'Money Cashout Monitor'
 LawbotBossName = 'Chief Office Master'
 BossCogDoStunned = 'Stunned!'
 BossCogNameWithDept = '%(name)s\n%(dept)s'

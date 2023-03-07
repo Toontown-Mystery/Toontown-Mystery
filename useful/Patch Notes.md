@@ -247,3 +247,18 @@ Unites have been given less HP due to the max hp limitations, but have been give
 200
 
 And finally, happy to introduce... cogs also have gotten a rebalance too. Instead of cogs following a formula, they follow their own formula based off tier ranks.
+
+Toontown Mystery 3.2.6
+
+Fixed crashes related to the bosses. (districts may still reset on fashionboss and boss cog officer, just simply go in the bosses multiple times, but the final 2 should work fine without issues)
+
+Fixed a cog animation error when the Bagger cog used Sacked! and Pinkslip! It should be working now.
+
+The facility bosses have fired their max rank helpers and decided to hire more accurate cogs of their type.
+
+Carebots didn't seem so fitting... so Doctor Money and Doctor Elvis changed the cog ranks to Moneybots. 
+Doctor Money changed his name to Collector Money.
+Doctor Elvis and Sunlight Elvis? TOO SIMILAR! AND BORING! Doctor Elvis has a new name change titled "Money Cashout Monitor" MCM for short.
+Apparently due to the new change, the bosses texture is now the colour of a coin and a green cash buck.
+
+Safes in the boss have also been changed to a brown texture to represent a cash bag.

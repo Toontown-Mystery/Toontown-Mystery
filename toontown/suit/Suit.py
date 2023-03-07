@@ -166,7 +166,7 @@ rb = (('pickpocket', 'pickpocket', 5), ('finger-wag', 'fingerwag', 5), ('effort'
 gm = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5))
 ad = (('throw-object', 'throw-object', 5), ('throw-paper', 'throw-paper', 5), ('pickpocket', 'pickpocket', 5))
 csh = (('pickpocket', 'pickpocket', 5), ('phone', 'phone', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5))
-bgr = (('pickpocket', 'pickpocket', 5), ('magic1', 'magic1', 5), ('magic1', 'magic1', 5), ('quick-jump', 'jump', 6))
+bgr = (('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('magic1', 'magic1', 5), ('quick-jump', 'jump', 6))
 mes = (('stomp', 'stomp', 5), ('hold-pencil', 'hold-pencil', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5))
 dm = (('magic3', 'magic3', 5), ('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'finger-wag', 5))
 tcc = (('pickpocket', 'pickpocket', 5), ('magic1', 'magic1', 5), ('phone', 'phone', 5))
@@ -511,11 +511,11 @@ class Suit(Avatar.Avatar):
             self.generateHead('gladhander')
             self.setHeight(6.58)
         elif dna.name == 'p':
-            self.scale = 5.85 / bSize
+            self.scale = 3.25 / bSize
             self.handColor = SuitDNA.corpPolyColor
             self.generateBody()
             self.generateHead('pencilpusher')
-            self.setHeight(6.78)
+            self.setHeight(4.15)
         elif dna.name == 'ym':
             self.scale = 6.2 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
@@ -523,12 +523,12 @@ class Suit(Avatar.Avatar):
             self.generateHead('backstabber')
             self.setHeight(7.33)
         elif dna.name == 'mm':
-            self.scale = 6.6 / bSize
+            self.scale = 3.75 / bSize
             self.handColor = VBase4(1.0, 0, 0.2, 0.5)
             self.generateBody()
             self.headTexture = 'cat.jpg'
             self.generateHead('movershaker')
-            self.setHeight(7.8)
+            self.setHeight(4.68)
         elif dna.name == 'ds':
             self.scale = 7.0 / aSize
             self.handColor = VBase4(0.8, 0.7, 0.7, 1.0)
@@ -537,14 +537,14 @@ class Suit(Avatar.Avatar):
             self.generateHudStuff()
             self.setHeight(8.08)
         elif dna.name == 'hh':
-            self.scale = 7.5 / bSize
+            self.scale = 5.5 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'spin-doctor.jpg'
             self.generateHead('telemarketer')
             self.generateSimonStuff()
             self.generateSimon2Stuff()
-            self.setHeight(8.75)
+            self.setHeight(6.59)
         elif dna.name == 'cr':
             self.scale = 7.8 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
@@ -558,12 +558,12 @@ class Suit(Avatar.Avatar):
             self.generateHead('bigcheese')
             self.setHeight(9.34)
         elif dna.name == 'trb':
-            self.scale = 8.5 / aSize
+            self.scale = 6.8 / aSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'rain.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(9.7)
+            self.setHeight(7.85)
         elif dna.name == 'dot':
             self.scale = 7.0 / cSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
@@ -602,23 +602,23 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'kb':
-            self.scale = 8.8 / aSize
+            self.scale = 7.8 / aSize
             self.handColor = SuitDNA.corpPolyColor
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(10)
+            self.setHeight(9)
             self.setTransparency(1)
             self.setColor(0, 0.5, 1, 1)
         elif dna.name == 'ts':
-            self.scale = 9.2 / aSize
+            self.scale = 8.0 / aSize
             self.handColor = VBase4(1, 0.5, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('yesman')
             self.makeSkeleton()
-            self.setHeight(10.6)
+            self.setHeight(9.2)
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':
