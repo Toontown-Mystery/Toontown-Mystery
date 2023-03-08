@@ -1,27 +1,27 @@
 # Makoto: 
-Toonup 900 laff.
+Toonup 640 laff.
 # Aoi: 
-Toonup 1200 laff.
+Toonup 800 laff.
 # Boris: 
-Toonup 1500 laff.
+Toonup 960 laff.
 # Violet: 
-Sound 550 Damage.
+Sound 75 Damage.
 # Junko Enoshima:
-Sound 450 Damage.
+Sound 100 Damage.
 # Joey900:
-Sound 600 damage.
+Sound 150 damage.
 # Cool Cat: 
-Drop 1000 Damage.
+Drop 200 Damage.
 # Thunderzapper: 
-Drop 1250 Damage.
+Drop 240 Damage.
 # Celeste: 
-Drop 700 Damage.
+Drop 150 Damage.
 # Caillou: 
-Trap 1500 Damage.
+Trap 370 Damage.
 # Vanessa: 
-Trap 2000 Damage.
+Trap 500 Damage.
 # Richie Verdi: 
-Trap 2500 Damage.
+Trap 835 Damage.
 # Strawberry: 
 Lure 2 Rounds.
 # Classic Noah: 
