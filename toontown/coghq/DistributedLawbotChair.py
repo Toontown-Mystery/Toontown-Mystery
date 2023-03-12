@@ -117,7 +117,7 @@ class DistributedLawbotChair(DistributedObject.DistributedObject, FSM.FSM):
         self.cogJuror = Suit.Suit()
         level = self.randomGenerator.randrange(len(SuitDNA.suitsPerLevel))
         self.cogJuror.dna = SuitDNA.SuitDNA()
-        self.cogJuror.dna.newSuitRandom(level=level, dept='l')
+        self.cogJuror.dna.newSuitRandom(level=10, dept='l')
         self.cogJuror.setDNA(self.cogJuror.dna)
         self.cogJuror.pose('landing', 0)
         self.cogJuror.reparentTo(self.nodePath)

@@ -443,7 +443,7 @@ class DistributedSellbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
             suit = DistributedSuitAI.DistributedSuitAI(self.air, None)
             level = random.randrange(len(SuitDNA.suitsPerLevel))
             suit.dna = SuitDNA.SuitDNA()
-            suit.dna.newSuitRandom(level=level, dept=self.dna.dept)
+            suit.dna.newSuitRandom(level=10, dept=self.dna.dept)
             suit.setLevel(level)
             suit.generateWithRequired(self.zoneId)
             self.doobers.append(suit)
