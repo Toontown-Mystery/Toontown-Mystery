@@ -726,7 +726,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             Wait(2.5),
             Func(self.clearChat),
             base.camera.posHprInterval(1, Point3(105, -326, 5), Point3(136.3, 0, 0), blendType='easeInOut'),
-            Func(rToon.setChatAbsolute, "How's this, Sunlight? >:)", CFSpeech),
+            Func(rToon.setChatAbsolute, "How's this, Money Cashout? >:)", CFSpeech),
             Wait(2.5),
             Func(rToon.clearChat),
             Func(rToon.setChatAbsolute, "They killed all your Cogs, hehe. <3", CFSpeech),
