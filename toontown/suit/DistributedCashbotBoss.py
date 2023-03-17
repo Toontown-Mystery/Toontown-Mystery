@@ -397,7 +397,7 @@ class DistributedCashbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
                             Wait(2.5),
                             Func(rToon.clearChat),
                             base.camera.posHprInterval(1, Point3(104, -235, 8.5), VBase3(211.5, 0, 0)),
-                            Parallel(Func(self.suit.setChatAbsolute, "Elvis, I sense something!", CFSpeech), Func(self.suit.play, 'pie-small-react')),
+                            Parallel(Func(self.suit.setChatAbsolute, "Boss, I sense something!", CFSpeech), Func(self.suit.play, 'pie-small-react')),
                             Wait(3),
                             Func(self.suit.clearChat),
                             base.camera.posHprInterval(1, Point3(106, -253, 9), VBase3(270, 0, 0)),

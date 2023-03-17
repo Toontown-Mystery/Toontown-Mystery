@@ -316,3 +316,7 @@ Toontown Mystery 3.2.8
 * Got rid of the fasa to fas and mesr to mes on the otplocalizer quotes.
 
 * Nerfed the damage taken by the bosses themselves, except King Blueberry.
+
+* Completely revamped the Chief Boss Master cutscene.
+
+* Fixed a dialogue error on MSM boss.
