@@ -1508,7 +1508,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (115, Parallel(Func(self.witnessToon1.setChatAbsolute, "Huh?", CFSpeech), Func(base.camera.reparentTo, render), camera.posHprInterval(0, Point3(-4.5, -78, 5), Point3(180, 0, 0), blendType='easeInOut'), self.witnessToon1.posHprInterval(4, Point3(-3, -90, 5), Point3(180, 45, -40), blendType='noBlend'), self.witnessToon2.posHprInterval(4, Point3(-6, -90, 5), Point3(180, 45, 40), blendType='noBlend'))),
             (119, Func(self.witnessToon1.clearChat)),
             (120, Parallel(Func(base.camera.reparentTo, render), camera.posHprInterval(0.5, Point3(-4.5, -80, 10), Point3(180, 0, 0), blendType='easeInOut'), self.witnessToon1.posHprInterval(1, Point3(-3, -200, 5), Point3(180, 45, -40), blendType='noBlend'), self.witnessToon2.posHprInterval(1, Point3(-6, -200, 55), Point3(180, 45, 40), blendType='noBlend'), SoundInterval(sendeffectSfx))),
-            (122, Sequence(self.loseCogSuits(self.toonsA + self.toonsB, render, (-2.798, -70, 10, 180, 0, 0)), SoundInterval(toondetectedeffectSfx))),
+            (122, Sequence(Parallel(self.loseCogSuits(self.toonsA + self.toonsB, render, (-2.798, -70, 10, 180, 0, 0)), SoundInterval(toondetectedeffectSfx)))),
             (123, Sequence(self.toonNormalEyes(self.involvedToons))),
             (123, Func(self.loop, 'Ff_neutral')),
             (123, Func(self.witnessToon1.hide)),
