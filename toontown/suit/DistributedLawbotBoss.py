@@ -1520,7 +1520,7 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (131, Parallel(Func(base.camera.reparentTo, render), camera.posHprInterval(4, Point3(19.8, -102, 19.5), Point3(40, 0, 0), blendType='easeInOut'), Func(self.setChatAbsolute, "But I still have full control in this facility.", CFSpeech))),
             (135, Func(self.clearChat)),
             (135, Func(self.setChatAbsolute, "Specialty Cogs, GET THEM!", CFSpeech)),
-            (135, Sequence(Func(base.camera.reparentTo, render), camera.posHprInterval(2, Point3(-2.4, -130.6, 10.5), Point3(0, 15, 0), blendType='easeInOut'))),
+            (135, Sequence(Func(base.camera.reparentTo, render), camera.posHprInterval(2, Point3(-2.4, -130.6, 7.5), Point3(0, 15, 0), blendType='easeInOut'))),
             (142, Sequence(Func(self.clearChat))))
         track.append(dialogTrack)
         return Sequence(
