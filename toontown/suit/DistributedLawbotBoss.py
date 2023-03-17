@@ -1513,6 +1513,8 @@ class DistributedLawbotBoss(DistributedBossCog.DistributedBossCog, FSM.FSM):
             (123, Func(self.loop, 'Ff_neutral')),
             (123, Func(self.witnessToon1.hide)),
             (123, Func(self.witnessToon2.hide)),
+            (123, Func(self.witnessToon.normalEyes)),
+            (123, Func(self.witnessToon.blinkEyes)),
             (123, Parallel(Func(base.camera.reparentTo, render), camera.posHprInterval(0.5, Point3(-2.4, -100.6, 19.5), Point3(0, 0, 0), blendType='easeInOut'), Func(self.setChatAbsolute, "This foolishness isn't what I planned.", CFSpeech))),
             (127, Func(self.clearChat)),
             (127, Parallel(Func(base.camera.reparentTo, render), camera.posHprInterval(4, Point3(-19.8, -102, 19.5), Point3(-40, 0, 0), blendType='easeInOut'), Func(self.setChatAbsolute, "You may have won the scene, Toons.", CFSpeech))),
