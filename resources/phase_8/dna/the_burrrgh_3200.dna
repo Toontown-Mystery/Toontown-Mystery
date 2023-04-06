@@ -352,20 +352,31 @@ group "theBurrrgh" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 1 1 ]
-      pos [ 0 0 -0.46 ]
-      nhpr [ -0 0 1 ]
-      scale [ 1.5 1 1.1 ]
-      width [ 33.3333 ]
-      height [ 33.3333 ]
+      color [ 0.9 0 1 1 ]
+      pos [ 0 0 -0.21 ]
+      scale [ 1.4 1 0.9 ]
+      width [ 32.8677 ]
+      height [ 32.8677 ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "H" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "8" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
       text [
        letters [ "B" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "R" ]
       ]
       text [
        letters [ "I" ]
@@ -374,31 +385,33 @@ group "theBurrrgh" [
        letters [ "T" ]
       ]
       text [
-       letters [ "O" ]
+       letters [ " " ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.7 0.2 1 1 ]
+      pos [ 0 0 -2.02 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 53.3903 ]
+      height [ 53.3903 ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "A" ]
       ]
       text [
        letters [ "N" ]
       ]
       text [
-       letters [ "E" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0 0.501961 1 1 ]
-      pos [ 0 0 -1.47 ]
-      nhpr [ -0 0 1 ]
-      scale [ 1.5 1 1 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "B" ]
-      ]
-      text [
        letters [ "O" ]
       ]
       text [
-       letters [ "U" ]
+       letters [ " " ]
       ]
       text [
        letters [ "L" ]
@@ -407,20 +420,23 @@ group "theBurrrgh" [
        letters [ "E" ]
       ]
       text [
-       letters [ "V" ]
+       letters [ "S" ]
       ]
       text [
-       letters [ "A" ]
+       letters [ "S" ]
       ]
       text [
-       letters [ "R" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "S" ]
       ]
      ]
      baseline [
-      pos [ 0 0 1.67 ]
+      pos [ 0 0 1.81 ]
       scale [ 2.5 1 2.5 ]
       graphic [
        code [ "minnieSZ" ]
@@ -428,68 +444,28 @@ group "theBurrrgh" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 1 1 ]
-      pos [ 0 0 -2.14 ]
-      nhpr [ -0 0 1 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "M" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
+      color [ 0.9 0 1 1 ]
+      pos [ 0 0 -1.18 ]
+      scale [ 1.4 1 1 ]
+      width [ 42.0274 ]
+      height [ 42.0274 ]
       text [
        letters [ "S" ]
       ]
       text [
-       letters [ " " ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "M" ]
+       letters [ "R" ]
       ]
       text [
        letters [ "E" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "E" ]
       ]
       text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
+       letters [ "T" ]
       ]
      ]
     ]
@@ -8638,89 +8614,102 @@ group "theBurrrgh" [
     code [ "tunnel_sign_blue" ]
     pos [ 0 0 -1.54 ]
     scale [ 1.5 1 1.5 ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0 0.501961 0.501961 1 ]
-     pos [ 0 0 -1.1 ]
-     scale [ 1.5 1 1.5 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "P" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.85 1 1 1 ]
+      pos [ 0 0 -1.06 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 50 ]
+      height [ 50 ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "U" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
      ]
-     text [
-      letters [ "L" ]
+     baseline [
+      pos [ 0 0 1.5 ]
+      scale [ 2.5 1 2.5 ]
+      graphic [
+       code [ "plutoSZ" ]
+      ]
      ]
-     text [
-      letters [ "A" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.95 0.95 1 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 45.7101 ]
+      height [ 45.7101 ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "Z" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
      ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ "G" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "U" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-    ]
-    baseline [
-     pos [ 0 0 1.5 ]
-     scale [ 2.5 1 2.5 ]
-     graphic [
-      code [ "plutoSZ" ]
-     ]
-    ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0 0.501961 0.501961 1 ]
-     pos [ 0 0 -1.91 ]
-     scale [ 0.8 1 0.8 ]
-     width [ 33.3333 ]
-     height [ 33.3333 ]
-     text [
-      letters [ "T" ]
-     ]
-     text [
-      letters [ "H" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "B" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "G" ]
-     ]
-     text [
-      letters [ "H" ]
-     ]
-    ]
    ]
   ]
   prop "prop_tt_m_ara_gen_tunnelAheadSign_DNARoot" [

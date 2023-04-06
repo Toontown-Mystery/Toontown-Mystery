@@ -445,106 +445,109 @@ group "donaldsDreamland" [
     color [ 0.360784 0.309804 0.372549 1 ]
     pos [ 0 0 -2.3 ]
     scale [ 1.5 1 1.5 ]
-    baseline [
-     code [ "mickey" ]
-     color [ 1 1 0.501961 1 ]
-     pos [ 0 0 -1.07 ]
-     scale [ 1.5 1 1.5 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "P" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.1 0.1 0.1 1 ]
+      pos [ 0 0 -1.06 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 68.171 ]
+      height [ 68.171 ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "Y" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
      ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ "G" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "U" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-    ]
-    baseline [
-     code [ "mickey" ]
-     color [ 1 1 0.501961 1 ]
-     pos [ 0 0 -1.89 ]
-     scale [ 0.8 1 0.8 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "'" ]
-     ]
-     text [
-      letters [ "S" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "M" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-    ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.2 0.2 0.2 1 ]
+       pos [ 0 0 -1.9 ]
+       scale [ 0.8 1 0.8 ]
+       width [ 55.0903 ]
+       height [ 55.0903 ]
+       text [
+        letters [ "S" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "C" ]
+       ]
+       text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "G" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "X" ]
+       ]
+       text [
+        letters [ "Y" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "N" ]
+       ]
+       text [
+        letters [ "D" ]
+       ]
+      ]
     baseline [
      pos [ 0 0 1.68 ]
      scale [ 2.5 1 2.5 ]
@@ -12717,118 +12720,101 @@ group "donaldsDreamland" [
     color [ 0.533333 0.533333 0.533333 1 ]
     pos [ 0 0 0.8 ]
     scale [ 1.4 1 1.3 ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0.0862745 0.352941 0.552941 1 ]
-     pos [ 0 0 -0.79 ]
-     scale [ 1.3 1 1.5 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "T" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.9 0 1 1 ]
+      pos [ 0 0 -0.97 ]
+      scale [ 1.3 1 1.5 ]
+      width [ 50 ]
+      height [ 50 ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "K" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
      ]
-     text [
-      letters [ "E" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.7 0.2 1 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 1 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 43.3426 ]
+      height [ 43.3426 ]
+      text [
+       letters [ "P" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
      ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "T" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "C" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-    ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0.0862745 0.352941 0.552941 1 ]
-     pos [ 0 0 -1.62 ]
-     scale [ 0.8 1 0.8 ]
-     width [ 33.3333 ]
-     height [ 33.3333 ]
-     text [
-      letters [ "M" ]
-     ]
-     text [
-      letters [ "I" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "I" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "'" ]
-     ]
-     text [
-      letters [ "S" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "M" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-    ]
     baseline [
      color [ 0.505882 0.537255 0.552941 1 ]
      pos [ 0 0 1.5 ]

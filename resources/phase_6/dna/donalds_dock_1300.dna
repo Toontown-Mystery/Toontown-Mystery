@@ -10744,44 +10744,56 @@ group "donaldsDock" [
     code [ "tunnel_sign_blue" ]
     pos [ 0 0 0.58 ]
     scale [ 1.5 1 1.5 ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0 0.501961 0.501961 1 ]
-     pos [ 0 0 -0.98 ]
-     scale [ 1.5 1 1.5 ]
-     width [ 44.5573 ]
-     height [ 44.5573 ]
-     text [
-      letters [ "W" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.75 0.95 1 1 ]
+      pos [ 0 0 -0.92 ]
+      scale [ 1.4 1 1.5 ]
+      width [ 49.7314 ]
+      height [ 49.7314 ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "D" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
      ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "U" ]
-     ]
-     text [
-      letters [ "S" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "W" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-    ]
     baseline [
      pos [ 0 0 1.63 ]
      scale [ 2.5 1 2.5 ]
@@ -10789,44 +10801,57 @@ group "donaldsDock" [
       code [ "plutoSZ" ]
      ]
     ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0 0.501961 0.501961 1 ]
-     pos [ 0 0 -1.91 ]
-     scale [ 0.8 1 0.8 ]
-     width [ 33.0786 ]
-     height [ 33.0786 ]
-     text [
-      letters [ "T" ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.95 0.95 1 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 45.7101 ]
+      height [ 45.7101 ]
+      text [
+       letters [ "F" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "Z" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
      ]
-     text [
-      letters [ "H" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "B" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "G" ]
-     ]
-     text [
-      letters [ "H" ]
-     ]
-    ]
    ]
   ]
   prop "prop_tt_m_ara_gen_tunnelAheadSign_DNARoot" [

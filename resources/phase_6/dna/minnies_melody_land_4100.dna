@@ -6518,117 +6518,97 @@ group "minniesMelodyLand" [
      code [ "tunnel_sign_magenta" ]
      pos [ 0 0 -2.13 ]
      scale [ 1.5 1 1.5 ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.443137 0.541176 0.941176 1 ]
-      pos [ 0 0 -1.01 ]
-      nhpr [ -0 0 2 ]
-      scale [ 1.5 1 1.5 ]
-      wiggle [ 2.60407 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ "G" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "U" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
+    baseline [
+     code [ "mickey" ]
+     color [ 0.8 0.1 0.9 1 ]
+     pos [ 0 0 -0.81 ]
+     nhpr [ -0 0 2 ]
+     scale [ 1.5 1 1.5 ]
+     wiggle [ 2.60407 ]
+     width [ 33.3333 ]
+     height [ 33.3333 ]
+     text [
+      letters [ "M" ]
      ]
-     baseline [
-      pos [ 0 0 1.71 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "minnieSZ" ]
-      ]
+     text [
+      letters [ "U" ]
      ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.501961 0.501961 1 1 ]
-      pos [ 0 0 -2.01 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "M" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "I" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ "M" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "Y" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "I" ]
+     ]
+     text [
+      letters [ "C" ]
+     ]
+     text [
+      letters [ "L" ]
+     ]
+     text [
+      letters [ "A" ]
+     ]
+     text [
+      letters [ "N" ]
+     ]
+     text [
+      letters [ "D" ]
+     ]
+    ]
+    baseline [
+     pos [ 0 0 1.71 ]
+     scale [ 2.5 1 2.5 ]
+     graphic [
+      code [ "minnieSZ" ]
+     ]
+    ]
+    baseline [
+     code [ "mickey" ]
+     color [ 0.7 0.2 1 1 ]
+     pos [ 0 0 -1.89 ]
+     nhpr [ -0 0 2 ]
+     scale [ 0.8 1 0.8 ]
+     width [ 45.4545 ]
+     height [ 45.4545 ]
+     text [
+      letters [ "P" ]
+     ]
+     text [
+      letters [ "I" ]
+     ]
+     text [
+      letters [ "A" ]
+     ]
+     text [
+      letters [ "N" ]
+     ]
+     text [
+      letters [ "O" ]
+     ]
+     text [
+      letters [ " " ]
+     ]
+     text [
+      letters [ "L" ]
+     ]
+     text [
+      letters [ "E" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "O" ]
+     ]
+     text [
+      letters [ "N" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
      ]
     ]
    ]

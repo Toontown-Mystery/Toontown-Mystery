@@ -1423,28 +1423,53 @@ group "goofySpeedway" [
     sign [
      baseline [
       code [ "mickey" ]
-      color [ 0.705882 0.156863 0.235294 1 ]
-      scale [ 2 1 2 ]
+      color [ 0 1 0.2 1 ]
+      scale [ 1.9 1.3 1.9 ]
+      wiggle [ 3 ]
+      stomp [ 0.0367716 ]
       text [
-       letters [ "C" ]
+       letters [ "T" ]
       ]
       text [
-       letters [ "h" ]
+       letters [ "H" ]
       ]
       text [
-       letters [ "i" ]
-      ]
-      text [
-       letters [ "p" ]
+       letters [ "E" ]
       ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "n" ]
+       letters [ "F" ]
       ]
       text [
-       letters [ "'" ]
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
+      ]
+      text [
+       letters [ "T" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 1 0 0 1 ]
+      pos [ 0 0 -1.2 ]
+      scale [ 1.5 1 1.4 ]
+      wiggle [ 3 ]
+      stomp [ 0.0367716 ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "F" ]
       ]
       text [
        letters [ " " ]
@@ -1453,58 +1478,13 @@ group "goofySpeedway" [
        letters [ "D" ]
       ]
       text [
-       letters [ "a" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "l" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "e" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
-      text [
-       letters [ "s" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0.705882 0.156863 0.235294 1 ]
-      pos [ 0 0 -4 ]
-      scale [ 3 1 3 ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "c" ]
-      ]
-      text [
-       letters [ "o" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "n" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "c" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "e" ]
-      ]
-      text [
-       letters [ "s" ]
+       letters [ "M" ]
       ]
      ]
     ]

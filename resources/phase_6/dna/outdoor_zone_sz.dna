@@ -101,88 +101,88 @@ group "daisysGarden" [
      nhpr [ 0 0 -3.0 ]
      scale [ 1.85 1 1.35 ]
      baseline [
-      code [ "TT_Comedy" ]
-      color [ 0.439216 0.247059 0.184314 1 ]
-      pos [ 0 0 -0.2 ]
-      scale [ 1.6 1 1.7 ]
-      wiggle [ 7 ]
-      stumble [ 0.1 ]
-      text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "l" ]
-      ]
-      text [
-       letters [ "a" ]
-      ]
-      text [
-       letters [ "y" ]
-      ]
-      text [
-       letters [ "g" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "o" ]
-      ]
-      text [
-       letters [ "u" ]
-      ]
-      text [
-       letters [ "n" ]
-      ]
-      text [
-       letters [ "d" ]
-      ]
-     ]
-     baseline [
-      code [ "TT_Comedy" ]
-      color [ 0.439216 0.247059 0.184314 1 ]
-      pos [ 0 0 -1.4 ]
-      scale [ 1.2 1 1.2 ]
-      wiggle [ 3 ]
-      stomp [ 0.0367716 ]
+      code [ "mickey" ]
+      color [ 0.45 0.25 0.1 1 ]
+      pos [ 0 0 -0.45 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 68.171 ]
+      height [ 68.171 ]
       text [
        letters [ "D" ]
       ]
       text [
-       letters [ "o" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "n" ]
+       letters [ "C" ]
       ]
       text [
-       letters [ "a" ]
+       letters [ "K" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0.75 0 0.25 1 ]
+      pos [ 0 0 -1.10 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 29.2886 ]
+      height [ 29.2886 ]
+      text [
+       letters [ "P" ]
       ]
       text [
-       letters [ "l" ]
+       letters [ "I" ]
       ]
       text [
-       letters [ "d" ]
+       letters [ "R" ]
       ]
       text [
-       letters [ "'" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "s" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "S" ]
       ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "B" ]
       ]
       text [
-       letters [ "o" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "c" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "k" ]
+       letters [ "T" ]
+      ]
+      text [
+       letters [ " " ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "N" ]
       ]
      ]
     ]

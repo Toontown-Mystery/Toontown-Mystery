@@ -320,3 +320,25 @@ Toontown Mystery 3.2.8
 * Completely revamped the Chief Boss Master cutscene.
 
 * Fixed a dialogue error on MSM boss.
+
+Toontown Mystery 3.2.9
+
+* Revamped almost every texture that has been edited previously.
+* Retextured all the playgrounds and Cog HQs to hopefully give it a better design and HD.
+
+* Speaking of changes. ALL street signs have been changed to the correct names according when entering.
+
+* Changed a couple of street names so it would make more sense.
+|
+* The Get Good Golfing Area > Professional Golfing Area
+* Garbage Soda Coldness Street > Frosted Street
+* Lizzy X Peacho Ship Road > Rickroll Road
+* Me Going Nap Road > Nap Road
+* NAPPING NOT ALLOWED ROAD > Sleep Street
+
+* The 3 additional playgrounds, Golfing, Racing, and Space Galaxy Land now have their own playground names.
+|
+* Deadly Forest
+* Speedy Racetrack
+* Sleepy Space
+* Golfing Station

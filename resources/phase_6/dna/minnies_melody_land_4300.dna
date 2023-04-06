@@ -479,113 +479,97 @@ group "minniesMelodyLand" [
     code [ "tunnel_sign_red" ]
     color [ 0.533333 0.435294 0.823529 1 ]
     scale [ 1.5 1 1.5 ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0.984314 0.992157 0.596078 1 ]
-     pos [ 0 0 -1 ]
-     nhpr [ -0 0 1 ]
-     scale [ 1.4 1 1.5 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "U" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "B" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-    ]
-    baseline [
-     code [ "mickey" ]
-     color [ 0.984314 0.992157 0.596078 1 ]
-     pos [ 0 0 -1.96 ]
-     scale [ 0.8 1 0.8 ]
-     width [ 50 ]
-     height [ 50 ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "'" ]
-     ]
-     text [
-      letters [ "S" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "M" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "A" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-    ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.3 0.3 0.3 1 ]
+       pos [ 0 0 -0.83 ]
+       scale [ 1.4 1 1.5 ]
+       width [ 50 ]
+       height [ 50 ]
+       text [
+        letters [ "N" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "R" ]
+       ]
+       text [
+        letters [ "O" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "D" ]
+       ]
+      ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.2 0.2 0.2 1 ]
+       pos [ 0 0 -1.9 ]
+       scale [ 0.8 1 0.8 ]
+       width [ 55.0903 ]
+       height [ 55.0903 ]
+       text [
+        letters [ "S" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "C" ]
+       ]
+       text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "G" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "X" ]
+       ]
+       text [
+        letters [ "Y" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "N" ]
+       ]
+       text [
+        letters [ "D" ]
+       ]
+      ]
     baseline [
      pos [ 0 0 1.61 ]
      scale [ 2.5 1 2.5 ]
@@ -10865,7 +10849,7 @@ group "minniesMelodyLand" [
     scale [ 1.5 1 1.5 ]
     baseline [
      code [ "mickey" ]
-     color [ 0.443137 0.541176 0.941176 1 ]
+     color [ 0.8 0.1 0.9 1 ]
      pos [ 0 0 -0.81 ]
      nhpr [ -0 0 2 ]
      scale [ 1.5 1 1.5 ]
@@ -10873,28 +10857,25 @@ group "minniesMelodyLand" [
      width [ 33.3333 ]
      height [ 33.3333 ]
      text [
-      letters [ "P" ]
+      letters [ "M" ]
+     ]
+     text [
+      letters [ "U" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "I" ]
+     ]
+     text [
+      letters [ "C" ]
      ]
      text [
       letters [ "L" ]
      ]
      text [
       letters [ "A" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ "G" ]
-     ]
-     text [
-      letters [ "R" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "U" ]
      ]
      text [
       letters [ "N" ]
@@ -10912,59 +10893,17 @@ group "minniesMelodyLand" [
     ]
     baseline [
      code [ "mickey" ]
-     color [ 0.501961 0.501961 1 1 ]
+     color [ 0.7 0.2 1 1 ]
      pos [ 0 0 -1.89 ]
      nhpr [ -0 0 2 ]
      scale [ 0.8 1 0.8 ]
      width [ 45.4545 ]
      height [ 45.4545 ]
      text [
-      letters [ "M" ]
+      letters [ "P" ]
      ]
      text [
       letters [ "I" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "N" ]
-     ]
-     text [
-      letters [ "I" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "'" ]
-     ]
-     text [
-      letters [ "S" ]
-     ]
-     text [
-      letters [ " " ]
-     ]
-     text [
-      letters [ "M" ]
-     ]
-     text [
-      letters [ "E" ]
-     ]
-     text [
-      letters [ "L" ]
-     ]
-     text [
-      letters [ "O" ]
-     ]
-     text [
-      letters [ "D" ]
-     ]
-     text [
-      letters [ "Y" ]
-     ]
-     text [
-      letters [ "L" ]
      ]
      text [
       letters [ "A" ]
@@ -10973,7 +10912,31 @@ group "minniesMelodyLand" [
       letters [ "N" ]
      ]
      text [
-      letters [ "D" ]
+      letters [ "O" ]
+     ]
+     text [
+      letters [ " " ]
+     ]
+     text [
+      letters [ "L" ]
+     ]
+     text [
+      letters [ "E" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "S" ]
+     ]
+     text [
+      letters [ "O" ]
+     ]
+     text [
+      letters [ "N" ]
+     ]
+     text [
+      letters [ "S" ]
      ]
     ]
    ]

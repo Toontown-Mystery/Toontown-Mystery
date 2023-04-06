@@ -632,41 +632,46 @@ group "donaldsDreamland" [
      scale [ 1.32499 1 1.25185 ]
      baseline [
       code [ "mickey" ]
-      color [ 1 1 0.501961 1 ]
-      pos [ 0 0 -0.50457 ]
-      scale [ 1.68159 1 1.14544 ]
-      width [ 39.247 ]
-      height [ 39.247 ]
-      flags [ "d" ]
+      color [ 0.1 0.1 0.1 1 ]
+      pos [ 0 0 -1.06 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 68.171 ]
+      height [ 68.171 ]
       text [
-       letters [ "P" ]
+       letters [ "S" ]
       ]
       text [
        letters [ "L" ]
       ]
       text [
-       letters [ "A" ]
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "P" ]
       ]
       text [
        letters [ "Y" ]
       ]
       text [
-       letters [ "G" ]
+       letters [ " " ]
       ]
       text [
-       letters [ "R" ]
+       letters [ "S" ]
       ]
       text [
-       letters [ "O" ]
+       letters [ "P" ]
       ]
       text [
-       letters [ "U" ]
+       letters [ "A" ]
       ]
       text [
-       letters [ "N" ]
+       letters [ "C" ]
       ]
       text [
-       letters [ "D" ]
+       letters [ "E" ]
       ]
      ]
      baseline [
@@ -677,68 +682,65 @@ group "donaldsDreamland" [
        code [ "donald_DL_SZ" ]
       ]
      ]
-     baseline [
-      code [ "mickey" ]
-      color [ 1 1 0.501961 1 ]
-      pos [ 0 0 -1.61951 ]
-      scale [ 0.860896 1 1 ]
-      width [ 46.2492 ]
-      height [ 46.2492 ]
-      text [
-       letters [ "D" ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.2 0.2 0.2 1 ]
+       pos [ 0 0 -1.9 ]
+       scale [ 0.8 1 0.8 ]
+       width [ 55.0903 ]
+       height [ 55.0903 ]
+       text [
+        letters [ "S" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "C" ]
+       ]
+       text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "G" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "X" ]
+       ]
+       text [
+        letters [ "Y" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "N" ]
+       ]
+       text [
+        letters [ "D" ]
+       ]
       ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "'" ]
-      ]
-      text [
-       letters [ "S" ]
-      ]
-      text [
-       letters [ " " ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-      text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "M" ]
-      ]
-      text [
-       letters [ "L" ]
-      ]
-      text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "D" ]
-      ]
-     ]
     ]
    ]
   ]

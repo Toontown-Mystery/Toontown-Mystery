@@ -683,25 +683,77 @@ group "goofySpeedway" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0.25098 1 ]
-      pos [ 0.09 0 -0.99 ]
+      color [ 0.9 0.4 0 1 ]
+      pos [ 0 0 -1.16 ]
       scale [ 1.5 1 1.5 ]
-      width [ 38.4394 ]
-      height [ 38.4394 ]
+      width [ 47.4001 ]
+      height [ 47.4001 ]
       text [
-       letters [ "P" ]
-      ]
-      text [
-       letters [ "L" ]
+       letters [ "C" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "I" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "L" ]
+      ]
+     ]
+     baseline [
+      pos [ 0 0 1.5 ]
+      scale [ 2.5 1 2.5 ]
+      graphic [
+       code [ "mickeySZ" ]
+      ]
+     ]
+     baseline [
+      code [ "mickey" ]
+      color [ 0 1 0.5 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 50 ]
+      height [ 50 ]
+      text [
+       letters [ "M" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
        letters [ "Y" ]
       ]
       text [
+       letters [ " " ]
+      ]
+      text [
        letters [ "G" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ " " ]
       ]
       text [
        letters [ "R" ]
@@ -718,69 +770,20 @@ group "goofySpeedway" [
       text [
        letters [ "D" ]
       ]
-     ]
-     baseline [
-      pos [ 0 0 1.5 ]
-      scale [ 2.5 1 2.5 ]
-      graphic [
-       code [ "mickeySZ" ]
-      ]
-     ]
-     baseline [
-      code [ "mickey" ]
-      color [ 0 0.501961 0.25098 1 ]
-      pos [ 0 0 -1.94 ]
-      nhpr [ 0 0 1 ]
-      scale [ 0.8 1 0.8 ]
-      width [ 50 ]
-      height [ 50 ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "O" ]
-      ]
-      text [
-       letters [ "W" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
       text [
        letters [ " " ]
       ]
       text [
-       letters [ "C" ]
-      ]
-      text [
-       letters [ "E" ]
-      ]
-      text [
-       letters [ "N" ]
-      ]
-      text [
-       letters [ "T" ]
-      ]
-      text [
-       letters [ "R" ]
+       letters [ "L" ]
       ]
       text [
        letters [ "A" ]
       ]
       text [
-       letters [ "L" ]
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "D" ]
       ]
      ]
     ]

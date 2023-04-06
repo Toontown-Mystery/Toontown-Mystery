@@ -7437,22 +7437,22 @@ group "theBurrrgh" [
      scale [ 1.5 1 1.5 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0.501961 1 ]
+      color [ 0.85 1 1 1 ]
       pos [ 0 0 -1.06 ]
       scale [ 1.5 1 1.5 ]
       width [ 50 ]
       height [ 50 ]
       text [
-       letters [ "P" ]
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "O" ]
       ]
       text [
        letters [ "L" ]
       ]
       text [
-       letters [ "A" ]
-      ]
-      text [
-       letters [ "Y" ]
+       letters [ "D" ]
       ]
       text [
        letters [ "G" ]
@@ -7482,40 +7482,53 @@ group "theBurrrgh" [
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 0.501961 1 ]
-      pos [ 0 0 -1.96 ]
+      color [ 0.95 0.95 1 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
       scale [ 0.8 1 0.8 ]
-      width [ 23.8886 ]
-      height [ 23.8886 ]
+      width [ 45.7101 ]
+      height [ 45.7101 ]
       text [
-       letters [ "T" ]
+       letters [ "F" ]
       ]
       text [
-       letters [ "H" ]
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "O" ]
+      ]
+      text [
+       letters [ "Z" ]
       ]
       text [
        letters [ "E" ]
       ]
       text [
+       letters [ "N" ]
+      ]
+      text [
        letters [ " " ]
       ]
       text [
-       letters [ "B" ]
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "E" ]
       ]
       text [
        letters [ "R" ]
       ]
       text [
-       letters [ "R" ]
+       letters [ "N" ]
       ]
       text [
-       letters [ "R" ]
-      ]
-      text [
-       letters [ "G" ]
-      ]
-      text [
-       letters [ "H" ]
+       letters [ "S" ]
       ]
      ]
     ]

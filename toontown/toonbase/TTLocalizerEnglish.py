@@ -77,7 +77,7 @@ lToonHQ = 'Toon HQ'
 lSellbotHQ = 'Fashionbot HQ'
 lGoofySpeedway = 'Speed Blastoffs'
 lOutdoorZone = "The Forest"
-lGolfZone = "The Get Good Golfing Area"
+lGolfZone = "Professional Golfing Area"
 lPartyHood = 'Party Grounds'
 GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  1000: ('to the', 'in the', 'Dock'),
@@ -89,22 +89,22 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  2200: ('to', 'on', 'Carnival Lane'),
  2300: ('to', 'on', 'Fun Lane'),
  3000: ('to the', 'in the', 'Coldground'),
- 3100: ('to', 'on', 'Garbage Soda Coldness Street'),
+ 3100: ('to', 'on', 'Frosted Street'),
  3200: ('to', 'on', 'Blocked Ice Path'),
  3300: ('to', 'on', 'Danger Cold Place'),
  4000: ('to the', 'in the', 'Musicland'),
  4100: ('to', 'on', 'Lizzostrument Road'),
  4200: ('to', 'on', 'The 8 Bit Street'),
- 4300: ('to', 'on', 'Lizzy X Peacho Ship Road'),
+ 4300: ('to', 'on', 'Rickroll Road'),
  5000: ('to the', 'in the', 'Garden'),
  5100: ('to', 'on', 'Flower Area'),
  5200: ('to', 'on', 'Grass Area'),
  5300: ('to', 'on', 'Sadness Plants Area'),
- 6000: ('to the', 'in the', 'Playground'),
- 8000: ('to the', 'in the', 'Playground'),
- 9000: ('to the', 'in the', 'Playground'),
- 9100: ('to', 'on', 'Me Going Nap Road'),
- 9200: ('to', 'on', 'NAPPING NOT ALLOWED ROAD'),
+ 6000: ('to the', 'in the', 'Deadly Forest'),
+ 8000: ('to the', 'in the', 'Speedy Racetrack'),
+ 9000: ('to the', 'in the', 'Sleepy Space'),
+ 9100: ('to', 'on', 'Nap Road'),
+ 9200: ('to', 'on', 'Sleep Street'),
  10000: ('to', 'in', 'Courtbot HQ Palace'),
  10100: ('to the', 'in the', 'Courtbot HQ Lobby'),
  10200: ('to the', 'in the', 'The Royal Palace'),
@@ -127,7 +127,7 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  13400: ('to the', 'in the', 'Repair Room'),
  13500: ('to the', 'in the', 'Jail'),
  13600: ('to the', 'in the', 'Judge Office'),
- 17000: ('to the', 'in the', 'Playground'),}
+ 17000: ('to the', 'in the', 'Golfing Station'),}
 DonaldsDock = ('to', 'in', lDonaldsDock)
 ToontownCentral = ('to', 'in', lToontownCentral)
 TheBrrrgh = ('to', 'in', lTheBrrrgh)

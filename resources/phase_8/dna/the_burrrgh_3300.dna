@@ -415,88 +415,98 @@ group "theBurrrgh" [
      scale [ 1.4059 1 1.29715 ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.501961 1 1 ]
-      pos [ 0 0 -0.631843 ]
-      scale [ 1.56956 1 1.48408 ]
-      kern [ 0.0754488 ]
-      width [ 29.8228 ]
-      height [ 29.8228 ]
+      color [ 0.85 1 1 1 ]
+      pos [ 0 0 -1.06 ]
+      scale [ 1.5 1 1.5 ]
+      width [ 50 ]
+      height [ 50 ]
       text [
-       letters [ "p" ]
+       letters [ "C" ]
       ]
       text [
-       letters [ "l" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "a" ]
+       letters [ "L" ]
       ]
       text [
-       letters [ "y" ]
+       letters [ "D" ]
       ]
       text [
-       letters [ "g" ]
+       letters [ "G" ]
       ]
       text [
-       letters [ "r" ]
+       letters [ "R" ]
       ]
       text [
-       letters [ "o" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "u" ]
+       letters [ "U" ]
       ]
       text [
-       letters [ "n" ]
+       letters [ "N" ]
       ]
       text [
-       letters [ "d" ]
+       letters [ "D" ]
       ]
      ]
      baseline [
-      pos [ 0 0 1.57597 ]
-      scale [ 2.51314 1 2.02763 ]
+      pos [ 0 0 1.5 ]
+      scale [ 2.5 1 2.5 ]
       graphic [
        code [ "plutoSZ" ]
       ]
      ]
      baseline [
       code [ "mickey" ]
-      color [ 0 0.376471 0.74902 1 ]
-      pos [ 0 0 -1.76694 ]
-      width [ 30.7672 ]
-      height [ 30.7672 ]
+      color [ 0.95 0.95 1 1 ]
+      pos [ 0 0 -2 ]
+      nhpr [ 0 0 2 ]
+      scale [ 0.8 1 0.8 ]
+      width [ 45.7101 ]
+      height [ 45.7101 ]
       text [
-       letters [ "T" ]
+       letters [ "F" ]
       ]
       text [
-       letters [ "h" ]
+       letters [ "R" ]
       ]
       text [
-       letters [ "e" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ " " ]
+       letters [ "Z" ]
       ]
       text [
-       letters [ "B" ]
+       letters [ "E" ]
       ]
       text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "r" ]
-      ]
-      text [
-       letters [ "g" ]
-      ]
-      text [
-       letters [ "h" ]
+       letters [ "N" ]
       ]
       text [
        letters [ " " ]
+      ]
+      text [
+       letters [ "C" ]
+      ]
+      text [
+       letters [ "A" ]
+      ]
+      text [
+       letters [ "V" ]
+      ]
+      text [
+       letters [ "E" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "N" ]
+      ]
+      text [
+       letters [ "S" ]
       ]
      ]
     ]
@@ -7671,17 +7681,23 @@ group "theBurrrgh" [
      color [ 0.752941 0.752941 0.752941 1 ]
      baseline [
       code [ "suit" ]
-      color [ 0.752941 0.752941 0.752941 1 ]
+      color [ 0.25 0.5 1 1 ]
       pos [ 0 0 -0.649009 ]
       scale [ 2.08438 1 1.50901 ]
       text [
-       letters [ "L" ]
+       letters [ "C" ]
       ]
       text [
-       letters [ "A" ]
+       letters [ "O" ]
       ]
       text [
-       letters [ "W" ]
+       letters [ "U" ]
+      ]
+      text [
+       letters [ "R" ]
+      ]
+      text [
+       letters [ "T" ]
       ]
       text [
        letters [ "B" ]
@@ -7695,7 +7711,7 @@ group "theBurrrgh" [
      ]
      baseline [
       code [ "suit" ]
-      color [ 0.752941 0.752941 0.752941 1 ]
+      color [ 0.25 0.5 1 1 ]
       pos [ 0 0 -1.81582 ]
       scale [ 2.35727 1 1.47138 ]
       text [

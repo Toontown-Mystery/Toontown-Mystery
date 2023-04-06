@@ -374,19 +374,66 @@ group "donaldsDreamland" [
       scale [ 1.5 1 1.5 ]
       baseline [
        code [ "mickey" ]
-       color [ 1 1 0.501961 1 ]
+       color [ 0.3 0.3 0.3 1 ]
        pos [ 0 0 -0.83 ]
        scale [ 1.4 1 1.5 ]
        width [ 50 ]
        height [ 50 ]
        text [
-        letters [ "L" ]
+        letters [ "N" ]
        ]
        text [
-        letters [ "U" ]
+        letters [ "A" ]
        ]
        text [
-        letters [ "L" ]
+        letters [ "P" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "R" ]
+       ]
+       text [
+        letters [ "O" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "D" ]
+       ]
+      ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.2 0.2 0.2 1 ]
+       pos [ 0 0 -1.9 ]
+       scale [ 0.8 1 0.8 ]
+       width [ 55.0903 ]
+       height [ 55.0903 ]
+       text [
+        letters [ "S" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "C" ]
+       ]
+       text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "G" ]
+       ]
+       text [
+        letters [ "A" ]
        ]
        text [
         letters [ "L" ]
@@ -395,81 +442,13 @@ group "donaldsDreamland" [
         letters [ "A" ]
        ]
        text [
-        letters [ "B" ]
+        letters [ "X" ]
        ]
        text [
         letters [ "Y" ]
        ]
        text [
         letters [ " " ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ "L" ]
-       ]
-       text [
-        letters [ "A" ]
-       ]
-       text [
-        letters [ "N" ]
-       ]
-       text [
-        letters [ "E" ]
-       ]
-      ]
-      baseline [
-       code [ "mickey" ]
-       color [ 1 1 0.501961 1 ]
-       pos [ 0 0 -1.9 ]
-       scale [ 0.8 1 0.8 ]
-       width [ 55.0903 ]
-       height [ 55.0903 ]
-       text [
-        letters [ "D" ]
-       ]
-       text [
-        letters [ "O" ]
-       ]
-       text [
-        letters [ "N" ]
-       ]
-       text [
-        letters [ "A" ]
-       ]
-       text [
-        letters [ "L" ]
-       ]
-       text [
-        letters [ "D" ]
-       ]
-       text [
-        letters [ "'" ]
-       ]
-       text [
-        letters [ "S" ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ "D" ]
-       ]
-       text [
-        letters [ "R" ]
-       ]
-       text [
-        letters [ "E" ]
-       ]
-       text [
-        letters [ "A" ]
-       ]
-       text [
-        letters [ "M" ]
        ]
        text [
         letters [ "L" ]
@@ -899,91 +878,35 @@ group "donaldsDreamland" [
       scale [ 1.6 1 1.55652 ]
       baseline [
        code [ "mickey" ]
-       color [ 1 1 0 1 ]
+       color [ 0.3 0.3 0.3 1 ]
        pos [ -0.03 0 -0.46814 ]
        scale [ 1.436 1 1.58258 ]
        width [ 32.1583 ]
        height [ 32.1583 ]
        flags [ "d" ]
        text [
-        letters [ "P" ]
-       ]
-       text [
-        letters [ "a" ]
-       ]
-       text [
-        letters [ "j" ]
-       ]
-       text [
-        letters [ "a" ]
-       ]
-       text [
-        letters [ "m" ]
-       ]
-       text [
-        letters [ "a" ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ "P" ]
-       ]
-       text [
-        letters [ "l" ]
-       ]
-       text [
-        letters [ "a" ]
-       ]
-       text [
-        letters [ "c" ]
-       ]
-       text [
-        letters [ "e" ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-      ]
-      baseline [
-       code [ "mickey" ]
-       color [ 1 1 0.501961 1 ]
-       pos [ 0 0 -1.6184 ]
-       scale [ 0.856689 1 1 ]
-       width [ 38.6997 ]
-       height [ 38.6997 ]
-       text [
-        letters [ "D" ]
-       ]
-       text [
-        letters [ "O" ]
-       ]
-       text [
-        letters [ "N" ]
-       ]
-       text [
-        letters [ "A" ]
+        letters [ "S" ]
        ]
        text [
         letters [ "L" ]
        ]
        text [
-        letters [ "D" ]
+        letters [ "E" ]
        ]
        text [
-        letters [ "'" ]
+        letters [ "E" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
+        letters [ " " ]
        ]
        text [
         letters [ "S" ]
        ]
        text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ " " ]
-       ]
-       text [
-        letters [ "D" ]
+        letters [ "T" ]
        ]
        text [
         letters [ "R" ]
@@ -992,10 +915,57 @@ group "donaldsDreamland" [
         letters [ "E" ]
        ]
        text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ "T" ]
+       ]
+      ]
+      baseline [
+       code [ "mickey" ]
+       color [ 0.2 0.2 0.2 1 ]
+       pos [ 0 0 -1.9 ]
+       scale [ 0.8 1 0.8 ]
+       width [ 55.0903 ]
+       height [ 55.0903 ]
+       text [
+        letters [ "S" ]
+       ]
+       text [
+        letters [ "P" ]
+       ]
+       text [
         letters [ "A" ]
        ]
        text [
-        letters [ "M" ]
+        letters [ "C" ]
+       ]
+       text [
+        letters [ "E" ]
+       ]
+       text [
+        letters [ " " ]
+       ]
+       text [
+        letters [ "G" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "L" ]
+       ]
+       text [
+        letters [ "A" ]
+       ]
+       text [
+        letters [ "X" ]
+       ]
+       text [
+        letters [ "Y" ]
+       ]
+       text [
+        letters [ " " ]
        ]
        text [
         letters [ "L" ]
