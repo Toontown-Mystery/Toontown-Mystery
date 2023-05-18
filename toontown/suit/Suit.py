@@ -130,7 +130,7 @@ tf = (('smile', 'smile', 5),
  ('phone', 'phone', 5))
 m = (('speak', 'speak', 5),
  ('magic1', 'magic1', 5),
- ('smile', 'smile', 5),
+ ('throw-object', 'throw-object', 5),
  ('magic2', 'magic2', 5),
  ('throw-paper', 'throw-paper', 5),
  ('throw-object', 'throw-object', 5))
@@ -898,11 +898,10 @@ class Suit(Avatar.Avatar):
             self.generateHead('twocog', 'phase_4/models/char/twoman.bam')
             self.setHeight(7.43)
         elif dna.name == 'm':
-            self.scale = 6.5 / aSize
+            self.scale = 6.5 / bSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
-            self.headTexture = 'blood-sucker.jpg'
-            self.generateHead('yesman')
+            self.generateHead('squarepants', 'phase_4/models/char/sponge.bam')
             self.setHeight(8.24)
         elif dna.name == 'mh':
             self.scale = 7.0 / aSize
@@ -1263,6 +1262,12 @@ class Suit(Avatar.Avatar):
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.75)
+                headPart.setScale(0.98)
+            elif headType == 'squarepants':
+                headPart.setH(90)
+                headPart.setX(-0.2)
+                headPart.setY(0)
+                headPart.setZ(0.2)
                 headPart.setScale(0.98)
             elif headType == 'scarycog':
                 headPart.setH(0)
