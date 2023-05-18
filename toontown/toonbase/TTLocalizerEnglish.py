@@ -2163,17 +2163,17 @@ SuitMicromanager = 'Fancy Kitten'
 SuitDownsizer = 'Hudson'
 SuitHeadHunter = 'Control Doctor'
 SuitCorporateRaider = 'SPACETOZIE'
-SuitTheBigCheese = 'Mozzerella Cheeze'
+SuitTheBigCheese = 'King Cheese'
 SuitColdCaller = 'Blue Caller'
-SuitTelemarketer = 'Telecaller'
-SuitNameDropper = 'Blackler'
-SuitGladHander = 'Shaker Wizard'
-SuitMoverShaker = 'Scary Dropper'
+SuitTelemarketer = 'Role Model'
+SuitNameDropper = 'Jackpot'
+SuitGladHander = 'Crystal Ball'
+SuitMoverShaker = 'Goth Devil'
 SuitTwoFace = 'Two-Man'
 SuitTheMingler = 'Spongebob'
 SuitMrHollywood = 'Amanda Rose'
 SuitShortChange = 'Conichange'
-SuitPennyPincher = 'Dandy Shark'
+SuitPennyPincher = 'Swag Shark'
 SuitTightwad = 'Janet'
 SuitBeanCounter = 'Candace Flynn'
 SuitNumberCruncher = 'Number Man'
@@ -2184,7 +2184,7 @@ SuitBottomFeeder = 'Cute Flunky'
 SuitBloodsucker = 'Vam\x03pire'
 SuitDoubleTalker = 'Sally'
 SuitAmbulanceChaser = 'Microripoff'
-SuitBackStabber = 'Textured Counter'
+SuitBackStabber = 'Judge'
 SuitSpinDoctor = 'Cog Monkey'
 SuitLegalEagle = 'Sunlight Elvis'
 SuitBigWig = 'Epic Diamond'
@@ -2195,17 +2195,17 @@ SuitMicromanagerS = 'a Fancy Kitten'
 SuitDownsizerS = 'a Hudson'
 SuitHeadHunterS = 'a Control Doctor'
 SuitCorporateRaiderS = 'a SPACETOZIE'
-SuitTheBigCheeseS = 'a Mozzerella Cheese'
+SuitTheBigCheeseS = 'a King Cheese'
 SuitColdCallerS = 'a Blue Caller'
-SuitTelemarketerS = 'a Telecaller'
-SuitNameDropperS = 'a Blackler'
-SuitGladHanderS = 'a Shaker Wizard'
-SuitMoverShakerS = 'a Scary Dropper'
+SuitTelemarketerS = 'a Role Model'
+SuitNameDropperS = 'a Jackpot'
+SuitGladHanderS = 'a Crystal Ball'
+SuitMoverShakerS = 'a Goth Devil'
 SuitTwoFaceS = 'a Two-Man'
 SuitTheMinglerS = 'a Spongebob'
 SuitMrHollywoodS = 'a Amanda Rose'
 SuitShortChangeS = 'a Conichange'
-SuitPennyPincherS = 'a Dandy Shark'
+SuitPennyPincherS = 'a Swag Shark'
 SuitTightwadS = 'a Janet'
 SuitBeanCounterS = 'a Candace Flynn'
 SuitNumberCruncherS = 'a Number Man'
@@ -2216,7 +2216,7 @@ SuitBottomFeederS = 'a Cute Flunky'
 SuitBloodsuckerS = 'a Vampire'
 SuitDoubleTalkerS = 'a Sally'
 SuitAmbulanceChaserS = 'an Microripoff'
-SuitBackStabberS = 'a Textured Counter'
+SuitBackStabberS = 'a Judge'
 SuitSpinDoctorS = 'a Cog Monkey'
 SuitLegalEagleS = 'a Sunlight Elvis'
 SuitBigWigS = 'a Epic Diamond'
@@ -2227,17 +2227,17 @@ SuitMicromanagerP = 'Fancy Kittens'
 SuitDownsizerP = 'Hudsons'
 SuitHeadHunterP = 'Control Doctors'
 SuitCorporateRaiderP = 'SPACETOZIES'
-SuitTheBigCheeseP = 'Mozzerella Cheeses'
+SuitTheBigCheeseP = 'King Cheeses'
 SuitColdCallerP = 'Black Callers'
-SuitTelemarketerP = 'Telecallers'
-SuitNameDropperP = 'Blacklers'
-SuitGladHanderP = 'Scary Wizards'
-SuitMoverShakerP = 'Scary Droppers'
+SuitTelemarketerP = 'Role Models'
+SuitNameDropperP = 'Jackpots'
+SuitGladHanderP = 'Crystal Balls'
+SuitMoverShakerP = 'Goth Devils'
 SuitTwoFaceP = 'Two-Men'
 SuitTheMinglerP = 'Mini Spongbobs'
 SuitMrHollywoodP = 'Amanda Roses'
 SuitShortChangeP = 'Conichanges'
-SuitPennyPincherP = 'Dandy Sharks'
+SuitPennyPincherP = 'Swag Sharks'
 SuitTightwadP = 'Janets'
 SuitBeanCounterP = 'Candace Flynns'
 SuitNumberCruncherP = 'Number Men'
@@ -2248,7 +2248,7 @@ SuitBottomFeederP = 'Cute Flunkies'
 SuitBloodsuckerP = 'Vampires'
 SuitDoubleTalkerP = 'Sallies'
 SuitAmbulanceChaserP = 'Microripoffs'
-SuitBackStabberP = 'Textured Counters'
+SuitBackStabberP = 'Judges'
 SuitSpinDoctorP = 'Cog Monkies'
 SuitLegalEagleP = 'Sunlight Elvises'
 SuitBigWigP = 'Epic Diamonds'
@@ -2262,6 +2262,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'BuzzWord': 'Buzz Word!',
  'Calculate': 'Calculate!',
  'Canned': 'Canned!',
+ 'TvBlast': 'Tv Blast!',
  'Chomp': 'Chomp!',
  'CigarSmoke': 'Cigar Smoke!',
  'ClipOnTie': 'Clip On Tie!',
@@ -2339,15 +2340,14 @@ SuitAttackNames = {'Audit': 'Audit!',
 SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
            "These audits are used for POD, known as pool of data.",
            "Watch out Toon, your payments are getting too high!",
-           'Did you make sure to check the samples that I gave you?',
-           "Why don't you plan ahead Toon?"],
+           'Did you make sure to check the samples that I gave you?'],
  'Bite': ["Can I eat you?",
           "I'm going to bite you!",
           "Watch out! This bite is a big one!",
           "My clients said this bite would hurt a little.",
           "You sure you don't want a bite?",
           "Bite on this.",
-          "Toons for Dinner sounds like an amazing idea.",
+          "Toons for dinner sounds like an amazing idea.",
           "Bite! Off more than you can chew!"],
  'BlackOrb': ["This orb is being traveled to you.",
               "Be aware of my magic!",
@@ -2385,6 +2385,12 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
             'Please help me out and see what this can does.',
             "It's can up time!",
             "I'm going to throw this can on you."],
+ 'TvBlast': ['Who wants to watch some TV?',
+            'Buy your TV in the local store today!',
+            "Watch out, here comes the TV!",
+            "Be careful, it's the TV.",
+            "You can't live without TV, can't you?",
+            "The TV is as good as the reviews say."],
  'Chomp': ['All of us have 32 teeth.',
            'Yummy, Toons are certainly my diet!',
            "Are you Toons ready for the chomp?",

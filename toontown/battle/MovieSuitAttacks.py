@@ -130,6 +130,8 @@ def doSuitAttack(attack):
         suitTrack = doCalculate(attack)
     elif name == CANNED:
         suitTrack = doCanned(attack)
+    elif name == TV_BLAST:
+        suitTrack = doTvBlast(attack)
     elif name == CHOMP:
         suitTrack = doChomp(attack)
     elif name == CIGAR_SMOKE:
@@ -1579,6 +1581,86 @@ def doCanned(attack):
       0.7], ['slip-backward', 0.01, 0.45]]
     toonTrack = getToonTrack(attack, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['sidestep'], showDamageExtraTime=propDelay + suitDelay + 2.4)
     return Parallel(suitTrack, toonTrack, canTrack, soundTrack)
+
+def doTvBlast(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    dmg = target['hp']
+    toon = target['toon']
+    hips = toon.getHipsParts()
+    propDelay = 0.8
+    suitType = getSuitBodyType(attack['suitName'])
+    if suitType == 'c':
+        suitDelay = 1.13
+        dodgeDelay = 3.1
+    else:
+        suitDelay = 1.83
+        dodgeDelay = 3.6
+    throwDuration = 1.5
+    tv = globalPropPool.getProp('modeltv')
+    scale = 1.1
+    torso = toon.style.torso
+    torso = torso[0]
+    if torso == 's':
+        scaleUpPoint = Point3(scale * 1.23, scale * 1.23, scale * 1.23)
+    elif torso == 'm':
+        scaleUpPoint = Point3(scale * 1.23, scale * 1.23, scale * 1.23)
+    elif torso == 'l':
+        scaleUpPoint = Point3(scale * 1.23, scale * 1.23, scale * 1.23)
+    tvHpr = VBase3(-173.47, 0, 0)
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.14, 0.15, 0.08), VBase3(-10.584, 11.945, -161.684)]
+    throwTrack = Sequence(getPropAppearTrack(tv, suit.getRightHand(), posPoints, propDelay, Point3(6, 6, 6), scaleUpTime=0.5))
+    propDelay = propDelay + 0.5
+    throwTrack.append(Wait(suitDelay))
+    hitPoint = toon.getPos(battle)
+    hitPoint.setX(hitPoint.getX() + 1.1)
+    hitPoint.setY(hitPoint.getY() - 0.5)
+    hitPoint.setZ(hitPoint.getZ() + toon.height + 1.1)
+    throwTrack.append(Func(battle.movie.needRestoreRenderProp, tv))
+    throwTrack.append(getThrowTrack(tv, hitPoint, duration=throwDuration, parent=battle))
+    if dmg > 0:
+        tv2 = MovieUtil.copyProp(tv)
+        hips1 = hips.getPath(2)
+        hips2 = hips.getPath(1)
+        tv2Point = Point3(hitPoint.getX(), hitPoint.getY() + 6.4, hitPoint.getZ())
+        tv2.setPos(tv2Point)
+        tv2.setScale(scaleUpPoint)
+        tv2.setHpr(tvHpr)
+        throwTrack.append(Func(battle.movie.needRestoreHips))
+        throwTrack.append(Func(tv.wrtReparentTo, hips1))
+        throwTrack.append(Func(tv2.reparentTo, hips2))
+        throwTrack.append(Wait(2.4))
+        throwTrack.append(Func(MovieUtil.removeProp, tv2))
+        throwTrack.append(Func(battle.movie.clearRestoreHips))
+        scaleTrack = Sequence(Wait(propDelay + suitDelay), LerpScaleInterval(tv, throwDuration, scaleUpPoint))
+        hprTrack = Sequence(Wait(propDelay + suitDelay), LerpHprInterval(tv, throwDuration, tvHpr))
+        soundTrack = Sequence(Wait(2.6), SoundInterval(globalBattleSoundCache.getSound('SA_TV_pie_throw.ogg'), node=suit), Wait(2.4),SoundInterval(globalBattleSoundCache.getSound('SA_TV_crash.ogg'), node=suit))
+    else:
+        land = toon.getPos(battle)
+        land.setZ(land.getZ() + 0.7)
+        bouncePoint1 = Point3(land.getX(), land.getY() - 1.5, land.getZ() + 2.5)
+        bouncePoint2 = Point3(land.getX(), land.getY() - 2.1, land.getZ() - 0.2)
+        bouncePoint3 = Point3(land.getX(), land.getY() - 3.1, land.getZ() + 1.5)
+        bouncePoint4 = Point3(land.getX(), land.getY() - 4.1, land.getZ() + 0.3)
+        throwTrack.append(LerpPosInterval(tv, 0.4, land))
+        throwTrack.append(LerpPosInterval(tv, 0.4, bouncePoint1))
+        throwTrack.append(LerpPosInterval(tv, 0.3, bouncePoint2))
+        throwTrack.append(LerpPosInterval(tv, 0.3, bouncePoint3))
+        throwTrack.append(LerpPosInterval(tv, 0.3, bouncePoint4))
+        throwTrack.append(Wait(1.1))
+        throwTrack.append(LerpScaleInterval(tv, 0.3, MovieUtil.PNT3_NEARZERO))
+        scaleTrack = Sequence(Wait(propDelay + suitDelay), LerpScaleInterval(tv, throwDuration, Point3(1.8, 1.8, 1.8)))
+        hprTrack = Sequence(Wait(propDelay + suitDelay), LerpHprInterval(tv, throwDuration, tvHpr), Wait(0.4), LerpHprInterval(tv, 0.4, Point3(83.27, 0, 0)), LerpHprInterval(tv, 0.3, Point3(95.24, 0, 0)), LerpHprInterval(tv, 0.2, Point3(-96.34, 0, 0)))
+        soundTrack = getSoundTrack('SA_TV_pie_throw.ogg', delay=2.6, node=suit)
+    tvTrack = Sequence(Parallel(throwTrack, scaleTrack, hprTrack), Func(MovieUtil.removeProp, tv), Func(battle.movie.clearRenderProp, tv))
+    damageAnims = [['think',
+      propDelay + suitDelay + throwDuration,
+      0.01,
+      0.7], ['cringe', 0.01, 0.45]]
+    toonTrack = getToonTrack(attack, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, dodgeAnimNames=['shrug'], showDamageExtraTime=propDelay + suitDelay + 2.4)
+    return Parallel(suitTrack, toonTrack, tvTrack, soundTrack)
 
 
 def doWhitePowder(attack):
