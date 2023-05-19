@@ -820,7 +820,7 @@ class Suit(Avatar.Avatar):
             self.setColor(0, 1, 0.6, 1)
         elif dna.name == 'bgr':
             self.scale = 4.4 / bSize
-            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.handColor = VBase4(0.75, 0.5, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('movershaker')
@@ -833,11 +833,9 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(1, 0.8, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
-            self.setHeight(5.2)
+            self.generateHead('Circle', 'phase_4/models/char/clock.bam')
+            self.setHeight(5.7)
             self.setTransparency(1)
-            self.setColor(0, 1, 0.4, 1)
         elif dna.name == 'dm':
             self.scale = 8.5 / bSize
             self.handColor = SuitDNA.moneyPolyColor
@@ -893,7 +891,7 @@ class Suit(Avatar.Avatar):
             self.setHeight(6.74)
         elif dna.name == 'tf':
             self.scale = 6.0 / aSize
-            self.handColor = VBase4(0.4, 0.9, 0, 1.0)
+            self.handColor = VBase4(1.0, 0.8, 0, 1.0)
             self.generateBody()
             self.generateHead('twocog', 'phase_4/models/char/twoman.bam')
             self.setHeight(7.43)
@@ -1265,8 +1263,8 @@ class Suit(Avatar.Avatar):
                 headPart.setScale(0.98)
             elif headType == 'squarepants':
                 headPart.setH(90)
-                headPart.setX(-0.2)
-                headPart.setY(0)
+                headPart.setX(0)
+                headPart.setY(-0.5)
                 headPart.setZ(0.2)
                 headPart.setScale(0.98)
             elif headType == 'scarycog':
@@ -1311,6 +1309,14 @@ class Suit(Avatar.Avatar):
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.7)
+                headPart.setScale(1.57)
+            elif headType == 'Circle':
+                headPart.setH(90)
+                headPart.setP(120)
+                headPart.setR(-90)
+                headPart.setX(0)
+                headPart.setY(0.1)
+                headPart.setZ(1.45)
                 headPart.setScale(1.57)
             elif headType == 'Sphere.001':
                 headPart.setH(270)
