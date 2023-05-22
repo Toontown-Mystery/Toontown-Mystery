@@ -857,73 +857,73 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
             self.setColor(0.5, 1, 0, 1)
         elif dna.name == 'cc':
-            self.scale = 3.5 / cSize
+            self.scale = 2.5 / cSize
             self.handColor = VBase4(0.5, 0.4, 0.3, 0.1)
             self.headColor = VBase4(0, 0, 0.6, 1.0)
             self.generateBody()
             self.generatePhonneKey()
             self.generateHead('phone', 'phase_3.5/models/props/phone.bam')
-            self.setHeight(4.25)
+            self.setHeight(3.47)
         elif dna.name == 'tm':
-            self.scale = 4.0 / bSize
+            self.scale = 3.0 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('rolecog', 'phase_4/models/char/rolemodelcog.bam')
-            self.setHeight(4.98)
+            self.setHeight(3.98)
         elif dna.name == 'nd':
-            self.scale = 4.5 / aSize
+            self.scale = 3.5 / aSize
             self.handColor = VBase4(0.55, 0.65, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'jackpot.jpg'
             self.generateHead('Plane', 'phase_4/models/char/untitled.bam')
-            self.setHeight(5.56)
+            self.setHeight(4.5)
         elif dna.name == 'gh':
-            self.scale = 5.0 / cSize
+            self.scale = 4.0 / cSize
             self.handColor = VBase4(0.2, 0.2, 1, 1.0)
             self.generateBody()
             self.generateHead('crystal', 'phase_4/models/char/crystalball.bam')
-            self.setHeight(6.12)
+            self.setHeight(5.2)
         elif dna.name == 'ms':
-            self.scale = 5.5 / aSize
+            self.scale = 4.5 / aSize
             self.handColor = VBase4(0, 0, 0, 0)
             self.generateBody()
             self.generateHead('scarycog', 'phase_4/models/char/scarydropper.bam')
-            self.setHeight(6.74)
+            self.setHeight(5.94)
         elif dna.name == 'tf':
-            self.scale = 6.0 / aSize
+            self.scale = 5.0 / aSize
             self.handColor = VBase4(1.0, 0.8, 0, 1.0)
             self.generateBody()
             self.generateHead('twocog', 'phase_4/models/char/twoman.bam')
-            self.setHeight(7.43)
+            self.setHeight(6.45)
         elif dna.name == 'm':
-            self.scale = 6.5 / bSize
+            self.scale = 5.5 / bSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('squarepants', 'phase_4/models/char/sponge.bam')
-            self.setHeight(8.24)
+            self.setHeight(7.98)
         elif dna.name == 'mh':
-            self.scale = 7.0 / aSize
+            self.scale = 6.0 / aSize
             self.handColor = VBase4(1.0, 0.3, 0.2, 1.0)
             self.generateBody()
             self.generateHead('yesman')
             self.generateVaultStuff()
-            self.setHeight(8.95)
+            self.setHeight(7.95)
         elif dna.name == 'ka':
-            self.scale = 7.5 / aSize
+            self.scale = 6.5 / aSize
             self.handColor = VBase4(0.5, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'karen.jpg'
             self.generateHead('twoface')
             self.generateHatStuff()
-            self.setHeight(9.1)
+            self.setHeight(8.1)
         elif dna.name == 'mka':
-            self.scale = 8.0 / bSize
+            self.scale = 7.0 / bSize
             self.handColor = VBase4(0, 0, 0, 1.0)
             self.headColor = VBase4(0.5, 0.5, 0.5, 1)
             self.generateBody()
             self.headTexture = 'monokuma.jpg'
             self.generateHead('movershaker')
-            self.setHeight(9.9)
+            self.setHeight(9)
         elif dna.name == 'fas':
             self.scale = 5.7 / aSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
@@ -949,21 +949,19 @@ class Suit(Avatar.Avatar):
             self.setHeight(5.6)
             self.setTransparency(1)
         elif dna.name == 'fd':
-            self.scale = 8.0 / aSize
+            self.scale = 7.5 / aSize
             self.handColor = VBase4(0, 0.75, 1.0, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('designer', 'phase_4/models/char/fashioncogdesigner.bam')
-            self.setHeight(10.6)
+            self.setHeight(10)
             self.setTransparency(1)
         elif dna.name == 'fm':
-            self.scale = 8.0 / aSize
-            self.handColor = VBase4(0.5, 0, 1, 1.0)
+            self.scale = 7.5 / aSize
+            self.handColor = VBase4(0.9, 0, 1, 1.0)
             self.generateBody()
-            self.makeSkeleton()
-            self.generateHead('yesman')
-            self.setHeight(9.2)
-            self.setColor(0.5, 0, 1, 1)
+            self.generateHead('flowercog', 'phase_4/models/char/flower.bam')
+            self.setHeight(11)
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
         self.generateHealthBar()
@@ -1318,6 +1316,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0.1)
                 headPart.setZ(1.45)
                 headPart.setScale(1.57)
+            elif headType == 'flowercog':
+                headPart.setH(95)
+                headPart.setP(185)
+                headPart.setR(275)
+                headPart.setX(-1.8)
+                headPart.setY(-0.4)
+                headPart.setZ(2)
+                headPart.setScale(0.5)
             elif headType == 'Sphere.001':
                 headPart.setH(270)
                 headPart.setX(0)
