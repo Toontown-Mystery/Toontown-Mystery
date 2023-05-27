@@ -11,7 +11,7 @@ class TownBattleCogPanel(DirectFrame):
         self.initialiseoptions(TownBattleCogPanel)
         self.battle = battle
         self.levelText = DirectLabel(parent=self, text='', pos=(-0.06, 0, -0.075), text_scale=0.055)
-        self.hpText = DirectLabel(parent=self, text='', pos=(-0.06, 0, -0.0325), text_scale=0.045)
+        self.hpText = DirectLabel(parent=self, text='', pos=(-0.03, 0, -0.0325), text_scale=0.045)
         self.typeText = DirectLabel(parent=self, text='', pos=(0.12, 0, -0.075), text_scale=0.045)
         self.healthBar = SuitHealthBar.SuitHealthBar()
         self.generateHealthBar()
