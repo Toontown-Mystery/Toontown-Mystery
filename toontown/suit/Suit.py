@@ -640,8 +640,7 @@ class Suit(Avatar.Avatar):
             self.scale = 4.0 / aSize
             self.handColor = VBase4(1.0, 0.2, 0.4, 0.3)
             self.generateBody()
-            self.headTexture = 'double-talker.jpg'
-            self.generateHead('yesman')
+            self.generateHead('scalecog', 'phase_4/models/char/scale.bam')
             self.setHeight(5.03)
         elif dna.name == 'ac':
             self.scale = 4.35 / cSize
@@ -831,25 +830,22 @@ class Suit(Avatar.Avatar):
             self.setHeight(5.7)
             self.setTransparency(1)
         elif dna.name == 'dm':
-            self.scale = 8.5 / bSize
+            self.scale = 7.2 / bSize
             self.handColor = SuitDNA.moneyPolyColor
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
-            self.setHeight(9.8)
+            self.generateHead('calculatorbot', 'phase_4/models/char/calculator.bam')
+            self.setHeight(8.7)
             self.setTransparency(1)
-            self.setColor(0, 1, 0.5, 1)
         elif dna.name == 'tcc':
-            self.scale = 9.0 / bSize
+            self.scale = 8.0 / bSize
             self.handColor = VBase4(0.5, 1, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
-            self.setHeight(10.2)
+            self.headTexture = 'dollar.jpg'
+            self.generateHead('calculatorbot', 'phase_4/models/char/calculator.bam')
+            self.setHeight(9.7)
             self.setTransparency(1)
-            self.setColor(0.5, 1, 0, 1)
         elif dna.name == 'cc':
             self.scale = 2.5 / cSize
             self.handColor = VBase4(0.5, 0.4, 0.3, 0.1)
@@ -1260,6 +1256,12 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.5)
                 headPart.setZ(0.2)
                 headPart.setScale(0.98)
+            elif headType == 'calculatorbot':
+                headPart.setH(180)
+                headPart.setX(0)
+                headPart.setY(-0.1)
+                headPart.setZ(0.85)
+                headPart.setScale(0.9, 0.1, 0.9)
             elif headType == 'cashcog':
                 headPart.setH(90)
                 headPart.setX(0)
@@ -1274,6 +1276,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.2)
                 headPart.setZ(3.5)
                 headPart.setScale(0.6, 0.6, 0.1)
+            elif headType == 'scalecog':
+                headPart.setH(0)
+                headPart.setP(0)
+                headPart.setR(0)
+                headPart.setX(0)
+                headPart.setY(-0.2)
+                headPart.setZ(1.6)
+                headPart.setScale(0.5, 0.5, 0.1)
             elif headType == 'scarycog':
                 headPart.setH(0)
                 headPart.setX(0)
