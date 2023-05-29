@@ -623,31 +623,31 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
             self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':
-            self.scale = 3.5 / cSize
+            self.scale = 2.5 / cSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.headTexture = 'bottom-feeder.jpg'
             self.generateHead('flunky')
-            self.setHeight(4.48)
+            self.setHeight(3.25)
         elif dna.name == 'b':
-            self.scale = 3.8 / bSize
+            self.scale = 3.0 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'halloween_blood-sucker.jpg'
             self.generateHead('movershaker')
-            self.setHeight(4.77)
+            self.setHeight(3.8)
         elif dna.name == 'dt':
-            self.scale = 4.0 / aSize
-            self.handColor = VBase4(1.0, 0.2, 0.4, 0.3)
+            self.scale = 3.5 / aSize
+            self.handColor = VBase4(0.5, 0.7, 0, 1.0)
             self.generateBody()
             self.generateHead('scalecog', 'phase_4/models/char/scale.bam')
-            self.setHeight(5.03)
+            self.setHeight(4.7)
         elif dna.name == 'ac':
-            self.scale = 4.35 / cSize
-            self.handColor = SuitDNA.legalPolyColor
+            self.scale = 4.0 / cSize
+            self.handColor = VBase4(0.4, 0.4, 0.4, 1.0)
             self.generateBody()
-            self.generateHead('micromanager')
-            self.setHeight(5.29)
+            self.generateHead('microcog', 'phase_4/models/char/micro.bam')
+            self.setHeight(4.8)
         elif dna.name == 'bs':
             self.scale = 4.8 / bSize
             self.handColor = VBase4(0, 1.0, 0.2, 1.0)
@@ -1284,6 +1284,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.2)
                 headPart.setZ(1.6)
                 headPart.setScale(0.5, 0.5, 0.1)
+            elif headType == 'microcog':
+                headPart.setH(-90)
+                headPart.setP(0)
+                headPart.setR(-90)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(0.5)
+                headPart.setScale(0.3)
             elif headType == 'scarycog':
                 headPart.setH(0)
                 headPart.setX(0)
