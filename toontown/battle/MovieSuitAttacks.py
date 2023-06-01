@@ -138,6 +138,8 @@ def doSuitAttack(attack):
         suitTrack = doDefault(attack)
     elif name == CLIPON_TIE:
         suitTrack = doClipOnTie(attack)
+    elif name == CLOCK_CHANGE:
+        suitTrack = doClockChange(attack)
     elif name == CRUNCH:
         suitTrack = doCrunch(attack)
     elif name == DEMOTION:
@@ -242,6 +244,8 @@ def doSuitAttack(attack):
         suitTrack = doRubOut(attack)
     elif name == SACKED:
         suitTrack = doSacked(attack)
+    elif name == BLAST:
+        suitTrack = doBlast(attack)
     elif name == SANDTRAP:
         suitTrack = doDefault(attack)
     elif name == SCHMOOZE:
@@ -842,6 +846,15 @@ def doClipOnTie(attack):
     toonTrack = getToonTrack(attack, damageDelay, ['conked'], dodgeDelay, ['sidestep'])
     throwSound = getSoundTrack('SA_powertie_throw.ogg', delay=throwDelay + 1, node=suit)
     return Parallel(suitTrack, toonTrack, tiePropTrack, throwSound)
+    
+def doClockChange(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    cameraTrack = Sequence(LerpPosHprInterval(camera, duration=1.5, pos=Point3(0, -5, 5), hpr=Point3(0, 0, 0), blendType='easeInOut'))
+    suitTrack = getSuitAnimTrack(attack)
+    toonTracks = getToonTracks(attack, suitTrack.getDuration() - 1.5, ['slip-backward'], suitTrack.getDuration() - 1.5, ['bored'])
+    soundTrack = getSoundTrack('SA_clock_trigger.ogg', node=suit)
+    return Parallel(cameraTrack, suitTrack, toonTracks, soundTrack)
 
 
 def doPoundKey(attack):
@@ -1927,6 +1940,65 @@ def doSacked(attack):
     toonTrack = getToonTrack(attack, damageDelay=propDelay + suitDelay + throwDuration, splicedDamageAnims=damageAnims, dodgeDelay=3.0, dodgeAnimNames=['sidestep'], showDamageExtraTime=1.8, showMissedExtraTime=0.8)
     soundTrack = getSoundTrack('AA_drop_sandbag.ogg', delay=2.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, sackTrack)
+
+def doBlast(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    leftKnives = []
+    rightKnives = []
+    explode = []
+    for i in xrange(0, 3):
+        leftKnives.append(globalPropPool.getProp('dagger'))
+        rightKnives.append(globalPropPool.getProp('dagger'))
+        explode.append(globalPropPool.getProp('explosion'))
+        cameraTrack = Sequence(LerpPosHprInterval(camera, duration=0.2, pos=Point3(8, 11, 5), hpr=Point3(150, 0, 0), blendType='easeInOut'))
+
+    suitTrack = getSuitAnimTrack(attack)
+    suitName = suit.getStyleName()
+    if suitName == 'hh':
+        leftPosPoints = [Point3(0.3, 4.3, 5.3), MovieUtil.PNT3_ZERO]
+        rightPosPoints = [Point3(-0.3, 4.3, 5.3), MovieUtil.PNT3_ZERO]
+    elif suitName == 'tbc':
+        leftPosPoints = [Point3(0.6, 4.5, 6), MovieUtil.PNT3_ZERO]
+        rightPosPoints = [Point3(-0.6, 4.5, 6), MovieUtil.PNT3_ZERO]
+    else:
+        leftPosPoints = [Point3(0.4, 10, 3.2), MovieUtil.PNT3_ZERO]
+        rightPosPoints = [Point3(-0.4, 10, 3.2), MovieUtil.PNT3_ZERO]
+        explodePosPoints = [Point3(0, 10, 1), MovieUtil.PNT3_ZERO]
+        leftPosPoints1 = [Point3(0.4, 10, 3.2), MovieUtil.PNT3_ZERO]
+        rightPosPoints1 = [Point3(-0.4, 10, 3.2), MovieUtil.PNT3_ZERO]
+        explodePosPoints1 = [Point3(0, 10, 1), MovieUtil.PNT3_ZERO]
+        explodeHprPoints = [Point3(180, 0, 0), MovieUtil.PNT3_ZERO]
+        explodeHprPoints1 = [Point3(180, 0, 0), MovieUtil.PNT3_ZERO]
+    leftKnifeTracks = Parallel()
+    rightKnifeTracks = Parallel()
+    explodeTracks = Parallel()
+    for i in xrange(0, 3):
+        knifeDelay = 0.11
+        leftTrack = Sequence()
+        leftTrack.append(Wait(1.1))
+        leftTrack.append(Wait(i * knifeDelay))
+        leftTrack.append(getPropAppearTrack(leftKnives[i], suit, leftPosPoints, 1e-06, Point3(1.1, 1.1, 1.1), scaleUpTime=0.1))
+        leftTrack.append(getPropAppearTrack(leftKnives[i], suit, leftPosPoints1, 1e-06, Point3(0, 0, 0), scaleUpTime=0.3))
+        leftKnifeTracks.append(leftTrack)
+        rightTrack = Sequence()
+        rightTrack.append(Wait(1.1))
+        rightTrack.append(Wait(i * knifeDelay))
+        rightTrack.append(getPropAppearTrack(rightKnives[i], suit, rightPosPoints, 1e-06, Point3(0.1, 0.1, 0.1), scaleUpTime=0.1))
+        rightTrack.append(getPropAppearTrack(rightKnives[i], suit, rightPosPoints1, 1e-06, Point3(0, 0, 0), scaleUpTime=0.3))
+        rightKnifeTracks.append(rightTrack)
+        explodeTrack = Sequence()
+        explodeTrack.append(Wait(1.6))
+        explodeTrack.append(getPropAppearTrack(explode[i], suit, explodePosPoints, 1e-06, Point3(1.7, 1.7, 1.7), scaleUpTime=0.1))
+        explodeTrack.append(getPropAppearTrack(explode[i], suit, explodePosPoints1, 1e-06, Point3(0, 0, 0), scaleUpTime=0.3))
+        explodeTrack.append(getPropAppearTrack(explode[i], suit, explodeHprPoints, 1e-06, Point3(0, 0, 0), scaleUpTime=0.3))
+        explodeTrack.append(getPropAppearTrack(explode[i], suit, explodeHprPoints1, 1e-06, Point3(0, 0, 0), scaleUpTime=0.1))
+        explodeTracks.append(explodeTrack)
+
+    damageAnims = [['slip-backward', 0.01, 0.35]]
+    toonTracks = getToonTracks(attack, damageDelay=1.6, splicedDamageAnims=damageAnims, dodgeDelay=0.7, dodgeAnimNames=['sidestep'])
+    soundTrack = getSoundTrack('SA_blast.ogg', delay=1.1, node=suit)
+    return Parallel(cameraTrack, suitTrack, toonTracks, soundTrack, leftKnifeTracks, rightKnifeTracks, explodeTracks)
 
 
 def doGlowerPower(attack):

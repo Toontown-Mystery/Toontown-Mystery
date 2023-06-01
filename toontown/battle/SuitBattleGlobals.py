@@ -1212,19 +1212,19 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
 		        (('Sacked',
 				    (27,),
 					(90,),
-					(25,)),
-                ('PinkSlip',
-				    (24,),
-					(90,),
-					(25,)),
+					(20,)),
+                ('Blast',
+				    (35,),
+					(100,),
+					(60,)),
                 ('Withdrawal',
 				    (31,),
 					(90,),
-					(25,)),
+					(10,)),
                 ('Quake',
 				    (26,),
 					(90,),
-					(25,)))},
+					(10,)))},
  'mes': {'name': 'Golden Timer.fa',
         'singularname': 'a Golden Timer.fa',
 		'pluralname': 'Golden Timers.fa',
@@ -1237,19 +1237,15 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
 		        (('Rolodex',
 				    (26,),
 					(95,),
-					(25,)),
+					(5,)),
+                ('ClockChange',
+				    (35,),
+					(100,),
+					(80,)),
                 ('ThrowMoney',
-				    (30,),
-					(90,),
-					(25,)),
-                ('WriteOff',
-				    (32,),
-					(90,),
-					(25,)),
-                ('Shake',
 				    (21,),
 					(75,),
-					(25,)))},
+					(10,)))},
  'dm': {'name': 'Rich Calculator.fb',
         'singularname': 'a Rich Calculator.fb',
 		'pluralname': 'Rich Calculators.fb',
@@ -1715,6 +1711,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Chomp': ('throw-paper', ATK_TGT_SINGLE),
  'CigarSmoke': ('cigar-smoke', ATK_TGT_SINGLE),
  'ClipOnTie': ('throw-paper', ATK_TGT_SINGLE),
+ 'ClockChange': ('finger-wag', ATK_TGT_GROUP),
  'Crunch': ('throw-object', ATK_TGT_SINGLE),
  'Demotion': ('magic1', ATK_TGT_SINGLE),
  'DoubleTalk': ('speak', ATK_TGT_SINGLE),
@@ -1767,6 +1764,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'RubberStamp': ('rubber-stamp', ATK_TGT_SINGLE),
  'RubOut': ('hold-eraser', ATK_TGT_SINGLE),
  'Sacked': ('throw-paper', ATK_TGT_SINGLE),
+ 'Blast': ('magic3', ATK_TGT_GROUP),
  'SandTrap': ('golf-club-swing', ATK_TGT_SINGLE),
  'Schmooze': ('speak', ATK_TGT_SINGLE),
  'Shake': ('stomp', ATK_TGT_GROUP),
@@ -1798,6 +1796,7 @@ TV_BLAST = SuitAttacks.keys().index('TvBlast')
 CHOMP = SuitAttacks.keys().index('Chomp')
 CIGAR_SMOKE = SuitAttacks.keys().index('CigarSmoke')
 CLIPON_TIE = SuitAttacks.keys().index('ClipOnTie')
+CLOCK_CHANGE = SuitAttacks.keys().index('ClockChange')
 CRUNCH = SuitAttacks.keys().index('Crunch')
 DEMOTION = SuitAttacks.keys().index('Demotion')
 DOWNSIZE = SuitAttacks.keys().index('Downsize')
@@ -1850,6 +1849,7 @@ ROLODEX = SuitAttacks.keys().index('Rolodex')
 RUBBER_STAMP = SuitAttacks.keys().index('RubberStamp')
 RUB_OUT = SuitAttacks.keys().index('RubOut')
 SACKED = SuitAttacks.keys().index('Sacked')
+BLAST = SuitAttacks.keys().index('Blast')
 SANDTRAP = SuitAttacks.keys().index('SandTrap')
 SCHMOOZE = SuitAttacks.keys().index('Schmooze')
 SHAKE = SuitAttacks.keys().index('Shake')
