@@ -126,6 +126,8 @@ def doSuitAttack(attack):
         suitTrack = doBrainStorm(attack)
     elif name == BUZZ_WORD:
         suitTrack = doBuzzWord(attack)
+    elif name == CALCULATOR:
+        suitTrack = doCalculator(attack)
     elif name == CALCULATE:
         suitTrack = doCalculate(attack)
     elif name == CANNED:
@@ -202,6 +204,8 @@ def doSuitAttack(attack):
         suitTrack = doLiquidate(attack)
     elif name == MARKET_CRASH:
         suitTrack = doMarketCrash(attack)
+    elif name == MONEY_TRIP:
+        suitTrack = doMoneyTrip(attack)
     elif name == MUMBO_JUMBO:
         suitTrack = doMumboJumbo(attack)
     elif name == PARADIGM_SHIFT:
@@ -1475,6 +1479,34 @@ def doBuzzWord(attack):
     toonTrack = getToonTrack(attack, damageDelay=damageDelay, damageAnimNames=['cringe'], splicedDodgeAnims=[['duck', dodgeDelay, 1.4]], showMissedExtraTime=dodgeDelay + 0.5)
     soundTrack = getSoundTrack('SA_buzz_word.ogg', delay=3.9, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, *particleTracks)
+
+def doCalculator(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    calculator = globalPropPool.getProp('calculator')
+    receiver = globalPropPool.getProp('receiver')
+    suitTrack = getSuitAnimTrack(attack)
+    suitName = suit.getStyleName()
+    if suitName == 'tf':
+        phonePosPoints = [Point3(-0.23, 0.01, -0.26), VBase3(5.939, 2.763, -177.591)]
+        receiverPosPoints = [Point3(-0.13, -0.07, -0.06), VBase3(-1.854, 2.434, -177.579)]
+        receiverAdjustScale = Point3(0.8, 0.8, 0.8)
+        pickupDelay = 0.44
+        dialDuration = 3.07
+        finalPhoneDelay = 0.01
+        scaleUpPoint = Point3(0.75, 0.75, 0.75)
+    else:
+        phonePosPoints = [Point3(0.35, 0.52, 0.03), VBase3(1.352, -6.518, -6.045)]
+        receiverPosPoints = [Point3(0.23, 0.17, -0.11), VBase3(5.939, 2.763, -177.591)]
+        receiverAdjustScale = MovieUtil.PNT3_ONE
+        pickupDelay = 0.74
+        dialDuration = 3.07
+        finalPhoneDelay = 0.69
+        scaleUpPoint = MovieUtil.PNT3_ONE
+    propTrack = Sequence(Wait(0.3), Func(__showProp, calculator, suit.getLeftHand(), phonePosPoints[0], phonePosPoints[1]), Func(__showProp, receiver, suit.getLeftHand(), receiverPosPoints[0], receiverPosPoints[1]), LerpScaleInterval(calculator, 0.5, scaleUpPoint, MovieUtil.PNT3_NEARZERO), Wait(pickupDelay), Func(receiver.wrtReparentTo, suit.getRightHand()), LerpScaleInterval(receiver, 0.01, receiverAdjustScale), LerpPosHprInterval(receiver, 0.0001, Point3(-0.53, 0.21, -0.54), VBase3(-99.49, -35.27, 1.84)), Wait(dialDuration), Func(receiver.wrtReparentTo, calculator), Wait(finalPhoneDelay), LerpScaleInterval(calculator, 0.5, MovieUtil.PNT3_NEARZERO), Func(MovieUtil.removeProps, [receiver, calculator]))
+    toonTracks = getToonTracks(attack, 5.5, ['slip-backward'], 4.7, ['jump'])
+    soundTrack = getSoundTrack('SA_audit.ogg', delay=1.3, node=suit)
+    return Parallel(suitTrack, toonTracks, propTrack, soundTrack)
 
 
 def doDemotion(attack):
@@ -3112,6 +3144,60 @@ def doPowerTrip(attack):
     toonTracks = getToonTracks(attack, 1.8, ['slip-forward'], 1.29, ['jump'])
     soundTrack = getSoundTrack('lightning_1.ogg', delay=1.5, node=suit)
     return Parallel(suitTrack, partTrack1, partTrack2, waterfallTrack, toonTracks, soundTrack)
+
+
+def getThrowEndPoint(suit, toon, battle, whichBounce):
+    pnt = toon.getPos(toon)
+    if whichBounce == 'one':
+        pnt.setY(pnt[1] + 8)
+    elif whichBounce == 'two':
+        pnt.setY(pnt[1] + 5)
+    elif whichBounce == 'threeHit':
+        pnt.setZ(pnt[2] + toon.shoulderHeight + 0.3)
+    elif whichBounce == 'threeMiss':
+        pass
+    elif whichBounce == 'four':
+        pnt.setY(pnt[1] - 5)
+    return Point3(pnt)
+
+def doMoneyTrip(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    cameraTrack = Sequence(LerpPosHprInterval(camera, duration=0.25, pos=Point3(0, -15, 2), hpr=Point3(0, 0, 0), blendType='easeInOut'))
+    centerColor = Vec4(0, 1.0, 0, 1.0)
+    edgeColor = Vec4(0, 1.0, 0, 1.0)
+    powerBar1 = BattleParticles.createParticleEffect(file='moneytrip')
+    powerBar2 = BattleParticles.createParticleEffect(file='moneytrip2')
+    powerBar1.setPos(0, 6.1, 0.4)
+    powerBar1.setHpr(-60, 0, 0)
+    powerBar2.setPos(0, 6.1, 0.4)
+    powerBar2.setHpr(60, 0, 0)
+    powerBar1Particles = powerBar1.getParticlesNamed('particles-1')
+    powerBar2Particles = powerBar2.getParticlesNamed('particles-1')
+    powerBar1Particles.renderer.setCenterColor(centerColor)
+    powerBar1Particles.renderer.setEdgeColor(edgeColor)
+    powerBar2Particles.renderer.setCenterColor(centerColor)
+    powerBar2Particles.renderer.setEdgeColor(edgeColor)
+    waterfallEffect = BattleParticles.createParticleEffect('Waterfall')
+    waterfallEffect.setScale(11)
+    waterfallParticles = waterfallEffect.getParticlesNamed('particles-1')
+    waterfallParticles.renderer.setCenterColor(centerColor)
+    waterfallParticles.renderer.setEdgeColor(edgeColor)
+    suitName = suit.getStyleName()
+    if suitName == 'mh':
+        waterfallEffect.setPos(0, 4, 3.6)
+    suitTrack = getSuitAnimTrack(attack)
+
+    def getPowerTrack(effect, suit = suit, battle = battle):
+        partTrack = Sequence(Wait(1.0), Func(battle.movie.needRestoreParticleEffect, effect), Func(effect.start, suit), Wait(0.4), LerpPosInterval(effect, 1.0, Point3(0, 15, 0.4)), LerpFunctionInterval(effect.setAlphaScale, fromData=1, toData=0, duration=0.4), Func(effect.cleanup), Func(battle.movie.clearRestoreParticleEffect, effect))
+        return partTrack
+
+    partTrack1 = getPowerTrack(powerBar1)
+    partTrack2 = getPowerTrack(powerBar2)
+    waterfallTrack = getPartTrack(waterfallEffect, 0.6, 1.3, [waterfallEffect, suit, 0])
+    toonTracks = getToonTracks(attack, 1.8, ['slip-forward'], 1.29, ['jump'])
+    soundTrack = getSoundTrack('SA_money_fall.ogg', delay=0.8, node=suit)
+    return Parallel(cameraTrack, suitTrack, partTrack1, partTrack2, waterfallTrack, toonTracks, soundTrack)
 
 
 def getThrowEndPoint(suit, toon, battle, whichBounce):

@@ -168,7 +168,7 @@ ad = (('throw-object', 'throw-object', 5), ('throw-paper', 'throw-paper', 5), ('
 csh = (('pickpocket', 'pickpocket', 5), ('phone', 'phone', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5))
 bgr = (('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('magic3', 'magic3', 5), ('magic1', 'magic1', 5), ('quick-jump', 'jump', 6))
 mes = (('stomp', 'stomp', 5), ('finger-wag', 'finger-wag', 5), ('hold-pencil', 'hold-pencil', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5))
-dm = (('magic3', 'magic3', 5), ('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'finger-wag', 5))
+dm = (('magic3', 'magic3', 5), ('phone', 'phone', 5), ('magic2', 'magic2', 5), ('pickpocket', 'pickpocket', 5), ('throw-paper', 'throw-paper', 5), ('roll-o-dex', 'roll-o-dex', 5), ('hold-pencil', 'hold-pencil', 5), ('finger-wag', 'finger-wag', 5))
 tcc = (('pickpocket', 'pickpocket', 5), ('magic1', 'magic1', 5), ('phone', 'phone', 5))
 bf = (('pickpocket', 'pickpocket', 5),
  ('rubber-stamp', 'rubber-stamp', 5),
