@@ -656,10 +656,10 @@ class Suit(Avatar.Avatar):
             self.setHeight(6.4)
         elif dna.name == 'sd':
             self.scale = 5.0 / aSize
-            self.handColor = VBase4(1.0, 0, 1.0, 1.0)
+            self.handColor = VBase4(0.3, 0.3, 0.3, 1.0)
             self.generateBody()
             self.generateHead('monkeycog', 'phase_4/models/char/courtmonkey.bam')
-            self.setHeight(6.3)
+            self.setHeight(5.75)
         elif dna.name == 'le':
             self.scale = 5.8 / aSize
             self.handColor = VBase4(1, 1, 0, 1.0)
