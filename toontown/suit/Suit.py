@@ -649,18 +649,16 @@ class Suit(Avatar.Avatar):
             self.generateHead('microcog', 'phase_4/models/char/micro.bam')
             self.setHeight(4.8)
         elif dna.name == 'bs':
-            self.scale = 4.8 / bSize
+            self.scale = 4.5 / bSize
             self.handColor = VBase4(0, 1.0, 0.2, 1.0)
             self.generateBody()
-            self.headTexture = 'judge.jpg'
             self.generateHead('judgegavel', 'phase_4/models/char/gavel.bam')
-            self.setHeight(5.8)
+            self.setHeight(6.4)
         elif dna.name == 'sd':
-            self.scale = 5.2 / aSize
+            self.scale = 5.0 / aSize
             self.handColor = VBase4(1.0, 0, 1.0, 1.0)
             self.generateBody()
-            self.headTexture = 'software_simian.jpg'
-            self.generateHead('numbercruncher')
+            self.generateHead('monkeycog', 'phase_4/models/char/courtmonkey.bam')
             self.setHeight(6.3)
         elif dna.name == 'le':
             self.scale = 5.8 / aSize
@@ -1216,10 +1214,10 @@ class Suit(Avatar.Avatar):
                 headPart.setH(90)
                 headPart.setP(0)
                 headPart.setR(0)
-                headPart.setX(0)
+                headPart.setX(0.65)
                 headPart.setY(0)
-                headPart.setZ(0.76)
-                headPart.setScale(0.9, 0.9, 0.9)
+                headPart.setZ(2.9)
+                headPart.setScale(0.4)
             elif headType == 'fashionistacog':
                 headPart.setH(180)
                 headPart.setX(0)
@@ -1292,6 +1290,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.5)
                 headPart.setScale(0.3)
+            elif headType == 'monkeycog':
+                headPart.setH(20)
+                headPart.setP(0)
+                headPart.setR(-180)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(0.5)
+                headPart.setScale(1)
             elif headType == 'scarycog':
                 headPart.setH(0)
                 headPart.setX(0)
