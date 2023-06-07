@@ -693,11 +693,9 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(1, 0.5, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
+            self.generateHead('cage', 'phase_4/models/char/trap.bam')
             self.setHeight(6.8)
             self.setTransparency(1)
-            self.setColor(0.1, 0, 0.9, 1)
         elif dna.name == 'jur':
             self.scale = 5.1 / bSize
             self.handColor = VBase4(1, 0.65, 0, 1.0)
@@ -1274,6 +1272,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.2)
                 headPart.setZ(3.5)
                 headPart.setScale(0.6, 0.6, 0.1)
+            elif headType == 'cage':
+                headPart.setH(90)
+                headPart.setP(0)
+                headPart.setR(0)
+                headPart.setX(-1.8)
+                headPart.setY(-1.2)
+                headPart.setZ(0.65)
+                headPart.setScale(0.3, 0.3, 0.6)
             elif headType == 'scalecog':
                 headPart.setH(0)
                 headPart.setP(0)
