@@ -690,7 +690,7 @@ class Suit(Avatar.Avatar):
             self.setHeight(8.8)
         elif dna.name == 'jdg':
             self.scale = 5.7 / aSize
-            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.handColor = VBase4(0.2, 0.2, 0.2, 1.0)
             self.setPickable(0)
             self.generateBody()
             self.generateHead('cage', 'phase_4/models/char/trap.bam')
@@ -698,14 +698,12 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'jur':
             self.scale = 5.1 / bSize
-            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.handColor = VBase4(0, 0.1, 0.4, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
+            self.generateHead('jurycog', 'phase_4/models/char/jury.bam')
             self.setHeight(6.2)
             self.setTransparency(1)
-            self.setColor(0.2, 0, 0.8, 1)
         elif dna.name == 'tlr':
             self.scale = 5.6 / aSize
             self.handColor = VBase4(1, 0.8, 0, 1.0)
@@ -1304,6 +1302,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.5)
                 headPart.setScale(1)
+            elif headType == 'jurycog':
+                headPart.setH(90)
+                headPart.setP(0)
+                headPart.setR(0)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(2.6)
+                headPart.setScale(0.26)
             elif headType == 'scarycog':
                 headPart.setH(0)
                 headPart.setX(0)
