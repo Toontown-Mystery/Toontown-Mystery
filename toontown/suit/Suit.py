@@ -702,7 +702,7 @@ class Suit(Avatar.Avatar):
             self.setPickable(0)
             self.generateBody()
             self.generateHead('jurycog', 'phase_4/models/char/jury.bam')
-            self.setHeight(6.2)
+            self.setHeight(6.8)
             self.setTransparency(1)
         elif dna.name == 'tlr':
             self.scale = 5.6 / aSize
