@@ -684,7 +684,7 @@ def __createSlideshowMultiTrack(lure, npcs = []):
                 suitTrack.append(LureRoundsTrack)
                 suitTrack.append(ActorInterval(suit, 'hypnotized', duration=3.1))
                 suitTrack.append(Func(suit.setPos, battle, reachPos))
-                suitTrack.append(Func(suit.loop, 'neutral'))
+                suitTrack.append(Func(suit.loop, 'lured'))
                 suitTrack.append(Func(battle.lureSuit, suit))
                 if hp > 0:
                     suitTrack.append(__createSuitDamageTrack(battle, suit, hp, lure, trapProp))

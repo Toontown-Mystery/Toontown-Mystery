@@ -706,14 +706,12 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'tlr':
             self.scale = 5.6 / aSize
-            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.handColor = VBase4(0, 0.75, 1.0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
-            self.setHeight(6.7)
+            self.generateHead('wheelcog', 'phase_4/models/char/wheel.bam')
+            self.setHeight(8.8)
             self.setTransparency(1)
-            self.setColor(0.3, 0, 0.6, 1)
         elif dna.name == 'cm':
             self.scale = 7.5 / aSize
             self.handColor = SuitDNA.legalPolyColor
@@ -1302,6 +1300,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.5)
                 headPart.setScale(1)
+            elif headType == 'wheelcog':
+                headPart.setH(180)
+                headPart.setP(0)
+                headPart.setR(0)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(1.3)
+                headPart.setScale(0.35, 0.35, 0.75)
             elif headType == 'jurycog':
                 headPart.setH(90)
                 headPart.setP(0)
