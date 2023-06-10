@@ -727,10 +727,8 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(0.25, 0, 1, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('loanshark')
-            self.makeSkeleton()
+            self.generateHead('catcog', 'phase_4/models/char/cat.bam')
             self.setTransparency(1)
-            self.setColor(0.25, 0, 1, 1)
             self.setHeight(9.31)
         elif dna.name == 'sc':
             self.scale = 2.5 / cSize
@@ -1260,6 +1258,11 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.2)
                 headPart.setZ(1.5)
                 headPart.setScale(0.77)
+            elif headType == 'catcog':
+                headPart.setH(180)
+                headPart.setX(-0.25)
+                headPart.setY(0)
+                headPart.setZ(1.9)
             elif headType == 'baggercog':
                 headPart.setH(0)
                 headPart.setP(0)
