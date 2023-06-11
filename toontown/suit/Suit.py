@@ -661,33 +661,33 @@ class Suit(Avatar.Avatar):
             self.generateHead('monkeycog', 'phase_4/models/char/courtmonkey.bam')
             self.setHeight(5.75)
         elif dna.name == 'le':
-            self.scale = 5.8 / aSize
+            self.scale = 5.0 / aSize
             self.handColor = VBase4(1, 1, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/sun.bam')
             self.generateHollyStuff()
-            self.setHeight(6.75)
+            self.setHeight(5.85)
         elif dna.name == 'bw':
-            self.scale = 6.5 / aSize
+            self.scale = 6.0 / aSize
             self.handColor = SuitDNA.legalPolyColor
             self.generateBody()
             self.headTexture = 'diamond.jpg'
             self.generateHead('yesman')
-            self.setHeight(7.7)
+            self.setHeight(7.1)
         elif dna.name == 'brv':
-            self.scale = 7.0 / bSize
+            self.scale = 6.5 / bSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'bravester.jpg'
             self.generateHead('movershaker')
-            self.setHeight(8.2)
+            self.setHeight(7.85)
         elif dna.name == 'sb':
-            self.scale = 7.5 / bSize
+            self.scale = 7.0 / bSize
             self.handColor = VBase4(1.0, 1.0, 1.0, 1.0)
             self.headColor = VBase4(0.0, 0.0, 0.0, 1.0)
             self.generateBody()
             self.generateHead('safe', 'phase_5/models/props/safe.bam')
-            self.setHeight(8.8)
+            self.setHeight(8.35)
         elif dna.name == 'jdg':
             self.scale = 5.7 / aSize
             self.handColor = VBase4(0.2, 0.2, 0.2, 1.0)
@@ -714,14 +714,12 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'cm':
             self.scale = 7.5 / aSize
-            self.handColor = SuitDNA.legalPolyColor
+            self.handColor = VBase4(0, 0, 0.3, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
+            self.generateHead('bookcog', 'phase_4/models/char/book.bam')
             self.setTransparency(1)
-            self.setColor(0, 1, 1, 1)
-            self.setHeight(8.65)
+            self.setHeight(9.25)
         elif dna.name == 'ggm':
             self.scale = 8.0 / bSize
             self.handColor = VBase4(0.25, 0, 1, 1.0)
@@ -1303,6 +1301,14 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.5)
                 headPart.setScale(1)
+            elif headType == 'bookcog':
+                headPart.setH(180)
+                headPart.setP(0)
+                headPart.setR(180)
+                headPart.setX(0)
+                headPart.setY(-0.2)
+                headPart.setZ(1)
+                headPart.setScale(1.2, 0.5, 1.2)
             elif headType == 'wheelcog':
                 headPart.setH(180)
                 headPart.setP(0)
