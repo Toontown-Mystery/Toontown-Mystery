@@ -506,11 +506,11 @@ class Suit(Avatar.Avatar):
         self.isImmune = 0
         self.setBlend(frameBlend=True)
         if dna.name == 'f':
-            self.scale = 5.0 / cSize
-            self.handColor = VBase4(1.0, 0, 0, 1.0)
+            self.scale = 3.0 / cSize
+            self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
-            self.generateHead('gladhander')
-            self.setHeight(6.2)
+            self.generateHead('crowncog', 'phase_4/models/char/crown.bam')
+            self.setHeight(3.9)
         elif dna.name == 'p':
             self.scale = 3.25 / bSize
             self.handColor = SuitDNA.corpPolyColor
@@ -1309,6 +1309,13 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.2)
                 headPart.setZ(1)
                 headPart.setScale(1.2, 0.5, 1.2)
+            elif headType == 'crowncog':
+                headPart.setH(180)
+                headPart.setP(0)
+                headPart.setR(0)
+                headPart.setX(-0.7)
+                headPart.setY(0.1)
+                headPart.setZ(0.4)
             elif headType == 'wheelcog':
                 headPart.setH(180)
                 headPart.setP(0)
