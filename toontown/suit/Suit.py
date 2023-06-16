@@ -513,10 +513,10 @@ class Suit(Avatar.Avatar):
             self.setHeight(3.9)
         elif dna.name == 'p':
             self.scale = 3.25 / bSize
-            self.handColor = SuitDNA.corpPolyColor
+            self.handColor = VBase4(0.5, 0.5, 0, 1.0)
             self.generateBody()
-            self.generateHead('pencilpusher')
-            self.setHeight(4.15)
+            self.generateHead('pencilcog', 'phase_4/models/char/pencil.bam')
+            self.setHeight(4.55)
         elif dna.name == 'ym':
             self.scale = 6.0 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
@@ -1338,6 +1338,12 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.75)
                 headPart.setScale(0.98)
+            elif headType == 'pencilcog':
+                headPart.setH(0)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(4.2)
+                headPart.setScale(0.4)
             elif headType == 'crystal':
                 headPart.setH(0)
                 headPart.setX(0)
