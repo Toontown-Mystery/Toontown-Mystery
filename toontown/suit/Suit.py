@@ -513,30 +513,30 @@ class Suit(Avatar.Avatar):
             self.setHeight(3.9)
         elif dna.name == 'p':
             self.scale = 3.25 / bSize
-            self.handColor = VBase4(0.5, 0.5, 0, 1.0)
+            self.handColor = VBase4(0.8, 0.8, 0, 1.0)
             self.generateBody()
             self.generateHead('pencilcog', 'phase_4/models/char/pencil.bam')
             self.setHeight(4.55)
         elif dna.name == 'ym':
-            self.scale = 6.0 / aSize
+            self.scale = 3.5 / aSize
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('backstabber')
-            self.setHeight(7.15)
+            self.setHeight(4.35)
         elif dna.name == 'mm':
-            self.scale = 3.75 / bSize
+            self.scale = 4.0 / bSize
             self.handColor = VBase4(1.0, 0, 0.2, 0.5)
             self.generateBody()
             self.headTexture = 'cat.jpg'
             self.generateHead('movershaker')
-            self.setHeight(4.68)
+            self.setHeight(4.88)
         elif dna.name == 'ds':
-            self.scale = 7.0 / aSize
-            self.handColor = VBase4(0.8, 0.7, 0.7, 1.0)
+            self.scale = 4.5 / aSize
+            self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
-            self.generateHead('headhunter')
+            self.generateHead('knightcog', 'phase_4/models/char/knight.bam')
             self.generateHudStuff()
-            self.setHeight(8.08)
+            self.setHeight(6.26)
         elif dna.name == 'hh':
             self.scale = 5.5 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
@@ -1362,6 +1362,11 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.8)
                 headPart.setScale(0.9)
+            elif headType == 'knightcog':
+                headPart.setH(180)
+                headPart.setX(-0.4)
+                headPart.setY(0.9)
+                headPart.setZ(1.8)
             elif headType == 'Cylinder':
                 headPart.setH(3.8)
                 headPart.setX(0)
