@@ -581,24 +581,20 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'bg':
             self.scale = 4.6 / bSize
-            self.handColor = VBase4(1, 0.65, 0, 1.0)
+            self.handColor = VBase4(1.0, 1.0, 0.5, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
+            self.generateHead('cogguard', 'phase_4/models/char/guard.bam')
             self.setHeight(5.8)
             self.setTransparency(1)
-            self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'msr':
             self.scale = 4.6 / bSize
-            self.handColor = VBase4(1, 0.8, 0, 1.0)
+            self.handColor = VBase4(0.7, 1.0, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
-            self.setHeight(5.8)
+            self.generateHead('servantcog', 'phase_4/models/char/servant.bam')
+            self.setHeight(8.7)
             self.setTransparency(1)
-            self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'kb':
             self.scale = 7.5 / aSize
             self.handColor = SuitDNA.corpPolyColor
@@ -1382,6 +1378,18 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(2)
                 headPart.setScale(0.6)
+            elif headType == 'cogguard':
+                headPart.setH(0)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(1.8)
+                headPart.setScale(0.8)
+            elif headType == 'servantcog':
+                headPart.setH(130)
+                headPart.setX(0)
+                headPart.setY(1.5)
+                headPart.setZ(5.3)
+                headPart.setScale(0.055)
             elif headType == 'Plane':
                 headPart.setH(180)
                 headPart.setP(90)
