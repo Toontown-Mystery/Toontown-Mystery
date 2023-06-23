@@ -538,50 +538,47 @@ class Suit(Avatar.Avatar):
             self.generateHudStuff()
             self.setHeight(6.26)
         elif dna.name == 'hh':
-            self.scale = 5.5 / bSize
+            self.scale = 5.0 / bSize
             self.handColor = VBase4(0, 1.0, 0, 1.0)
             self.generateBody()
             self.headTexture = 'spin-doctor.jpg'
             self.generateHead('telemarketer')
             self.generateSimonStuff()
             self.generateSimon2Stuff()
-            self.setHeight(6.59)
+            self.setHeight(5.85)
         elif dna.name == 'cr':
-            self.scale = 6.5 / aSize
+            self.scale = 5.5 / aSize
             self.handColor = VBase4(1.0, 0, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/space.bam')
-            self.setHeight(7.85)
+            self.setHeight(6.75)
         elif dna.name == 'tbc':
-            self.scale = 7.0 / aSize
+            self.scale = 6.0 / aSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.generateHead('cheeseandcheese', 'phase_4/models/char/goldencheese.bam')
-            self.setHeight(8.55)
+            self.setHeight(7.75)
         elif dna.name == 'trb':
-            self.scale = 7.5 / aSize
+            self.scale = 6.5 / aSize
             self.handColor = VBase4(0, 0, 1.0, 1.0)
             self.generateBody()
             self.headTexture = 'rain.jpg'
             self.generateHead('numbercruncher')
-            self.setHeight(8.65)
+            self.setHeight(7.65)
         elif dna.name == 'dot':
-            self.scale = 8.0 / cSize
-            self.handColor = VBase4(0, 1.0, 0, 1.0)
-            self.headColor = VBase4(0.0, 1.0, 0.0, 1.0)
+            self.scale = 7.0 / cSize
+            self.handColor = VBase4(1.0, 0.3, 0.3, 1.0)
             self.generateBody()
-            self.generateHead('Icosphere', 'phase_3.5/models/char/tomato.bam')
-            self.setHeight(9.23)
+            self.generateHead('tomatocog', 'phase_3.5/models/char/tomato.bam')
+            self.setHeight(9.95)
         elif dna.name == 'cg':
             self.scale = 4.6 / bSize
-            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.handColor = VBase4(0.85, 0.85, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('movershaker')
-            self.makeSkeleton()
+            self.generateHead('crownguardcog', 'phase_4/models/char/crownguard.bam')
             self.setHeight(5.8)
             self.setTransparency(1)
-            self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bg':
             self.scale = 4.6 / bSize
             self.handColor = VBase4(1, 0.65, 0, 1.0)
@@ -1373,12 +1370,18 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(0.7)
                 headPart.setScale(0.87)
-            elif headType == 'Icosphere':
-                headPart.setH(180)
+            elif headType == 'tomatocog':
+                headPart.setH(90)
                 headPart.setX(0)
                 headPart.setY(0)
-                headPart.setZ(0.7)
-                headPart.setScale(1.57)
+                headPart.setZ(2.55)
+                headPart.setScale(0.25)
+            elif headType == 'crownguardcog':
+                headPart.setH(0)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(2)
+                headPart.setScale(0.6)
             elif headType == 'Plane':
                 headPart.setH(180)
                 headPart.setP(90)
