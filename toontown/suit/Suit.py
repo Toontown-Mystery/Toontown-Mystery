@@ -605,14 +605,12 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'ts':
             self.scale = 8.0 / aSize
-            self.handColor = VBase4(1, 0.5, 0, 1.0)
+            self.handColor = VBase4(0.5, 0.4, 0, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
-            self.setHeight(9.2)
+            self.generateHead('sweepcog', 'phase_4/models/char/sweeper.bam')
+            self.setHeight(10.5)
             self.setTransparency(1)
-            self.setColor(1, 0.5, 0, 1)
         elif dna.name == 'bf':
             self.scale = 2.5 / cSize
             self.handColor = SuitDNA.legalPolyColor
@@ -1394,6 +1392,12 @@ class Suit(Avatar.Avatar):
                 headPart.setY(0)
                 headPart.setZ(1.65)
                 headPart.setScale(0.050)
+            elif headType == 'sweepcog':
+                headPart.setH(90)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(0.85)
+                headPart.setScale(0.6, 0.6, 1.0)
             elif headType == 'Plane':
                 headPart.setH(180)
                 headPart.setP(90)
