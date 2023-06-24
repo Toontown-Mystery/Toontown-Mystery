@@ -597,14 +597,12 @@ class Suit(Avatar.Avatar):
             self.setTransparency(1)
         elif dna.name == 'kb':
             self.scale = 7.5 / aSize
-            self.handColor = SuitDNA.corpPolyColor
+            self.handColor = VBase4(0, 0, 0.6, 1.0)
             self.setPickable(0)
             self.generateBody()
-            self.generateHead('yesman')
-            self.makeSkeleton()
+            self.generateHead('berrycog', 'phase_4/models/char/berry.bam')
             self.setHeight(8.75)
             self.setTransparency(1)
-            self.setColor(0, 0.5, 1, 1)
         elif dna.name == 'ts':
             self.scale = 8.0 / aSize
             self.handColor = VBase4(1, 0.5, 0, 1.0)
@@ -1390,6 +1388,12 @@ class Suit(Avatar.Avatar):
                 headPart.setY(1.5)
                 headPart.setZ(5.3)
                 headPart.setScale(0.055)
+            elif headType == 'berrycog':
+                headPart.setH(180)
+                headPart.setX(-0.65)
+                headPart.setY(0)
+                headPart.setZ(1.65)
+                headPart.setScale(0.050)
             elif headType == 'Plane':
                 headPart.setH(180)
                 headPart.setP(90)
