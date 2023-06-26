@@ -22,11 +22,11 @@ Trap 370 Damage.
 Trap 500 Damage.
 # Richie Verdi: 
 Trap 835 Damage.
-# Strawberry: 
+# Kiera: 
 Lure 2 Rounds.
-# Classic Noah: 
+# Lola: 
 Lure 3 Rounds.
 # Queen Berry Cat: 
-Lure 4 Rounds.
+Lure 5 Rounds.
 # Marka:
 Restock All Gags.

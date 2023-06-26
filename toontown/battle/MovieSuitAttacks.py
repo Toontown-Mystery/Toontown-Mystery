@@ -198,6 +198,8 @@ def doSuitAttack(attack):
         suitTrack = doHotAir(attack)
     elif name == JARGON:
         suitTrack = doJargon(attack)
+    elif name == LAW_BOOK:
+        suitTrack = doLawBook(attack)
     elif name == LEGALESE:
         suitTrack = doLegalese(attack)
     elif name == LIQUIDATE:
@@ -4193,6 +4195,49 @@ def doJargon(attack):
     toonTrack = getToonTrack(attack, damageDelay=damageDelay, splicedDamageAnims=damageAnims, dodgeDelay=dodgeDelay, splicedDodgeAnims=dodgeAnims, showMissedExtraTime=1.6, showDamageExtraTime=0.7)
     soundTrack = getSoundTrack('SA_jargon.ogg', delay=2.1, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, partTrack, partTrack2, partTrack3, partTrack4)
+
+def doLawBook(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    dmg = target['hp']
+    suitDelay = 2.0
+    propDelay = 0.6
+    throwDuration = 1.5
+    book = globalPropPool.getProp('book')
+    suitTrack = getSuitTrack(attack)
+    posPoints = [Point3(-0.01, -0.05, 0.15), VBase3(180.00, -45.00, -45.00)]
+    paperTrack = Sequence(getPropAppearTrack(book, suit.getRightHand(), posPoints, propDelay, Point3(2.25, 2.25, 2.25), scaleUpTime=0.5))
+    paperTrack.append(Wait(suitDelay))
+    hitPoint = toon.getPos(battle)
+    hitPoint.setX(hitPoint.getX() + 1.2)
+    hitPoint.setY(hitPoint.getY() + 1.5)
+    if dmg > 0:
+        hitPoint.setZ(hitPoint.getZ() + 1.1)
+    movePoint = Point3(hitPoint.getX(), hitPoint.getY() - 1.8, hitPoint.getZ() + 0.2)
+    paperTrack.append(Func(battle.movie.needRestoreRenderProp, book))
+    paperTrack.append(Func(book.wrtReparentTo, battle))
+    paperTrack.append(getThrowTrack(book, hitPoint, duration=throwDuration, parent=battle))
+    paperTrack.append(Wait(0.6))
+    paperTrack.append(LerpPosInterval(book, 0.4, movePoint))
+    spinTrack = Sequence(Wait(propDelay + suitDelay + 0.2), LerpHprInterval(book, throwDuration, Point3(180, 90, 90)))
+    sizeTrack = Sequence(Wait(propDelay + suitDelay + 0.2), LerpScaleInterval(book, throwDuration, Point3(6, 6, 6)), Wait(0.95), LerpScaleInterval(book, 0.4, MovieUtil.PNT3_NEARZERO))
+    propTrack = Sequence(Parallel(paperTrack, spinTrack, sizeTrack), Func(MovieUtil.removeProp, book), Func(battle.movie.clearRenderProp, book))
+    damageAnims = []
+    damageAnims.append(['cringe',
+     0.01,
+     0.21,
+     0.08])
+    damageAnims.append(['slip-forward',
+     0.01,
+     0.6,
+     0.85])
+    damageAnims.extend(getSplicedLerpAnims('slip-forward', 0.31, 0.95, startTime=1.2))
+    damageAnims.append(['slip-forward', 0.01, 1.51])
+    toonTrack = getToonTrack(attack, damageDelay=4.35, splicedDamageAnims=damageAnims, dodgeDelay=2.4, dodgeAnimNames=['sidestep'], showDamageExtraTime=0.4, showMissedExtraTime=1.3)
+    soundTrack = getSoundTrack('tt_s_ara_cmg_itemHitsFloor.ogg', delay=4.4, node=suit)
+    return Parallel(suitTrack, toonTrack, soundTrack, propTrack)
 
 
 def doMumboJumbo(attack):

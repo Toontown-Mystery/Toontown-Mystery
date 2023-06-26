@@ -701,7 +701,7 @@ SellbotBossP3PosA = (-50, 40, 18)
 SellbotBossTopRampPosB = (80, -35, 18)
 SellbotBossTopRampTurnPosB = (80, 10, 18)
 SellbotBossP3PosB = (50, 60, 18)
-CashbotBossMaxDamage = 7500
+CashbotBossMaxDamage = 5000
 CashbotBossOffstagePosHpr = (120,
  - 195,
  0,

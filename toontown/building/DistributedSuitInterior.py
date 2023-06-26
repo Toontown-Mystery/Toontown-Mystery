@@ -53,6 +53,14 @@ class DistributedSuitInterior(DistributedObject.DistributedObject):
          180,
          180,
          180]
+        self.Final_SuitPositions = [Point3(-12, 20, 0),
+         Point3(0, 25, 0),
+         Point3(5, 25, 0),
+         Point3(9, 20, 0)]
+        self.Final_SuitHs = [180,
+         90,
+         270,
+         0]
         self.BossOffice_SuitPositions = [Point3(0, 15, 0),
          Point3(10, 20, 0),
          Point3(-10, 6, 0),
@@ -263,14 +271,18 @@ class DistributedSuitInterior(DistributedObject.DistributedObject):
             self.floorModel = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_cbr_barrelRoom')
             SuitHs = self.Mint_SuitHs
             SuitPositions = self.Mint_SuitPositions
-        elif self.currentFloor == self.numFloors - 2:
+        elif self.currentFloor == self.numFloors - 3:
             self.floorModel = loader.loadModel('phase_7/models/modules/suit_interior')
             SuitHs = self.BottomFloor_SuitHs
             SuitPositions = self.BottomFloor_SuitPositions
-        elif self.currentFloor == self.numFloors - 1:
+        elif self.currentFloor == self.numFloors - 2:
             self.floorModel = loader.loadModel('phase_7/models/modules/boss_suit_office')
             SuitHs = self.BossOffice_SuitHs
             SuitPositions = self.BossOffice_SuitPositions
+        elif self.currentFloor == self.numFloors - 1:
+            self.floorModel = loader.loadModel('phase_5/models/cogdominium/tt_m_ara_ccg_level')
+            SuitHs = self.Final_SuitHs
+            SuitPositions = self.Final_SuitPositions
         else:
             self.floorModel = loader.loadModel('phase_7/models/modules/cubicle_room')
             SuitHs = self.Cubicle_SuitHs
