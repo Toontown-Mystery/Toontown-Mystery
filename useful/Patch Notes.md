@@ -342,3 +342,115 @@ Toontown Mystery 3.2.9
 * Speedy Racetrack
 * Sleepy Space
 * Golfing Station
+
+Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
+
+  Ohhhh boy! Do we have a lot of updates here to list within the past couple months!
+  It's a lot to go over, so I'll try to list them the best I can.
+
+* Replaced the Toon font with some BFDI text font, and the Cog font with Impact, this was
+  so it could look better.
+
+* Redone the cog textures, along with its suits. IN EDITION, some Cogs also have gotten
+  new model designs, go in the game to find out. :3
+
+* On the Cog UI, Cogs now show their HP in there, along with the healthbar being updated everytime a gag hits the Cog.
+
+* Battle Text should now get some fade in animations and fade outs. Along with PlayByPlay text being improved.
+
+* Every facility boss now has 3 assistants to support.
+
+* Added new music to Fashionbot HQ.
+
+* Some facility bosses have new attacks.
+
+* The Cog Building order has been changed, and the final floor now has a new model.
+
+* Retextured a shirt
+
+* Changed some of the Cog quotes.
+
+* Changed up the Toons eye pupils.
+
+* Changed the skill credit max to get level 7s back from 1000 to 1.
+
+* Changed the damage bonus values to a greater amount.
+  0, 40, 60, 75 > 0, 40, 60, 80.
+
+* Changed the lure knockback damage from 15% > 25%
+
+* Strawberry and Classic Noah have been replaced with Kiera and Lola as respected SOS.
+
+* Moneybot Bosses health has been revamped. 7500 > 5000
+
+* Lure Rounds now last a vary of rounds.
+  
+  Level 1 = 3 rounds.
+  Level 2 = 1 round.
+  Level 3 = 4 rounds.
+  Level 4 = 2 rounds.
+  Level 5 = 5 rounds.
+  Level 6 = 3 rounds.
+  Level 7 = 5 rounds.
+
+  * Gag experience caps have also been slightly revamped, the new order is > 250, 1000, 3500, 7500, 12500, and 25000.
+
+  * Once again, the gags have gotten a revamp, in a way.
+
+  * Trap
+
+    Banana Peel 200 > 50
+    Rake 265 > 90
+    Marbles 348 > 150
+    Quicksand 487 > 250
+    Trapdoor 638 > 450
+    TNT 800 > 650
+    Train 1100 > 1000
+
+    * Sound
+
+      Bikehorn 7 > 5
+      Whistle 13 > 10
+      Bugle 20 > 15
+      Aoogah 30 > 25
+      Trunk 45 > 40
+      Foghorn 75 > 65
+
+    UPDATED SOUND
+
+      Bikehorn 5 > 3
+      Whistle 10 > 6
+      Bugle 15 > 10
+      Aoogah 25 > 20
+      Trunk 40 > 30
+      Foghorn 65 > 55
+      Opera 75
+      
+    * Throw / Squirt
+
+      Level 1 = 6 > 8
+      Level 3 = 35 > 30
+      Level 4 = 60 > 50
+      Level 5 = 100 > 90
+      Level 6 = 150 > 140
+      Level 7 = 170 > 200
+
+    UPDATED THROW / SQUIRT
+
+      Level 3 = 30 > 25
+      Level 4 = 50 > 40
+      Level 5 = 90 > 70
+      Level 6 = 140 > 125
+      Level 7 = 200 > 150
+
+    * Drop
+
+      Flowerpot 10 > 20
+      Sandbag 20 > 35
+      Anvil 40 > 60
+      Big Weight 85 > 100
+      Safe > 130 > 150
+      Piano 190 > 200
+      Toontanic 210 > 250
+
+      * Added a couple files in the useful folder containing useful commands and the cog abbreviations so you can spawn them.
