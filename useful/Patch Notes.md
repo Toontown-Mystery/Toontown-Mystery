@@ -454,3 +454,5 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
       Toontanic 210 > 250
 
       * Added a couple files in the useful folder containing useful commands and the cog abbreviations so you can spawn them.
+
+      * Retextured piano and the toon map.
