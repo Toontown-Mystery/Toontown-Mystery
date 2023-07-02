@@ -1199,6 +1199,7 @@ class Suit(Avatar.Avatar):
                 headPart.setScale(0.4)
             elif headType == 'fashionistacog':
                 headPart.setH(-20)
+                headPart.setP(-5)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.75)
