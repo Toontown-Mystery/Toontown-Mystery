@@ -115,8 +115,8 @@ GlobalStreetNames = {20000: ('to', 'on', 'Tutorial Terrace'),
  11100: ('to the', 'in the', 'Fashionbot HQ Designers Room'),
  11200: ('to the', 'in the', 'Fashionbot Store'),
  11500: ('to the', 'in the', 'Fashionbot Store'),
- 12000: ('to', 'in', 'Moneybot HQ Hospital Room'),
- 12100: ('to the', 'in the', 'Moneybot HQ Doctor Room'),
+ 12000: ('to', 'in', 'Moneybot HQ Money Vault'),
+ 12100: ('to the', 'in the', 'Moneybot HQ Boss Room'),
  12500: ('to the', 'in the', 'Moneybot Waiting Room'),
  12600: ('to the', 'in the', 'Moneybot Testing Room'),
  12700: ('to the', 'in the', 'Moneybot Emergency Room'),
@@ -2068,10 +2068,10 @@ BattleBldgBossTaunt = "King Berry and Queen Berry aren't happy with you trespass
 CogdoBattleBldgBossTaunt = "What!? Toons!? In my office???"
 FactoryBossTaunt = "Welcome to the Fashion Designer's room, how may I assist you?"
 FactoryBossBattleTaunt = 'Would you like to speak to the Fashion Designer?'
-MintBossTaunt = "I'm your professional doctor, let me instruct you through the local paperwork."
-MintBossBattleTaunt = 'You need a doctor.'
-StageBossTaunt = "I warned King Berry about you, you're going down!"
-StageBossBattleTaunt = 'Warn the dude about this, it is Toons!'
+MintBossTaunt = "I'm your true Calculator, let's see if you can beat me."
+MintBossBattleTaunt = 'You need Money Watcher.'
+StageBossTaunt = "I warned the Court Cat about you, you're going down!"
+StageBossBattleTaunt = 'Warn the Lawbook about this, it is Toons!'
 CountryClubBossTaunt = "You shall give us the respect we deserve, Toons!"
 CountryClubBossBattleTaunt = 'Show the royal family respect, or else.'
 ForcedLeaveCountryClubAckMsg = 'The Club President was defeated before you could reach him. You did not recover any Stock Options.'
