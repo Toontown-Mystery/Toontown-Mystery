@@ -7,6 +7,10 @@ You don't know what it is.
 You don't know what to expect.
 ALL THE NEW TOONTOWN MYSTERY!
 Play to find out! :D
+There are so many things to check out, revamped cog facilities, revamped cog bosses, racing,
+cog buildings, etc!
+
+Check out the useful folder for some useful commands/cog spawn info.
 
 
 # Installation
