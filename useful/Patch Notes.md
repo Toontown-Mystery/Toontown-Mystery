@@ -456,3 +456,8 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
       * Added a couple files in the useful folder containing useful commands and the cog abbreviations so you can spawn them.
 
       * Retextured piano and the toon map.
+
+    Toontown Mystery: 3.3.1
+
+    * Added new cog quotes for brushoffs.
+    * Added a new sound effect for the flyin and flyout.
