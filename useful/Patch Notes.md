@@ -461,3 +461,5 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
 
     * Added new cog quotes for brushoffs.
     * Added a new sound effect for the flyin and flyout.
+    * Royalbots group attacks now hurt a lot more.
+    * Jurybots now have 100% accuracy.
