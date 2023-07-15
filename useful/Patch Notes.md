@@ -463,3 +463,7 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Added a new sound effect for the flyin and flyout.
     * Royalbots group attacks now hurt a lot more.
     * Jurybots now have 100% accuracy.
+
+    Toontown Mystery: 3.3.2
+
+    * Added new Royalbot music.
