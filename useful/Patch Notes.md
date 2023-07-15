@@ -469,3 +469,4 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Added new Royalbot music.
     * Updated first cog round royalbot and moneybot bosses to waiters and second rounds to normal cogs.
     * Nerfed the Goons scale so they can be stomped on.
+    * Changed the Moneybots stun time to 20.
