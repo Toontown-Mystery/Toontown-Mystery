@@ -88,7 +88,7 @@ tbc = (('magic2', 'magic2', 8),
  ('effort', 'effort', 6),
  ('magic3', 'magic3', 8),
  ('smile', 'smile', 5))
-trb = (('stomp', 'stomp', 5), ('finger-wag', 'finger-wag', 5), ('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5))
+trb = (('stomp', 'stomp', 5), ('finger-wag', 'finger-wag', 5), ('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('glower', 'glower', 5), ('throw-object', 'throw-object', 5))
 dot = (('magic1', 'magic1', 5), ('glower', 'glower', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 3.5))
 cg = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
 bg = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5), ('roll-o-dex', 'roll-o-dex', 5))
