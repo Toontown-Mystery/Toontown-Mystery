@@ -467,3 +467,4 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     Toontown Mystery: 3.3.2
 
     * Added new Royalbot music.
+    * Updated first cog round royalbot and moneybot bosses to waiters and second rounds to normal cogs.

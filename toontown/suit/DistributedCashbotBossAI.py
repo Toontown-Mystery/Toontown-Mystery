@@ -112,9 +112,9 @@ class DistributedCashbotBossAI(DistributedBossCogAI.DistributedBossCogAI, FSM.FS
 		
     def makeBattle(self, bossCogPosHpr, battlePosHpr, roundCallback, finishCallback, battleNumber, battleSide):
         if battleNumber == 1:
-            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
-        else:
             battle = DistributedBattleWaitersAI.DistributedBattleWaitersAI(self.air, self, roundCallback, finishCallback, battleSide)
+        else:
+            battle = DistributedBattleCogsAI.DistributedBattleCogsAI(self.air, self, roundCallback, finishCallback, battleSide)
         self.setBattlePos(battle, bossCogPosHpr, battlePosHpr)
         battle.suitsKilled = self.suitsKilled
         battle.battleCalc.toonSkillPtsGained = self.toonSkillPtsGained
