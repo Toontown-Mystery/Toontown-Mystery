@@ -19,17 +19,19 @@ class PlayByPlayText(OnscreenText.OnscreenText):
         return Sequence(Func(self.hide), 
         LerpScaleInterval(self, duration=0, scale=(0, 0, 0)), 
         LerpColorScaleInterval(self, duration=0, colorScale=(0, 0, 1, 1)), 
-        self.posInterval(0, (0, 0, 0)), Func(self.setText, text), 
+        self.posInterval(0, (0, 0, 0.42)), Func(self.setText, text), 
         Func(self.show),
         Wait(0.5),  
-        Parallel(self.scaleInterval(0.3, (1.8, 1.8, 1.8)), 
-        self.posInterval(0.3, (0, 0, -0.595))), 
-        Parallel(self.scaleInterval(0.3, (1.1, 1.1, 1.1)),
-        self.posInterval(0.3, (0, 0, -0.035))), 
-        Wait(2.2), 
-        Parallel(self.scaleInterval(0.3, (0.0, 0.0, 0.0)), 
-        self.posInterval(0.3, (0, 0, -0.5)), 
-        LerpColorScaleInterval(self, duration=0.3, colorScale=(0, 0, 1, 0))), Func(self.hide))
+        Parallel(self.scaleInterval(0.25, (1.2, 1.2, 1.2)), 
+        self.posInterval(0.25, (0, 0, -0.075))), 
+        Parallel(self.scaleInterval(0.25, (1.1, 1.1, 1.1)),
+        self.posInterval(0.25, (0, 0, -0.040))), 
+        Wait(2),
+        Parallel(self.scaleInterval(0.25, (1.3, 1.3, 1.3)), 
+        self.posInterval(0.25, (0, 0, -0.075))), 
+        Parallel(self.scaleInterval(0.25, (0, 0, 0)),
+        self.posInterval(0.25, (0, 0, 0))),  
+        LerpColorScaleInterval(self, duration=0.3, colorScale=(0, 0, 1, 0)), Func(self.hide))
 
     def getToonsDiedInterval(self, textList, duration):
         track = Sequence(Func(self.hide), Wait(duration * 0.3))
