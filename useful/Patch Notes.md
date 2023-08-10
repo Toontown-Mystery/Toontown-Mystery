@@ -474,3 +474,5 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     Toontown Mystery: 3.3.3
 
     * Edited the PlayByPlay text animation once again, including slower fadeins and outs.
+    * Changed up some of the battle music in bosses, facilities, and battle playgrounds to make them sound more fitting.
+    * Updated some of the SOS cards to make them slightly more balanced.
