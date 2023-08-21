@@ -476,3 +476,20 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Edited the PlayByPlay text animation once again, including slower fadeins and outs.
     * Changed up some of the battle music in bosses, facilities, and battle playgrounds to make them sound more fitting.
     * Updated some of the SOS cards to make them slightly more balanced.
+
+    Toontown Mystery: 3.3.4
+
+    * Toons may now carry up to 3 level 6 gags when they reach level 7.
+    * Additionally, you will be able to carry 2 level 7 gags.
+    * Changed calculator bonuses once again depending on the Toons.
+      40 > 45
+      60 > 70
+      80 > 95
+
+    * Lure knockback has also been slightly buffed.
+      25% > 40%
+    
+    * Fixed the Pyramid's texture.
+    * Made the round 2 music of Moneybot louder and the flee music quieter for quality of sound.
+
+    * To ensure Toons don't overkill the Boss Cogs quickly, some of their health and attacks have been adjusted accordingly.

@@ -773,6 +773,7 @@ class Suit(Avatar.Avatar):
             self.scale = 7.5 / aSize
             self.handColor = VBase4(0.5, 1.0, 0, 1.0)
             self.generateBody()
+            self.headTexture = 'pyramid.jpg'
             self.generateHead('Cone', 'phase_4/models/char/customCog.bam')
             self.setHeight(8.6)
         elif dna.name == 'ad':
