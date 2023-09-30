@@ -217,11 +217,11 @@ class DistributedAvatar(DistributedActor, Avatar):
             self.hpText.setBillboardPointEye()
             self.hpText.setBin('fixed', 100)
             self.hpText.setPos(0, 0, self.height / 2)
-            self.hpTextSeq = Sequence(self.hpText.posInterval(1, Point3(0, 0, self.height + 1.5), blendType='easeOut'), 
-            Wait(1.5), 
-            self.hpText.colorScaleInterval(1, Vec4(r, g, b, 0), blendType='easeOut'),
-            Wait(2),
-            self.hpText.colorScaleInterval(1, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
+            self.hpTextSeq = Sequence(self.hpText.posInterval(0.5, Point3(0, 0, self.height + 1.5), blendType='easeOut'), 
+            Wait(1), 
+            self.hpText.colorScaleInterval(0.5, Vec4(r, g, b, 0), blendType='easeOut'),
+            Wait(1),
+            self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
             self.hpTextSeq.start()
 
     def showHpString(self, text, duration = 0.85, scale = 0.7):
