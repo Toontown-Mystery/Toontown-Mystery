@@ -493,3 +493,11 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Made the round 2 music of Moneybot louder and the flee music quieter for quality of sound.
 
     * To ensure Toons don't overkill the Boss Cogs quickly, some of their health and attacks have been adjusted accordingly.
+
+    Toontown Mystery: 3.3.5
+
+    * Rebalanced final round of the Chief Office Master (I forgot the full name)
+    * Made evidence do increased damage.
+    * More cogs have been added to the round itself.
+    
+    * Text animations are a little faster.
