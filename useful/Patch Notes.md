@@ -501,3 +501,12 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * More cogs have been added to the round itself.
     
     * Text animations are a little faster.
+    * Slowed down the text fade on Cogs to keep them smooth.
+
+    * You now only can carry 1 type of Toonup unite, which heals you for 250, and a jellybean unite which increases by 1000.
+
+    * fires now cost 5 to use instead of 1.
+
+    * Increased FashionBosses damage higher.
+    * Nerfed Chief Office Masters lawyer and gavel damage massively.
+    * Nerfed King Berries damage slightly, but increased Fore damage.

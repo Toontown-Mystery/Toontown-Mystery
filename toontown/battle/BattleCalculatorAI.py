@@ -507,7 +507,7 @@ class BattleCalculatorAI:
                 elif atkTrack == FIRE:
                     suit = self.battle.findSuit(targetId)
                     if suit:
-                        costToFire = 1
+                        costToFire = 5
                         abilityToFire = toon.getPinkSlips()
                         toon.removePinkSlips(costToFire)
                         if costToFire > abilityToFire:
