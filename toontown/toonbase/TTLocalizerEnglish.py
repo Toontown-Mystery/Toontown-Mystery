@@ -2162,7 +2162,7 @@ SuitYesman = 'Shiny Stabber'
 SuitMicromanager = 'Fancy Kitten'
 SuitDownsizer = 'Gold Knight'
 SuitHeadHunter = 'Control Doctor'
-SuitCorporateRaider = 'SPACETOZIE'
+SuitCorporateRaider = 'Royal Princess'
 SuitTheBigCheese = 'King Cheese'
 SuitColdCaller = 'Blue Caller'
 SuitTelemarketer = 'Role Model'
@@ -2177,7 +2177,7 @@ SuitPennyPincher = 'Swag Shark'
 SuitTightwad = 'Janet'
 SuitBeanCounter = 'Candace Flynn'
 SuitNumberCruncher = 'Number Man'
-SuitMoneyBags = 'Robber Pincher'
+SuitMoneyBags = 'Robber Safe'
 SuitLoanShark = 'Dark Angel'
 SuitRobberBaron = 'Moonlight Mimi'
 SuitBottomFeeder = 'Cute Flunky'
@@ -2194,7 +2194,7 @@ SuitYesmanS = 'a Shiny Stabber'
 SuitMicromanagerS = 'a Fancy Kitten'
 SuitDownsizerS = 'a Gold Knight'
 SuitHeadHunterS = 'a Control Doctor'
-SuitCorporateRaiderS = 'a SPACETOZIE'
+SuitCorporateRaiderS = 'a Royal Princess'
 SuitTheBigCheeseS = 'a King Cheese'
 SuitColdCallerS = 'a Blue Caller'
 SuitTelemarketerS = 'a Role Model'
@@ -2209,7 +2209,7 @@ SuitPennyPincherS = 'a Swag Shark'
 SuitTightwadS = 'a Janet'
 SuitBeanCounterS = 'a Candace Flynn'
 SuitNumberCruncherS = 'a Number Man'
-SuitMoneyBagsS = 'a Robber Pincher'
+SuitMoneyBagsS = 'a Robber Safe'
 SuitLoanSharkS = 'a Dark Angel'
 SuitRobberBaronS = 'a Moonlight Mimi'
 SuitBottomFeederS = 'a Cute Flunky'
@@ -2226,7 +2226,7 @@ SuitYesmanP = 'Shiny Stabbers'
 SuitMicromanagerP = 'Fancy Kittens'
 SuitDownsizerP = 'Gold Knights'
 SuitHeadHunterP = 'Control Doctors'
-SuitCorporateRaiderP = 'SPACETOZIES'
+SuitCorporateRaiderP = 'Royal Princesses'
 SuitTheBigCheeseP = 'King Cheeses'
 SuitColdCallerP = 'Black Callers'
 SuitTelemarketerP = 'Role Models'
@@ -2241,7 +2241,7 @@ SuitPennyPincherP = 'Swag Sharks'
 SuitTightwadP = 'Janets'
 SuitBeanCounterP = 'Candace Flynns'
 SuitNumberCruncherP = 'Number Men'
-SuitMoneyBagsP = 'Robber Pinchers'
+SuitMoneyBagsP = 'Robber Safes'
 SuitLoanSharkP = 'Dark Angels'
 SuitRobberBaronP = 'Moonlight Mimis'
 SuitBottomFeederP = 'Cute Flunkies'
@@ -2258,11 +2258,13 @@ SuitAttackNames = {'Audit': 'Audit!',
  'Bite': 'Bite!',
  'BounceCheck': 'Bounce Check!',
  'BlackOrb': 'Black Orb!',
+ 'BlueOrb': 'Blue Orb!',
  'BrainStorm': 'Brain Storm!',
  'BuzzWord': 'Buzz Word!',
  'Calculator': 'Calculator!',
  'Calculate': 'Calculate!',
  'Canned': 'Canned!',
+ 'Cookie': 'Cookie!',
  'TvBlast': 'Tv Blast!',
  'Chomp': 'Chomp!',
  'CigarSmoke': 'Cigar Smoke!',
@@ -2304,6 +2306,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'MumboJumbo': 'Mumbo Jumbo!',
  'ParadigmShift': 'Paradigm Shift!',
  'PoisonSpray': 'Poison Spray!',
+ 'PurpleOrb': 'Purple Orb!',
  'WaterSpray': 'Water Spray!',
  'PeckingOrder': 'Pecking Order!',
  'PickPocket': 'Pick Pocket!',
@@ -2315,6 +2318,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'PowerTrip': 'Power Trip!',
  'Quake': 'Quake!',
  'RazzleDazzle': 'Razzle Dazzle!',
+ 'RedOrb': 'Red Orb!',
  'RedTape': 'Red Tape!',
  'HypnoEyes': 'HypnoEyes!',
  'RestrainingOrder': 'Restraining Order!',
@@ -2359,9 +2363,14 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
 		"Don't be scared Toon, it's just magic.",
 		"What are you looking at, Toon?",
               "My magic masters made me this orb to travel on your end.",
-		"Want to see a magic trick? It's the Orb.",
+		"Want to see a magic trick? It's the orb.",
               "This magic orb could cut you into pieces.",
               "Never underestimate Cog's magic."],
+'BlueOrb': ["I sense a power of blue magic heading towards you.",
+            "My orb was created by the royal family, feel my power.",
+            "Be weakened by my blue orb of cog wrath!",
+            "Do you feel the pain of the colour blue?",
+            "Feel the burning passion for the blue."],
  'BounceCheck': ["Pay off your check.",
                  "It's your paycheck, so pay up.",
                  'This is going to cost you!',
@@ -2395,6 +2404,13 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
             'Please help me out and see what this can does.',
             "It's can up time!",
             "I'm going to throw this can on you."],
+'Cookie': ["Fresh cookies from the oven are ready!",
+           "Are you hungry for a cookie?",
+           "Chocolate chip cookies are lame and bland, so I made mint chocolate chip.",
+           "Be careful, the cookies are hot.",
+           "Have you ever tried a mint chocolate chip cookie before?",
+           "My mother helped me with this recipe.",
+           "'Cogs don't eat food' Then explain why I baked these cookies then!"],
  'TvBlast': ['Who wants to watch some TV?',
             'Buy your TV in the local store today!',
             "Watch out, here comes the TV!",
@@ -2573,10 +2589,16 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
 				   "Do you want part time shift, or full time shift?",
                    "Isn't this a shifty day to be shifted into place?"],
  'PoisonSpray': ["Poison incoming!",
-                   "Abracadabra!",
-				   "Always check your rolls.",
-				   "Do you feel poison coming in you?",
-                   "Hey, did you make sure to save?"],
+                 "Abracadabra!",
+		   "Always check your rolls.",
+		   "Do you feel poison coming in you?",
+                 "Hey, did you make sure to save?"],
+ 'PurpleOrb': ["Witness my power!",
+               "Purple is the best colour for this attack.",
+               "The Fashionbots love purple, and so should you.",
+               "Have you felt the power of a purple orb before?",
+               "I haven't tested my orb yet, so I'll just use it on you instead.",
+               "Better check your health, cause the orbs going to consume it!"],
  'WaterSpray': ["Having a nice spray of water?",
                 "Enjoy your spring water!",
 			    "Spring water only here today.",
@@ -2637,6 +2659,11 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
 				  "Smile! You're on camera!",
 				  "I rate your photo one star.",
                   'Say Meow!'],
+ 'RedOrb': ["I'm surprised that you're willing to take this orb in.",
+            "Red is the colour of me, and so will you.",
+            "Are you suffering? Well have some more.",
+            "Red should indicate your death, and I will prove it.",
+            "You shall earn my permission to destroy you with thy orb!"],
  'RedTape': ['I will roll you in tape.',
              "This tape is no2 tape, don't ask.",
 			 "Do you want to feel some tape?",

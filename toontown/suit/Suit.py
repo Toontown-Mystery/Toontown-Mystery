@@ -81,14 +81,14 @@ hh = (('quick-jump', 'jump', 6),
  ('magic3', 'magic3', 5),
  ('throw-object', 'throw-object', 5),
  ('throw-paper', 'throw-paper', 5))
-cr = (('pickpocket', 'pickpocket', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('glower', 'glower', 5))
+cr = (('throw-paper', 'throw-paper', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('stomp', 'stomp', 5))
 tbc = (('magic2', 'magic2', 8),
  ('glower', 'glower', 5),
  ('magic1', 'magic1', 5),
  ('effort', 'effort', 6),
  ('magic3', 'magic3', 8),
  ('smile', 'smile', 5))
-trb = (('stomp', 'stomp', 5), ('finger-wag', 'finger-wag', 5), ('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('glower', 'glower', 5), ('throw-object', 'throw-object', 5))
+wrd = (('effort', 'effort', 6), ('finger-wag', 'finger-wag', 5), ('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('glower', 'glower', 5), ('throw-object', 'throw-object', 5))
 dot = (('magic1', 'magic1', 5), ('glower', 'glower', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 3.5))
 cg = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
 bg = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5), ('phone', 'phone', 5), ('roll-o-dex', 'roll-o-dex', 5))
@@ -160,7 +160,7 @@ tw = (('speak', 'speak', 5),
  ('finger-wag', 'fingerwag', 5))
 bc = (('phone', 'phone', 5), ('roll-o-dex', 'roll-o-dex', 5))
 nc = (('phone', 'phone', 5), ('finger-wag', 'fingerwag', 5), ('glower', 'glower', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5),  ('throw-paper', 'throw-paper', 5))
-mb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('golf-club-swing', 'golf-club-swing', 5))
+mb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
 ls = (('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('effort', 'effort', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5), ('magic2', 'magic2', 5), ('hold-pencil', 'hold-pencil', 5))
 rb = (('pickpocket', 'pickpocket', 5), ('finger-wag', 'fingerwag', 5), ('effort', 'effort', 6), ('speak', 'speak', 5), ('magic3', 'magic3', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('pen-squirt', 'fountain-pen', 7), ('magic1', 'magic1', 5), ('rubber-stamp', 'rubber-stamp', 5))
 gm = (('magic1', 'magic1', 5), ('throw-paper', 'throw-paper', 5))
@@ -178,7 +178,7 @@ b = (('effort', 'effort', 5),
  ('throw-paper', 'throw-paper', 5),
  ('magic1', 'magic1', 5),
  ('throw-object', 'throw-object', 5),
- ('finger-wag', 'finger-wag', 5))
+ ('quick-jump', 'jump', 6))
 dt = (('rubber-stamp', 'rubber-stamp', 5),
  ('throw-paper', 'throw-paper', 5),
  ('throw-object', 'throw-object', 5),
@@ -215,7 +215,7 @@ bw = (('magic1', 'magic1', 5),
  ('smile', 'smile', 5),
  ('throw-paper', 'throw-paper', 5))
 brv = (('finger-wag', 'finger-wag', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('magic1', 'magic1', 5))
-sb = (('pickpocket', 'pickpocket', 5), ('magic3', 'magic3', 5), ('throw-paper', 'throw-paper', 5), ('throw-object', 'throw-object', 5))
+mp = (('roll-o-dex', 'roll-o-dex', 5), ('phone', 'phone', 5), ('throw-object', 'throw-object', 5))
 jdg = (('magic1', 'magic1', 5), ('magic2', 'magic2', 5), ('glower', 'glower', 5), ('smile', 'smile', 5))
 jur = (('magic1', 'magic1', 5), ('magic2', 'magic2', 5), ('throw-paper', 'throw-paper', 5))
 tlr = (('magic1', 'magic1', 5), ('speak', 'speak', 5))
@@ -547,24 +547,23 @@ class Suit(Avatar.Avatar):
             self.generateSimon2Stuff()
             self.setHeight(6.12)
         elif dna.name == 'cr':
-            self.scale = 5.5 / aSize
-            self.handColor = VBase4(1.0, 0, 0, 1.0)
+            self.scale = 5.5 / bSize
+            self.handColor = VBase4(0, 0.3, 1.0, 1.0)
             self.generateBody()
-            self.generateHead('Sphere.001', 'phase_4/models/char/space.bam')
-            self.setHeight(6.75)
+            self.generateHead('princesscog', 'phase_4/models/char/princessmodel.bam')
+            self.setHeight(7.65)
         elif dna.name == 'tbc':
             self.scale = 6.0 / aSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
             self.generateHead('cheeseandcheese', 'phase_4/models/char/goldencheese.bam')
             self.setHeight(7.75)
-        elif dna.name == 'trb':
+        elif dna.name == 'wrd':
             self.scale = 6.5 / aSize
-            self.handColor = VBase4(0, 0, 1.0, 1.0)
+            self.handColor = VBase4(1.0, 0, 0.2, 1.0)
             self.generateBody()
-            self.headTexture = 'rain.jpg'
-            self.generateHead('numbercruncher')
-            self.setHeight(7.65)
+            self.generateHead('wardencog', 'phase_4/models/char/wardenmodel.bam')
+            self.setHeight(8.35)
         elif dna.name == 'dot':
             self.scale = 7.0 / cSize
             self.handColor = VBase4(0.65, 0, 0, 1.0)
@@ -622,8 +621,7 @@ class Suit(Avatar.Avatar):
             self.scale = 3.0 / bSize
             self.handColor = VBase4(0.95, 0.95, 1.0, 1.0)
             self.generateBody()
-            self.headTexture = 'halloween_blood-sucker.jpg'
-            self.generateHead('movershaker')
+            self.generateHead('vampirecog', 'phase_4/models/char/vampire.bam')
             self.setHeight(3.8)
         elif dna.name == 'dt':
             self.scale = 3.5 / aSize
@@ -654,7 +652,6 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(1, 1, 0, 1.0)
             self.generateBody()
             self.generateHead('Sphere.001', 'phase_4/models/char/sun.bam')
-            self.generateHollyStuff()
             self.setHeight(5.85)
         elif dna.name == 'bw':
             self.scale = 6.0 / aSize
@@ -670,13 +667,12 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'bravester.jpg'
             self.generateHead('movershaker')
             self.setHeight(7.85)
-        elif dna.name == 'sb':
+        elif dna.name == 'mp':
             self.scale = 7.0 / bSize
-            self.handColor = VBase4(1.0, 1.0, 1.0, 1.0)
-            self.headColor = VBase4(0.0, 0.0, 0.0, 1.0)
+            self.handColor = VBase4(0, 1.0, 0.5, 1.0)
             self.generateBody()
-            self.generateHead('safe', 'phase_5/models/props/safe.bam')
-            self.setHeight(8.35)
+            self.generateHead('cookiecog', 'phase_4/models/char/cookie.bam')
+            self.setHeight(8.95)
         elif dna.name == 'jdg':
             self.scale = 5.7 / aSize
             self.handColor = VBase4(0.2, 0.2, 0.2, 1.0)
@@ -751,9 +747,10 @@ class Suit(Avatar.Avatar):
             self.setHeight(6.69)
         elif dna.name == 'mb':
             self.scale = 5.0 / aSize
-            self.handColor = VBase4(0.3, 0.3, 0.3, 1.0)
+            self.handColor = VBase4(1.0, 1.0, 1.0, 1.0)
+            self.headColor = VBase4(0.0, 0.0, 0.0, 1.0)
             self.generateBody()
-            self.generateHead('pennypincher')
+            self.generateHead('safe', 'phase_5/models/props/safe.bam')
             self.setHeight(6.3)
         elif dna.name == 'ls':
             self.scale = 6.5 / bSize
@@ -1422,12 +1419,32 @@ class Suit(Avatar.Avatar):
                 headPart.setY(-0.4)
                 headPart.setZ(2)
                 headPart.setScale(0.5)
-            elif headType == 'Sphere.001':
-                headPart.setH(270)
+            elif headType == 'princesscog':
+                headPart.setH(180)
+                headPart.setX(0.5)
+                headPart.setY(0)
+                headPart.setZ(2.3)
+                headPart.setScale(0.2)
+            elif headType == 'wardencog':
+                headPart.setH(180)
                 headPart.setX(0)
                 headPart.setY(0)
-                headPart.setZ(0.7)
-                headPart.setScale(1.1)
+                headPart.setZ(2)
+                headPart.setP(10)
+                headPart.setScale(0.4)
+            elif headType == 'cookiecog':
+                headPart.setH(90)
+                headPart.setP(-75)
+                headPart.setX(0.5)
+                headPart.setY(-0.2)
+                headPart.setZ(2.2)
+                headPart.setP(0)
+                headPart.setScale(0.1)
+            elif headType == 'vampirecog':
+                headPart.setH(-50)
+                headPart.setX(0.2)
+                headPart.setY(0.8)
+                headPart.setZ(0.4)
             elif headType == 'Sphere':
                 headPart.setH(180)
                 headPart.setX(0)
@@ -1435,7 +1452,7 @@ class Suit(Avatar.Avatar):
                 headPart.setZ(0.2)
                 headPart.setScale(0.87)
             elif headType == 'Sphere.001':
-                headPart.setH(270)
+                headPart.setH(90)
                 headPart.setX(0)
                 headPart.setY(0)
                 headPart.setZ(0.2)

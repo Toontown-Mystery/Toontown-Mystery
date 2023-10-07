@@ -172,6 +172,7 @@ Props = ((5, 'partyBall', 'partyBall'),
  (5, 'lawbook', 'lawbook'),
  (5, 'newspaper', 'newspaper'),
  (5, 'pink-slip', 'pink-slip'),
+ (5, 'cookie', 'cookie'),
  (5,
   'teeth',
   'teeth-mod',
@@ -232,7 +233,10 @@ Variants = ('tart',
  'ship',
  'trolley',
  'traintrack',
- 'black-orb')
+ 'black-orb',
+ 'blue-orb',
+ 'purple-orb',
+ 'red-orb')
 
 class PropPool:
     notify = DirectNotifyGlobal.directNotify.newCategory('PropPool')
@@ -298,6 +302,15 @@ class PropPool:
         self.propStrings[propName] = ('phase_4/models/modules/trolley_station_TT',)
         self.propTypes[propName] = 'model'
         propName = 'black-orb'
+        self.propStrings[propName] = (self.getPath(5, 'evil-eye'),)
+        self.propTypes[propName] = 'model'
+        propName = 'blue-orb'
+        self.propStrings[propName] = (self.getPath(5, 'evil-eye'),)
+        self.propTypes[propName] = 'model'
+        propName = 'purple-orb'
+        self.propStrings[propName] = (self.getPath(5, 'evil-eye'),)
+        self.propTypes[propName] = 'model'
+        propName = 'red-orb'
         self.propStrings[propName] = (self.getPath(5, 'evil-eye'),)
         self.propTypes[propName] = 'model'
 
@@ -384,6 +397,21 @@ class PropPool:
             self.props[name] = self.props[name].find('**/trolley_car')
         elif name == 'black-orb':
             tex = loader.loadTexture('phase_5/maps/black.png')
+            tex.setMinfilter(Texture.FTLinearMipmapLinear)
+            tex.setMagfilter(Texture.FTLinear)
+            self.props[name].setTexture(tex, 1)
+        elif name == 'blue-orb':
+            tex = loader.loadTexture('phase_5/maps/blueorb.jpg')
+            tex.setMinfilter(Texture.FTLinearMipmapLinear)
+            tex.setMagfilter(Texture.FTLinear)
+            self.props[name].setTexture(tex, 1)
+        elif name == 'purple-orb':
+            tex = loader.loadTexture('phase_5/maps/purpleorb.jpg')
+            tex.setMinfilter(Texture.FTLinearMipmapLinear)
+            tex.setMagfilter(Texture.FTLinear)
+            self.props[name].setTexture(tex, 1)
+        elif name == 'red-orb':
+            tex = loader.loadTexture('phase_5/maps/redorb.jpg')
             tex.setMinfilter(Texture.FTLinearMipmapLinear)
             tex.setMagfilter(Texture.FTLinear)
             self.props[name].setTexture(tex, 1)
