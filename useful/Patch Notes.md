@@ -510,3 +510,27 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Increased FashionBosses damage higher.
     * Nerfed Chief Office Masters lawyer and gavel damage massively.
     * Nerfed King Berries damage slightly, but increased Fore damage.
+
+    Toontown Mystery: 3.3.6
+
+    * The cogs at the golf area are a bit more dangerous as he brought more wardens.
+    * Modeled a couple cogs to make them slightly more accurate, will model more in the future. :3
+    * Buffed sound slightly to make it a little more accurate.
+
+    Aoogah = 20 > 25
+    Trunk = 30 > 40
+    Foghorn = 55 > 60
+
+    * Buffed Throw and Squirt a bit to match with the organic tracks, and to be as useful as drop not organic.
+
+    Cupcake + Squirting Flower = 8 > 10
+    Fruit Pie Slice + Glass of Water = 15 > 20
+    Cream Pie Slice + Squirtgun = 25 > 30
+    Fruit Pie + Seltzer Bottle = 40 > 50
+    Birthday Cake + Storm Cloud = 125 > 130
+    Wedding Cake + Geyser = 150 > 160
+
+    * Fixed a quote with the Gold Knight.
+    * Added new quotes to some cogs.
+
+    * Fixed a song in the golf course battle.
