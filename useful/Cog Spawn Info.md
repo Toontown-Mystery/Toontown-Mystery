@@ -7,7 +7,7 @@ ds 5-17
 hh 6-18
 cr 7-19
 tbc 8-20
-trb 9-21
+wrd 9-21
 dot 10-22
 cg 29
 bg 35
@@ -25,7 +25,7 @@ sd 6-18
 le 7-19
 bw 8-20
 brv 9-21
-sb 10-22
+mp 10-22
 jdg 25
 jur 28
 tlr 33

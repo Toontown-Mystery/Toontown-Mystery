@@ -534,3 +534,7 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Added new quotes to some cogs.
 
     * Fixed a song in the golf course battle.
+
+    * Changed max laff to 250.
+
+    * Nerfed Doodle tricks to match the certain max health thresholds.

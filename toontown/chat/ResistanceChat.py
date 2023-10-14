@@ -15,7 +15,7 @@ resistanceMenu = [RESISTANCE_TOONUP, RESISTANCE_RESTOCK, RESISTANCE_MONEY]
 resistanceDict = {RESISTANCE_TOONUP: {'menuName': TTL.ResistanceToonupMenu,
                      'itemText': TTL.ResistanceToonupItem,
                      'chatText': TTL.ResistanceToonupChat,
-                     'values': [180],
+                     'values': [200],
                      'items': [0]},
  RESISTANCE_MONEY: {'menuName': TTL.ResistanceMoneyMenu,
                     'itemText': TTL.ResistanceMoneyItem,
