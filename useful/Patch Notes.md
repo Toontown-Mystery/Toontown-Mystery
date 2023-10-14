@@ -530,6 +530,22 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     Birthday Cake + Storm Cloud = 125 > 130
     Wedding Cake + Geyser = 150 > 160
 
+    * Toonup has been changed once again to set with the max laff.
+
+    Feather = 75
+    Megaphone = 150
+    Lipstick = 125
+    Bamboo Cane = 300
+    Pixie Dust = 175
+    Juggling Balls = 450
+    High Dive = 675
+
+    * Changed combat bonuses once again by the amount of Toons that use the same gag to make the more Toons efficient.
+    
+    2 Toons = 45% > 30%
+    3 Toons = 70 > 65%
+    4 Toons = 95% > 100%
+
     * Fixed a quote with the Gold Knight.
     * Added new quotes to some cogs.
 
