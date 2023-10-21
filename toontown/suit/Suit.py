@@ -519,9 +519,9 @@ class Suit(Avatar.Avatar):
             self.setHeight(4.55)
         elif dna.name == 'ym':
             self.scale = 3.5 / aSize
-            self.handColor = VBase4(1.0, 1.0, 0, 1.0)
+            self.handColor = VBase4(0.2, 0.2, 0.2, 1.0)
             self.generateBody()
-            self.generateHead('backstabber')
+            self.generateHead('silverknightcog', 'phase_4/models/char/silverknight.bam')
             self.setHeight(4.35)
         elif dna.name == 'mm':
             self.scale = 4.0 / bSize
@@ -535,7 +535,6 @@ class Suit(Avatar.Avatar):
             self.handColor = VBase4(1.0, 1.0, 0, 1.0)
             self.generateBody()
             self.generateHead('knightcog', 'phase_4/models/char/knight.bam')
-            self.generateHudStuff()
             self.setHeight(6.26)
         elif dna.name == 'hh':
             self.scale = 5.0 / bSize
@@ -1354,6 +1353,12 @@ class Suit(Avatar.Avatar):
                 headPart.setX(-0.4)
                 headPart.setY(0.9)
                 headPart.setZ(1.8)
+            elif headType == 'silverknightcog':
+                headPart.setH(90)
+                headPart.setX(0)
+                headPart.setY(0)
+                headPart.setZ(1.6)
+                headPart.setScale(1.0)
             elif headType == 'Cylinder':
                 headPart.setH(3.8)
                 headPart.setX(0)
