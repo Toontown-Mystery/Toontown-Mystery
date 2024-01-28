@@ -554,3 +554,5 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Changed max laff to 250.
 
     * Nerfed Doodle tricks to match the certain max health thresholds.
+
+    * Updated the missed effect.
