@@ -224,6 +224,7 @@ class DistributedAvatar(DistributedActor, Avatar):
             self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
             self.hpTextSeq.start()
 
+
     def showHpString(self, text, duration = 0.85, scale = 0.7):
         if self.HpTextEnabled and not self.ghostMode:
             if text != '':
@@ -233,15 +234,21 @@ class DistributedAvatar(DistributedActor, Avatar):
                 self.HpTextGenerator.setText(text)
                 self.HpTextGenerator.clearShadow()
                 self.HpTextGenerator.setAlign(TextNode.ACenter)
-                r = a = 1.0
-                g = b = 0.0
+                r = 0.75
+                g = 0.25
+                b = 1.0
+                a = 1
                 self.HpTextGenerator.setTextColor(r, g, b, a)
                 self.hpTextNode = self.HpTextGenerator.generate()
                 self.hpText = self.attachNewNode(self.hpTextNode)
                 self.hpText.setScale(scale)
                 self.hpText.setBillboardAxis()
                 self.hpText.setPos(0, 0, self.height / 2)
-                self.hpTextSeq = Sequence(self.hpText.posInterval(1.0, Point3(0, 0, self.height + 1.5), blendType='easeOut'), Wait(duration), self.hpText.colorInterval(0.1, Vec4(r, g, b, 0)), Func(self.hideHpText))
+                self.hpTextSeq = Sequence(self.hpText.posInterval(1, Point3(0, 0, self.height + 1.5), blendType='easeOut'), 
+                Wait(1), 
+                self.hpText.colorScaleInterval(0.5, Vec4(r, g, b, 0), blendType='easeOut'),
+                Wait(1),
+                self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
                 self.hpTextSeq.start()
 
     def hideHpText(self):
