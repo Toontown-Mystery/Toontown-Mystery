@@ -2530,11 +2530,12 @@ class DistributedToon(DistributedPlayer.DistributedPlayer, Toon.Toon, Distribute
                 self.hpText.setBillboardPointEye()
                 self.hpText.setBin('fixed', 100)
                 self.hpText.setPos(0, 0, self.height / 2)
-                seq = Sequence(self.hpText.posInterval(0.5, Point3(0, 0, self.height + 1.5), blendType='easeOut'),
+                seq = Sequence(self.hpText.posInterval(0.75, Point3(0, 0, self.height + 1.5), blendType='easeOut'),
                 Wait(1), 
-                self.hpText.colorScaleInterval(0.5, Vec4(r, g, b, 0), blendType='easeOut'),
+                self.hpText.scaleInterval(0.15, (1.5, 1.5, 1.5), blendType='easeOut'),
+                self.hpText.scaleInterval(0.35, (0, 0, 0), blendType='easeOut'),
                 Wait(1),
-                self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
+                self.hpText.colorScaleInterval(0, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
                 seq.start()
 
     def setName(self, name = 'unknownDistributedAvatar'):

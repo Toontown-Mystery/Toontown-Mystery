@@ -219,9 +219,10 @@ class DistributedAvatar(DistributedActor, Avatar):
             self.hpText.setPos(0, 0, self.height / 2)
             self.hpTextSeq = Sequence(self.hpText.posInterval(0.5, Point3(0, 0, self.height + 1.5), blendType='easeOut'), 
             Wait(1), 
-            self.hpText.colorScaleInterval(0.5, Vec4(r, g, b, 0), blendType='easeOut'),
+            self.hpText.scaleInterval(0.15, (1.5, 1.5, 1.5), blendType='easeOut'),
+            self.hpText.scaleInterval(0.35, (0, 0, 0), blendType='easeOut'),
             Wait(1),
-            self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
+            self.hpText.colorScaleInterval(0, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
             self.hpTextSeq.start()
 
 
@@ -246,9 +247,10 @@ class DistributedAvatar(DistributedActor, Avatar):
                 self.hpText.setPos(0, 0, self.height / 2)
                 self.hpTextSeq = Sequence(self.hpText.posInterval(1, Point3(0, 0, self.height + 1.5), blendType='easeOut'), 
                 Wait(1), 
-                self.hpText.colorScaleInterval(0.5, Vec4(r, g, b, 0), blendType='easeOut'),
+                self.hpText.scaleInterval(0.15, (0.9, 0.9, 0.9), blendType='easeOut'),
+                self.hpText.scaleInterval(0.5, (0, 0, 0), blendType='easeOut'),
                 Wait(1),
-                self.hpText.colorScaleInterval(0.5, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
+                self.hpText.colorScaleInterval(0, Vec4(0, 0, 0, 0), blendType='easeOut'), Func(self.hideHpText))
                 self.hpTextSeq.start()
 
     def hideHpText(self):
