@@ -146,7 +146,7 @@ mh = (('magic1', 'magic1', 5),
  ('finger-wag', 'fingerwag', 5))
 ka = (('magic2', 'magic2', 5), ('glower', 'glower', 5), ('magic1', 'magic1', 5), ('effort', 'effort', 6), ('speak', 'speak', 5))
 mka = (('magic2', 'magic2', 5), ('magic1', 'magic1', 5), ('throw-object', 'throw-object', 5), ('stomp', 'stomp', 5), ('quick-jump', 'jump', 6), ('effort', 'effort', 5))
-fas = (('effort', 'effort', 6), ('speak', 'speak', 5), ('magic2', 'magic2', 5), ('throw-paper', 'throw-paper', 5))
+fas = (('effort', 'effort', 6), ('glower', 'glower', 5), ('speak', 'speak', 5), ('magic2', 'magic2', 5), ('throw-paper', 'throw-paper', 5))
 mdr = (('throw-paper', 'throw-paper', 5), ('magic3', 'magic3', 5), ('magic1', 'magic1', 5))
 nar = (('throw-object', 'throw-object', 5), ('throw-paper', 'throw-paper', 5), ('speak', 'speak', 5), ('magic1', 'magic1', 5))
 fd = (('magic1', 'magic1', 5), ('magic3', 'magic3', 5), ('glower', 'glower', 5), ('smile', 'smile', 5), ('roll-o-dex', 'roll-o-dex', 5), ('speak', 'speak', 5), ('throw-paper', 'throw-paper', 5), ('effort', 'effort', 6), ('magic2', 'magic2', 5))

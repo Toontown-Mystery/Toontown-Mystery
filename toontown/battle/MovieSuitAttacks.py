@@ -296,6 +296,8 @@ def doSuitAttack(attack):
         suitTrack = doSnowBalls(attack)
     elif name == FIRE_BALLS:
         suitTrack = doFireBalls(attack)
+    elif name == WHEEL_OF_FATE:
+        suitTrack = doWheelOfFate(attack)
     elif name == WRITE_OFF:
         suitTrack = doWriteOff(attack)
     else:
@@ -869,6 +871,17 @@ def doClockChange(attack):
     toonTracks = getToonTracks(attack, suitTrack.getDuration() - 1.5, ['slip-backward'], suitTrack.getDuration() - 1.5, ['bored'])
     soundTrack = getSoundTrack('SA_clock_trigger.ogg', node=suit)
     return Parallel(cameraTrack, suitTrack, toonTracks, soundTrack)
+
+def doWheelOfFate(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    cameraTrack = Sequence(LerpPosHprInterval(camera, duration=1, pos=Point3(0, -15, 2), hpr=Point3(0, 0, 0), blendType='easeInOut'), Wait(1.8), LerpPosHprInterval(camera, duration=0.5, pos=Point3(4, -11, 2), hpr=Point3(30, 0, 0), blendType='easeInOut'), Wait(2), LerpPosHprInterval(camera, duration=0, pos=Point3(3, -5, 10), hpr=Point3(30, -15, 0), blendType='easeInOut'), Wait(3.2), LerpPosHprInterval(camera, duration=0.5, pos=Point3(0, -15, 3), hpr=Point3(0, 10, 0), blendType='easeInOut'))
+    suitTrack = getSuitAnimTrack(attack)
+    talkTrack = Sequence(Wait(0.5), Func(suit.setChatAbsolute, "Heya kiddos, is everybody in?!", CFSpeech | CFTimeout), Wait(2.8), Func(suit.clearChat), Func(suit.setChatAbsolute, "So, let's get started!", CFSpeech | CFTimeout), Wait(2.5), Func(suit.clearChat), Func(suit.setChatAbsolute, "Every good show needs a hard stomping first huh?!", CFSpeech | CFTimeout), Wait(3.7), Func(suit.clearChat), Func(suit.setChatAbsolute, "It's punishment time!!", CFSpeech | CFTimeout), Wait(1.5), Func(suit.clearChat))
+    animTrack = Sequence(Wait(2), ActorInterval(suit, 'speak', startTime=0, endTime=8.6, playRate=1), Func(suit.play, 'glower'))
+    toonTracks = getToonTracks(attack, suitTrack.getDuration() - -4, ['slip-backward'], suitTrack.getDuration() - -4, ['bored'])
+    soundTrack = getSoundTrack('SA_punishment_time.ogg', node=suit)
+    return Parallel(cameraTrack, talkTrack, animTrack, suitTrack, toonTracks, soundTrack)
 
 
 def doPoundKey(attack):

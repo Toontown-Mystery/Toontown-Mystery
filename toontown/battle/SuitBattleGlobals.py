@@ -788,7 +788,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'singularname': 'a Fashionista.fa',
 		'pluralname': 'Fashionistas.fa',
 		'level': 22,
-		'hp':(2000,),
+		'hp':(3500,),
 		'def':(50,),
 		'freq':(0,),
 		'acc':(75,),
@@ -796,24 +796,28 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
 		        (('BlackOrb',
 				    (68,),
 					(100,),
-					(25,)),
+					(15,)),
                 ('HotAir',
 				    (64,),
 					(100,),
-					(25,)),
+					(10,)),
+                ('WheelOfFate',
+				    (70,),
+					(100,),
+					(50,)),
                 ('HalfWindsor',
-				    (61,),
+				    (59,),
 					(100,),
-					(25,)),
+					(10,)),
                 ('ParadigmShift',
-				    (56,),
+				    (54,),
 					(100,),
-					(25,)))},
+					(15,)))},
  'mdr': {'name': 'Stage TV.fa',
         'singularname': 'a Stage TV.fa',
 		'pluralname': 'Stage TVs.fa',
 		'level': 24,
-		'hp':(2500,),
+		'hp':(3750,),
 		'def':(50,),
 		'freq':(0,),
 		'acc':(75,),
@@ -838,7 +842,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'singularname': 'a Bomb Star.fa',
 		'pluralname': 'Bomb Stars.fa',
 		'level': 27,
-		'hp':(3000,),
+		'hp':(4000,),
 		'def':(50,),
 		'freq':(0,),
 		'acc':(75,),
@@ -863,7 +867,7 @@ SuitAttributes = {'f': {'name': TTLocalizer.SuitFlunky, # cog name
         'singularname': 'a Fashion Designer.fb',
 		'pluralname': 'Fashion Designers.fb',
 		'level': 29,
-		'hp':(5000,),
+		'hp':(6000,),
 		'def':(50,),
 		'freq':(0,),
 		'acc':(100,),
@@ -1790,6 +1794,7 @@ SuitAttacks = {'Audit': ('phone', ATK_TGT_SINGLE),
  'Withdrawal': ('magic1', ATK_TGT_SINGLE),
  'SnowBalls': ('effort', ATK_TGT_SINGLE),
  'FireBalls': ('speak', ATK_TGT_SINGLE),
+ 'WheelOfFate': ('effort', ATK_TGT_GROUP),
  'WriteOff': ('hold-pencil', ATK_TGT_SINGLE)}
 AUDIT = SuitAttacks.keys().index('Audit')
 BITE = SuitAttacks.keys().index('Bite')
@@ -1882,6 +1887,7 @@ WATERCOOLER = SuitAttacks.keys().index('Watercooler')
 WITHDRAWAL = SuitAttacks.keys().index('Withdrawal')
 SNOW_BALLS = SuitAttacks.keys().index('SnowBalls')
 FIRE_BALLS = SuitAttacks.keys().index('FireBalls')
+WHEEL_OF_FATE = SuitAttacks.keys().index('WheelOfFate')
 WRITE_OFF = SuitAttacks.keys().index('WriteOff')
 
 def getFaceoffTaunt(suitName, doId):

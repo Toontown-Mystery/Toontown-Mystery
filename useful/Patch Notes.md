@@ -556,3 +556,22 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Nerfed Doodle tricks to match the certain max health thresholds.
 
     * Updated the missed effect.
+    
+    Toontown Mystery: 3.4.0
+    
+    * Gags:
+
+    * Railroad, Wedding Cake, Geyser, and Toontanic no longer hit all Cogs, and Geyser and Toontanic have both been replaced with Lightning Cloud and Deluxe Piano.
+    * Group Lures will now only lure for 1 round, and Single Lures will only lure for 2 rounds. Presentation does have 2 rounds though since it's a level 7.
+    * The amount you can carry is now far less than what you're used to, this is due to rebalancing reasons. (Toonup I believe was not changed)
+    
+    * Cogs:
+
+    * The Fashionbot Store has gotten stronger with the Cogs, so it has decided to gain some level buffs.
+    * The Fashion Designer and his cog minions are much more dangerous and have a higher health threshold.
+    * The Mints and Fashion Stores now contain a high level Cog for every battle.
+    * Fashionista has had enough and decided to play Wheel of Fate with the Toons!
+
+    * Bosses:
+
+    * Fashionbot Boss now has new music for the final round cutscene. (I wanted to put this for the Fashion Designer, but I can't figure out how to give him his own theme yet)

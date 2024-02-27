@@ -12,8 +12,8 @@ from toontown.toonbase import ToontownGlobals
 from toontown.toonbase import ToontownBattleGlobals
 import random
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieSquirt')
-hitSoundFiles = ('AA_squirt_flowersquirt.ogg', 'AA_squirt_glasswater.ogg', 'AA_squirt_neonwatergun.ogg', 'AA_squirt_seltzer.ogg', 'firehose_spray.ogg', 'AA_throw_stormcloud.ogg', 'AA_squirt_Geyser.ogg')
-missSoundFiles = ('AA_squirt_flowersquirt_miss.ogg', 'AA_squirt_glasswater_miss.ogg', 'AA_squirt_neonwatergun_miss.ogg', 'AA_squirt_seltzer_miss.ogg', 'firehose_spray.ogg', 'AA_throw_stormcloud_miss.ogg', 'AA_squirt_Geyser.ogg')
+hitSoundFiles = ('AA_squirt_flowersquirt.ogg', 'AA_squirt_glasswater.ogg', 'AA_squirt_neonwatergun.ogg', 'AA_squirt_seltzer.ogg', 'firehose_spray.ogg', 'AA_throw_stormcloud.ogg', 'AA_lightning_cloud.ogg')
+missSoundFiles = ('AA_squirt_flowersquirt_miss.ogg', 'AA_squirt_glasswater_miss.ogg', 'AA_squirt_neonwatergun_miss.ogg', 'AA_squirt_seltzer_miss.ogg', 'firehose_spray.ogg', 'AA_throw_stormcloud_miss.ogg', 'AA_throw_stormcloud_miss.ogg')
 sprayScales = [0.2,
  0.3,
  0.1,
@@ -667,77 +667,78 @@ def __doGeyser(squirt, delay, fShowStun, uberClone = 0):
     toon = squirt['toon']
     level = squirt['level']
     hpbonus = squirt['hpbonus']
-    tracks = Parallel()
+    target = squirt['target']
+    suit = target['suit']
+    hp = target['hp']
+    kbbonus = target['kbbonus']
+    died = target['died']
+    revived = target['revived']
+    leftSuits = target['leftSuits']
+    rightSuits = target['rightSuits']
+    battle = squirt['battle']
+    suitPos = suit.getPos(battle)
+    origHpr = toon.getHpr(battle)
+    hitSuit = hp > 0
+    scale = sprayScales[level]
     tButton = 0.0
     dButtonScale = 0.5
     dButtonHold = 3.0
     tContact = 2.9
     tSpray = 1
     tSuitDodges = 1.8
+    tracks = Parallel()
+    soundTrack = __getSoundTrack(level, hitSuit, 2.3, toon)
+    soundTrack2 = __getSoundTrack(level, hitSuit, 4.6, toon)
+    tracks.append(soundTrack)
+    tracks.append(soundTrack2)
     button = globalPropPool.getProp('button')
     button2 = MovieUtil.copyProp(button)
     buttons = [button, button2]
     hands = toon.getLeftHands()
-    battle = squirt['battle']
-    origHpr = toon.getHpr(battle)
-    suit = squirt['target'][0]['suit']
-    suitPos = suit.getPos(battle)
     toonTrack = Sequence(Func(MovieUtil.showProps, buttons, hands), Func(toon.headsUp, battle, suitPos), ActorInterval(toon, 'pushbutton'), Func(MovieUtil.removeProps, buttons), Func(toon.loop, 'neutral'), Func(toon.setHpr, battle, origHpr))
     tracks.append(toonTrack)
-    for target in squirt['target']:
-        suit = target['suit']
-        hp = target['hp']
-        kbbonus = target['kbbonus']
-        died = target['died']
-        revived = target['revived']
-        leftSuits = target['leftSuits']
-        rightSuits = target['rightSuits']
-        suitPos = suit.getPos(battle)
-        hitSuit = hp > 0
-        scale = sprayScales[level]
-        soundTrack = __getSoundTrack(level, hitSuit, 1.8, toon)
-        delayTime = random.random()
-        tracks.append(Wait(delayTime))
-        tracks.append(soundTrack)
-        cloud = globalPropPool.getProp('geyser')
-        cloud2 = MovieUtil.copyProp(cloud)
-        BattleParticles.loadParticles()
-        geyserHeight = battle.getH()
-        geyserPosPoint = Point3(0, 0, geyserHeight)
-        scaleUpPoint = Point3(1.8, 1.8, 1.8)
-        rainEffects = []
-        rainDelay = 2.5
-        effectDelay = 0.3
-        if hp > 0:
-            geyserHold = 1.5
+    cloud = globalPropPool.getProp('stormcloud')
+    cloud2 = MovieUtil.copyProp(cloud)
+    BattleParticles.loadParticles()
+    trickleEffect = BattleParticles.createParticleEffect(file='trickleLiquidate')
+    rainEffect = BattleParticles.createParticleEffect(file='liquidate')
+    rainEffect2 = BattleParticles.createParticleEffect(file='liquidate')
+    rainEffect3 = BattleParticles.createParticleEffect(file='liquidate')
+    cloudHeight = suit.height + 3
+    cloudPosPoint = Point3(0, 0, cloudHeight)
+    scaleUpPoint = Point3(3, 3, 3)
+    rainEffects = [rainEffect, rainEffect2, rainEffect3]
+    rainDelay = 1
+    effectDelay = 0.3
+    if hp > 0:
+        cloudHold = 4.7
+    else:
+        cloudHold = 1.7
+
+    def getCloudTrack(cloud, suit, cloudPosPoint, scaleUpPoint, rainEffects, rainDelay, effectDelay, cloudHold, useEffect, battle = battle, trickleEffect = trickleEffect):
+        track = Sequence(Func(MovieUtil.showProp, cloud, suit, cloudPosPoint), Func(cloud.pose, 'stormcloud', 0), LerpScaleInterval(cloud, 1.5, scaleUpPoint, startScale=MovieUtil.PNT3_NEARZERO), Wait(rainDelay))
+        if useEffect == 1:
+            ptrack = Parallel()
+            delay = trickleDuration = cloudHold * 0.25
+            trickleTrack = Sequence(Func(battle.movie.needRestoreParticleEffect, trickleEffect), ParticleInterval(trickleEffect, cloud, worldRelative=0, duration=trickleDuration, cleanup=True), Func(battle.movie.clearRestoreParticleEffect, trickleEffect))
+            track.append(trickleTrack)
+            for i in xrange(0, 3):
+                dur = cloudHold - 2 * trickleDuration
+                ptrack.append(Sequence(Func(battle.movie.needRestoreParticleEffect, rainEffects[i]), Wait(delay), ParticleInterval(rainEffects[i], cloud, worldRelative=0, duration=dur, cleanup=True), Func(battle.movie.clearRestoreParticleEffect, rainEffects[i])))
+                delay += effectDelay
+
+            ptrack.append(Sequence(Wait(3 * effectDelay), ActorInterval(cloud, 'stormcloud', startTime=1, duration=cloudHold)))
+            track.append(ptrack)
         else:
-            geyserHold = 0.5
+            track.append(ActorInterval(cloud, 'stormcloud', startTime=1, duration=cloudHold))
+        track.append(LerpScaleInterval(cloud, 0.5, MovieUtil.PNT3_NEARZERO))
+        track.append(Func(MovieUtil.removeProp, cloud))
+        return track
 
-        def getGeyserTrack(geyser, suit, geyserPosPoint, scaleUpPoint, rainEffects, rainDelay, effectDelay, geyserHold, useEffect, battle = battle):
-            geyserMound = MovieUtil.copyProp(geyser)
-            geyserRemoveM = geyserMound.findAllMatches('**/Splash*')
-            geyserRemoveM.addPathsFrom(geyserMound.findAllMatches('**/spout'))
-            for i in xrange(geyserRemoveM.getNumPaths()):
-                geyserRemoveM[i].removeNode()
-
-            geyserWater = MovieUtil.copyProp(geyser)
-            geyserRemoveW = geyserWater.findAllMatches('**/hole')
-            geyserRemoveW.addPathsFrom(geyserWater.findAllMatches('**/shadow'))
-            for i in xrange(geyserRemoveW.getNumPaths()):
-                geyserRemoveW[i].removeNode()
-
-            track = Sequence(Wait(rainDelay), Func(MovieUtil.showProp, geyserMound, battle, suit.getPos(battle)), Func(MovieUtil.showProp, geyserWater, battle, suit.getPos(battle)), LerpScaleInterval(geyserWater, 1.0, scaleUpPoint, startScale=MovieUtil.PNT3_NEARZERO), Wait(geyserHold * 0.5), LerpScaleInterval(geyserWater, 0.5, MovieUtil.PNT3_NEARZERO, startScale=scaleUpPoint))
-            track.append(LerpScaleInterval(geyserMound, 0.5, MovieUtil.PNT3_NEARZERO))
-            track.append(Func(MovieUtil.removeProp, geyserMound))
-            track.append(Func(MovieUtil.removeProp, geyserWater))
-            track.append(Func(MovieUtil.removeProp, geyser))
-            return track
-
-        if not uberClone:
-            tracks.append(Sequence(Wait(delayTime), getGeyserTrack(cloud, suit, geyserPosPoint, scaleUpPoint, rainEffects, rainDelay, effectDelay, geyserHold, useEffect=1)))
-        if hp > 0 or delay <= 0:
-            tracks.append(Sequence(Wait(delayTime), __getSuitTrack(suit, tContact, tSuitDodges, hp, hpbonus, kbbonus, 'soak', died, leftSuits, rightSuits, battle, toon, fShowStun, beforeStun=2.6, afterStun=2.3, geyser=1, uberRepeat=uberClone, revived=revived)))
-
+    tracks.append(getCloudTrack(cloud, suit, cloudPosPoint, scaleUpPoint, rainEffects, rainDelay, effectDelay, cloudHold, useEffect=1))
+    tracks.append(getCloudTrack(cloud2, suit, cloudPosPoint, scaleUpPoint, rainEffects, rainDelay, effectDelay, cloudHold, useEffect=0))
+    if hp > 0 or delay <= 0:
+        tracks.append(__getSuitTrack(suit, tContact, tSuitDodges, hp, hpbonus, kbbonus, 'soak', died, leftSuits, rightSuits, battle, toon, fShowStun, beforeStun=2.6, afterStun=2.3, revived=revived))
     return tracks
 
 

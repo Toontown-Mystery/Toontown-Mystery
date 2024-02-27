@@ -10,7 +10,7 @@ from MovieUtil import calcAvgSuitPos
 from direct.showutil import Effects
 notify = DirectNotifyGlobal.directNotify.newCategory('MovieDrop')
 hitSoundFiles = ('AA_drop_flowerpot.ogg', 'AA_drop_sandbag.ogg', 'AA_drop_anvil.ogg', 'AA_oneton.ogg', 'AA_drop_safe.ogg', 'AA_drop_piano.ogg', 'AA_drop_boat.ogg')
-missSoundFiles = ('AA_drop_flowerpot_miss.ogg', 'AA_drop_sandbag_miss.ogg', 'AA_drop_anvil_miss.ogg', 'AA_drop_bigweight_miss.ogg', 'AA_drop_safe_miss.ogg', 'AA_drop_piano_miss.ogg', 'AA_drop_boat_miss.ogg')
+missSoundFiles = ('AA_drop_flowerpot_miss.ogg', 'AA_drop_sandbag_miss.ogg', 'AA_drop_anvil_miss.ogg', 'AA_drop_bigweight_miss.ogg', 'AA_drop_safe_miss.ogg', 'AA_drop_piano_miss.ogg', 'AA_drop_piano_miss.ogg')
 tDropShadow = 1.3
 tSuitDodges = 2.45 + tDropShadow
 tObjectAppears = 3.0 + tDropShadow
@@ -18,7 +18,7 @@ tButtonPressed = 2.44
 dShrink = 0.3
 dShrinkOnMiss = 0.1
 dPropFall = 0.6
-objects = ('flowerpot', 'sandbag', 'anvil', 'weight', 'safe', 'piano', 'ship')
+objects = ('flowerpot', 'sandbag', 'anvil', 'weight', 'safe', 'piano', 'piano')
 objZOffsets = (0.75, 0.75, 0.0, 0.0, 0.0, 0.0, 0.0)
 objStartingScales = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 landFrames = (12, 4, 1, 11, 11, 11, 2)
@@ -406,7 +406,7 @@ def __createSuitTrack(drop, delay, level, alreadyDodged, alreadyTeased, target, 
         suitTrack.append(updateHealthBar)
         suitGettingHit = Parallel(suitReact)
         if level == UBER_GAG_LEVEL_INDEX:
-            gotHitSound = globalBattleSoundCache.getSound('AA_drop_boat_cog.ogg')
+            gotHitSound = globalBattleSoundCache.getSound('AA_drop_piano.ogg')
             suitGettingHit.append(SoundInterval(gotHitSound, node=toon))
         suitTrack.append(suitGettingHit)
         bonusTrack = None
