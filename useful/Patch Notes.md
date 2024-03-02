@@ -571,6 +571,7 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * The Fashion Designer and his cog minions are much more dangerous and have a higher health threshold.
     * The Mints and Fashion Stores now contain a high level Cog for every battle.
     * Fashionista has had enough and decided to play Wheel of Fate with the Toons!
+    * Added Mint Battle Music
 
     * Bosses:
 
