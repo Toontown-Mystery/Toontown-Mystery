@@ -576,3 +576,5 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Bosses:
 
     * Fashionbot Boss now has new music for the final round cutscene. (I wanted to put this for the Fashion Designer, but I can't figure out how to give him his own theme yet)
+
+    * SOS cards: Changed up some of the damage values to match with the gags, or even better.
