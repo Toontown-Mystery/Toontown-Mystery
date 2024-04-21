@@ -2514,7 +2514,7 @@ class DistributedToon(DistributedPlayer.DistributedPlayer, Toon.Toon, Distribute
                     b = 1.0
                     a = 1
                 elif number < 0:
-                    r = 0.25
+                    r = 0.85
                     g = 0.25
                     b = 1.0
                     a = 1

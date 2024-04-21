@@ -190,7 +190,7 @@ class DistributedAvatar(DistributedActor, Avatar):
                     b = 1.0
                     a = 1
                 elif number < 0:
-                    r = 0.0
+                    r = 0.5
                     g = 0.0
                     b = 1
                     a = 1
