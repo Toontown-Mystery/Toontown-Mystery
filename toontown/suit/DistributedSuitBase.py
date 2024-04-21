@@ -491,9 +491,9 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
                             a = ToontownGlobals.CogImmuneColor[3]
                             self.HpTextGenerator.setText(TTLocalizer.BattleGlobalCogImmuneText)
                     elif number > 0:
-                        r = 0
-                        g = 0.9
-                        b = 0
+                        r = 0.95
+                        g = 0.95
+                        b = 1
                         a = 1
                 self.HpTextGenerator.setTextColor(r, g, b, a)
                 self.hpTextNode = self.HpTextGenerator.generate()

@@ -195,9 +195,9 @@ class DistributedAvatar(DistributedActor, Avatar):
                     b = 0
                     a = 1
                 else:
-                    r = 1.0
-                    g = 0.0
-                    b = 0
+                    r = 0
+                    g = 0
+                    b = 1
                     a = 1
             elif number == 0 and isBoss==1:
                 if self.hpText:

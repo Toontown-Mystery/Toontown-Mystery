@@ -2519,9 +2519,9 @@ class DistributedToon(DistributedPlayer.DistributedPlayer, Toon.Toon, Distribute
                     b = 0
                     a = 1
                 else:
-                    r = 1.0
-                    g = 0.0
-                    b = 0
+                    r = 0.25
+                    g = 0.25
+                    b = 1.0
                     a = 1
                 self.HpTextGenerator.setTextColor(r, g, b, a)
                 self.hpTextNode = self.HpTextGenerator.generate()

@@ -631,3 +631,7 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Fixed up some quotes to make them fit.
 
     * Added new attacks to some of the new cogs, making them fit in style.
+
+    OTHER STUFF =
+
+    * Updated the showhptext colors to make them look better.
