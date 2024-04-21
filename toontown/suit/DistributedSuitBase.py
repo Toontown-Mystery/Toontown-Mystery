@@ -463,9 +463,9 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
                             b = 0.9
                             a = 1
                         elif number < 0:
-                            r = 0.0
-                            g = 1.0
-                            b = 0
+                            r = 0.95
+                            g = 0.95
+                            b = 1
                             a = 1
                             if self.interactivePropTrackBonus > -1 and self.interactivePropTrackBonus == attackTrack:
                                 r = 0
