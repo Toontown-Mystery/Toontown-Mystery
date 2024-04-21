@@ -2161,7 +2161,7 @@ SuitPencilPusher = 'Pencil Head'
 SuitYesman = 'Silver Knight'
 SuitMicromanager = 'Fancy Kitten'
 SuitDownsizer = 'Gold Knight'
-SuitHeadHunter = 'Control Doctor'
+SuitHeadHunter = 'Swordsman'
 SuitCorporateRaider = 'Royal Princess'
 SuitTheBigCheese = 'King Cheese'
 SuitColdCaller = 'Blue Caller'
@@ -2171,29 +2171,29 @@ SuitGladHander = 'Crystal Ball'
 SuitMoverShaker = 'Goth Devil'
 SuitTwoFace = 'Two-Man'
 SuitTheMingler = 'Spongebob'
-SuitMrHollywood = 'Amanda Rose'
+SuitMrHollywood = 'Fashion Rose'
 SuitShortChange = 'Gold Coin'
 SuitPennyPincher = 'Swag Shark'
-SuitTightwad = 'Janet'
-SuitBeanCounter = 'Candace Flynn'
+SuitTightwad = 'Gold Digger'
+SuitBeanCounter = 'Money Roller'
 SuitNumberCruncher = 'Number Man'
 SuitMoneyBags = 'Robber Safe'
 SuitLoanShark = 'Dark Angel'
-SuitRobberBaron = 'Moonlight Mimi'
-SuitBottomFeeder = 'Cute Flunky'
+SuitRobberBaron = 'Money Prize Wheel'
+SuitBottomFeeder = 'Case File'
 SuitBloodsucker = 'Vam\x03pire'
 SuitDoubleTalker = 'Law Balancer'
 SuitAmbulanceChaser = 'Microripoff'
 SuitBackStabber = 'Judge'
 SuitSpinDoctor = 'Metal Monkey'
 SuitLegalEagle = 'Sunlight Elvis'
-SuitBigWig = 'Epic Diamond'
+SuitBigWig = 'In Camera'
 SuitFlunkyS = 'a Crown'
 SuitPencilPusherS = 'a Pencil Head'
 SuitYesmanS = 'a Silver Knight'
 SuitMicromanagerS = 'a Fancy Kitten'
 SuitDownsizerS = 'a Gold Knight'
-SuitHeadHunterS = 'a Control Doctor'
+SuitHeadHunterS = 'a Swordsman'
 SuitCorporateRaiderS = 'a Royal Princess'
 SuitTheBigCheeseS = 'a King Cheese'
 SuitColdCallerS = 'a Blue Caller'
@@ -2203,29 +2203,29 @@ SuitGladHanderS = 'a Crystal Ball'
 SuitMoverShakerS = 'a Goth Devil'
 SuitTwoFaceS = 'a Two-Man'
 SuitTheMinglerS = 'a Spongebob'
-SuitMrHollywoodS = 'a Amanda Rose'
+SuitMrHollywoodS = 'a Fashion Rose'
 SuitShortChangeS = 'a Gold Coin'
 SuitPennyPincherS = 'a Swag Shark'
-SuitTightwadS = 'a Janet'
-SuitBeanCounterS = 'a Candace Flynn'
+SuitTightwadS = 'a Gold Digger'
+SuitBeanCounterS = 'a Money Roller'
 SuitNumberCruncherS = 'a Number Man'
 SuitMoneyBagsS = 'a Robber Safe'
 SuitLoanSharkS = 'a Dark Angel'
-SuitRobberBaronS = 'a Moonlight Mimi'
-SuitBottomFeederS = 'a Cute Flunky'
+SuitRobberBaronS = 'a Money Prize Wheel'
+SuitBottomFeederS = 'a Case File'
 SuitBloodsuckerS = 'a Vampire'
 SuitDoubleTalkerS = 'a Law Balancer'
 SuitAmbulanceChaserS = 'an Microripoff'
 SuitBackStabberS = 'a Judge'
 SuitSpinDoctorS = 'a Metal Monkey'
 SuitLegalEagleS = 'a Sunlight Elvis'
-SuitBigWigS = 'a Epic Diamond'
+SuitBigWigS = 'a In Camera'
 SuitFlunkyP = 'Crowns'
 SuitPencilPusherP = 'Pencil heads'
 SuitYesmanP = 'Silver Knights'
 SuitMicromanagerP = 'Fancy Kittens'
 SuitDownsizerP = 'Gold Knights'
-SuitHeadHunterP = 'Control Doctors'
+SuitHeadHunterP = 'Swordsmen'
 SuitCorporateRaiderP = 'Royal Princesses'
 SuitTheBigCheeseP = 'King Cheeses'
 SuitColdCallerP = 'Black Callers'
@@ -2235,23 +2235,23 @@ SuitGladHanderP = 'Crystal Balls'
 SuitMoverShakerP = 'Goth Devils'
 SuitTwoFaceP = 'Two-Men'
 SuitTheMinglerP = 'Mini Spongbobs'
-SuitMrHollywoodP = 'Amanda Roses'
+SuitMrHollywoodP = 'Fashion Roses'
 SuitShortChangeP = 'Gold Coins'
 SuitPennyPincherP = 'Swag Sharks'
-SuitTightwadP = 'Janets'
-SuitBeanCounterP = 'Candace Flynns'
+SuitTightwadP = 'Gold Diggers'
+SuitBeanCounterP = 'Money Rollers'
 SuitNumberCruncherP = 'Number Men'
 SuitMoneyBagsP = 'Robber Safes'
 SuitLoanSharkP = 'Dark Angels'
-SuitRobberBaronP = 'Moonlight Mimis'
-SuitBottomFeederP = 'Cute Flunkies'
+SuitRobberBaronP = 'Money Prize Wheels'
+SuitBottomFeederP = 'Case Files'
 SuitBloodsuckerP = 'Vampires'
 SuitDoubleTalkerP = 'Law Balancers'
 SuitAmbulanceChaserP = 'Microripoffs'
 SuitBackStabberP = 'Judges'
 SuitSpinDoctorP = 'Metal Monkies'
 SuitLegalEagleP = 'Sunlight Elvises'
-SuitBigWigP = 'Epic Diamonds'
+SuitBigWigP = 'In Cameras'
 SuitFaceoffDefaultTaunts = ['I am in the facility. Meet me in there for the real quote.']
 SuitAttackDefaultTaunts = ['Ignore this please.', 'Boring attack 2!']
 SuitAttackNames = {'Audit': 'Audit!',
@@ -2271,6 +2271,7 @@ SuitAttackNames = {'Audit': 'Audit!',
  'ClipOnTie': 'Clip On Tie!',
  'ClockChange': 'Clock Change!',
  'Crunch': 'Crunch!',
+ 'CaughtIn4K': 'Caught In 4K!',
  'Demotion': 'Demotion!',
  'Downsize': 'Downsize!',
  'WhitePowder': 'White Powder!',
@@ -2439,6 +2440,12 @@ SuitAttackTaunts = {'Audit': ["Let me find your answer right here.",
             "Calculate this in your tablets.",
             "Eat your bowl of crunch everyday, it's good for you!",
             "What time is it? Oh, It's crunch time."],
+ 'CaughtIn4K': ["You are exposed!",
+            "I'm recording you pal.",
+            "Explain yourself!",
+            "You're caught on camera!",
+            "The footage never lies!",
+            "You can't hide from me now, Toon."],
  'Demotion': ["Where are you moving next, Toon?",
               "This is going to get sent to the Post Office.",
               "Freeze!",
@@ -4611,7 +4618,7 @@ InventorySkillCreditNone = 'Skill credit: None'
 InventoryDetailAmount = '%(numItems)s / %(maxItems)s'
 InventoryDetailData = 'Accuracy: %(accuracy)s\n%(damageString)s: %(damage)d%(bonus)s\n%(singleOrGroup)s'
 InventoryTrackExp = '%(curExp)s / %(nextExp)s'
-InventoryUberTrackExp = '%(nextExp)s to Go!'
+InventoryUberTrackExp = 'Maxed!'
 InventoryGuestExp = 'Guest Limit'
 GuestLostExp = 'Over Guest Limit'
 InventoryAffectsOneCog = 'Affects: One ' + Cog
@@ -4811,7 +4818,7 @@ BattleGlobalAvTrackAccStrings = ('95%',
  '95%',
  '95%')
 BattleGlobalLureAccLow = '95%'
-BattleGlobalLureAccLow2 = '90%'
+BattleGlobalLureAccLow2 = '95%'
 BattleGlobalLureAccMedium = '95%'
 BattleGlobalLureAccHigh = '95%'
 BattleGlobalLureTrackBonus = ' (+0%)'
@@ -5417,8 +5424,8 @@ ResistanceToonWelcome2 = "Alright, just follow directions, and stay near me."
 ResistanceToonTooLate = "Huh? I don't remember this being here..."
 CashbotBossDiscoverToons1 = "Welcome, everyone."
 CashbotBossDiscoverToons2 = "I heard that you all came here for a meeting."
-CashbotBossDiscoverToons3 = "However, the meeting got canceled due to Lizzy's drama."
-CashbotBossDiscoverToons4 = "She smack talked about Mimi, Amanda, and Dark Angel."
+CashbotBossDiscoverToons3 = "However, the meeting got canceled due to things going the wrong direction."
+CashbotBossDiscoverToons4 = "Fashion Rose and the others have taken care of some of our workers, however, we need more input."
 ResistanceToonFollow1 = "I do, Boss."
 ResistanceToonFollow2 = "You see, I don't think all this will be necessary."
 ResistanceToonFollow3 = "What? no! That's no-"
@@ -5433,12 +5440,12 @@ ResistanceToonWatchThis = 'You looking for this? ;)'
 CashbotBossGetAwayFromThat1 = 'What'
 CashbotBossGetAwayFromThat2 = 'the'
 CashbotBossGetAwayFromThat3 = 'Cog!?'
-CashbotBossGetAwayFromThat4 = 'How did you Toons survive my Mimi trap!?'
-ResistanceToonCraneInstructions1 = 'You see, Elvis.'
+CashbotBossGetAwayFromThat4 = 'How did you Toons survive my Money trap!?'
+ResistanceToonCraneInstructions1 = 'You see, boss.'
 ResistanceToonCraneInstructions2 = 'We have-'
 CashbotBossNotDealing1 = 'Nope, not dealing with this.'
 CashbotBossNotDealing2 = 'You had your chance.'
-CashbotBossNotDealing3 = "If Mimi, Amanda, and Dark Angel can't take you out..."
+CashbotBossNotDealing3 = "If my Moneybots and my Cog Encounters can't take you out..."
 CashbotBossNotDealing4 = "Then I can!"
 CashbotBossGoonsCommand = "Goon, wake yourself."
 CashbotBossGoonAttack = "AND GET THOSE TOONS OR ELSE I'M GONNA DO SOMETHING BAD!"

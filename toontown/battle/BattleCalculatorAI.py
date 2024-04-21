@@ -11,8 +11,9 @@ from direct.showbase.PythonUtil import lerp
 class BattleCalculatorAI:
     AccuracyBonuses = [
      5, 20, 35, 50]
-    DamageBonuses = [
-     0, 30, 65, 100]
+    DamageBonuses = [0, 30, 60, 80]
+    DamageBonusesSound = [0, 5, 10, 15]
+    DamageBonusesDrop = [0, 60, 90, 120]
     AttackExpPerTrack = [
      0, 10, 20, 30, 40, 50, 60]
     NumRoundsLured = AvLureRounds
@@ -833,12 +834,18 @@ class BattleCalculatorAI:
                     attackIdx = currTgt[currAtkType][numDmgs - 1][0]
                     attackerId = self.toonAtkOrder[attackIdx]
                     attack = self.battle.toonAttacks[attackerId]
+                    atkTrack = self.__getActualTrack(attack)
                     if hp:
-                        attack[TOON_HPBONUS_COL] = math.ceil(totalDmgs * (self.DamageBonuses[numDmgs - 1] * 0.01))
+                        if atkTrack == DROP:
+                            attack[TOON_HPBONUS_COL] = math.ceil(totalDmgs * (self.DamageBonusesDrop[numDmgs - 1] * 0.01))
+                        elif atkTrack == SOUND:
+                            attack[TOON_HPBONUS_COL] = math.ceil(totalDmgs * (self.DamageBonusesSound[numDmgs - 1] * 0.01))
+                        else:
+                            attack[TOON_HPBONUS_COL] = math.ceil(totalDmgs * (self.DamageBonuses[numDmgs - 1] * 0.01))
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.4
+                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.6
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:

@@ -806,8 +806,8 @@ class DistributedBattleBase(DistributedNode.DistributedNode, BattleBase):
 
             camTrack.append(Func(setCamFov, self.camFov))
             camTrack.append(Func(camera.wrtReparentTo, self))
-            camTrack.append(Func(camera.setPos, self.camJoinPos))
-            camTrack.append(Func(camera.setHpr, self.camJoinHpr))
+            interval = camera.posHprInterval(1.5, self.camJoinPos, self.camJoinHpr)
+            camTrack.append(interval)
             return Parallel(joinTrack, camTrack, name=name)
         else:
             return Sequence(joinTrack, name=name)
@@ -1028,7 +1028,7 @@ class DistributedBattleBase(DistributedNode.DistributedNode, BattleBase):
 
     def __enterLocalToonWaitForInput(self):
         self.notify.debug('enterLocalToonWaitForInput()')
-        camera.setPosHpr(self.camPos, self.camHpr)
+        camera.posHprInterval(1.5, self.camPos, self.camHpr, blendType = 'easeInOut').start()
         base.camLens.setMinFov(self.camMenuFov / (4. / 3.))
         NametagGlobals.setMasterArrowsOn(0)
         self.townBattle.setState('Attack')
@@ -1269,7 +1269,7 @@ class DistributedBattleBase(DistributedNode.DistributedNode, BattleBase):
         if stateName == 'died':
             self.movie.reset()
             camera.reparentTo(render)
-            camera.setPosHpr(localAvatar, 5.2, 5.45, localAvatar.getHeight() * 0.66, 131.5, 3.6, 0)
+            camera.posHprInterval(1.5, Point3(localAvatar, 5.2, 5.45), Point3(localAvatar.getHeight() * 0.66, 131.5, 3.6), blendType = 'easeInOut').start()
         else:
             camera.wrtReparentTo(base.localAvatar)
             messenger.send('localToonLeftBattle')

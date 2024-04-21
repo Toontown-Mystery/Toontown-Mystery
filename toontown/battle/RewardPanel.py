@@ -475,13 +475,13 @@ class RewardPanel(DirectFrame):
             else:
                 nextExpValue = newNextExpValue
 
-        uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1
+        uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0
         currentSkill = origSkill + earnedSkill
-        uberSkill = ToontownBattleGlobals.UberSkill + ToontownBattleGlobals.Levels[track][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1]
+        uberSkill = ToontownBattleGlobals.UberSkill + ToontownBattleGlobals.Levels[track][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0]
         if currentSkill >= uberSkill and not hasUber > 0:
-            intervalList += self.getUberGagIntervalList(toon, track, ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1)
+            intervalList += self.getUberGagIntervalList(toon, track, ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0)
             intervalList.append(Wait(0.1))
-            skillDiff = currentSkill - ToontownBattleGlobals.Levels[track][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1]
+            skillDiff = currentSkill - ToontownBattleGlobals.Levels[track][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0]
             barTime = math.log(skillDiff + 1)
             numTicks = int(math.ceil(barTime / tickDelay))
             displayedSkillDiff = skillDiff

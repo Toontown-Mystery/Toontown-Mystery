@@ -578,3 +578,56 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     * Fashionbot Boss now has new music for the final round cutscene. (I wanted to put this for the Fashion Designer, but I can't figure out how to give him his own theme yet)
 
     * SOS cards: Changed up some of the damage values to match with the gags, or even better.
+
+    Toontown Mystery: 3.5.0
+
+    * Gags:
+      Most gags have gotten retextures and some balancing changes, so I'll list them here.
+    
+    * Once you max a gag track, it will have the word "Maxed!" on it, also you can only carry 1 level 7 at a time, while yes you can restock by the gag shop, unites and SOS cards don't apply to them yet. (idk how to code it in for it to work LOL)
+
+    * Added animations for when Sound and Lure miss.
+
+    * All gags that can combo now have their own bonuses to them besides Throw and Squirt since they remain the same.
+    * Sound = 5% for 2 Toons. 10% for 3 Toons. 15% for 4 Toons.
+    * Throw & Squirt = 30% for 2 Toons. 60% for 3 Toons. 80% for 4 Toons.
+    * Drop = 60% for 2 Toons. 90% for 3 Toons. 120% for 4 Toons.
+
+    Minor gag balance changes:
+
+    * Sound = Sound has gotten a buff due to the lack of combo damage to it.
+
+    Bike horn = 3 > 5
+    Whistle = 6 > 10
+    Bugle = 10 > 20
+    Aoogah = 25 > 35
+    Trunk = 40 > 50
+    Foghorn = 60 > 85
+    Opera = 120 > 150
+
+    Throw & Squirt =
+
+    Cream Pie & Hose = 70 > 75
+    Wedding Cake & Lightning Cloud = 250 > 200
+
+    * The gag panel has also received new shiny colours on it, so feel free to look at them. :3
+
+    * Facilities =
+
+    * Made the front side of the factory easier for those who want the easy version, or go to the silos end for the harder version!
+
+    * Bosses =
+
+    * Re edited the Moneybot Boss cutscenes to make them more fitting, and more interesting to watch.
+
+    * Battles =
+
+    * Added a camera animation for when you go into the battle.
+
+    * Cogs =
+
+    * Modelled some more of the Cogs that don't make sense, and added some new quotes to them. There's a lot to explore, so check them out! :D
+
+    * Fixed up some quotes to make them fit.
+
+    * Added new attacks to some of the new cogs, making them fit in style.

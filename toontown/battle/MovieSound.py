@@ -110,7 +110,7 @@ def __getSuitTrack(sound, lastSoundThatHit, delay, hitCount, targets, totalDamag
             else:
                 tracks.append(Parallel(suitTrack, bonusTrack))
         elif totalDamage <= 0:
-            tracks.append(Sequence(Wait(2.9), Func(MovieUtil.indicateMissed, suit, 1.0)))
+            tracks.append(Sequence(Wait(2.9), Func(MovieUtil.indicateMissed, suit, 1.0), ActorInterval(suit, 'victory', startTime=0, endTime=0.8), ActorInterval(suit, 'victory', startTime=0.8, endTime=0), Func(suit.loop, 'neutral')))
 
     return tracks
 

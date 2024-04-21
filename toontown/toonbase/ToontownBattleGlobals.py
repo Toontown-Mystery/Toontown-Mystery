@@ -13,13 +13,13 @@ SkipMovie = 0
 BaseHp = 145
 Tracks = TTLocalizer.BattleGlobalTracks
 NPCTracks = TTLocalizer.BattleGlobalNPCTracks
-TrackColors = ((211 / 255.0, 148 / 255.0, 255 / 255.0),
- (249 / 255.0, 255 / 255.0, 93 / 255.0),
- (79 / 255.0, 190 / 255.0, 76 / 255.0),
- (93 / 255.0, 108 / 255.0, 239 / 255.0),
- (255 / 255.0, 145 / 255.0, 66 / 255.0),
- (255 / 255.0, 65 / 255.0, 199 / 255.0),
- (67 / 255.0, 243 / 255.0, 255 / 255.0))
+TrackColors = ((0 / 255.0, 148 / 255.0, 255 / 255.0),
+ (255 / 255.0, 0 / 255.0, 0 / 255.0),
+ (0 / 200.0, 255 / 255.0, 0 / 255.0),
+ (255.0 / 255.0, 0.1 / 0.1, 0.1 / 0.1),
+ (255.0 / 140.0, 145 / 35.0, 66 / 95.0),
+ (15.0 / 25.0, 35.0 / 5.0, 9 / 7.0),
+ (0.5 / 0.2, 0.5 / 0.3, 0.5 / 255.0))
 HEAL_TRACK = 0
 TRAP_TRACK = 1
 LURE_TRACK = 2
@@ -35,7 +35,7 @@ MAX_TRACK_INDEX = 6
 MIN_LEVEL_INDEX = 0
 MAX_LEVEL_INDEX = 6
 MAX_UNPAID_LEVEL_INDEX = 4
-LAST_REGULAR_GAG_LEVEL = 5
+LAST_REGULAR_GAG_LEVEL = 6
 UBER_GAG_LEVEL_INDEX = 6
 NUM_GAG_TRACKS = 7
 AvLureRounds = (2,
@@ -98,7 +98,7 @@ Levels = [[0,
   12500,
   25000]]
 regMaxSkill = 25000
-UberSkill = 1
+UberSkill = 0
 MaxSkill = UberSkill + regMaxSkill
 UnpaidMaxSkills = [Levels[0][1] - 1,
  Levels[1][1] - 1,
@@ -663,27 +663,27 @@ AvPropDamage = ((((75, 75), (Levels[0][0], Levels[0][1])),
   ((0, 0), (0, 0)),
   ((0, 0), (0, 0)),
   ((0, 0), (0, 0))),
- (((3, 3), (Levels[3][0], Levels[3][1])),
-  ((6, 6), (Levels[3][1], Levels[3][2])),
-  ((10, 10), (Levels[3][2], Levels[3][3])),
-  ((25, 25), (Levels[3][3], Levels[3][4])),
-  ((40, 40), (Levels[3][4], Levels[3][5])),
-  ((60, 60), (Levels[3][5], Levels[3][6])),
-  ((120, 120), (Levels[3][6], MaxSkill))),
+ (((5, 5), (Levels[3][0], Levels[3][1])),
+  ((10, 10), (Levels[3][1], Levels[3][2])),
+  ((20, 20), (Levels[3][2], Levels[3][3])),
+  ((35, 35), (Levels[3][3], Levels[3][4])),
+  ((50, 50), (Levels[3][4], Levels[3][5])),
+  ((85, 85), (Levels[3][5], Levels[3][6])),
+  ((150, 150), (Levels[3][6], MaxSkill))),
  (((10, 10), (Levels[4][0], Levels[4][1])),
   ((20, 20), (Levels[4][1], Levels[4][2])),
   ((30, 30), (Levels[4][2], Levels[4][3])),
   ((50, 50), (Levels[4][3], Levels[4][4])),
-  ((70, 70), (Levels[4][4], Levels[4][5])),
+  ((75, 75), (Levels[4][4], Levels[4][5])),
   ((125, 125), (Levels[4][5], Levels[4][6])),
-  ((250, 250), (Levels[4][6], MaxSkill))),
+  ((200, 200), (Levels[4][6], MaxSkill))),
 (((10, 10), (Levels[5][0], Levels[5][1])),
   ((20, 20), (Levels[5][1], Levels[5][2])),
   ((30, 30), (Levels[5][2], Levels[5][3])),
   ((50, 50), (Levels[5][3], Levels[5][4])),
-  ((70, 70), (Levels[5][4], Levels[5][5])),
+  ((75, 75), (Levels[5][4], Levels[5][5])),
   ((125, 125), (Levels[5][5], Levels[5][6])),
-  ((250, 250), (Levels[5][6], MaxSkill))),
+  ((200, 200), (Levels[5][6], MaxSkill))),
 (((20, 20), (Levels[6][0], Levels[6][1])),
   ((35, 35), (Levels[6][1], Levels[6][2])),
   ((60, 60), (Levels[6][2], Levels[6][3])),

@@ -128,7 +128,7 @@ def getBattleExperience(numToons, activeToons, toonExp, toonSkillPtsGained, toon
 
 def getToonUberStatus(toons, numToons):
     fieldList = []
-    uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1
+    uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0
     for toonId in toons:
         toonList = []
         toon = simbase.air.doId2do.get(toonId)
@@ -159,18 +159,18 @@ def assignRewards(activeToons, toonSkillPtsGained, suitsKilled, zoneId, helpfulT
 
     for toon in activeToonList:
         for i in xrange(len(ToontownBattleGlobals.Tracks)):
-            uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1
+            uberIndex = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0
             exp = getSkillGained(toonSkillPtsGained, toon.doId, i)
-            needed = ToontownBattleGlobals.Levels[i][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1] + ToontownBattleGlobals.UberSkill
+            needed = ToontownBattleGlobals.Levels[i][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0] + ToontownBattleGlobals.UberSkill
             hasUber = 0
             totalExp = exp + toon.experience.getExp(i)
             if toon.inventory.numItem(i, uberIndex) > 0:
                 hasUber = 1
             if totalExp >= needed or totalExp >= ToontownBattleGlobals.MaxSkill:
                 if toon.inventory.totalProps < toon.getMaxCarry() and not hasUber:
-                    uberLevel = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1
+                    uberLevel = ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0
                     toon.inventory.addItem(i, uberLevel)
-                    toon.experience.setExp(i, ToontownBattleGlobals.Levels[i][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 1])
+                    toon.experience.setExp(i, ToontownBattleGlobals.Levels[i][ToontownBattleGlobals.LAST_REGULAR_GAG_LEVEL + 0])
                 else:
                     toon.experience.setExp(i, ToontownBattleGlobals.MaxSkill)
             else:

@@ -132,7 +132,7 @@ def __createFishingPoleMultiTrack(lure, dollar, dollarName, dollarType):
                 suitTrack.append(MovieUtil.createSuitDeathTrack(suit, toon, battle))
             tracks.append(suitTrack)
     else:
-        tracks.append(Sequence(Wait(3.7), Func(MovieUtil.indicateMissed, suit)))
+        tracks.append(Sequence(Wait(3.7), Func(MovieUtil.indicateMissed, suit), ActorInterval(suit, 'victory', startTime=0, endTime=0.8), ActorInterval(suit, 'victory', startTime=0.8, endTime=0), Func(suit.loop, 'neutral')))
     tracks.append(getSoundTrack('TL_fishing_pole.ogg', delay=0.5, node=toon))
     return tracks
 
@@ -204,7 +204,7 @@ def __createMagnetMultiTrack(lure, magnet, pos, hpr, scale, isSmallMagnet = 1, n
                 tracks.append(suitTrack)
                 tracks.append(lerpSuit(suit, suitDelay + 0.55 + shakeTotalDuration, suitMoveDuration, reachPos, battle, trapProp))
         else:
-            tracks.append(Sequence(Wait(3.7), Func(MovieUtil.indicateMissed, suit)))
+            tracks.append(Sequence(Wait(3.7), Func(MovieUtil.indicateMissed, suit), ActorInterval(suit, 'victory', startTime=0, endTime=0.8), ActorInterval(suit, 'victory', startTime=0.8, endTime=0), Func(suit.loop, 'neutral')))
 
     if isSmallMagnet == 1:
         tracks.append(getSoundTrack('TL_small_magnet.ogg', delay=0.7, node=toon))
@@ -272,7 +272,7 @@ def __createHypnoGogglesMultiTrack(lure, npcs = []):
                 tracks.append(suitTrack)
                 tracks.append(lerpSuit(suit, suitDelay + 1.7, 0.7, reachPos, battle, trapProp))
         else:
-            tracks.append(Sequence(Wait(2.3), Func(MovieUtil.indicateMissed, suit, 1.1)))
+            tracks.append(Sequence(Wait(2.3), Func(MovieUtil.indicateMissed, suit, 1.1), ActorInterval(suit, 'victory', startTime=0, endTime=0.8), ActorInterval(suit, 'victory', startTime=0.8, endTime=0), Func(suit.loop, 'neutral')))
 
     tracks.append(getSoundTrack('TL_hypnotize.ogg', delay=0.5, node=toon))
     return tracks
@@ -697,7 +697,7 @@ def __createSlideshowMultiTrack(lure, npcs = []):
                 tracks.append(suitTrack)
                 tracks.append(lerpSuit(suit, suitDelay + 1.7, 0.7, reachPos, battle, trapProp))
         else:
-            tracks.append(Sequence(Wait(2.3), Func(MovieUtil.indicateMissed, suit, 1.1)))
+            tracks.append(Sequence(Wait(2.3), Func(MovieUtil.indicateMissed, suit, 1.1), ActorInterval(suit, 'victory', startTime=0, endTime=0.8), ActorInterval(suit, 'victory', startTime=0.8, endTime=0), Func(suit.loop, 'neutral')))
 
     tracks.append(getSoundTrack('TL_presentation.ogg', delay=2.3, node=toon))
     tracks.append(getSoundTrack('AA_drop_trigger_box.ogg', delay=slideshowDelay, node=toon))

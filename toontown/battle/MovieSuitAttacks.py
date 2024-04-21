@@ -148,6 +148,8 @@ def doSuitAttack(attack):
         suitTrack = doClockChange(attack)
     elif name == CRUNCH:
         suitTrack = doCrunch(attack)
+    elif name == CAUGHT_IN_4K:
+        suitTrack = doCaughtIn4K(attack)
     elif name == DEMOTION:
         suitTrack = doDemotion(attack)
     elif name == DOUBLE_TALK:
@@ -765,7 +767,7 @@ def getToonTakeDamageTrack(toon, died, dmg, delay, damageAnimNames = None, splic
         indicatorTrack = Sequence(Wait(delay + showDamageExtraTime), Func(__doDamage, toon, dmg, died))
     toonTrack.append(Func(toon.loop, 'neutral'))
     if died:
-        toonTrack.append(Wait(5.0))
+        toonTrack.append(Wait(0))
     return Parallel(toonTrack, indicatorTrack)
 
 
@@ -3810,6 +3812,21 @@ def doCrunch(attack):
     toonTrack = getToonTrack(attack, damageDelay=4.7, splicedDamageAnims=damageAnims, dodgeDelay=3.6, dodgeAnimNames=['sidestep'])
     soundTrack = getSoundTrack('SA_crunch.ogg', delay=4.7, node=suit)
     return Parallel(suitTrack, toonTrack, soundTrack, numberSpillTrack1, numberSpillTrack2, numberTracks, numberSprayTracks)
+
+def doCaughtIn4K(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    target = attack['target']
+    toon = target['toon']
+    cam = globalPropPool.getProp('camera')
+    suitTrack = getSuitTrack(attack)
+    camPosPoints = [MovieUtil.PNT3_ZERO, VBase3(63.097, 43.988, -18.435)]
+    LightTrack = Sequence(LerpColorScaleInterval(render, 0.25, Vec4(0, 0, 0, 0)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(1, 1, 1, 1)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(0, 0, 0, 0)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(1, 1, 1, 1)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(0, 0, 0, 0)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(1, 1, 1, 1)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(0, 0, 0, 0)), Wait(0.1), LerpColorScaleInterval(render, 0.25, Vec4(1, 1, 1, 1)), Wait(0.1))
+    camPropTrack = getPropTrack(cam, suit.getRightHand(), camPosPoints, 0.5, 5.2, Point3(1.1, 1.1, 1.1))
+    dodgeDelay = suitTrack.getDuration() - 0
+    toonTrack = getToonTrack(attack, suitTrack.getDuration() - 2.25, ['conked'], dodgeDelay, ['duck'], showMissedExtraTime=0)
+    soundTrack = getSoundTrack('SA_camera_flash.ogg', delay=0.5, node=suit)
+    return Parallel(suitTrack, toonTrack, LightTrack, camPropTrack, soundTrack)
 
 
 def doLiquidate(attack):
