@@ -2078,6 +2078,7 @@ ForcedLeaveCountryClubAckMsg = 'The Club President was defeated before you could
 ToonHealJokes = [['What is doog si 5 backwards? :)', '5 is good!'],
  ["What should I do if I'm tired?", "Me sleep. zzz"],
  ['Me doing nothing. :3', 'Honest! :3'],
+ ["What do you call a person who sews clothes fast?", "Taylor Swift."],
  ["Me won't heal you. :)", "Aw, it went through. T_T"],
  ["Ok then.", "*Leaves*"],
  ["What is snow + gas =? :)", "Glue!"],
