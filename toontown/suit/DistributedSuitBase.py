@@ -74,12 +74,18 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         if self.getSkeleRevives() > 0:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix)}
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix),
+             'bec': self.getBossEncounter(),
+             'fb': self.getFacilityBossTitle(),
+             'fa': self.getFacilityAssistantTitle()}
             self.setDisplayName(nameInfo)
         else:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel()}
+             'level': self.getActualLevel(),
+             'bec': self.getBossEncounterTitle(),
+             'fb': self.getFacilityBossTitle(),
+             'fa': self.getFacilityAssistantTitle()}
             self.setDisplayName(nameInfo)
         return
 
@@ -98,23 +104,35 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
             if self.getImmuneStatus() == 1 and self.getSkeleRevives() > 0:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': '%s%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix, TTLocalizer.ImmunePostFix)}
+                 'level': self.getActualLevel(),
+                 'bec': self.getBossEncounterTitle(),
+                 'fb': self.getFacilityBossTitle(),
+                 'fa': self.getFacilityAssistantTitle()}
                 self.setDisplayName(nameInfo)
             elif self.getImmuneStatus() == 1:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': '%s%s' % (self.getActualLevel(), TTLocalizer.ImmunePostFix)}
+                 'level': self.getActualLevel(),
+                 'bec': self.getBossEncounterTitle(),
+                 'fb': self.getFacilityBossTitle(),
+                 'fa': self.getFacilityAssistantTitle()}
                 self.setDisplayName(nameInfo)
         else:
             if self.getSkeleRevives() > 0:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix)}
+                 'level': self.getActualLevel(),
+                 'bec': self.getBossEncounterTitle(),
+                 'fb': self.getFacilityBossTitle(),
+                 'fa': self.getFacilityAssistantTitle()}
                 self.setDisplayName(nameInfo)
             else:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': self.getActualLevel()}
+                 'level': self.getActualLevel(),
+                 'bec': self.getBossEncounterTitle(),
+                 'fb': self.getFacilityBossTitle(),
+                 'fa': self.getFacilityAssistantTitle()}
                 self.setDisplayName(nameInfo)
         return
 
@@ -244,7 +262,7 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
             lerpPosTrack = Sequence(self.posInterval(timeTillLanding, pos, startPos=skyPos), Wait(impactLength))
             shadowScale = self.dropShadow.getScale()
             shadowTrack = Sequence(Func(self.dropShadow.reparentTo, render), Func(self.dropShadow.setPos, pos), self.dropShadow.scaleInterval(timeTillLanding, self.scale, startScale=Vec3(0.01, 0.01, 1.0)), Func(self.dropShadow.reparentTo, self.getShadowJoint()), Func(self.dropShadow.setPos, 0, 0, 0), Func(self.dropShadow.setScale, shadowScale))
-            fadeInTrack = Sequence(Func(self.setTransparency, 1), self.colorScaleInterval(1, colorScale=VBase4(1, 1, 1, 1), startColorScale=VBase4(1, 1, 1, 0)), Func(self.clearColorScale), Func(self.clearTransparency))
+            fadeInTrack = Sequence(Func(self.setTransparency, 0), self.colorScaleInterval(1, colorScale=VBase4(1, 1, 1, 1), startColorScale=VBase4(1, 1, 1, 1)), Func(self.clearColorScale), Func(self.clearTransparency))
             animTrack = Sequence(Func(self.pose, 'landing', 0), Wait(waitTime), ActorInterval(self, 'landing', duration=dur), Func(self.loop, 'walk'))
             self.attachPropeller()
             if walkAfterLanding:
@@ -257,7 +275,7 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         else:
             lerpPosTrack = Sequence(Wait(impactLength), LerpPosInterval(self, timeTillLanding, skyPos, startPos=pos))
             shadowTrack = Sequence(Func(self.dropShadow.reparentTo, render), Func(self.dropShadow.setPos, pos), self.dropShadow.scaleInterval(timeTillLanding, Vec3(0.01, 0.01, 1.0), startScale=self.scale), Func(self.dropShadow.reparentTo, self.getShadowJoint()), Func(self.dropShadow.setPos, 0, 0, 0))
-            fadeOutTrack = Sequence(Func(self.setTransparency, 1), self.colorScaleInterval(1, colorScale=VBase4(1, 1, 1, 0), startColorScale=VBase4(1, 1, 1, 1)), Func(self.clearColorScale), Func(self.clearTransparency), Func(self.reparentTo, hidden))
+            fadeOutTrack = Sequence(Func(self.setTransparency, 0), self.colorScaleInterval(1, colorScale=VBase4(1, 1, 1, 1), startColorScale=VBase4(1, 1, 1, 1)), Func(self.clearColorScale), Func(self.clearTransparency), Func(self.reparentTo, hidden))
             actInt = ActorInterval(self, 'landing', loop=0, startTime=dur, endTime=0.0)
             self.attachPropeller()
             self.prop.hide()
@@ -400,6 +418,24 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         SuitBase.SuitBase.setSkelecog(self, flag)
         if flag:
             Suit.Suit.makeSkeleton(self)
+
+    def setBossEncounter(self, flag):
+        self.notify.debug('Got bec %d from server for suit %d' % (flag, self.getDoId()))
+        SuitBase.SuitBase.setBossEncounter(self, flag)
+        if self.isBossEncounter:
+            if not self.isSkelecog:
+                self.makeBossEncounter()
+            else:
+                self.makeSkeleton()
+
+    def setFacilityBoss(self, flag):
+        self.notify.debug('Got fb %d from server for suit %d' % (flag, self.getDoId()))
+        SuitBase.SuitBase.setFacilityBoss(self, flag)
+        if self.isFacilityBoss:
+            if not self.isSkelecog:
+                self.makeFacilityBoss()
+            else:
+                self.makeSkeleton()
 
     def showHpText(self, number, bonus = 0, scale = 1, attackTrack = -1, immuneRevert=0):
         if self.HpTextEnabled and not self.ghostMode:

@@ -20,6 +20,9 @@ class SuitBase:
         self.maxHP = 10
         self.currHP = 10
         self.isSkelecog = 0
+        self.isBossEncounter = 0
+        self.isFacilityBoss = 0
+        self.isFacilityAssistant = 0
         self.isImmune = 0
         return
 
@@ -59,16 +62,58 @@ class SuitBase:
 
     def setLevel(self, level):
         self.level = level
-        nameWLevel = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
+        self.nameWLevel = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
          'dept': self.getStyleDept(),
-         'level': self.getActualLevel()}
-        self.setDisplayName(nameWLevel)
+         'level': self.getActualLevel(),
+         'bec': self.getBossEncounterTitle(),
+         'fb': self.getFacilityBossTitle(),
+         'fa': self.getFacilityAssistantTitle()}
+        self.setDisplayName(self.nameWLevel)
         attributes = SuitBattleGlobals.SuitAttributes[self.dna.name]
         self.maxHP = attributes['hp'][self.level]
         self.currHP = self.maxHP
 
     def getSkelecog(self):
         return self.isSkelecog
+
+    def getBossEncounter(self):
+        return self.isBossEncounter
+
+    def getBossEncounterTitle(self):
+        return TTLocalizer.SuitBossEncounterTitle if self.getBossEncounter() else ''
+
+    def setBossEncounter(self, flag):
+        wasBossEncounter = self.getBossEncounter()
+        if wasBossEncounter:
+            return
+        self.isBossEncounter = flag
+        self.nameWLevel()
+
+    def getFacilityBoss(self):
+        return self.isFacilityBoss
+
+    def getFacilityBossTitle(self):
+        return TTLocalizer.SuitFacilityBossTitle if self.getFacilityBoss() else ''
+
+    def setFacilityBoss(self, flag):
+        wasFacilityBoss = self.getFacilityBoss()
+        if wasFacilityBoss:
+            return
+        self.isFacilityBoss = flag
+        self.nameWLevel()
+
+    def getFacilityAssistant(self):
+        return self.isFacilityAssistant
+
+    def getFacilityAssistantTitle(self):
+        return TTLocalizer.SuitFacilityAssistantTitle if self.getFacilityAssistant() else ''
+
+    def setFacilityAssistant(self, flag):
+        wasFacilityAssistant = self.getFacilityAssistant()
+        if wasFacilityAssistant:
+            return
+        self.isFacilityAssistant = flag
+        self.nameWLevel()
 
     def setSkelecog(self, flag):
         self.isSkelecog = flag

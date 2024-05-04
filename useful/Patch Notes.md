@@ -635,3 +635,8 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     OTHER STUFF =
 
     * Updated the showhptext colors to make them look better.
+
+    Toontown Mystery 3.5.1:
+
+    * Facility Bosses, Facility Assistants, and Boss Encounters now have their own little indicator on their nametags.
+    * All the Facility and Boss cogs attacks have been buffed slightly, so did their health.

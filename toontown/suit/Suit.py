@@ -444,6 +444,9 @@ class Suit(Avatar.Avatar):
         self.healthBar = SuitHealthBar.SuitHealthBar()
         self.isDisguised = 0
         self.isWaiter = 0
+        self.isBossEncounter = 0
+        self.isFacilityBoss = 0
+        self.isFacilityAssistant = 0
         self.isRental = 0
         self.isImmune = 0
         return
@@ -574,6 +577,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('crownguardcog', 'phase_4/models/char/crownguard.bam')
             self.setHeight(5.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'bg':
             self.scale = 4.6 / bSize
@@ -582,6 +586,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('cogguard', 'phase_4/models/char/guard.bam')
             self.setHeight(5.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'msr':
             self.scale = 4.6 / bSize
@@ -590,6 +595,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('servantcog', 'phase_4/models/char/servant.bam')
             self.setHeight(8.7)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'kb':
             self.scale = 7.5 / aSize
@@ -598,6 +604,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('berrycog', 'phase_4/models/char/berry.bam')
             self.setHeight(8.75)
+            self.makeFacilityBoss()
             self.setTransparency(1)
         elif dna.name == 'ts':
             self.scale = 8.0 / aSize
@@ -606,6 +613,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('sweepcog', 'phase_4/models/char/sweeper.bam')
             self.setHeight(10.5)
+            self.makeBossEncounter()
             self.setTransparency(1)
         elif dna.name == 'bf':
             self.scale = 2.5 / aSize
@@ -675,6 +683,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('cage', 'phase_4/models/char/trap.bam')
             self.setHeight(6.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'jur':
             self.scale = 5.1 / bSize
@@ -683,6 +692,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('jurycog', 'phase_4/models/char/jury.bam')
             self.setHeight(6.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'tlr':
             self.scale = 5.6 / aSize
@@ -691,6 +701,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('wheelcog', 'phase_4/models/char/wheel.bam')
             self.setHeight(8.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'cm':
             self.scale = 7.5 / aSize
@@ -699,6 +710,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('bookcog', 'phase_4/models/char/book.bam')
             self.setTransparency(1)
+            self.makeFacilityBoss()
             self.setHeight(9.25)
         elif dna.name == 'ggm':
             self.scale = 8.0 / bSize
@@ -707,6 +719,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('catcog', 'phase_4/models/char/cat.bam')
             self.setTransparency(1)
+            self.makeBossEncounter()
             self.setHeight(9.31)
         elif dna.name == 'sc':
             self.scale = 2.5 / cSize
@@ -778,6 +791,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('cashcog', 'phase_4/models/char/cashiercog.bam')
             self.setHeight(6.8)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'bgr':
             self.scale = 4.4 / bSize
@@ -786,6 +800,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('baggercog', 'phase_4/models/char/bagger.bam')
             self.setHeight(6.55)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'mes':
             self.scale = 4.1 / bSize
@@ -794,6 +809,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('Circle', 'phase_4/models/char/clock.bam')
             self.setHeight(5.7)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'dm':
             self.scale = 7.2 / bSize
@@ -802,6 +818,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('calculatorbot', 'phase_4/models/char/calculator.bam')
             self.setHeight(8.7)
+            self.makeFacilityBoss()
             self.setTransparency(1)
         elif dna.name == 'tcc':
             self.scale = 8.0 / bSize
@@ -811,6 +828,7 @@ class Suit(Avatar.Avatar):
             self.headTexture = 'dollar.jpg'
             self.generateHead('calculatorbot', 'phase_4/models/char/calculator.bam')
             self.setHeight(9.7)
+            self.makeBossEncounter()
             self.setTransparency(1)
         elif dna.name == 'cc':
             self.scale = 2.5 / cSize
@@ -885,6 +903,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('fashionistacog', 'phase_4/models/char/fashionista.bam')
             self.setHeight(6.9)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'mdr':
             self.scale = 5.5 / aSize
@@ -893,6 +912,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('Cubes', 'phase_4/models/char/modeltv.bam')
             self.setHeight(7.06)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'nar':
             self.scale = 4.3 / bSize
@@ -901,6 +921,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('starbombcog', 'phase_4/models/char/bombcog.bam')
             self.setHeight(5.6)
+            self.makeFacilityAssistant()
             self.setTransparency(1)
         elif dna.name == 'fd':
             self.scale = 7.5 / aSize
@@ -909,6 +930,7 @@ class Suit(Avatar.Avatar):
             self.generateBody()
             self.generateHead('designer', 'phase_4/models/char/fashioncogdesigner.bam')
             self.setHeight(10)
+            self.makeFacilityBoss()
             self.setTransparency(1)
         elif dna.name == 'fm':
             self.scale = 7.5 / aSize
@@ -917,6 +939,7 @@ class Suit(Avatar.Avatar):
             self.generateHead('flowercog', 'phase_4/models/char/flower.bam')
             self.setHeight(10.5)
             self.setTransparency(1)
+            self.makeBossEncounter()
         self.setName(SuitBattleGlobals.SuitAttributes[dna.name]['name'])
         self.getGeomNode().setScale(self.scale)
         self.generateHealthBar()
@@ -1092,6 +1115,66 @@ class Suit(Avatar.Avatar):
         modelRoot.find('**/torso').setTexture(torsoTex, 1)
         modelRoot.find('**/arms').setTexture(armTex, 1)
         modelRoot.find('**/legs').setTexture(legTex, 1)
+
+    def makeBossEncounter(self, modelRoot=None):
+        if not modelRoot:
+            modelRoot = self
+        dept = self.style.dept
+        phase = 3.5
+        self.isBossEncounter = 1
+        torsoTex = loader.loadTexture('phase_%s/maps/%s_blazer.jpg' % (phase, dept))
+        torsoTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        torsoTex.setMagfilter(Texture.FTLinear)
+        legTex = loader.loadTexture('phase_%s/maps/%s_leg.jpg' % (phase, dept))
+        legTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        legTex.setMagfilter(Texture.FTLinear)
+        armTex = loader.loadTexture('phase_%s/maps/%s_sleeve.jpg' % (phase, dept))
+        armTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        armTex.setMagfilter(Texture.FTLinear)
+        modelRoot.find('**/torso').setTexture(torsoTex, 1)
+        modelRoot.find('**/arms').setTexture(armTex, 1)
+        modelRoot.find('**/legs').setTexture(legTex, 1)
+        modelRoot.find('**/hands').setColor(self.handColor)
+
+    def makeFacilityBoss(self, modelRoot=None):
+        if not modelRoot:
+            modelRoot = self
+        dept = self.style.dept
+        phase = 3.5
+        self.isFacilityBoss = 1
+        torsoTex = loader.loadTexture('phase_%s/maps/%s_blazer.jpg' % (phase, dept))
+        torsoTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        torsoTex.setMagfilter(Texture.FTLinear)
+        legTex = loader.loadTexture('phase_%s/maps/%s_leg.jpg' % (phase, dept))
+        legTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        legTex.setMagfilter(Texture.FTLinear)
+        armTex = loader.loadTexture('phase_%s/maps/%s_sleeve.jpg' % (phase, dept))
+        armTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        armTex.setMagfilter(Texture.FTLinear)
+        modelRoot.find('**/torso').setTexture(torsoTex, 1)
+        modelRoot.find('**/arms').setTexture(armTex, 1)
+        modelRoot.find('**/legs').setTexture(legTex, 1)
+        modelRoot.find('**/hands').setColor(self.handColor)
+
+    def makeFacilityAssistant(self, modelRoot=None):
+        if not modelRoot:
+            modelRoot = self
+        dept = self.style.dept
+        phase = 3.5
+        self.isFacilityAssistant = 1
+        torsoTex = loader.loadTexture('phase_%s/maps/%s_blazer.jpg' % (phase, dept))
+        torsoTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        torsoTex.setMagfilter(Texture.FTLinear)
+        legTex = loader.loadTexture('phase_%s/maps/%s_leg.jpg' % (phase, dept))
+        legTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        legTex.setMagfilter(Texture.FTLinear)
+        armTex = loader.loadTexture('phase_%s/maps/%s_sleeve.jpg' % (phase, dept))
+        armTex.setMinfilter(Texture.FTLinearMipmapLinear)
+        armTex.setMagfilter(Texture.FTLinear)
+        modelRoot.find('**/torso').setTexture(torsoTex, 1)
+        modelRoot.find('**/arms').setTexture(armTex, 1)
+        modelRoot.find('**/legs').setTexture(legTex, 1)
+        modelRoot.find('**/hands').setColor(self.handColor)
 		
     def makeVirtual(self, modelRoot = None):
         if not modelRoot:
@@ -1561,6 +1644,12 @@ class Suit(Avatar.Avatar):
             return TTLocalizer.CogPanelRevives % (self.skeleRevives + 1)
         elif self.isSkelecog:
             return TTLocalizer.CogPanelSkeleton
+        elif self.isBossEncounter:
+            return TTLocalizer.CogPanelBossEncounter
+        elif self.isFacilityBoss:
+            return TTLocalizer.CogPanelFacilityBoss
+        elif self.isFacilityAssistant:
+            return TTLocalizer.CogPanelFacilityAssistant
         return ''
 
     def generateHealthBar(self):
@@ -1690,7 +1779,10 @@ class Suit(Avatar.Avatar):
         self.setName(TTLocalizer.Skeleton)
         nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
          'dept': self.getStyleDept(),
-         'level': self.getActualLevel()}
+         'level': self.getActualLevel(),
+         'bec': self.getBossEncounterTitle(),
+         'fb': self.getFacilityBossTitle(),
+         'fa': self.getFacilityAssistantTitle()}
         self.setDisplayName(nameInfo)
         self.leftHand = self.find('**/joint_Lhold')
         self.rightHand = self.find('**/joint_Rhold')

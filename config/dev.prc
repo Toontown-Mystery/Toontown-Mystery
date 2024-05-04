@@ -2,7 +2,7 @@
 # specific to developer instances of Toontown Online.
 
 # Window settings
-window-title Toontown Mystery 3.5.0
+window-title Toontown Mystery 3.5.1
 
 # Notify settings
 console-output true
