@@ -54,6 +54,9 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         self.reparentTo(hidden)
         self.loop('neutral')
         self.skeleRevives = 0
+        self.BossEncounter = 0
+        self.FacilityBoss = 0
+        self.FacilityAssistant = 0
         self.maxSkeleRevives = 0
         self.sillySurgeText = False
         self.interactivePropTrackBonus = -1
@@ -75,7 +78,7 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
              'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix),
-             'bec': self.getBossEncounter(),
+             'bec': self.getBossEncounterTitle(),
              'fb': self.getFacilityBossTitle(),
              'fa': self.getFacilityAssistantTitle()}
             self.setDisplayName(nameInfo)
@@ -434,6 +437,15 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         if self.isFacilityBoss:
             if not self.isSkelecog:
                 self.makeFacilityBoss()
+            else:
+                self.makeSkeleton()
+
+    def setFacilityAssistant(self, flag):
+        self.notify.debug('Got fa %d from server for suit %d' % (flag, self.getDoId()))
+        SuitBase.SuitBase.setFacilityAssistant(self, flag)
+        if self.isFacilityAssistant:
+            if not self.isSkelecog:
+                self.makeFacilityAssistant()
             else:
                 self.makeSkeleton()
 

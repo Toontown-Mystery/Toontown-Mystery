@@ -519,7 +519,14 @@ class BattleCalculatorAI:
                             print 'Not enough PinkSlips to fire cog - print a warning here'
                         else:
                             suit.skeleRevives = 0
-                            attackDamage = suit.getHP()
+                            if suit.getBossEncounter():
+                                attackDamage = 0
+                            if suit.getFacilityBoss():
+                                attackDamage = 0
+                            if suit.getFacilityAssistant():
+                                attackDamage = 0
+                            else:
+                                attackDamage = suit.getHP()
                     else:
                         attackDamage = 0
                     bonus = 0
@@ -695,6 +702,12 @@ class BattleCalculatorAI:
                 if currTarget.getHP() <= 0:
                     if currTarget.getSkeleRevives() >= 1:
                         currTarget.useSkeleRevive()
+                    if currTarget.getBossEncounter() >= 1:
+                        currTarget.useBossEncounter()
+                    if currTarget.getFacilityBoss() >= 1:
+                        currTarget.useFacilityBoss()
+                    if currTarget.getFacilityAssistant() >= 1:
+                        currTarget.useFacilityAssistant()
                         attack[SUIT_REVIVE_COL] = attack[SUIT_REVIVE_COL] | 1 << position
                     else:
                         self.suitLeftBattle(targetId)

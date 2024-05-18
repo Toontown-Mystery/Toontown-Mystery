@@ -1134,7 +1134,7 @@ class Suit(Avatar.Avatar):
         modelRoot.find('**/torso').setTexture(torsoTex, 1)
         modelRoot.find('**/arms').setTexture(armTex, 1)
         modelRoot.find('**/legs').setTexture(legTex, 1)
-        modelRoot.find('**/hands').setColor(self.handColor)
+        modelRoot.find('**/hands').setColor(self.handColor)z
 
     def makeFacilityBoss(self, modelRoot=None):
         if not modelRoot:
@@ -1707,6 +1707,12 @@ class Suit(Avatar.Avatar):
 
                 if self.isWaiter:
                     self.makeWaiter(self.loseActor)
+                elif self.isBossEncounter:
+                    self.makeBossEncounter(self.loseActor)
+                elif self.isFacilityBoss:
+                    self.makeFacilityBoss(self.loseActor)
+                elif self.isFacilityAssistant:
+                    self.makeFacilityAssistant(self.loseActor)
                 else:
                     self.setSuitClothes(self.loseActor)
             else:
