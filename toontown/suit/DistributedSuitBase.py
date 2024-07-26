@@ -54,9 +54,6 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         self.reparentTo(hidden)
         self.loop('neutral')
         self.skeleRevives = 0
-        self.BossEncounter = 0
-        self.FacilityBoss = 0
-        self.FacilityAssistant = 0
         self.maxSkeleRevives = 0
         self.sillySurgeText = False
         self.interactivePropTrackBonus = -1
@@ -77,18 +74,12 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         if self.getSkeleRevives() > 0:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix),
-             'bec': self.getBossEncounterTitle(),
-             'fb': self.getFacilityBossTitle(),
-             'fa': self.getFacilityAssistantTitle()}
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix)}
             self.setDisplayName(nameInfo)
         else:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel(),
-             'bec': self.getBossEncounterTitle(),
-             'fb': self.getFacilityBossTitle(),
-             'fa': self.getFacilityAssistantTitle()}
+             'level': self.getActualLevel()}
             self.setDisplayName(nameInfo)
         return
 
@@ -107,35 +98,23 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
             if self.getImmuneStatus() == 1 and self.getSkeleRevives() > 0:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': self.getActualLevel(),
-                 'bec': self.getBossEncounterTitle(),
-                 'fb': self.getFacilityBossTitle(),
-                 'fa': self.getFacilityAssistantTitle()}
+                 'level': self.getActualLevel()}
                 self.setDisplayName(nameInfo)
             elif self.getImmuneStatus() == 1:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': self.getActualLevel(),
-                 'bec': self.getBossEncounterTitle(),
-                 'fb': self.getFacilityBossTitle(),
-                 'fa': self.getFacilityAssistantTitle()}
+                 'level': self.getActualLevel()}
                 self.setDisplayName(nameInfo)
         else:
             if self.getSkeleRevives() > 0:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': self.getActualLevel(),
-                 'bec': self.getBossEncounterTitle(),
-                 'fb': self.getFacilityBossTitle(),
-                 'fa': self.getFacilityAssistantTitle()}
+                 'level': self.getActualLevel()}
                 self.setDisplayName(nameInfo)
             else:
                 nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
                  'dept': self.getStyleDept(),
-                 'level': self.getActualLevel(),
-                 'bec': self.getBossEncounterTitle(),
-                 'fb': self.getFacilityBossTitle(),
-                 'fa': self.getFacilityAssistantTitle()}
+                 'level': self.getActualLevel()}
                 self.setDisplayName(nameInfo)
         return
 
@@ -421,33 +400,6 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         SuitBase.SuitBase.setSkelecog(self, flag)
         if flag:
             Suit.Suit.makeSkeleton(self)
-
-    def setBossEncounter(self, flag):
-        self.notify.debug('Got bec %d from server for suit %d' % (flag, self.getDoId()))
-        SuitBase.SuitBase.setBossEncounter(self, flag)
-        if self.isBossEncounter:
-            if not self.isSkelecog:
-                self.makeBossEncounter()
-            else:
-                self.makeSkeleton()
-
-    def setFacilityBoss(self, flag):
-        self.notify.debug('Got fb %d from server for suit %d' % (flag, self.getDoId()))
-        SuitBase.SuitBase.setFacilityBoss(self, flag)
-        if self.isFacilityBoss:
-            if not self.isSkelecog:
-                self.makeFacilityBoss()
-            else:
-                self.makeSkeleton()
-
-    def setFacilityAssistant(self, flag):
-        self.notify.debug('Got fa %d from server for suit %d' % (flag, self.getDoId()))
-        SuitBase.SuitBase.setFacilityAssistant(self, flag)
-        if self.isFacilityAssistant:
-            if not self.isSkelecog:
-                self.makeFacilityAssistant()
-            else:
-                self.makeSkeleton()
 
     def showHpText(self, number, bonus = 0, scale = 1, attackTrack = -1, immuneRevert=0):
         if self.HpTextEnabled and not self.ghostMode:

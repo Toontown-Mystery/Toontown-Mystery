@@ -19,9 +19,6 @@ class DistributedSuitBaseAI(DistributedAvatarAI.DistributedAvatarAI, SuitBase.Su
         self.skeleRevives = 0
         self.maxSkeleRevives = 0
         self.immune = 0
-        self.BossEncounter = 0
-        self.FacilityBoss = 0
-        self.FacilityAssistant = 0
         self.reviveFlag = 0
         self.buildingHeight = None
         return

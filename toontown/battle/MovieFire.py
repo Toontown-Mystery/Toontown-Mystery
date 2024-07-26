@@ -295,9 +295,6 @@ def __throwPie(throw, delay, hitCount, showCannon = 1):
         suit.reparentTo(cannonAttachPoint)
         suit.setPos(0, 0, 0)
         suit.setHpr(0, -90, 0)
-        suit.getBossEncounter()
-        suit.getFacilityBoss()
-        suit.getFacilityAssistant()
         suitLevel = suit.getActualLevel()
         deep = 3
         suitScale = 1.1
@@ -342,12 +339,6 @@ ActorInterval(kapow, 'kapow'), Func(kapow.hide)), LerpPosInterval(suit, 3.0, Poi
             bonusTrack.append(Wait(0.75))
             bonusTrack.append(Func(suit.showHpText, -hpbonus, 1, openEnded=0))
         suitResponseTrack = Parallel(suitResponseTrack, bonusTrack)
-    if suit.getBossEncounter():
-        suitResponseTrack = Parallel(suitResponseTrack, Sequence(Wait(3), Func(suit.setChatAbsolute, "Bruh, you can't fire me Toon, I'm a Boss.", CFSpeech | CFTimeout), Func(MovieUtil.indicateMissed, suit, 0.6), ActorInterval(suit, 'victory', startTime=0.5, endTime=1.9)))
-    if suit.getFacilityBoss():
-        suitResponseTrack = Parallel(suitResponseTrack, Sequence(Wait(3), Func(suit.setChatAbsolute, "What's the point of a challenge if you're just going to fire me?", CFSpeech | CFTimeout), Func(MovieUtil.indicateMissed, suit, 0.6), ActorInterval(suit, 'victory', startTime=0.5, endTime=1.9)))
-    if suit.getFacilityAssistant():
-        suitResponseTrack = Parallel(suitResponseTrack, Sequence(Wait(3), Func(suit.setChatAbsolute, "I may not be an official boss, but I'm still too powerful to be fired.", CFSpeech | CFTimeout), Func(MovieUtil.indicateMissed, suit, 0.6), ActorInterval(suit, 'victory', startTime=0.5, endTime=1.9)))
     return [toonTrack,
      soundTrack,
      buttonTrack,
