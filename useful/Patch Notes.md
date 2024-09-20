@@ -640,3 +640,23 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
 
     * Facility Bosses, Facility Assistants, and Boss Encounters now have their own little indicator on their nametags.
     * All the Facility and Boss cogs attacks have been buffed slightly, so did their health.
+
+    Toontown Mystery 3.5.5:
+
+    * Razzle Dazzle has a slight faster animation, was trying to test, may end up doing more of this with other attacks.
+    * Fixed an issue with the DA office that caused a crash due to an incorrect cog pronounciation.
+    * Mints, DA Offices, and Golf Courses all have been upgraded to hopefully be more enjoyable to play.
+
+    * Mints: Cog Battles will always appear first on every floor, and restocks will appear later before the final battle, every barrel will be different except for sound.
+    - The harder the mint, the more Cogs will appear.
+
+    * Offices:
+    - There will now be 1 increased floor per Office.
+    - D Office will now contain both Doom Rooms per floor, while B and C only contain one until final floor. (FOR C)
+    - Both Puzzle rooms are now always at the beginning per floor.
+
+    * Golf Courses:
+    - All Golf Courses have been renamed completely.
+    - Simple Course now only has 1 hole, and it contains the room with 56 cogs, and the boss room.
+    - Challenge Course still has 1 hole, contains 56 cogs, 1 maze, and the boss room.
+    - The True Test Course has 2 holes, first hole containing the 56 cogs, 3 mazes, and the fairway. The second hole now has 3 mazes, and 2 minigames each, along with the boss room.

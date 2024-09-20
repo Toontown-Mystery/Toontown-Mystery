@@ -1265,10 +1265,10 @@ def doRazzleDazzle(attack):
         hitPoint = lambda toon = toon: __toonFacePoint(toon)
     else:
         hitPoint = lambda particleEffect = particleEffect, toon = toon, suit = suit: __toonMissPoint(particleEffect, toon, parent=suit.getRightHand())
-    signPropTrack = Sequence(Wait(0.5), Func(__showProp, sign, suit.getRightHand(), signPosPoints[0], signPosPoints[1]), LerpScaleInterval(sign, 0.5, Point3(1.39, 1.39, 1.39)), Wait(0.5), Func(battle.movie.needRestoreParticleEffect, particleEffect), Func(particleEffect.start, sign), Func(particleEffect.wrtReparentTo, render), LerpPosInterval(particleEffect, 2.0, pos=hitPoint), Func(particleEffect.cleanup), Func(battle.movie.clearRestoreParticleEffect, particleEffect))
-    signPropAnimTrack = ActorInterval(sign, 'smile', duration=4, startTime=0)
-    toonTrack = getToonTrack(attack, 2.6, ['cringe'], 1.9, ['sidestep'])
-    soundTrack = getSoundTrack('SA_razzle_dazzle.ogg', delay=1.6, node=suit)
+    signPropTrack = Sequence(Wait(0.1), Func(__showProp, sign, suit.getRightHand(), signPosPoints[0], signPosPoints[1]), LerpScaleInterval(sign, 0.1, Point3(1.39, 1.39, 1.39)), Wait(0.1), Func(battle.movie.needRestoreParticleEffect, particleEffect), Func(particleEffect.start, sign), Func(particleEffect.wrtReparentTo, render), LerpPosInterval(particleEffect, 2.0, pos=hitPoint), Func(particleEffect.cleanup), Func(battle.movie.clearRestoreParticleEffect, particleEffect))
+    signPropAnimTrack = Sequence(ActorInterval(sign, 'smile', startTime=0, endTime=1), ActorInterval(sign, 'smile', startTime=1, endTime=0, playRate=3))
+    toonTrack = getToonTrack(attack, 0.3, ['cringe'], 0.3, ['sidestep'])
+    soundTrack = getSoundTrack('SA_razzle_dazzle.ogg', delay=0.1, node=suit)
     return Sequence(Parallel(suitTrack, signPropTrack, signPropAnimTrack, toonTrack, soundTrack), Func(MovieUtil.removeProp, sign))
 
 
