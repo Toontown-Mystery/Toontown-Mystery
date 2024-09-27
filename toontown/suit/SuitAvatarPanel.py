@@ -37,9 +37,13 @@ class SuitAvatarPanel(AvatarPanel.AvatarPanel):
         self.nameLabel = DirectLabel(parent=self.frame, pos=(0.0125, 0, 0.36), relief=None, text=self.avName, text_font=avatar.getFont(), text_fg=Vec4(0, 0, 0, 1), text_pos=(0, 0), text_scale=0.047, text_wordwrap=7.5, text_shadow=(1, 1, 1, 1))
         level = avatar.getActualLevel()
         dept = SuitDNA.getSuitDeptFullname(avatar.dna.name)
+        revives = avatar.getMaxSkeleRevives() + 1
         levelText = TTLocalizer.AvatarPanelCogLevel % {'level': level}
         levelText += '\n' + str(avatar.getHP()) + '/' + str(avatar.getMaxHP())
-        self.levelLabel = DirectLabel(parent=self.frame, pos=(0, 0, -0.1), relief=None, text=levelText, text_font=avatar.getFont(), text_align=TextNode.ACenter, text_fg=Vec4(0, 0, 0, 1), text_pos=(0, 0), text_scale=0.05, text_wordwrap=8.0)
+        if revives == 1:
+            self.levelLabel = DirectLabel(parent=self.frame, pos=(0, 0, -0.1), relief=None, text=levelText, text_font=avatar.getFont(), text_align=TextNode.ACenter, text_fg=Vec4(0, 0, 0, 1), text_pos=(0, 0), text_scale=0.05, text_wordwrap=8.0)
+        elif revives > 1:
+            self.levelLabel = DirectLabel(parent=self.frame, pos=(0, 0, -0.1), relief=None, text=levelText + TTLocalizer.AvatarPanelCogRevives % revives, text_font=avatar.getFont(), text_align=TextNode.ACenter, text_fg=Vec4(0, 0, 0, 1), text_pos=(0, 0), text_scale=0.05, text_wordwrap=8.0)
         corpIcon = avatar.corpMedallion.copyTo(hidden)
         corpIcon.setPosHprScale(0, 0, 0, 0, 0, 0, 0, 0, 0)
         self.corpIcon = DirectLabel(parent=self.frame, geom=corpIcon, geom_scale=0.1, pos=(0, 0, -0.25), relief=None)
@@ -52,13 +56,6 @@ class SuitAvatarPanel(AvatarPanel.AvatarPanel):
         self.frame.show()
         messenger.send('avPanelDone')
         return
-
-    @staticmethod
-    def getRevives(suit):
-        if suit.getSkeleRevives() > 0:
-            return ' v%s.0' % (suit.getSkeleRevives() + 1)
-        else:
-            return ''
 
     def cleanup(self):
         if self.frame is None:
