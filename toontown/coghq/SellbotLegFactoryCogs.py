@@ -6,6 +6,8 @@ BoilerParent = 10030
 BoilerParent1 = 9997
 PipeLeftParent = 10023
 PipeRightParent = 10032
+PipeLeftParent1 = 9995
+PipeRightParent1 = 9993
 OilParent = 10034
 ControlParent = 10037
 DuctParent = 10036
@@ -22,13 +24,15 @@ BoilerCell = 2
 BoilerCell1 = 3
 PipeLeftCell = 4
 PipeRightCell = 5
-OilCell = 6
-ControlCell = 7
-DuctCell = 8
-CenterSiloCell = 9
-SigRoomCell = 10
-WestSiloCell = 11
-EastSiloCell = 12
+PipeLeftCell1 = 6
+PipeRightCell1 = 7
+OilCell = 8
+ControlCell = 9
+DuctCell = 10
+CenterSiloCell = 11
+SigRoomCell = 12
+WestSiloCell = 13
+EastSiloCell = 14
 BattleCells = {LobbyCell: {'parentEntId': LobbyParent,
              'pos': Point3(0, 0, 0)},
  LobbyCell1: {'parentEntId': LobbyParent1,
@@ -46,6 +50,10 @@ BattleCells = {LobbyCell: {'parentEntId': LobbyParent,
  PipeLeftCell: {'parentEntId': PipeLeftParent,
                 'pos': Point3(0, 0, 0)},
  PipeRightCell: {'parentEntId': PipeRightParent,
+                 'pos': Point3(0, 0, 0)},
+ PipeLeftCell1: {'parentEntId': PipeLeftParent1,
+                'pos': Point3(0, 0, 0)},
+ PipeRightCell1: {'parentEntId': PipeRightParent1,
                  'pos': Point3(0, 0, 0)},
  DuctCell: {'parentEntId': DuctParent,
             'pos': Point3(0, 0, 0)},
@@ -461,6 +469,80 @@ CogData = [{'type': 'tf',
   'boss': 0,
   'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
   'battleCell': PipeRightCell,
+  'pos': Point3(6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'type': 'm',
+  'parentEntId': PipeLeftParent1,
+  'boss': 0,
+  'level': 19,
+  'battleCell': PipeLeftCell1,
+  'pos': Point3(-6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeLeftParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeLeftCell1,
+  'pos': Point3(2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeLeftParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeLeftCell1,
+  'pos': Point3(-2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeLeftParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeLeftCell1,
+  'pos': Point3(6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'type': 'm',
+  'parentEntId': PipeRightParent1,
+  'boss': 0,
+  'level': 19,
+  'battleCell': PipeRightCell1,
+  'pos': Point3(-6, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeRightParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeRightCell1,
+  'pos': Point3(2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeRightParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeRightCell1,
+  'pos': Point3(-2, 0, 0),
+  'h': 0,
+  'behavior': 'walk',
+  'path': None,
+  'skeleton': 1},
+ {'parentEntId': PipeRightParent1,
+  'boss': 0,
+  'level': random.choice([7, 8, 9, 10, 11, 12, 13, 14]),
+  'battleCell': PipeRightCell1,
   'pos': Point3(6, 0, 0),
   'h': 0,
   'behavior': 'walk',

@@ -14,6 +14,7 @@ from toontown.toonbase import TTLocalizer
 from toontown.coghq import FactoryCameraViews
 from otp.otpbase import OTPGlobals
 from direct.controls.ControlManager import CollisionHandlerRayStart
+from libotp import CFThought, CFTimeout
 if __dev__:
     from otp.level import EditorGlobals
 
