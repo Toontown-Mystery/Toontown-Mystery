@@ -5,11 +5,11 @@ Toonup 800 laff.
 # Boris: 
 Toonup 960 laff.
 # Violet: 
-Sound 150 Damage.
+Sound 250 Damage.
 # Junko Enoshima:
 Sound 200 Damage.
 # Joey900:
-Sound 250 damage.
+Sound 150 damage.
 # Cool Cat: 
 Drop 600 Damage.
 # Thunderzapper: 

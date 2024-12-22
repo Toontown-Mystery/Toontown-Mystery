@@ -665,9 +665,9 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
 
     * Factory has increased it's room potential and cogs have been added.
     * SOS cards have been buffed for some capable use.
-    - Violet does 150 Sound Damage.
+    - Violet does 250 Sound Damage.
     - Junko Enoshima does 200 Sound Damage.
-    - Joey900 does 250 Sound Damage.
+    - Joey900 does 150 Sound Damage.
     - Celeste does 450 Drop Damage.
     - Cool Cat does 600 Drop Damage.
     - Thunderzapper does 750 Drop Damage.
