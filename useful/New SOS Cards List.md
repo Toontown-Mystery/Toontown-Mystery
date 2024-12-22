@@ -5,23 +5,23 @@ Toonup 800 laff.
 # Boris: 
 Toonup 960 laff.
 # Violet: 
-Sound 75 Damage.
+Sound 150 Damage.
 # Junko Enoshima:
-Sound 100 Damage.
+Sound 200 Damage.
 # Joey900:
-Sound 150 damage.
+Sound 250 damage.
 # Cool Cat: 
-Drop 200 Damage.
+Drop 600 Damage.
 # Thunderzapper: 
-Drop 240 Damage.
+Drop 750 Damage.
 # Celeste: 
-Drop 150 Damage.
+Drop 450 Damage.
 # Caillou: 
-Trap 370 Damage.
+Trap 600 Damage.
 # Vanessa: 
-Trap 500 Damage.
+Trap 800 Damage.
 # Richie Verdi: 
-Trap 835 Damage.
+Trap 1000 Damage.
 # Kiera: 
 Lure 2 Rounds.
 # Lola: 

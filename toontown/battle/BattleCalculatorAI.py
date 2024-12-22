@@ -11,9 +11,9 @@ from direct.showbase.PythonUtil import lerp
 class BattleCalculatorAI:
     AccuracyBonuses = [
      5, 20, 35, 50]
-    DamageBonuses = [0, 30, 60, 80]
-    DamageBonusesSound = [0, 5, 10, 15]
-    DamageBonusesDrop = [0, 60, 90, 120]
+    DamageBonuses = [0, 50, 75, 100]
+    DamageBonusesSound = [0, 0, 0, 0]
+    DamageBonusesDrop = [0, 100, 125, 150]
     AttackExpPerTrack = [
      0, 10, 20, 30, 40, 50, 60]
     NumRoundsLured = AvLureRounds
@@ -845,7 +845,7 @@ class BattleCalculatorAI:
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.6
+                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.75
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:

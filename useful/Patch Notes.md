@@ -660,3 +660,23 @@ Toontown Ultimate Mystery | Toontown Mystery 3.3.0:
     - Simple Course now only has 1 hole, and it contains the room with 56 cogs, and the boss room.
     - Challenge Course still has 1 hole, contains 56 cogs, 1 maze, and the boss room.
     - The True Test Course has 2 holes, first hole containing the 56 cogs, 3 mazes, and the fairway. The second hole now has 3 mazes, and 2 minigames each, along with the boss room.
+
+    Toontown Mystery 3.5.6:
+
+    * Factory has increased it's room potential and cogs have been added.
+    * SOS cards have been buffed for some capable use.
+    - Violet does 150 Sound Damage.
+    - Junko Enoshima does 200 Sound Damage.
+    - Joey900 does 250 Sound Damage.
+    - Celeste does 450 Drop Damage.
+    - Cool Cat does 600 Drop Damage.
+    - Thunderzapper does 750 Drop Damage.
+    - Caillou does 600 Trap Damage.
+    - Vanessa does 800 Trap Damage.
+
+    * With that being said, Sound has been buffed to double damage, but got rid of it's combo entirely.
+    - Fog now does 150 Damage.
+
+    * With that aside, Throw/Squirt combo has been increased to 50%, 75%, and 100%
+    * Drop's combo has been increased to 100%, 125%, and 150%.
+    * Lure's knockback bonus has been increased to 75%.
